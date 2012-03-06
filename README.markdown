@@ -23,7 +23,14 @@ Furthermore, you can specify that an outcome increases/decreases with at
 **least** or **maximal** a certain number.
 
 ````ruby
-@scenario.increase("import).should be > 0.03 #percent
+@scenario.increase("import").should be > 0.03 #percent
+````
+
+You can combine a minimal and maximal number:
+
+````ruby
+@scenario.increase("renewables).should be > 0.03 #percent
+@scenario.increase("renewables").should be < 0.04 #percent
 ````
 
 Of course we can run these specs against all
