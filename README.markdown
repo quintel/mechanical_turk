@@ -9,7 +9,7 @@ what we expect, e.g.:
 
 ````ruby
 @scenario.new area:"nl", end_year:2040
-@scenario.outcome("co2").should be == 160.00 #Mton
+@scenario.outcome("co2").value should be == 160.00 #Mton
 ````
 
 You can define that the outcome of the scenario , but 
