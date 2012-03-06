@@ -5,19 +5,28 @@ Inspiration drawn from [The Turk](http://en.wikipedia.org/wiki/The_Turk).
 ## Vision
 
 In stead of pulling a slider as a person, we can let Rspec do that. We define
-what we expect, e.g.: when we expect the 'co2 emissions' to increase with 
+what we expect, e.g.: 
+
+````ruby
+@scenario.new area:"nl", end_year:2040
+@scenario.outcome("co2").should be == 160.00 #Mton
+````
+
+when we expect the 'co2 emissions' to increase with 
 *exactly* 1.05 Megatons when we build one more coal power plant, we write:
 
 ````ruby
 @scenario.increase_slider "coal power plant", 1
-@scenario.increase("co2").should be == 1.05 #Mton
+@scenario.outcome("co2").should be == 160.00 #Mton
 ````
 
-### Expectations
+You can define that the outcome of the scenario is **exactly** a number, but 
+perhaps more usefull is that you can specify that an outcode of the model 
+(e.g. "Co2") **increases** with a certain value.
 
-You can define that the outcome of the scenario is exactly a number, but more
-usefull is that you can specify that an outcode of the model (e.g. "Co2")
-increases with a certain value.
+````ruby
+@scenario.increase("co2").should be > 0.03 #percent
+````
 
 Furthermore, you can specify that an outcome increases/decreases with at 
 **least** or **maximal** a certain number.
