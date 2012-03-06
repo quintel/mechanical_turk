@@ -19,8 +19,8 @@ You can define that the outcome of the scenario is exactly a number, but more
 usefull is that you can specify that an outcode of the model (e.g. "Co2")
 increases with a certain value.
 
-Furthermore, you can specify that an outcome increases/decreases with at least
-or maximal a certain number.
+Furthermore, you can specify that an outcome increases/decreases with at 
+**least** or **maximal** a certain number.
 
 ````ruby
 @scenario.increase("import).should be > 0.03 #percent
