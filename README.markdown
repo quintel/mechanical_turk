@@ -38,6 +38,3 @@ Of course we can run these specs against all
 ### How to run the tests
 
 * Run all the specs using: `rspec spec/.`
-
-### Conventions
-
