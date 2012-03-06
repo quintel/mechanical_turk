@@ -12,17 +12,17 @@ what we expect, e.g.:
 @scenario.outcome("co2").should be == 160.00 #Mton
 ````
 
-when we expect the 'co2 emissions' to increase with 
-*exactly* 1.05 Megatons when we build one more coal power plant, we write:
+You can define that the outcome of the scenario , but 
+perhaps more usefull is that you can specify that an outcode of the model 
+(e.g. "Co2") **increases** with a certain value.
 
 ````ruby
 @scenario.increase_slider "coal power plant", 1
-@scenario.outcome("co2").should be == 160.00 #Mton
+@scenario.increase_in("co2").should be == 1.05 #Mton
 ````
 
-You can define that the outcome of the scenario is **exactly** a number, but 
-perhaps more usefull is that you can specify that an outcode of the model 
-(e.g. "Co2") **increases** with a certain value.
+When we do not care about the exact number, but we want the outcome to
+increase by **at least** a certain value, we write:
 
 ````ruby
 @scenario.increase("co2").should be > 0.03 #percent
@@ -33,16 +33,10 @@ Furthermore, you can specify that an outcome increases/decreases with at
 
 ````ruby
 @scenario.increase("import").should be > 0.03 #percent
+@scenario.increase("import").should be < 0.04 #percent
 ````
 
-You can combine a minimal and maximal number:
-
-````ruby
-@scenario.increase("renewables").should be > 0.03 #percent
-@scenario.increase("renewables").should be < 0.04 #percent
-````
-
-Of course we can run these specs against all
+Of course we can run these specs against all countries and end_years.
 
 ### How to run the tests
 
