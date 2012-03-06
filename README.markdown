@@ -1,6 +1,6 @@
 # Mechanical Turk
 
-Inspired on [The Turk](http://en.wikipedia.org/wiki/The_Turk)
+Inspiration drawn from [The Turk](http://en.wikipedia.org/wiki/The_Turk).
 
 ## Vision
 
