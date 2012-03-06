@@ -29,7 +29,7 @@ Furthermore, you can specify that an outcome increases/decreases with at
 You can combine a minimal and maximal number:
 
 ````ruby
-@scenario.increase("renewables).should be > 0.03 #percent
+@scenario.increase("renewables").should be > 0.03 #percent
 @scenario.increase("renewables").should be < 0.04 #percent
 ````
 
