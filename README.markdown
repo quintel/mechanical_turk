@@ -18,22 +18,22 @@ perhaps more usefull is that you can specify that an outcode of the model
 
 ````ruby
 @scenario.increase_slider "coal power plant", 1
-@scenario.increase_in("co2").should be == 1.05 #Mton
+@scenario.outcome("co2").increase.should be == 1.05 #Mton
 ````
 
 When we do not care about the exact number, but we want the outcome to
 increase by **at least** a certain value, we write:
 
 ````ruby
-@scenario.increase("co2").should be > 0.03 #percent
+@scenario.outcome("co2").increase.should be > 0.03 #percent
 ````
 
 Furthermore, you can specify that an outcome increases/decreases with at 
 **least** or **maximal** a certain number.
 
 ````ruby
-@scenario.increase("import").should be > 0.03 #percent
-@scenario.increase("import").should be < 0.04 #percent
+@scenario.outcome("import").increase.should be > 0.03 #percent
+@scenario.outcome("import").increase.should be < 0.04 #percent
 ````
 
 Of course we can run these specs against all countries and end_years.
