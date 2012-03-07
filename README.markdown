@@ -4,7 +4,7 @@ Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.
 
 ## The Idea
 
-In stead of pulling a slider as a person, we can let Rspec do that. We define
+In stead of pulling a slider as a person to test the **correctness** of the ETM, we can let Rspec do that. We define
 what we expect from ETengine. E.g., when we expect a clean sheet scenario to 
 have *exactly* 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 
