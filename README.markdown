@@ -9,7 +9,7 @@ what we expect from ETengine. E.g., when we expect a clean sheet scenario to
 have 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 
 ````ruby
-@scenario.new area:"nl", end_year:2040
+@scenario.new
 @scenario.outcome("co2").value should be == 160.00 #Mton
 ````
 
