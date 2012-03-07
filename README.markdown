@@ -57,14 +57,14 @@ error prone situation:
 
 ### And then we can expect ETEngine to return specific numbers
 
-We can define that the outcome of the scenario is a specific number:
+We can define that the outcome of the scenario is an exact number:
 
 ````ruby
 @scenario.set_slider "coal power plant", 3
 @scenario.outcome("co2").value should be == 167.05 #Mton
 ````
 
-But perhaps more usefullis that we can specify that an outcode of the 
+But perhaps more usefull is that we can specify that an outcode of the 
 model (e.g. "Co2")**increases** with a certain value.
 
 ````ruby
