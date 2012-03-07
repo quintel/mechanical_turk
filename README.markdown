@@ -13,9 +13,15 @@ have 160 MegaTons of CO_2_-emissions, we can write:
 @scenario.outcome("co2").value should be == 160.00 #Mton
 ````
 
-Then we run the test and get a green light!
+Then we run the test (either from the command line using `rspec specs` or from TextMate)... 
+and hopefully we get a green light!
 
 ![it's green!](http://f.cl.ly/items/27252h3o191P2o142y0o/Screen%20Shot%202012-03-07%20at%209.17.00%20AM.png)
+
+Or when ETEngine returns something else then expected, we get a red value and
+some explanation:
+
+![oh no, it's red!](http://f.cl.ly/items/0y4307374716291x3f3v/Screen%20Shot%202012-03-07%20at%209.27.49%20AM.png)
 
 ## What kind of expectations can we have?
 
