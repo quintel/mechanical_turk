@@ -36,7 +36,6 @@ We can set a slider and change the expectation accordingly:
 
 ````ruby
 @scenario.set_slider "coal power plant", 3
-@scenario.outcome("co2").value should be == 167.05 #Mton
 ````
 
 We can also increase a slider with a certain value above its starting
