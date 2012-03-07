@@ -11,13 +11,26 @@ what we expect, e.g.:
 @scenario.new area:"nl", end_year:2040
 @scenario.outcome("co2").value should be == 160.00 #Mton
 ````
-
-You can define that the outcome of the scenario , but 
-perhaps more usefull is that you can specify that an outcode of the model 
-(e.g. "Co2") **increases** with a certain value.
+We can set a slider and change the expectation accordingly:
 
 ````ruby
-@scenario.increase_slider "coal power plant", 1
+@scenario.increase_slider "coal power plant", 3
+@scenario.outcome("co2").value should be == 167.05 #Mton
+````
+We can also increase a slider with a certain value above its starting
+value.
+
+````ruby
+@scenario.increase_slider "coal power plant", "+1"
+@scenario.outcome("co2").value should be == 167.05 #Mton
+````
+
+We can define that the outcome of the scenario, but perhaps more usefull 
+is that we can specify that an outcode of the model (e.g. "Co2") 
+**increases** with a certain value.
+
+````ruby
+@scenario.increase_slider "coal power plant", "+1"
 @scenario.outcome("co2").increase.should be == 1.05 #Mton
 ````
 
@@ -28,15 +41,27 @@ increase by **at least** a certain value, we write:
 @scenario.outcome("co2").increase.should be > 0.03 #percent
 ````
 
-Furthermore, you can specify that an outcome increases/decreases with at 
-**least** or **maximal** a certain number.
+Of course, sometimes we want a number **not** to change when we pull a
+slider:
+
+````ruby
+@scenario.outcome("footprint").increase.should be == 0
+````
+
+If we are not sure (or do not care) about the specific change we can
+draw up boundaries, like this:
 
 ````ruby
 @scenario.outcome("import").increase.should be > 0.03 #percent
-@scenario.outcome("import").increase.should be < 0.04 #percent
+@scenario.outcome("import").increase.should be < 0.05 #percent
+````
+Which can also be put on one line:
+
+````ruby
+@scenario.increase("import").should be_within(0.01).of(0.04)
 ````
 
-Of course we can run these specs against all countries and end_years.
+We can run these specs against all countries, specific countries and end_years.
 
 ### How to run the tests
 
