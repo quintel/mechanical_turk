@@ -73,7 +73,7 @@ are supported in the model
 
 ### Limitations
 
-The Mechanical Turk tests the outcome, the numbers of ETEngine. Of course, the different
+The Mechanical Turk tests the outcome (i.e. the numbers) of ETEngine. Of course, the different
 interfaces (**etflex**, **etmodel** and **energymixer**) can still break!
 
 ### How to run the tests
