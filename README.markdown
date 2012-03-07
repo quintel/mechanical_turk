@@ -19,26 +19,45 @@ Then we run the test and get a green light!
 
 ## What kind of expectations can we have?
 
+### Sliders
+
 We can set a slider and change the expectation accordingly:
 
 ````ruby
-@scenario.increase_slider "coal power plant", 3
+@scenario.set_slider "coal power plant", 3
 @scenario.outcome("co2").value should be == 167.05 #Mton
 ````
+
 We can also increase a slider with a certain value above its starting
 value.
 
 ````ruby
-@scenario.increase_slider "coal power plant", "+1"
+@scenario.increase_slider "coal power plant", 1
+````
+
+We can also set a combination of sliders, e.g. that are in a group, 
+or when we went to test a *special* combination that produces an
+error prone situation:
+
+````ruby
+@scenario.set_slider "micro chp", 60 #percent
+@scenario.set_slider "district heating", 40 #percent
+@scenario.set_slider "coal power plant", 10 #number of typical plants
+````
+
+### Results
+
+We can define that the outcome of the scenario:
+
+````ruby
+@scenario.set_slider "coal power plant", 3
 @scenario.outcome("co2").value should be == 167.05 #Mton
 ````
 
-We can define that the outcome of the scenario, but perhaps more usefull 
-is that we can specify that an outcode of the model (e.g. "Co2") 
-**increases** with a certain value.
+But perhaps more usefullis that we can specify that an outcode of the 
+model (e.g. "Co2")**increases** with a certain value.
 
 ````ruby
-@scenario.increase_slider "coal power plant", "+1"
 @scenario.outcome("co2").increase.should be == 1.05 #Mton
 ````
 
