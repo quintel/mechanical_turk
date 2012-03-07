@@ -71,11 +71,23 @@ model (e.g. "Co2")**increases** with a certain value.
 @scenario.outcome("co2").increase.should be == 1.05 #Mton
 ````
 
+We can also specify what the **relative** increase should be:
+
+````ruby
+@scenario.outcome("co2").relative_increase.should be == 0.05
+````
+
 When we do not care about the exact number, but we want the outcome to
 increase by **at least** a certain value, we write:
 
 ````ruby
 @scenario.outcome("co2").increase.should be > 1 #Mton
+````
+
+Or in a relative spec:
+
+````ruby
+@scenario.outcome("co2").relative_increase.should be > 0.04
 ````
 
 Of course, sometimes we want a number **not** to change when we pull a
