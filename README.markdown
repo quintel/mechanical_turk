@@ -5,12 +5,20 @@ Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.
 ## The Idea
 
 In stead of pulling a slider as a person, we can let Rspec do that. We define
-what we expect, e.g.: 
+what we expect from ETengine. E.g., when we expect a clean sheet scenario to 
+have 160 MegaTons of CO_2_-emissions, we can write:
 
 ````ruby
 @scenario.new area:"nl", end_year:2040
 @scenario.outcome("co2").value should be == 160.00 #Mton
 ````
+
+Then we run the test and get a green light!
+
+![it's green!](http://f.cl.ly/items/27252h3o191P2o142y0o/Screen%20Shot%202012-03-07%20at%209.17.00%20AM.png)
+
+## Possibilities
+
 We can set a slider and change the expectation accordingly:
 
 ````ruby
