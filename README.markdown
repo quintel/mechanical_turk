@@ -1,8 +1,8 @@
 # Mechanical Turk
 
-Inspiration drawn from [The Turk](http://en.wikipedia.org/wiki/The_Turk).
+Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.org/wiki/The_Turk).
 
-## Vision
+## The Idea
 
 In stead of pulling a slider as a person, we can let Rspec do that. We define
 what we expect, e.g.: 
@@ -60,8 +60,21 @@ Which can also be put on one line:
 ````ruby
 @scenario.increase("import").should be_within(0.01).of(0.04)
 ````
+We can run these specs for specific countries, end_years, and other options that
+are supported in the model
 
-We can run these specs against all countries, specific countries and end_years.
+````ruby
+@scenario.new
+  country: "ro"
+  end_year: 2044
+  use_fce: true
+  merit_order: true
+````
+
+### Limitations
+
+The Mechanical Turk tests the outcome, the numbers of ETEngine. Of course, the different
+interfaces (etflex,etmodel and energymixer) can still break!
 
 ### How to run the tests
 
