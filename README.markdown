@@ -30,7 +30,7 @@ to a certain position, increase them with a certain value, and expect the outcom
 *not* change, the change in a *direction* (up or down), or to increase with *at least*
 5%, or to change somewhere *between* 4% and 6%.
 
-### First: Sliders
+### We can move and set Sliders
 
 We can set a slider and change the expectation accordingly:
 
@@ -55,7 +55,7 @@ error prone situation:
 @scenario.set_slider "coal power plant", 10 #number of typical plants
 ````
 
-### Then: Results
+### We can expect ETEngine to return specific numbers
 
 We can define that the outcome of the scenario:
 
