@@ -75,7 +75,7 @@ When we do not care about the exact number, but we want the outcome to
 increase by **at least** a certain value, we write:
 
 ````ruby
-@scenario.outcome("co2").increase.should be > 0.03 #percent
+@scenario.outcome("co2").increase.should be > 1 #Mton
 ````
 
 Of course, sometimes we want a number **not** to change when we pull a
