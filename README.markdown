@@ -57,7 +57,7 @@ error prone situation:
 
 ### And then we can expect ETEngine to return specific numbers
 
-We can define that the outcome of the scenario:
+We can define that the outcome of the scenario is a specific number:
 
 ````ruby
 @scenario.set_slider "coal power plant", 3
