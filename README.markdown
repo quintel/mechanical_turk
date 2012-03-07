@@ -13,7 +13,7 @@ have 160 MegaTons of CO_2_-emissions, we can write:
 @scenario.outcome("co2").value should be == 160.00 #Mton
 ````
 
-Then we run the test (either from the command line using `rspec specs` or from TextMate)... 
+Then we run the test (either from the command line using `$> rspec specs/.` or hitting `CMD+R` in TextMate)... 
 and hopefully we get a green light!
 
 ![it's green!](http://f.cl.ly/items/27252h3o191P2o142y0o/Screen%20Shot%202012-03-07%20at%209.17.00%20AM.png)
