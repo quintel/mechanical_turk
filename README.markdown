@@ -25,7 +25,7 @@ some explanation:
 
 ## Is that all? Isn't there more I can do?
 
-Sure, the possibilities of writing tests are pretty awesome... you can move sliders
+Sure, the possibilities of writing tests are pretty extended... you can move sliders
 to a certain position, increase them with a certain value, and expect the outcome to
 *not* change, the change in a *direction* (up or down), or to increase with *at least*
 5%, or to change somewhere *between* 4% and 6%.
