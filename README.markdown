@@ -6,7 +6,7 @@ Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.
 
 In stead of pulling a slider as a person, we can let Rspec do that. We define
 what we expect from ETengine. E.g., when we expect a clean sheet scenario to 
-have 160 MegaTons of CO__2__-emissions, we can write:
+have 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 
 ````ruby
 @scenario.new area:"nl", end_year:2040
