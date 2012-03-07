@@ -17,7 +17,7 @@ Then we run the test and get a green light!
 
 ![it's green!](http://f.cl.ly/items/27252h3o191P2o142y0o/Screen%20Shot%202012-03-07%20at%209.17.00%20AM.png)
 
-## Possibilities
+## What kind of expectations can we have?
 
 We can set a slider and change the expectation accordingly:
 
