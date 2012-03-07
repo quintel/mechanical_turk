@@ -14,11 +14,11 @@ have *exactly* 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 ````
 
 Then we run the test (either from the command line using `$> rspec specs/.` or hitting `CMD+R` in TextMate)... 
-and hopefully we get a green light!
+and hopefully we get the soothing green light that everything is *as expected*:
 
 ![it's green!](http://f.cl.ly/items/27252h3o191P2o142y0o/Screen%20Shot%202012-03-07%20at%209.17.00%20AM.png)
 
-Or when ETEngine returns something else then expected, we get a red value and
+Or when ETEngine returns something else then expected, we get a **warning** and
 some explanation:
 
 ![oh no, it's red!](http://f.cl.ly/items/0y4307374716291x3f3v/Screen%20Shot%202012-03-07%20at%209.27.49%20AM.png)
