@@ -23,9 +23,14 @@ some explanation:
 
 ![oh no, it's red!](http://f.cl.ly/items/0y4307374716291x3f3v/Screen%20Shot%202012-03-07%20at%209.27.49%20AM.png)
 
-## What kind of expectations can we have?
+## Is that all? Isn't there more I can do?
 
-### Sliders
+Sure, the possibilities of writing tests are pretty awesome... you can move sliders
+to a certain position, increase them with a certain value, and expect the outcome to
+*not* change, the change in a *direction* (up or down), or to increase with *at least*
+5%, or to change somewhere *between* 4% and 6%.
+
+### First: Sliders
 
 We can set a slider and change the expectation accordingly:
 
@@ -51,7 +56,7 @@ error prone situation:
 @scenario.set_slider "coal power plant", 10 #number of typical plants
 ````
 
-### Results
+### Then: Results
 
 We can define that the outcome of the scenario:
 
