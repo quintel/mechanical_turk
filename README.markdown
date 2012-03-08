@@ -84,6 +84,14 @@ increase by **at least** a certain value, we write:
 @scenario.co2.increase.should be > 1 #Mton
 ````
 
+This can be very handy to test the **direction** of an outcome. E.g. we might 
+want to specifiy that the outcome of a query should be **positive** or
+**negative**:
+
+````ruby
+@scenario.co2.increase.should be > 0
+````
+
 Or in a relative spec:
 
 ````ruby
