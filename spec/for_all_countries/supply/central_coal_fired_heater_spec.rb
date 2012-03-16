@@ -1,4 +1,11 @@
 # Example Spec that would apply for all countries
+# This checks whether relevant dashboard items behave as expected.
+# This check also tests the qualitative behavior of (currently only one)
+# gqueries that build a chart.
+
+# Inspired on etmodel issue #618
+# Relevant chart #42
+# Relevant slider #430
 
 describe "Central coal-fired heater" do
 
