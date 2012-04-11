@@ -18,24 +18,76 @@ describe Scenario do
     end
 
   end
+
+  describe "#inputs" do
+
+    it "should be an empty array when nothing has been set" do
+      scenario.inputs.should == [{}]
+    end
+
+  end
   
-  describe "#set_input" do
+  describe "#current_inputs" do
+    it "should return the latest from the inputs stack" do
+      scenario.stub(:inputs).and_return([{},
+                                         {250 => 10, 251 => 11}, 
+                                         {250 => 10, 251 => 11, 252 => 12}])
+      scenario.current_inputs.should == {250 => 10, 251 => 11, 252 => 12}
+    end
+  end
+
+  describe "#previous_inputs" do
+    it "should return the previous from the inputs stack" do
+      scenario.stub(:inputs).and_return([{},
+                                         {250 => 10, 251 => 11}, 
+                                         {250 => 10, 251 => 11, 252 => 12}])
+      scenario.previous_inputs.should == {250 => 10, 251 => 11}
+    end
+  end
+  
+  describe "inputs" do
 
     it "should remember the set_input in @inputs" do
       scenario.set_input 250, 10
-      scenario.inputs.should have(1).input
+      scenario.inputs.should == [{},{250 => 10}]
     end
 
-    it "should send the input with the value off to the api" do
+    it "should remember multiple set_input in @inputs" do
       scenario.set_input 250, 10
-      scenario.refresh!
-      scenario.connection.inputs.should == {250 => 10}
+      scenario.set_input 251, 11
+      scenario.inputs.should == [{},{250 => 10, 251 => 11}]
+    end
+
+    it "should remember former other inputs after being 'touched'" do
+      scenario.set_input 250, 10
+      scenario.set_input 251, 11
+      scenario.instance_variable_set(:@touched, false)
+      scenario.set_input 252, 12
+      scenario.inputs.last.should == {250 => 10, 251 => 11, 252 => 12}
+    end
+
+    it "should have a history of inputs" do
+      scenario.set_input 250, 10
+      scenario.set_input 251, 11
+      scenario.instance_variable_set(:@touched, false)
+      scenario.set_input 252, 12
+      scenario.inputs.should == [{},
+                                 {250 => 10, 251 => 11}, 
+                                 {250 => 10, 251 => 11, 252 => 12}]
+    end
+    
+    it "should be able to ask for the previous version of the inputs" do
+      scenario.set_input 250, 10
+      scenario.set_input 251, 11
+      scenario.instance_variable_set(:@touched, false)
+      scenario.set_input 252, 12
+      scenario.inputs[-2].should == {250 => 10, 251 => 11}
     end
 
   end
   
   describe "#refresh!" do
-    
+
     it "should update values for all results" do
       load 'webmock_stubs.rb'
       scenario.result("foo")
@@ -65,9 +117,15 @@ describe Scenario do
       scenario.result("foo").value.should == 2.0
     end
     
-    it "should resturn a proper increase of the result after having updated the sliders" do
+    it "should return a proper increase of the result after having updated the sliders" do
       load 'webmock_stubs.rb'
       scenario.result("foo").value.should == 2
+      scenario.set_input 250, 10
+      scenario.result("foo").increase.should == 10.0
+    end
+
+    xit "should return a proper increase of the result after having updated the sliders *without explicitly calling it before*" do
+      load 'webmock_stubs.rb'
       scenario.set_input 250, 10
       scenario.result("foo").increase.should == 10.0
     end
@@ -80,7 +138,7 @@ describe Scenario do
       scenario.touched?.should be_false
     end
 
-    it "should return true when a input has been moved" do
+    it "should return true when a input has been set" do
       load 'webmock_stubs.rb'
       scenario.result("foo")
       scenario.set_input 250, 10

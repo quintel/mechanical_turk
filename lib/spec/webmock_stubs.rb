@@ -102,7 +102,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/1.json?result%5B0%5D=foo"). \
                 "errors" => []
             )
 
-WebMock.stub_request(:get, Connection.base_uri + "/1.json?input[250]=10&result%5B0%5D=foo"). \
+WebMock.stub_request(:get, Connection.base_uri + "/1.json?input[250]=10&result[]=foo"). \
   to_return( :status => 200, 
              :body => { 
                "result" => {

@@ -59,7 +59,7 @@ describe Result do
     it "should return nil when now values have been given yet" do
       expect { result.decrease }.to raise_error
     end
-    it "should be 0 when just started" do
+    it "should raise an error when just started" do
       result.update(1,1)
       expect { result.decrease }.to raise_error
     end

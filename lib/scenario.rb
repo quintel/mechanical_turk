@@ -1,27 +1,36 @@
 class Scenario
 
-  attr_reader :settings, :connection, :inputs
+  attr_reader :settings, :connection, :inputs, :results
 
   def initialize(settings = {country: 'nl', end_year: '2040'}) 
     @results = {}
-    @inputs = {}
+    @inputs = [{}]
     @settings = settings
     @connection = Connection.new(self, settings)
     @touched = false
   end
 
   def set_input(key, value)
-    unless @inputs[key] == value
-      @touched = true
-      @inputs[key] = value
+    return if @inputs.last[key] == value rescue nil #in case nothing changed
+    if untouched?
+      new_inputs = {}
+      new_inputs.merge!(@inputs.last) if @inputs.last
+      new_inputs[key] = value
+      @inputs << new_inputs
+    else
+      @inputs.last[key] = value
     end
+    @touched = true
   end
 
-  def results
-    @results
+  def current_inputs
+    inputs.last
+  end
+  
+  def previous_inputs
+    inputs[-2]
   end
 
-  # provides the user 
   def result(key)
     add_result(key) unless @results[key]
     refresh! if touched?
@@ -40,14 +49,17 @@ class Scenario
 
   def refresh!
     @touched = false
-    connection.parse_results.each do |key, hash|
+    connection.results.each do |key, hash|
       result(key).update(hash[2010], hash[settings[:end_year]])
     end
-    connection.parse_results
   end
 
   def touched?
     @touched
+  end
+
+  def untouched?
+    !touched?
   end
 
   ## short-cuts
@@ -61,7 +73,7 @@ private
 #######
 
   def add_result(key)
-    @results[key] = Result.new(key)
+    @results[key] = Result.new(key, self)
     @touched = true
   end
 
