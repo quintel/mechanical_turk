@@ -4,7 +4,7 @@ Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.
 
 ## The Idea
 
-In stead of pulling a slider as a person to test the **correctness** of the ETM, we can let Rspec do that. We define
+In stead of pulling a input as a person to test the **correctness** of the ETM, we can let Rspec do that. We define
 what we expect from ETengine. E.g., when we expect a clean sheet scenario to 
 have *exactly* 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 
@@ -25,34 +25,34 @@ some explanation:
 
 ## Is that all? Isn't there more I can do?
 
-Sure, the possibilities of writing tests are pretty extended... you can move sliders
+Sure, the possibilities of writing tests are pretty extended... you can move inputs
 to a certain position, increase them with a certain value, and expect the outcome to
 *not* change, the change in a *direction* (up or down), or to increase with *at least*
 5%, or to change somewhere *between* 4% and 6%.
 
-### First, we can move and set Sliders
+### First, we can move and set inputs
 
-We can set a slider and change the expectation accordingly:
+We can set a input and change the expectation accordingly:
 
 ````ruby
-@scenario.set_slider "coal power plant", 3
+@scenario.set_input "coal power plant", 3
 ````
 
-We can also increase a slider with a certain value above its starting
+We can also increase a input with a certain value above its starting
 value.
 
 ````ruby
-@scenario.increase_slider "coal power plant", 1
+@scenario.increase_input "coal power plant", 1
 ````
 
-We can also set a combination of sliders, e.g. that are in a group, 
+We can also set a combination of inputs, e.g. that are in a group, 
 or when we went to test a *special* combination that produces an
 error prone situation:
 
 ````ruby
-@scenario.set_slider "micro chp", 60 #percent
-@scenario.set_slider "district heating", 40 #percent
-@scenario.set_slider "coal power plant", 10 #number of typical plants
+@scenario.set_input "micro chp", 60 #percent
+@scenario.set_input "district heating", 40 #percent
+@scenario.set_input "coal power plant", 10 #number of typical plants
 ````
 
 ### And then we can expect ETEngine to return specific numbers
@@ -60,7 +60,7 @@ error prone situation:
 We can define that the outcome of the scenario is an exact number:
 
 ````ruby
-@scenario.set_slider "coal power plant", 3
+@scenario.set_input "coal power plant", 3
 @scenario.co2.value should be == 167.05 #Mton
 ````
 
@@ -99,7 +99,7 @@ Or in a relative spec:
 ````
 
 Of course, sometimes we want a number **not** to change when we pull a
-slider:
+input:
 
 ````ruby
 @scenario.footprint.increase.should be == 0

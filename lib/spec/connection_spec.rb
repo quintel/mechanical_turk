@@ -14,6 +14,11 @@ describe Connection do
       connection.fetch_session_id.should == 1
     end
 
+    it "should pass the settings" do
+      connection = Connection.new(nil, {country: 'de', end_year: 2037})
+      connection.fetch_session_id.should == 1
+    end
+
   end
 
   describe "#parse_result(key)" do
@@ -35,15 +40,21 @@ describe Connection do
     it "should parse results" do
       connection.stub(:results).and_return \
         ({"foo" => [[2010,1.0], [2040,2.0]], "bar" => [[2010,3.0],[2040,4.0]]})
-      connection.queries = ["foo","bar"]
+      connection.stub(:queries).and_return(["foo","bar"])
       connection.parse_results.should == \
         {"foo"=> {2010 => 1.0, 2040 => 2.0}, "bar"=> {2010 => 3.0, 2040 => 4.0}}
     end
 
-    it "should integrate return *all* the queries that have been set" do
-      connection.queries = ["foo","bar"]
+    it "should parse results *a second time*" do
+      connection.stub(:results).and_return \
+        ({"foo" => [[2010,1.0], [2040,2.0]], "bar" => [[2010,3.0],[2040,4.0]]})
+      connection.stub(:queries).and_return(["foo","bar"])
+      connection.parse_results
+      connection.stub(:results).and_return \
+        ({"foo" => [[2010,11.0], [2040,12.0]], "bar" => [[2010,13.0],[2040,14.0]]})
+      connection.stub(:queries).and_return(["foo","bar"])
       connection.parse_results.should == \
-        {"foo"=> {2010 => 1.0, 2040 => 2.0}, "bar"=> {2010 => 3.0, 2040 => 4.0}}
+        {"foo"=> {2010 => 11.0, 2040 => 12.0}, "bar"=> {2010 => 13.0, 2040 => 14.0}}
     end
 
   end

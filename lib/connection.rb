@@ -7,41 +7,31 @@ require 'httparty'
 
 class Connection
   include HTTParty
-  base_uri 'http://et-engine.com/api/v2' #needs to be adaptable
+  base_uri 'beta.et-engine.com/api/v2/api_scenarios'
 
   attr_accessor :api_session_id, :scenario, :settings
 
-  def initialize(scenario, settings = nil)
+  def initialize(scenario = nil, settings = nil)
     @scenario = scenario
     @settings = settings
   end
 
-  # Short Cuts ---------------------
-  
   def queries
     scenario.queries
   end
-  
-  def sliders
-    scenario.sliders
+
+  def inputs
+    scenario.inputs
   end
 
-  # Short Cuts ---------------------
-
   def fetch_session_id
-    response = self.class.get "/api_scenarios/new.json", query: (settings if settings)
+    response = self.class.get "/new.json", query: ({'settings' => @settings} if @settings)
     result = response["api_scenario"]["id"] rescue "Error fetching api_session_id. Got response:\n\n #{response}"
     @api_session_id = result
   end
 
-  # no caching, always fresh data
-  def results!
-    @results = execute!
-  end
-
-  # caching results
   def results
-    @results ||= execute!
+    @results = execute!
   end
 
   def parse_results
@@ -53,7 +43,7 @@ class Connection
   end
 
   def parse_result(key)
-    data = results[key] || raise("key unknown in #{results.inspect}")
+    data = results[key] || raise("key #{key} unknown in #{results.inspect}")
     if data.kind_of?(Array) && data.size == 2
       parse_pair data
     else
@@ -91,8 +81,8 @@ class Connection
   def execute!
     return [] if queries.nil? || queries.empty?
     session_id = api_session_id || fetch_session_id
-    url = "/api_scenarios/#{session_id}.json"
-    request_params = { result: scenario.queries.uniq.flatten, inputs: scenario.sliders }
+    url = "/#{session_id}.json"
+    request_params = { result: scenario.queries.uniq.flatten, input: scenario.inputs }
     response = self.class.get(url, :query => request_params)
     @results = response["result"]
   end

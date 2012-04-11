@@ -41,12 +41,12 @@ describe Result do
   end
 
   describe "#increase" do
-    it "should return nil when now values have been given yet" do
-      result.increase.should be_nil
+    it "should raise Error when now values have been given yet" do
+      expect { result.increase }.to raise_error
     end
-    it "should return 0 when just started" do
+    it "should raise Error when just started" do
       result.update(1,2)
-      result.increase.should == 0
+      expect { result.increase }.to raise_error
     end
     it "should return 1 when just updated with 1" do
       result.update(1,2)
@@ -57,11 +57,11 @@ describe Result do
 
   describe "#decrease" do
     it "should return nil when now values have been given yet" do
-      result.decrease.should be_nil
+      expect { result.decrease }.to raise_error
     end
     it "should be 0 when just started" do
       result.update(1,1)
-      result.decrease.should == 0
+      expect { result.decrease }.to raise_error
     end
     it "should be -1 when just started" do
       result.update(1,2)
