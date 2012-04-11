@@ -1,4 +1,5 @@
 require 'webmock/rspec'
-require './connection'
-require './scenario'
-require './result'
+
+require_relative '../connection'
+require_relative '../scenario'
+require_relative '../result'

@@ -4,7 +4,7 @@ describe "Central coal-fired heater" do
 
   before(:all) do
     @scenario = Scenario.new
-    @scenario.move_slider 430, 56.5 #?! is this value not to high for other countries/provinces?
+    @scenario.inputs[430] = 56.5 #?! is this value not to high for other countries/provinces?
   end
 
   it "should increase primary demand" do

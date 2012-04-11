@@ -1,6 +1,8 @@
 class Result
   
-  attr_reader :key
+  attr_reader :key, :future, :present
+  
+  alias :value :future
   
   def initialize(key)
     @key = key
@@ -12,16 +14,12 @@ class Result
     @present = present
   end
   
-  def value
-    @future
-  end
-  
   def increase
-    @future - @previous
+    @future - @previous rescue nil
   end
   
   def decrease
-    -increase
+    -increase rescue nil
   end
   
 end

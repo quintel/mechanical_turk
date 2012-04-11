@@ -1,51 +1,90 @@
 require 'spec_helper'
 
 describe Scenario do
-  
-  let(:scenario){ Scenario.new(area: "foo", end_year: 1999) }
-  
+
+  let(:scenario){ Scenario.new(area: "nl", end_year: 2040) }
+
   describe "#settings" do
-    
+
     it "should return area and end_year as attributes" do
-      scenario.settings[:area].should == "foo"
-      scenario.settings[:end_year].should == 1999
+      scenario.settings[:area].should == "nl"
+      scenario.settings[:end_year].should == 2040
+    end
+
+  end
+  
+  describe "#set_slider" do
+
+    it "should remember the set_slider in @sliders" do
+      scenario.set_slider 250, 10
+      scenario.sliders.should have(1).slider
+    end
+
+    it "should send the slider with the value off to the api" do
+      scenario.set_slider 250, 10
+      scenario.refresh!
+      scenario.connection.sliders.should == {250 => 10}
+    end
+
+  end
+
+  describe "#refresh!" do
+    
+    it "should get values for all results" do
+      load 'webmock_stubs.rb'
+      scenario.add_result("foo")
+      scenario.refresh!
+      scenario.result("foo").value.should == 2.0
     end
     
   end
-  
-  describe "#query" do
+
+  describe "#result (without an explicit 'refresh!')" do
+
+    it "should raise an error when asked for a non-existing result" do
+      expect { scenario.result["jael_jablabla"] }.to raise_error
+    end
+
+    it "should return a value when asked for a query" do
+      load 'webmock_stubs.rb'
+      scenario.result("foo").value.should == 2.0
+    end
+
+  end
+
+  describe "#touched" do
+
+    it "should return false when it is a new scenario" do
+      scenario.touched?.should be_false
+    end
     
-    it "should not return nil when asked for a query" do
-      stub_request(:get, "http://et-engine.com/api/v2/api_scenarios/26220.json?result[]=dashboard_reduction_of_co2_emissions_versus_1990"). \
-        to_return( :status => 200, 
-                   :body => { 
-                     "result" => {
-                       "dashboard_reduction_of_co2_emissions_versus_1990" => [[2010,0.07816994645528763],[2040,0.07815237459188862]],
-                       "total_co2_emissions" => [[2010,163019295904.0395],[2040,163016639038.29355]]
-                     },
-                     "settings" => {
-                       " country" => 
-                          "nl",
-                          "end_year" => 2040, 
-                          "id" => 26220, 
-                          "region" => nil,
-                          "use_fce" => false, 
-                          "user_values" => {}
-                        }
-                      },
-                      "errors" => []
-                  )
-      scenario.result("total_co2_emissions").value.should be 163016639038.29355
+    it "should return true when a slider has been moved" do
+      load 'webmock_stubs.rb'
+      scenario.result("foo")
+      scenario.set_slider 250, 10
+      scenario.touched?.should be_true
+    end
+
+    it "should return false when a slider has not moved" do
+      load 'webmock_stubs.rb'
+      scenario.result("foo")
+      scenario.set_slider 250, 10
+      scenario.result("foo")
+      scenario.set_slider 250, 10
+      scenario.touched?.should be_true
+    end
+
+  end
+
+  describe "set_slider" do
+    
+    it "should receive different results when a slider has been moved" do
+      load 'webmock_stubs.rb'
+      scenario.set_slider 250, 10
+      scenario.result("foo").value.should == 12
     end
     
   end
-  
-  describe "refresh!" do
-    
-    it "should refresh results" do
-      puts scenario.refresh!
-    end
-    
-  end
-  
+
+
 end
