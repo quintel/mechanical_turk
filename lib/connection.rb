@@ -1,9 +1,9 @@
 require 'rubygems'
+require 'yaml'
 require 'httparty'
 
 class Connection
   include HTTParty
-  base_uri 'beta.et-engine.com/api/v2/api_scenarios'
 
   attr_accessor :api_session_id, :scenario, :settings
 
@@ -25,6 +25,14 @@ class Connection
   def previous_results
     execute!(scenario.previous_inputs)
   end
+  
+  SERVER_ADDRESS = ( 
+      YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] || 
+      ENV['API'] || 
+      raise("Server_address not found in lib/config.yml!")
+    )
+  
+  base_uri SERVER_ADDRESS + '/api/v2/api_scenarios'
 
 #######
 private
