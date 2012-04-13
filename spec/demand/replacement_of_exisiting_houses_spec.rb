@@ -20,27 +20,28 @@ describe "Replacement of existing houses" do
     
   end
 
-  it "should not increase primary demand" do
+  xit "should not increase primary demand" do
     @scenario.primary_demand.increase.should be == 0
   end
 
-  it "should decrease co2" do
+  xit "should decrease co2" do
     @scenario.co2.decrease.should be > 0
   end
 
-  it "should decrease the heat demand for houses" do
+  xit "should decrease the heat demand for houses" do
     @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be > 0
   end
 
-  it "should decrease the heat demand for houses between the min and max values" do
+  xit "should decrease the heat demand for houses between the min and max values" do
     @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be >  VALUE_IF_NO_HOUSES_REPLACED
     @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be <  VALUE_IF_ALL_HOUSES_REPLACED
   end
   
-  it "should increase the heat savings for new houses (if insulation of new houses > 0)" do
+  xit "should increase the heat savings for new houses (if insulation of new houses > 0)" do
     @scenario.result("heating_savings_insulation_new_households_energetic") > savings_new_houses_before   
   end
-  it "should decrease the heat savings for old houses (if insulation of old houses > 0)" do
+
+  xit "should decrease the heat savings for old houses (if insulation of old houses > 0)" do
     @scenario.result("extra_insulation_savings_households_energetic") < savings_old_houses_before   
   end
   
