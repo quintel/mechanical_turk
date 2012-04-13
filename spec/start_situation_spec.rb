@@ -11,7 +11,7 @@ describe "Start Situation" do
   end
 
   it "CO2 emissions should be bigger than 0" do
-    @scenario.result("total_co2_emissions").value.should > 0
+    @scenario.co2.value.should > 0
   end
 
 end
