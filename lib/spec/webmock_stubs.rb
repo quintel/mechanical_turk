@@ -62,7 +62,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/new.json"). \
             )
 
 # Request with foo and far 
-WebMock.stub_request(:get, Connection.base_uri + "/1.json?result%5B0%5D=foo&result%5B1%5D=bar"). \
+WebMock.stub_request(:get, Connection.base_uri + "/1.json?reset=true&result%5B0%5D=foo&result%5B1%5D=bar"). \
   to_return( :status => 200, 
              :body => { 
                "result" => {
@@ -83,7 +83,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/1.json?result%5B0%5D=foo&resu
             )
 
 # Request with foo 
-WebMock.stub_request(:get, Connection.base_uri + "/1.json?result%5B0%5D=foo"). \
+WebMock.stub_request(:get, Connection.base_uri + "/1.json?reset=true&result%5B0%5D=foo"). \
   to_return( :status => 200, 
              :body => { 
                "result" => {
@@ -102,7 +102,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/1.json?result%5B0%5D=foo"). \
                 "errors" => []
             )
 
-WebMock.stub_request(:get, Connection.base_uri + "/1.json?input[250]=10&result[]=foo"). \
+WebMock.stub_request(:get, Connection.base_uri + "/1.json?reset=true&input[250]=10&result[]=foo"). \
   to_return( :status => 200, 
              :body => { 
                "result" => {
@@ -120,3 +120,23 @@ WebMock.stub_request(:get, Connection.base_uri + "/1.json?input[250]=10&result[]
                 },
                 "errors" => []
             )
+
+WebMock.stub_request(:get, Connection.base_uri + "/1.json?reset=true&input%5B0%5D=10&input%5B1%5D=11&result%5B0%5D=foo"). \
+  to_return( :status => 200, 
+             :body => { 
+               "result" => {
+                 "foo" => [[2010,1],[2040,2]]
+               },
+               "settings" => {
+                 " country" => 
+                    "nl",
+                    "end_year" => 2040, 
+                    "id" => 1, 
+                    "region" => nil,
+                    "use_fce" => false, 
+                    "user_values" => {}
+                  }
+                },
+                "errors" => []
+            )
+

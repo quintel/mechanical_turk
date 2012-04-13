@@ -21,8 +21,9 @@ describe Scenario do
 
   describe "#inputs" do
 
-    it "should be an empty array when nothing has been set" do
-      scenario.inputs.should == [{}]
+    it "should contain an empty list when nothing has been set" do
+      scenario.inputs.should have(1).list
+      scenario.inputs.last.should have(0).inputs
     end
 
   end
@@ -45,7 +46,7 @@ describe Scenario do
     end
   end
   
-  describe "inputs" do
+  describe "#set_input" do
 
     it "should remember the set_input in @inputs" do
       scenario.set_input 250, 10
@@ -75,7 +76,18 @@ describe Scenario do
                                  {250 => 10, 251 => 11}, 
                                  {250 => 10, 251 => 11, 252 => 12}]
     end
-    
+
+    it "should have a history of inputs" do
+      load 'webmock_stubs.rb'
+      scenario.set_input 250, 10
+      scenario.set_input 251, 11
+      scenario.result("foo").value
+      scenario.set_input 252, 12
+      scenario.inputs.should == [{},
+                                 {250 => 10, 251 => 11}, 
+                                 {250 => 10, 251 => 11, 252 => 12}]
+    end
+
     it "should be able to ask for the previous version of the inputs" do
       scenario.set_input 250, 10
       scenario.set_input 251, 11
@@ -99,9 +111,9 @@ describe Scenario do
 
     it "should update values for all results *a second time*" do
       load 'webmock_stubs.rb'
-      scenario.result("foo").present.should == 1.0
+      scenario.result("foo").future.should == 2.0
       scenario.set_input 250, 10
-      scenario.refresh!.should == {"foo"=>{2010=>11.0, 2040=>12.0}}
+      scenario.result("foo").future.should == 12.0
     end
     
   end
@@ -124,7 +136,7 @@ describe Scenario do
       scenario.result("foo").increase.should == 10.0
     end
 
-    xit "should return a proper increase of the result after having updated the sliders *without explicitly calling it before*" do
+    it "should return a proper increase of the result after having updated the sliders *without explicitly calling it before*" do
       load 'webmock_stubs.rb'
       scenario.set_input 250, 10
       scenario.result("foo").increase.should == 10.0
@@ -172,12 +184,27 @@ describe Scenario do
     
   end
   
-  describe "#primary_demand and other short-cuts" do
+  describe "#move_slider_to" do
+
+    it "should be the same (an alias) as #set_input" do
+      load 'webmock_stubs.rb'
+      scenario.move_slider 250, 10
+      scenario.result("foo").value.should == 12
+    end
+
+  end
+  
+  describe "#short-cuts for 'result'" do
     
     it "should be possible to use short cut results!" do
       load 'webmock_stubs.rb'
       scenario.foo.value.should == 2
       scenario.foo.should be scenario.result("foo")
+    end
+    
+    it "should be possible to use abbreviated short cuts" do
+      scenario.should_receive(:result).with("total_co2_emissions")
+      scenario.co2
     end
     
   end

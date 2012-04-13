@@ -10,6 +10,7 @@ class Result
   end
 
   def update(present, future)
+    puts "UPDATING now and future of #{@key} with: #{present}, #{future}" if @debug
     if @future
       @previous = @future 
     end
@@ -18,6 +19,7 @@ class Result
   end
 
   def update_previous(previous)
+    puts "UPDATING previous of #{@key} with: #{previous}" if @debug
     @previous = previous
   end
 
@@ -34,9 +36,7 @@ private
 #######
 
   def previous
-    @previous ||= (
-      @previous 
-    )
+    @previous
   end
 
 end

@@ -22,6 +22,7 @@ class Scenario
     end
     @touched = true
   end
+  alias :move_slider :set_input
 
   def current_inputs
     inputs.last
@@ -38,9 +39,7 @@ class Scenario
   end
   
   def track(keys)
-    keys.each do |key|
-      add_result(key)
-    end
+    keys.each { |key| add_result(key) }
   end
 
   def queries
@@ -51,6 +50,9 @@ class Scenario
     @touched = false
     connection.results.each do |key, hash|
       result(key).update(hash[2010], hash[settings[:end_year]])
+    end
+    connection.previous_results.each do |key, hash|
+      result(key).update_previous(hash[settings[:end_year]])
     end
   end
 
@@ -64,9 +66,20 @@ class Scenario
 
   ## short-cuts
 
+  SHORT_CUTS = { co2:            "total_co2_emissions",
+                 primary_demand: "dashboard_energy_demand_primary_of_final",
+                 import:         "dashboard_energy_import_netto",
+                 footprint:      "dashboard_bio_footprint",
+                 costs:          "dashboard_total_costs",
+                 renewables:     "dashboard_renewability"
+               }
+  
   def method_missing(name, *args, &block)
+    name = SHORT_CUTS[name] || name
     send(:result, name.to_s)
   end
+
+
 
 #######
 private

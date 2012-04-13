@@ -1,7 +1,3 @@
-#
-#  Taken in large from github.com/dennisschoenmakers/etmodel and simplified
-# 
-
 require 'rubygems'
 require 'httparty'
 
@@ -25,6 +21,10 @@ class Connection
   def results
     execute!(scenario.current_inputs)
   end
+  
+  def previous_results
+    execute!(scenario.previous_inputs)
+  end
 
 #######
 private
@@ -35,15 +35,15 @@ private
     results = get_response(inputs)["result"]
     parse(results)
   end
-  
+
   def get_response(inputs = nil)
     session_id = api_session_id || fetch_session_id
     url = "/#{session_id}.json"
-    request_params = { result: scenario.queries}
+    request_params = { result: scenario.queries, reset: true }
     request_params[:input] = inputs if inputs
     response = self.class.get(url, :query => request_params)
   end
-  
+
   def parse(results)
     parsed_results = Hash.new
     results.each do |key, data|

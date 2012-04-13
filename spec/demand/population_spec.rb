@@ -3,11 +3,13 @@
 # Relevant slider #335
 # Chart #57
 
+require 'spec_helper'
+
 describe "Population" do
 
   before(:all) do
-    @scenario = Scenario.new
-    @scenario.move_slider 335, 5.0
+    @scenario = Scenario.new(country: "nl", end_year: 2050)
+    @scenario.move_slider 430, 10
   end
 
   it "should increase primary demand" do
@@ -19,19 +21,19 @@ describe "Population" do
   end
 
   it "should not increase the heat demand for old and new houses" do
-    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").increase.should be == 0
+    @scenario.heat_demand_including_electric_heating_in_use_of_final_demand_in_households.increase.should be == 0
   end
   
   it "should not increase the cooling demand for old and new houses" do
-    @scenario.result("cooling_demand_in_use_of_final_demand_in_households").increase.should be == 0
+    @scenario.cooling_demand_in_use_of_final_demand_in_households.increase.should be == 0
   end
   
   it "should increase the electricity demand in hh" do
-    @scenario.result("electricity_demand_excluding_heating_in_use_of_final_demand_in_households").increase.should be > 0
+    @scenario.electricity_demand_excluding_heating_in_use_of_final_demand_in_households.increase.should be > 0
   end
   
   it "should increase the hot water demand in hh" do
-    @scenario.result("hot_water_demand_in_use_of_final_demand_in_households").increase.should be > 0
+    @scenario.hot_water_demand_in_use_of_final_demand_in_households.increase.should be > 0
   end
   
   

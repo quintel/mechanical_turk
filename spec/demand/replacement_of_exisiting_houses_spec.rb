@@ -3,10 +3,12 @@
 # Relevant slider #1
 # Chart 57
 
+require 'spec_helper'
+
 describe "Replacement of existing houses" do
 
   before(:all) do
-    @scenario = Scenario.new
+    @scenario = Scenario.new(country: "nl", end_year: 2050)
 
     # store result of insulation savings before exisiting houses is changed
     @scenario.move_slider 337, 6.0
