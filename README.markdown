@@ -10,7 +10,7 @@ have *exactly* 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 
 ````ruby
 @scenario.new
-@scenario.co2.value should be == 160.00 #Mton
+@scenario.co2.value should be == 163_516_595_413.92465 #kg
 ````
 
 Then we run the test (either from the command line using `$> rspec specs/.` or hitting `CMD+R` in TextMate)... 
@@ -23,26 +23,19 @@ some explanation:
 
 ![oh no, it's red!](http://f.cl.ly/items/0y4307374716291x3f3v/Screen%20Shot%202012-03-07%20at%209.27.49%20AM.png)
 
-## Is that all? Isn't there more I can do?
+## Input and output
 
-Sure, the possibilities of writing tests are pretty extended... you can move inputs
-to a certain position, increase them with a certain value, and expect the outcome to
+ETengine is an input-output system. With the Turk you can 'set' inputs
+to certain positions, and expect the outcome to
 *not* change, the change in a *direction* (up or down), or to increase with *at least*
 5%, or to change somewhere *between* 4% and 6%.
 
-### First, we can move and set inputs
+### Input: setting the 'sliders' of the model
 
 We can set a input and change the expectation accordingly:
 
 ````ruby
 @scenario.set_input "coal power plant", 3
-````
-
-We can also increase a input with a certain value above its starting
-value.
-
-````ruby
-@scenario.increase_input "coal power plant", 1
 ````
 
 We can also set a combination of inputs, e.g. that are in a group, 
@@ -55,26 +48,24 @@ error prone situation:
 @scenario.set_input "coal power plant", 10 #number of typical plants
 ````
 
+Please note that the inputs are represented by sliders on 
+[etmodel](http://et-model.com), but as *answers* on the 
+[mixer](http://mixer.et-model.com)
+
 ### And then we can expect ETEngine to return specific numbers
 
 We can define that the outcome of the scenario is an exact number:
 
 ````ruby
 @scenario.set_input "coal power plant", 3
-@scenario.co2.value should be == 167.05 #Mton
+@scenario.co2.value should be == 163_516_595_413.0 #kg
 ````
 
 But perhaps more usefull is that we can specify that an outcode of the 
-model (e.g. "Co2")**increases** with a certain value.
+model (e.g. "Co2") **increases** with a certain value.
 
 ````ruby
-@scenario.co2.increase.should be == 1.05 #Mton
-````
-
-We can also specify what the **relative** increase should be:
-
-````ruby
-@scenario.co2.relative_increase.should be == 0.05
+@scenario.co2.increase.should be == 1_000_000 #kg
 ````
 
 When we do not care about the exact number, but we want the outcome to
@@ -90,12 +81,6 @@ want to specifiy that the outcome of a query should be **positive** or
 
 ````ruby
 @scenario.co2.increase.should be > 0
-````
-
-Or in a relative spec:
-
-````ruby
-@scenario.co2.relative_increase.should be > 0.04
 ````
 
 Of course, sometimes we want a number **not** to change when we pull a
@@ -135,4 +120,5 @@ interfaces (*etflex*, *etmodel* and *energymixer*) can still break!
 
 ### How to run the tests
 
-* Run all the specs using: `rspec spec/.`
+* Run all the specs using: `rspec spec` from the root directory of this repository
+on your local box

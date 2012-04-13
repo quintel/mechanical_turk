@@ -11,7 +11,7 @@ class Scenario
   end
 
   def set_input(key, value)
-    return if @inputs.last[key] == value rescue nil #in case nothing changed
+    return if @inputs.last[key] == value rescue nil #do nothing if nothing changed
     if untouched?
       new_inputs = {}
       new_inputs.merge!(@inputs.last) if @inputs.last
