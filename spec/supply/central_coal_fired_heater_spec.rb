@@ -20,7 +20,7 @@ describe "Central coal-fired heater" do
   end
 
   it "should increase co2" do
-    @scenario.co2.value.should be == 0
+    @scenario.co2.value.increase.should be > 0
   end
 
   it "should not increase bio footprint" do
