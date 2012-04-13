@@ -12,23 +12,23 @@ describe "Central coal-fired heater" do
   end
 
   it "should increase primary demand" do
-    @scenario.primary_demand.increase.should be > 0
+    @scenario.primary_demand.should increase
   end
 
   it "should increase import" do
-    @scenario.import.increase.should be > 0
+    @scenario.import.should increase
   end
 
   it "should increase co2" do
-    @scenario.co2.value.increase.should be > 0
+    @scenario.co2.should increase
   end
 
   it "should not increase bio footprint" do
-    @scenario.footprint.increase.should be == 0
+    @scenario.footprint.should not_change
   end
 
   it "should increase the fossile energy for heat and cold production" do
-    @scenario.fossil_energy_used_for_heat_and_cold_production.increase.should be > 0
+    @scenario.fossil_energy_used_for_heat_and_cold_production.should increase
   end
 
 end

@@ -13,15 +13,15 @@ describe "Population" do
   end
 
   it "should increase primary demand" do
-    @scenario.primary_demand.increase.should be > 0
+    @scenario.primary_demand.should increase
   end
 
   it "should increase co2" do
-    @scenario.co2.increase.should be > 0
+    @scenario.co2.should increase
   end
 
   it "should not increase the heat demand for old and new houses" do
-    @scenario.heat_demand_including_electric_heating_in_use_of_final_demand_in_households.increase.should be == 0
+    @scenario.heat_demand_including_electric_heating_in_use_of_final_demand_in_households.should not_change
   end
   
   it "should not increase the cooling demand for old and new houses" do
@@ -29,11 +29,11 @@ describe "Population" do
   end
   
   it "should increase the electricity demand in hh" do
-    @scenario.electricity_demand_excluding_heating_in_use_of_final_demand_in_households.increase.should be > 0
+    @scenario.electricity_demand_excluding_heating_in_use_of_final_demand_in_households.should increase
   end
   
   it "should increase the hot water demand in hh" do
-    @scenario.hot_water_demand_in_use_of_final_demand_in_households.increase.should be > 0
+    @scenario.hot_water_demand_in_use_of_final_demand_in_households.should increase
   end
   
   

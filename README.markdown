@@ -81,6 +81,14 @@ want to specifiy that the outcome of a query should be **positive** or
 
 ````ruby
 @scenario.co2.increase.should be > 0
+@scenario.co2.increase.should be < 0
+````
+
+This can also be written shorter as:
+
+````ruby
+@scenario.co2.should increase
+@scenario.co2.should decrease
 ````
 
 Of course, sometimes we want a number **not** to change when we pull a
@@ -88,6 +96,12 @@ input:
 
 ````ruby
 @scenario.footprint.increase.should be == 0
+````
+
+or, shorter variant:
+
+````ruby
+@scenario.footprint.should not_change
 ````
 
 If we are not sure (or do not care) about the specific change we can
