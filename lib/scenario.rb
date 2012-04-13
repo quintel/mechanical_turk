@@ -2,7 +2,7 @@ class Scenario
 
   attr_reader :settings, :connection, :inputs, :results
 
-  def initialize(settings = {country: 'nl', end_year: '2040'}) 
+  def initialize(settings = {country: 'nl', end_year: 2040}) 
     @results = {}
     @inputs = [{}]
     @settings = settings
