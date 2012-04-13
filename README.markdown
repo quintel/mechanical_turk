@@ -113,6 +113,24 @@ are supported in the model
   merit_order: true
 ````
 
+### Test different ETEngines
+
+The Mechanical Turk by default tests the 
+[Beta ETEngine server](http://beta.et-engine.com), but you can test other servers by
+adding a config.yml file with your settings:
+
+````
+$> cp config.yml.sample config.yml
+$> echo "server_addr: "http://etengine.dev" > config.yml
+$> rspec spec
+````
+
+or, by passing an Environment Variable to rspec:
+
+````
+$> API=http://etengine.dev rspec spec
+````
+
 ### Limitations
 
 The Mechanical Turk tests the outcome (i.e. the numbers) of ETEngine. Of course, the different
