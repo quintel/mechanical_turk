@@ -3,20 +3,28 @@
 
 require 'spec_helper'
 
-describe "Washing on low temperatures" do
+describe "#371: Washing on low temperatures" do
 
-  before(:all) do
-    @scenario = Scenario.new(country: "nl", end_year: 2050)
+  context "when slider 361 (washing machine efficiencies) has not been set" do
+
+    it "should lower CO2 emissions when washing machine efficiencies increase to max value" do
+      scenario = Scenario.new(country: "nl", end_year: 2050)
+      scenario.set_input 371, 100 #%
+      scenario.co2.should decrease
+    end
+
   end
 
-  it "should lower CO2 emissions when washing machine efficiencies increase to max value" do
-    @scenario.set_input 361, 86 #%
-    @scenario.co2.should decrease
-  end
+  context "when slider 361 (washing machine efficiencies) is on max value" do
 
-  it "should lower CO2 emissions when more people wash on low temperatures" do
-    @scenario.set_input 371, 100 #%
-    @scenario.co2.should decrease
+    it "should lower CO2 emissions when washing machine efficiencies increase to max value" do
+      scenario = Scenario.new(country: "nl", end_year: 2050)
+      scenario.set_input 361, 86 #%
+      scenario.co2.should decrease
+      scenario.set_input 371, 100 #%
+      scenario.co2.should decrease
+    end
+
   end
 
 end
