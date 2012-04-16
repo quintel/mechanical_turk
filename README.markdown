@@ -61,7 +61,7 @@ We can define that the outcome of the scenario is an exact number:
 @scenario.co2.value should be == 163_516_595_413.0 #kg
 ````
 
-But perhaps more usefull is that we can specify that an outcode of the 
+But perhaps more useful is that we can specify that an outcode of the 
 model (e.g. "Co2") **increases** with a certain value.
 
 ````ruby
@@ -125,6 +125,39 @@ are supported in the model
   end_year: 2044
   use_fce: true
   merit_order: true
+````
+
+### More on Rspec
+
+Please check out the [RSpec documentation](https://www.relishapp.com/rspec) 
+on the possibilities and best practices of using RSpec.
+
+### Folder structure and file naming
+
+All the tests belong in the directory `/spec`. Put tests that belong together into
+properly named subdirectories. Please be sure that you give your test file a
+easily understandable name. It has to end with `_spec.rb`. 
+
+### Template for test
+
+Please check out a few of the current tests in the 
+[spec directory](https://github.com/dennisschoenmakers/mechanical_turk/tree/master/spec)
+for some example tests.
+
+Your test at least has to contain the following:
+
+````ruby
+
+require 'spec_helper'
+
+describe "Your issue/challenge" do
+
+  it "should do something that I expect" do
+    scenario = Scenario.new(country: 'nl', end_year: 2050)
+    scenario.set_slider
+  end
+
+end
 ````
 
 ### Test different ETEngines
