@@ -9,7 +9,7 @@ describe "Population" do
 
   before(:all) do
     @scenario = Scenario.new(country: "nl", end_year: 2050)
-    @scenario.move_slider 335, 5
+    @scenario.move_slider 335, 5 #%
   end
 
   it "should increase primary demand" do
