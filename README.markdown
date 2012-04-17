@@ -188,5 +188,5 @@ interfaces (*etflex*, *etmodel* and *energymixer*) can still break!
 * Run all the specs using: `rspec spec` from the root directory of this repository
 on your local box
 * Run the specs on TextMate using a Rspec plugin, e.g. the one from 
-  [David Chelimsky](https://github.com/dchelimsky/rspec-tmbundle)
+  [David Chelimsky](https://github.com/rspec/rspec-tmbundle)
 * Run the specs from Vim using a plugin
