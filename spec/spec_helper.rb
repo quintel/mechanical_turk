@@ -17,7 +17,7 @@ RSpec::Matchers.define :decrease do
     if actual.decrease == 0 
       "expected a decrease, but actually it stayed the same: #{actual.future}"
     else
-      "expected a decrease, but actually got a increase of #{actual.increase}"
+      "expected a decrease, but actually got an increase of #{actual.increase}"
     end
   end
 end
