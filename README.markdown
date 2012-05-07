@@ -185,6 +185,7 @@ interfaces (*etflex*, *etmodel* and *energymixer*) can still break!
 
 ### How to run the tests
 
+* Run `bundle install` in your local directory to make sure you have all dependencies installed
 * Run all the specs using: `rspec spec` from the root directory of this repository
 on your local box
 * Run the specs on TextMate using a Rspec plugin, e.g. the one from 
