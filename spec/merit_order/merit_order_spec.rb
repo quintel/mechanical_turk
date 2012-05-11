@@ -12,11 +12,11 @@ describe "merit order module" do
   context "when power plant sliders have not been moved" do
 
     it "should set full load hours to zero if power plant sliders moved to zero" do
-      @scenario.set_input 257, 0 #%
-      @scenario.co2.should increase
+    #  @scenario.set_input 257, 0 #%
+    #  @scenario.co2.should increase
 
-    #  @scenario.set_input 257, 0 # number of gas ccgt
-    #  @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should decrease
+      @scenario.set_input 257, 0 # number of gas ccgt
+      @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should decrease
 
     #  @scenario.set_input 259, 0 # number of nuclear plants
     #  @scenario.result("merit_order_nuclear_iii_full_load_hours_in_merit_order_table").value.should be == 0
