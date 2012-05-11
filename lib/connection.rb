@@ -26,11 +26,7 @@ class Connection
     execute!(scenario.previous_inputs)
   end
   
-  SERVER_ADDRESS = ( 
-      YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] || 
-      ENV['API'] || 
-      raise("Server_address not found in lib/config.yml!")
-    )
+  SERVER_ADDRESS = YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] rescue "http://beta.et-engine.com"
   
   base_uri SERVER_ADDRESS + '/api/v2/api_scenarios'
 
