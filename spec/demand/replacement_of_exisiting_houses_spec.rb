@@ -10,39 +10,30 @@ describe "Replacement of existing houses" do
   before(:all) do
     @scenario = Scenario.new(country: "nl", end_year: 2050)
 
-    # store result of insulation savings before exisiting houses is changed
-    @scenario.move_slider 337, 6.0
-    savings_new_houses_before = @scenario.result("heating_savings_insulation_new_households_energetic")
-    savings_old_houses_before = @scenario.result("extra_insulation_savings_households_energetic")
-    
-    # move slider 1
+    # move slider 1 (replacement of old houses in %/year)
     @scenario.move_slider 1, 2.5
     
+    VALUE_IF_NO_HOUSES_REPLACED = 298.91
+    VALUE_IF_ALL_HOUSES_REPLACED = 220.58
+    
   end
 
-  xit "should not increase primary demand" do
-    @scenario.primary_demand.increase.should be == 0
+  it "should not increase primary demand" do
+    @scenario.primary_demand.decrease.should be > 0
   end
 
-  xit "should decrease co2" do
+  it "should decrease co2" do
     @scenario.co2.decrease.should be > 0
   end
 
-  xit "should decrease the heat demand for houses" do
+  it "should decrease the heat demand for houses" do
     @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be > 0
   end
 
-  xit "should decrease the heat demand for houses between the min and max values" do
-    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be >  VALUE_IF_NO_HOUSES_REPLACED
-    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be <  VALUE_IF_ALL_HOUSES_REPLACED
+  it "should decrease the heat demand for houses between the min and max values" do
+    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value.should be  <  VALUE_IF_NO_HOUSES_REPLACED
+    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value.should be >  VALUE_IF_ALL_HOUSES_REPLACED
   end
   
-  xit "should increase the heat savings for new houses (if insulation of new houses > 0)" do
-    @scenario.result("heating_savings_insulation_new_households_energetic") > savings_new_houses_before   
-  end
-
-  xit "should decrease the heat savings for old houses (if insulation of old houses > 0)" do
-    @scenario.result("extra_insulation_savings_households_energetic") < savings_old_houses_before   
-  end
   
 end
