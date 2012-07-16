@@ -8,14 +8,14 @@ require 'spec_helper'
 describe "Replacement of existing houses" do
 
   before(:all) do
-    @scenario = Scenario.new(country: "nl", end_year: 2050)
+    @scenario = Scenario.new(area_code: "nl", end_year: 2050)
 
     # move slider 1 (replacement of old houses in %/year)
     @scenario.move_slider 1, 2.5
-    
+
     VALUE_IF_NO_HOUSES_REPLACED = 298.91
     VALUE_IF_ALL_HOUSES_REPLACED = 220.58
-    
+
   end
 
   it "should not increase primary demand" do
@@ -34,6 +34,6 @@ describe "Replacement of existing houses" do
     @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value.should be  <  VALUE_IF_NO_HOUSES_REPLACED
     @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value.should be >  VALUE_IF_ALL_HOUSES_REPLACED
   end
-  
-  
+
+
 end

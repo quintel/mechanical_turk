@@ -15,7 +15,7 @@ describe Connection do
     end
 
     it "should pass the settings" do
-      connection = Connection.new(nil, {country: 'de', end_year: 2037})
+      connection = Connection.new(nil, {area_code: 'de', end_year: 2037})
       connection.fetch_session_id.should == 1
     end
 

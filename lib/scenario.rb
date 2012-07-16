@@ -2,7 +2,7 @@ class Scenario
 
   attr_reader :settings, :connection, :inputs, :results
 
-  def initialize(settings = {country: 'nl', end_year: 2040}) 
+  def initialize(settings = {area_code: 'nl', end_year: 2040})
     @results = {}
     @inputs = [{}]
     @settings = settings
@@ -27,7 +27,7 @@ class Scenario
   def current_inputs
     inputs.last
   end
-  
+
   def previous_inputs
     inputs[-2]
   end
@@ -37,7 +37,7 @@ class Scenario
     refresh! if touched?
     @results[key]
   end
-  
+
   def track(keys)
     keys.each { |key| add_result(key) }
   end
@@ -73,7 +73,7 @@ class Scenario
                  costs:          "dashboard_total_costs",
                  renewables:     "dashboard_renewability"
                }
-  
+
   def method_missing(name, *args, &block)
     name = SHORT_CUTS[name] || name
     send(:result, name.to_s)

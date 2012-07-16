@@ -8,7 +8,7 @@ require 'spec_helper'
 describe "Population" do
 
   before(:all) do
-    @scenario = Scenario.new(country: "nl", end_year: 2050)
+    @scenario = Scenario.new(area_code: "nl", end_year: 2050)
     @scenario.move_slider 335, 5 #%
   end
 
@@ -23,18 +23,18 @@ describe "Population" do
   it "should not increase the heat demand for old and new houses" do
     @scenario.heat_demand_including_electric_heating_in_use_of_final_demand_in_households.should not_change
   end
-  
+
   it "should not increase the cooling demand for old and new houses" do
     @scenario.cooling_demand_in_use_of_final_demand_in_households.increase.should be == 0
   end
-  
+
   it "should increase the electricity demand in hh" do
     @scenario.electricity_demand_excluding_heating_in_use_of_final_demand_in_households.should increase
   end
-  
+
   it "should increase the hot water demand in hh" do
     @scenario.hot_water_demand_in_use_of_final_demand_in_households.should increase
   end
-  
-  
+
+
 end
