@@ -75,8 +75,12 @@ class Scenario
                }
 
   def method_missing(name, *args, &block)
-    name = SHORT_CUTS[name] || name
-    send(:result, name.to_s)
+    if name.to_s.include?("=")
+      send(:set_input, name.to_s.delete("="), args.first)
+    else
+      name = SHORT_CUTS[name] || name
+      send(:result, name.to_s)
+    end
   end
 
 

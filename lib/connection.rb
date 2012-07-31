@@ -14,7 +14,7 @@ class Connection
 
   def fetch_session_id
     response = self.class.get "/new.json", query: ({'settings' => @settings} if @settings)
-    result = response["scenario"]["id"] rescue "Error fetching api_session_id. Got response:\n\n #{response}"
+    result = response["scenario"]["id"] rescue "Error fetching api_session_id. Got response:\n\n #{response.inspect}"
     @api_session_id = result
   end
 

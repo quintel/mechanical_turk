@@ -3,7 +3,7 @@
 WebMock.stub_request(:get, Connection.base_uri + "/new.json"). \
   to_return( :status => 200,
              :body => {
-               "api_scenario" => {
+               "scenario" => {
                     "area_code" => "nl",
                     "end_year" => 2040,
                     "id" => 1,
@@ -17,7 +17,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/new.json"). \
 WebMock.stub_request(:get, Connection.base_uri + "/new.json?settings%5Barea%5D=nl&settings%5Bend_year%5D=2040"). \
   to_return( :status => 200,
              :body => {
-               "api_scenario" => {
+               "scenario" => {
                   "area_code" => "nl",
                   "end_year" => 2040,
                   "id" => 1,
@@ -32,7 +32,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/new.json?settings%5Barea%5D=n
 WebMock.stub_request(:get, Connection.base_uri + "/new.json?settings[area_code]=de&settings[end_year]=2037"). \
   to_return( :status => 200,
              :body => {
-               "api_scenario" => {
+               "scenario" => {
                  "area_code" => "nl",
                   "end_year" => 2040,
                   "id" => 1,
@@ -46,7 +46,7 @@ WebMock.stub_request(:get, Connection.base_uri + "/new.json?settings[area_code]=
 WebMock.stub_request(:get, Connection.base_uri + "/new.json"). \
   to_return( :status => 200,
              :body => {
-               "api_scenario" => {
+               "scenario" => {
                   "area_code" => "nl",
                   "end_year" => 2040,
                   "id" => 1,

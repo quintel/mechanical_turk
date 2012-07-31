@@ -97,7 +97,17 @@ describe Scenario do
     end
 
   end
-  
+
+  describe "#short-cuts for 'set_input' with key" do
+
+    it "should be possible to use scenario.crazy_horse=10" do
+      load 'webmock_stubs.rb'
+      scenario.crazy_horse = 10
+      scenario.inputs.should == [{},{"crazy_horse" => 10}]
+    end
+
+  end
+
   describe "#refresh!" do
 
     it "should update values for all results" do
@@ -208,5 +218,8 @@ describe Scenario do
     end
     
   end
+
+
+
 
 end

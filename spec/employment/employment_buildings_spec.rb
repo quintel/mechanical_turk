@@ -13,7 +13,7 @@ describe "Buildings, Space Heating" do
     # For every space heating technology, the number_of_units should go to #HHs when slider = 100%
     it "number of buildings_heating_gas_fired_heater should be ?" do
       @scenario.set_input 383, 100 #%
-      @scenario.number_of_buildings_heating_gas_fired_heater.value.should be_within(10.0).of(7349500.0)
+      @scenario.number_of_buildings_heating_gas_fired_heater.value.should be > 7349500.0
     end
 
     it "number of number_of_buildings_heating_heat_pump_with_ts should be ?" do
