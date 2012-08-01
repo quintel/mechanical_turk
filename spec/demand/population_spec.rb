@@ -9,7 +9,7 @@ describe "Population" do
 
   before(:all) do
     @scenario = Scenario.new(area_code: "nl", end_year: 2050)
-    @scenario.move_slider 335, 5 #%
+    @scenario.households_number_of_inhabitants = 5 #%
   end
 
   it "should increase primary demand" do

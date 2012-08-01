@@ -8,7 +8,7 @@ describe "Central coal-fired heater" do
 
   before(:all) do
     @scenario = Scenario.new(area_code: "nl", end_year: 2050)
-    @scenario.set_input 430, 10
+    @scenario.number_of_coal_conventional = 10
   end
 
   it "should increase primary demand" do
