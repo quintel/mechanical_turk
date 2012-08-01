@@ -27,7 +27,7 @@ describe Scenario do
     end
 
   end
-  
+
   describe "#current_inputs" do
     it "should return the latest from the inputs stack" do
       scenario.stub(:inputs).and_return([{},
@@ -45,7 +45,7 @@ describe Scenario do
       scenario.previous_inputs.should == {250 => 10, 251 => 11}
     end
   end
-  
+
   describe "#set_input" do
 
     it "should remember the set_input in @inputs" do
@@ -125,7 +125,7 @@ describe Scenario do
       scenario.set_input 250, 10
       scenario.result("foo").future.should == 12.0
     end
-    
+
   end
 
   describe "#result (without an explicit 'refresh!')" do
@@ -138,7 +138,7 @@ describe Scenario do
       load 'webmock_stubs.rb'
       scenario.result("foo").value.should == 2.0
     end
-    
+
     it "should return a proper increase of the result after having updated the sliders" do
       load 'webmock_stubs.rb'
       scenario.result("foo").value.should == 2
@@ -185,15 +185,15 @@ describe Scenario do
   end
 
   describe "#set_input" do
-    
+
     it "should receive different results when a input has been moved" do
       load 'webmock_stubs.rb'
       scenario.set_input 250, 10
       scenario.result("foo").value.should == 12
     end
-    
+
   end
-  
+
   describe "#move_slider_to" do
 
     it "should be the same (an alias) as #set_input" do
@@ -203,20 +203,20 @@ describe Scenario do
     end
 
   end
-  
+
   describe "#short-cuts for 'result'" do
-    
+
     it "should be possible to use short cut results!" do
       load 'webmock_stubs.rb'
       scenario.foo.value.should == 2
       scenario.foo.should be scenario.result("foo")
     end
-    
+
     it "should be possible to use abbreviated short cuts" do
       scenario.should_receive(:result).with("total_co2_emissions")
       scenario.co2
     end
-    
+
   end
 
 
