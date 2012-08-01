@@ -23,12 +23,13 @@ describe "Central coal-fired heater" do
     @scenario.co2.should increase
   end
 
-  it "should not increase bio footprint" do
+  it "should not change bio footprint" do
     @scenario.footprint.should not_change
   end
 
-  it "should increase the fossile energy for heat and cold production" do
-    @scenario.fossil_energy_used_for_heat_and_cold_production.should increase
+  # This converter does not supply a heat of cold network
+  it "should not change the fossile energy for heat and cold production" do
+    @scenario.fossil_energy_used_for_heat_and_cold_production.should not_change
   end
 
 end
