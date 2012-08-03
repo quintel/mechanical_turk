@@ -1,6 +1,11 @@
 require_relative 'connection'
 require_relative 'result'
 
+module Turk
+
+class MissingQuery < StandardError
+end
+
 class Scenario
 
   attr_reader :settings, :connection, :inputs, :results
@@ -85,8 +90,6 @@ class Scenario
     end
   end
 
-
-
 #######
 private
 #######
@@ -96,5 +99,6 @@ private
     @touched = true
   end
 
+end
 
 end

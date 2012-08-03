@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Buildings, Space Heating" do
 
   before(:each) do
-    @scenario = Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
   context "for the start scenario" do

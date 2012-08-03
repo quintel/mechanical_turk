@@ -6,7 +6,7 @@ require 'spec_helper'
 describe "merit order module" do
 
   before(:each) do
-    @scenario = Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
   context "for the start scenario" do

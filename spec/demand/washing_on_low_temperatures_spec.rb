@@ -6,7 +6,7 @@ require 'spec_helper'
 describe "#371: Washing on low temperatures" do
 
   before(:each) do
-    @scenario = Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
   context "when slider 361 (washing machine efficiencies) has not been set" do

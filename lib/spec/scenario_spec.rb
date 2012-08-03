@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Scenario do
+describe Turk::Scenario do
 
-  let(:scenario){ Scenario.new(area_code: "nl", end_year: 2040) }
+  let(:scenario){ Turk::Scenario.new(area_code: "nl", end_year: 2040) }
 
   before(:each) do
     load 'webmock_stubs_v3.rb'
@@ -16,7 +16,7 @@ describe Scenario do
     end
 
     it "should return area and end_year as attributes" do
-      scenario = Scenario.new(area_code: "de", end_year: 2037)
+      scenario = Turk::Scenario.new(area_code: "de", end_year: 2037)
       scenario.settings[:area_code].should == "de"
       scenario.settings[:end_year].should == 2037
     end
@@ -131,7 +131,7 @@ describe Scenario do
   describe "#result (without an explicit 'refresh!')" do
 
     it "should raise an error when asked for a non-existing result" do
-      expect { scenario.result["jael_jablabla"] }.to raise_error
+      expect { scenario.result("unknown") }.to raise_error(Turk::MissingQuery)
     end
 
     it "should return a value when asked for a query" do

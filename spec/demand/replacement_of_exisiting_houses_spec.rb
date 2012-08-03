@@ -8,7 +8,7 @@ require 'spec_helper'
 describe "Replacement of existing houses" do
 
   before(:all) do
-    @scenario = Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
 
     # move slider 1 (replacement of old houses in %/year)
     @scenario.move_slider 1, 2.5

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Connection do
+describe Turk::Connection do
 
-  let(:connection){ connection = Connection.new(Scenario.new) }
+  let(:connection){ connection = Turk::Connection.new(Turk::Scenario.new) }
 
   before(:each) do
     load 'webmock_stubs_v3.rb'
@@ -15,7 +15,7 @@ describe Connection do
     end
 
     it "should pass the settings" do
-      connection = Connection.new(nil, {area_code: 'de', end_year: 2037})
+      connection = Turk::Connection.new(nil, {area_code: 'de', end_year: 2037})
       connection.fetch_session_id.should == 1
     end
 

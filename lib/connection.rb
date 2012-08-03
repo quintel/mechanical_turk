@@ -2,6 +2,8 @@ require 'rubygems'
 require 'yaml'
 require 'httparty'
 
+module Turk
+
 class Connection
   include HTTParty
 
@@ -43,7 +45,9 @@ private
 
   def execute!(inputs = nil)
     return [] if scenario.queries.nil? || scenario.queries.empty?
-    get_response(inputs)["gqueries"]
+    response = get_response(inputs)["gqueries"]
+    raise Turk::MissingQuery if response.any?{|key, attr|key == "unknown"}
+    response
   end
 
   def get_response(inputs = nil)
@@ -59,5 +63,8 @@ private
     request_params[:scenario][:user_values] = inputs if inputs
     self.class.put(url, query: request_params)
   end
+
+
+end
 
 end
