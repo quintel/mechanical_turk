@@ -2,18 +2,22 @@ require 'spec_helper'
 
 describe Scenario do
 
-  let(:scenario){ Scenario.new(area: "nl", end_year: 2040) }
+  let(:scenario){ Scenario.new(area_code: "nl", end_year: 2040) }
+
+  before(:each) do
+    load 'webmock_stubs_v3.rb'
+  end
 
   describe "#settings" do
 
     it "should return area and end_year as attributes" do
-      scenario.settings[:area].should == "nl"
+      scenario.settings[:area_code].should == "nl"
       scenario.settings[:end_year].should == 2040
     end
 
     it "should return area and end_year as attributes" do
-      scenario = Scenario.new(area: "de", end_year: 2037)
-      scenario.settings[:area].should == "de"
+      scenario = Scenario.new(area_code: "de", end_year: 2037)
+      scenario.settings[:area_code].should == "de"
       scenario.settings[:end_year].should == 2037
     end
 
@@ -78,7 +82,6 @@ describe Scenario do
     end
 
     it "should have a history of inputs" do
-      load 'webmock_stubs.rb'
       scenario.set_input 250, 10
       scenario.set_input 251, 11
       scenario.result("foo").value
@@ -101,7 +104,6 @@ describe Scenario do
   describe "#short-cuts for 'set_input' with key" do
 
     it "should be possible to use scenario.crazy_horse=10" do
-      load 'webmock_stubs.rb'
       scenario.crazy_horse = 10
       scenario.inputs.should == [{},{"crazy_horse" => 10}]
     end
@@ -111,7 +113,6 @@ describe Scenario do
   describe "#refresh!" do
 
     it "should update values for all results" do
-      load 'webmock_stubs.rb'
       scenario.result("foo")
       scenario.refresh!
       scenario.result("foo").present.should == 1.0
@@ -120,7 +121,6 @@ describe Scenario do
     end
 
     it "should update values for all results *a second time*" do
-      load 'webmock_stubs.rb'
       scenario.result("foo").future.should == 2.0
       scenario.set_input 250, 10
       scenario.result("foo").future.should == 12.0
@@ -135,19 +135,16 @@ describe Scenario do
     end
 
     it "should return a value when asked for a query" do
-      load 'webmock_stubs.rb'
       scenario.result("foo").value.should == 2.0
     end
 
     it "should return a proper increase of the result after having updated the sliders" do
-      load 'webmock_stubs.rb'
       scenario.result("foo").value.should == 2
       scenario.set_input 250, 10
       scenario.result("foo").increase.should == 10.0
     end
 
     it "should return a proper increase of the result after having updated the sliders *without explicitly calling it before*" do
-      load 'webmock_stubs.rb'
       scenario.set_input 250, 10
       scenario.result("foo").increase.should == 10.0
     end
@@ -161,20 +158,17 @@ describe Scenario do
     end
 
     it "should return true when a input has been set" do
-      load 'webmock_stubs.rb'
       scenario.result("foo")
       scenario.set_input 250, 10
       scenario.touched?.should be_true
     end
 
     it "should return false when a new query has been added (because that one should update itself)" do
-      load 'webmock_stubs.rb'
       scenario.result("foo")
       scenario.touched?.should be_false
     end
 
     it "should return false when a input has not moved" do
-      load 'webmock_stubs.rb'
       scenario.result("foo")
       scenario.set_input 250, 10
       scenario.result("foo")
@@ -187,18 +181,7 @@ describe Scenario do
   describe "#set_input" do
 
     it "should receive different results when a input has been moved" do
-      load 'webmock_stubs.rb'
       scenario.set_input 250, 10
-      scenario.result("foo").value.should == 12
-    end
-
-  end
-
-  describe "#move_slider_to" do
-
-    it "should be the same (an alias) as #set_input" do
-      load 'webmock_stubs.rb'
-      scenario.move_slider 250, 10
       scenario.result("foo").value.should == 12
     end
 
@@ -207,7 +190,6 @@ describe Scenario do
   describe "#short-cuts for 'result'" do
 
     it "should be possible to use short cut results!" do
-      load 'webmock_stubs.rb'
       scenario.foo.value.should == 2
       scenario.foo.should be scenario.result("foo")
     end
@@ -218,8 +200,5 @@ describe Scenario do
     end
 
   end
-
-
-
 
 end

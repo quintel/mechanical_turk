@@ -1,3 +1,6 @@
+require_relative 'connection'
+require_relative 'result'
+
 class Scenario
 
   attr_reader :settings, :connection, :inputs, :results
@@ -22,7 +25,6 @@ class Scenario
     end
     @touched = true
   end
-  alias :move_slider :set_input
 
   def current_inputs
     inputs.last
@@ -49,10 +51,10 @@ class Scenario
   def refresh!
     @touched = false
     connection.results.each do |key, hash|
-      result(key).update(hash[2010], hash[settings[:end_year]])
+      result(key).update(hash["present"], hash["future"])
     end
     connection.previous_results.each do |key, hash|
-      result(key).update_previous(hash[settings[:end_year]])
+      result(key).update_previous(hash["future"])
     end
   end
 

@@ -13,22 +13,29 @@ class Connection
   end
 
   def fetch_session_id
-    response = self.class.get "/new.json", query: ({'settings' => @settings} if @settings)
-    result = response["scenario"]["id"] rescue "Error fetching api_session_id. Got response:\n\n #{response.inspect}"
-    @api_session_id = result
+    request_params = {source: "Mechanical Turk"}
+    request_params.merge!(@settings) if @settings
+    response = self.class.post ".json", query: { scenario: request_params }
+    begin
+      if response["id"].is_a?(Integer)
+        @api_session_id = response["id"]
+      else
+        raise "Error fetching api_session_id. Got response:\n\n #{response.inspect}"
+      end
+    end
   end
 
   def results
     execute!(scenario.current_inputs)
   end
-  
+
   def previous_results
     execute!(scenario.previous_inputs)
   end
-  
+
   SERVER_ADDRESS = YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] rescue "http://beta.et-engine.com"
-  
-  base_uri SERVER_ADDRESS + '/api/v2/api_scenarios'
+
+  base_uri SERVER_ADDRESS + '/api/v3/scenarios'
 
 #######
 private
@@ -36,27 +43,21 @@ private
 
   def execute!(inputs = nil)
     return [] if scenario.queries.nil? || scenario.queries.empty?
-    results = get_response(inputs)["result"]
-    parse(results)
+    get_response(inputs)["gqueries"]
   end
 
   def get_response(inputs = nil)
     session_id = api_session_id || fetch_session_id
     url = "/#{session_id}.json"
-    request_params = { result: scenario.queries, reset: true }
-    request_params[:input] = inputs if inputs
-    response = self.class.get(url, :query => request_params)
-  end
-
-  def parse(results)
-    parsed_results = Hash.new
-    results.each do |key, data|
-      parsed_results[key] = {
-        data[0][0] => data[0][1].kind_of?(Array) ? data[0][1][0].to_f : data[0][1].to_f,
-        data[1][0] => data[1][1].kind_of?(Array) ? data[1][1][0].to_f : data[1][1].to_f,
+    request_params = {
+      gqueries: scenario.queries,
+      source:   "Mechanical Turk",
+      reset: true,
+      scenario: {
       }
-    end
-    parsed_results
+    }
+    request_params[:scenario][:user_values] = inputs if inputs
+    self.class.put(url, query: request_params)
   end
 
 end
