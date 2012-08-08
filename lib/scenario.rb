@@ -3,7 +3,11 @@ require_relative 'result'
 
 module Turk
 
+#DEBT: move to own file
 class MissingQuery < StandardError
+end
+
+class NoConnection < StandardError
 end
 
 class Scenario
