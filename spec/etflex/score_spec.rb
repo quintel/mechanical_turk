@@ -43,6 +43,14 @@ describe "ETFlex Scoring mechanism" do
         @s.transport_cars_electric_share = 10 #%
         @s.etflex_score_renewability.should increase
       end
+      it "should increase co2 score" do
+        @s.transport_cars_electric_share = 10 #%
+        @s.etflex_score_co2.should increase
+      end
+      it "should decrease cost score" do
+        @s.transport_cars_electric_share = 10 #%
+        @s.etflex_score_cost.should increase
+      end
       it "should lower electric car score (penalty)" do
         @s.transport_cars_electric_share = 10 #%
         @s.etflex_score_electric_car.should decrease
@@ -54,16 +62,54 @@ describe "ETFlex Scoring mechanism" do
         @s.households_lighting_light_emitting_diode_share = 10 #%
         @s.etflex_score_co2.should increase
       end
+      it "should raise cost score" do
+        @s.households_lighting_light_emitting_diode_share = 10 #%
+        @s.etflex_score_cost.should increase
+      end
       it "should lower led score (penalty)" do
-        @s.households_lighting_light_emitting_diode_share = 100 #%
+        @s.households_lighting_light_emitting_diode_share = 10 #%
         @s.etflex_score_led.should decrease
+      end
+      it "penalty of led should be lower than co2 + costs when at 1%" do
+        @s.households_lighting_light_emitting_diode_share = 1 #%
+        (@s.etflex_score_co2.increase +
+         @s.etflex_score_cost.increase +
+         @s.etflex_score_led.increase).should be > 0
+      end
+      it "penalty of led should be higher than co2 + costs when at 100%" do
+        @s.households_lighting_light_emitting_diode_share = 100 #%
+        (@s.etflex_score_co2.increase +
+         @s.etflex_score_cost.increase +
+         @s.etflex_score_led.increase).should be < 0
       end
     end
 
-  end
-
-  before(:each) do
-    @s = Turk::Scenario.new(area_code: 'nl', end_year: 2030)
+    describe "Heatpump" do
+      it "should raise co2 score" do
+        @s.households_heating_heat_pump_ground_share = 10 #%
+        @s.etflex_score_co2.should increase
+      end
+      it "should lower cost score" do
+        @s.households_heating_heat_pump_ground_share = 10 #%
+        @s.etflex_score_cost.should decrease
+      end
+      it "should lower heatpump score (penalty)" do
+        @s.households_heating_heat_pump_ground_share = 10 #%
+        @s.etflex_score_heatpump.should decrease
+      end
+      it "penalty of heatpump should be lower than co2 + costs when at 1%" do
+        @s.households_lighting_light_emitting_diode_share = 1 #%
+        (@s.etflex_score_co2.increase +
+         @s.etflex_score_cost.increase +
+         @s.etflex_score_heatpump.increase).should be > 0
+      end
+      it "penalty of heatpump should be higher than co2 + costs when at 100%" do
+        @s.households_lighting_light_emitting_diode_share = 100 #%
+        (@s.etflex_score_co2.increase +
+         @s.etflex_score_cost.increase +
+         @s.etflex_score_heatpump.increase).should be < 0
+      end
+    end
   end
 
   describe "Supply" do
@@ -77,8 +123,24 @@ describe "ETFlex Scoring mechanism" do
 
     describe "Nuclear power plant" do
       it "should lower your nuclear score (penalty)" do
-        @s.number_of_nuclear_3rd_gen = 2
+        @s.number_of_nuclear_3rd_gen = 2 #maximum number of nucl. power plants
         @s.etflex_score_nuclear_waste.should decrease
+      end
+      it "should increase your co2 score" do
+        @s.number_of_nuclear_3rd_gen = 2 #maximum number of nucl. power plants
+        @s.etflex_score_co2.should increase
+      end
+      it "penalty of nuclear should be higher than co2 + costs when at 0.1" do
+        @s.number_of_nuclear_3rd_gen = 0.1 #nuclear power plants
+        (@s.etflex_score_co2.increase +
+         @s.etflex_score_cost.increase +
+         @s.etflex_score_nuclear_waste.increase).should be < 0
+      end
+      it "penalty of nuclear should be higher than co2 + costs when at 2" do
+        @s.number_of_nuclear_3rd_gen = 2 #nuclear power plants
+        (@s.etflex_score_co2.increase +
+         @s.etflex_score_cost.increase +
+         @s.etflex_score_nuclear_waste.increase).should be < 0
       end
     end
 
