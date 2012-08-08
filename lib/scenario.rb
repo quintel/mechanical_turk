@@ -4,11 +4,10 @@ require_relative 'result'
 module Turk
 
 #DEBT: move custom Errors to own file
-class MissingQuery < StandardError
-end
-
-class NoConnection < StandardError
-end
+class MissingQuery < StandardError; end
+class NoConnection < StandardError; end
+class MissingReponse < StandardError; end
+class MissingID < StandardError; end
 
 class Scenario
 

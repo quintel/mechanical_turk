@@ -5,7 +5,12 @@ require 'httparty'
 module Turk
 
 class Connection
+
+  SERVER_ADDRESS = YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] rescue "http://beta.et-engine.com"
+
   include HTTParty
+  base_uri SERVER_ADDRESS + '/api/v3/scenarios'
+  headers "User-Agent" => "mechanical turk", "Content-length" => "0"
 
   attr_accessor :api_session_id, :scenario, :settings
 
@@ -22,7 +27,7 @@ class Connection
       if response["id"].is_a?(Integer)
         @api_session_id = response["id"]
       else
-        raise "Error fetching api_session_id. Got response:\n\n #{response.inspect}"
+        raise(MissingID, "Error fetching api_session_id. Got response:\n\n #{response.inspect}")
       end
     end
   end
@@ -35,19 +40,17 @@ class Connection
     execute!(scenario.previous_inputs)
   end
 
-  SERVER_ADDRESS = YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] rescue "http://beta.et-engine.com"
-
-  base_uri SERVER_ADDRESS + '/api/v3/scenarios'
-
 #######
 private
 #######
 
   def execute!(inputs = nil)
     return [] if scenario.queries.nil? || scenario.queries.empty?
-    response = get_response(inputs)["gqueries"]
-    raise Turk::MissingQuery if response.any?{|key, attr|key == "unknown"}
-    response
+    reponse = get_response(inputs)
+    gqueries = reponse["gqueries"]
+    raise(Turk::MissingReponse, reponse) unless gqueries
+    raise Turk::MissingQuery if gqueries.any?{|key, attr|key == "unknown"}
+    gqueries
   end
 
   def get_response(inputs = nil)
@@ -61,9 +64,8 @@ private
       }
     }
     request_params[:scenario][:user_values] = inputs if inputs
-    response = self.class.put(url, query: request_params) || raise(Turk::NoConnection, "I did not get a proper connection")
+    self.class.put(url, query: request_params)
   end
-
 
 end
 
