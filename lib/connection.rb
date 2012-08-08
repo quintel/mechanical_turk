@@ -61,11 +61,7 @@ private
       }
     }
     request_params[:scenario][:user_values] = inputs if inputs
-    if response = self.class.put(url, query: request_params)
-      response
-    else
-      raise Turk::NoConnection, "I did not get a proper connection"
-    end
+    response = self.class.put(url, query: request_params) || raise(Turk::NoConnection, "I did not get a proper connection")
   end
 
 

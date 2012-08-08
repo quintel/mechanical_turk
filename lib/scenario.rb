@@ -3,7 +3,7 @@ require_relative 'result'
 
 module Turk
 
-#DEBT: move to own file
+#DEBT: move custom Errors to own file
 class MissingQuery < StandardError
 end
 
