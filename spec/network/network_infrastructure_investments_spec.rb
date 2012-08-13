@@ -202,7 +202,7 @@ describe "network infrastructure investments" do
     end
   end
   
-  context "scenario b(3893)" do
+  context "scenario c(3901)" do
 
     it "infrastructure investments need" do
       @scenario.set_input   333, 0.0
