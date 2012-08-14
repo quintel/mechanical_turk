@@ -23,13 +23,13 @@ describe "merit order module" do
   context "when removing power plants" do
 
     it "the full load hours of a power plant should become zero if the number of units becomes zero" do
-      @scenario.set_input 257, 0 # number of gas ccgt
+      @scenario.number_of_gas_ccgt = 0
       @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value.should be == 0.0
 
-      @scenario.set_input 259, 0 # number of nuclear plants
+      @scenario.number_of_nuclear_3rd_gen = 0
       @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value.should be == 0.0
 
-      @scenario.set_input 250, 0 # number of coal pwd
+      @scenario.number_of_pulverized_coal = 0
       @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value.should be == 0.0
     end
   end
@@ -37,7 +37,7 @@ describe "merit order module" do
   context "when adding wind power" do
 
     it "should lower full load hours of central production power plants" do
-      @scenario.set_input 265, 4000 # number of wind offshore turbines
+      @scenario.number_of_wind_offshore = 4000 
       @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should decrease
       @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.should decrease
       @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.should decrease
@@ -47,14 +47,14 @@ describe "merit order module" do
   context "when fuel costs change" do
 
     it "should increase full load hours of gas power plants when natural gas price decreases" do
-      @scenario.set_input 58, -50 # % decrease of natural gas costs
+      @scenario.costs_gas = -50
       @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should increase
     #  @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.should decrease
     #  @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.should decrease
     end
 
     it "should decrease full load hours of coal power plants when coal price increases" do
-        @scenario.set_input 57, 300 # % decrease of coal costs
+        @scenario.costs_coal = 300 
         @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.should decrease
     end
   end

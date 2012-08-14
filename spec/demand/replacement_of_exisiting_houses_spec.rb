@@ -11,7 +11,7 @@ describe "Replacement of existing houses" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
 
     # move slider 1 (replacement of old houses in %/year)
-    @scenario.move_slider 1, 2.5
+    @scenario.households_replacement_of_existing_houses = 2.5
 
     VALUE_IF_NO_HOUSES_REPLACED = 298.91
     VALUE_IF_ALL_HOUSES_REPLACED = 220.58

@@ -35,7 +35,7 @@ to certain positions, and expect the outcome to
 We can set a input and change the expectation accordingly:
 
 ````ruby
-@scenario.set_input "coal power plant", 3
+@scenario.number_of_pulverized_coal = 3
 ````
 
 We can also set a combination of inputs, e.g. that are in a group,
@@ -43,9 +43,9 @@ or when we went to test a *special* combination that produces an
 error prone situation:
 
 ````ruby
-@scenario.set_input "micro chp", 60 #percent
-@scenario.set_input "district heating", 40 #percent
-@scenario.set_input "coal power plant", 10 #number of typical plants
+@scenario.households_heating_micro_chp_share = 60 #percent
+@scenario.households_heating_heat_network_share = 40 #percent
+@scenario.number_of_pulverized_coal = 10 #number of typical plants
 ````
 
 Please note that the inputs are represented by sliders on
@@ -57,7 +57,7 @@ Please note that the inputs are represented by sliders on
 We can define that the outcome of the scenario is an exact number:
 
 ````ruby
-@scenario.set_input "coal power plant", 3
+@scenario.number_of_pulverized_coal = 3
 @scenario.co2.value should be == 163_516_595_413.0 #kg
 ````
 
@@ -154,7 +154,7 @@ describe "Your issue/challenge" do
 
   it "should do something that I expect" do
     scenario = Scenario.new(area_code: 'nl', end_year: 2050)
-    scenario.set_slider
+    scenario.a_slider_key
   end
 
 end

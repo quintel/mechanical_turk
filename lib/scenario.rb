@@ -21,19 +21,6 @@ class Scenario
     @touched = false
   end
 
-  def set_input(key, value)
-    return if @inputs.last[key] == value rescue nil #do nothing if nothing changed
-    if untouched?
-      new_inputs = {}
-      new_inputs.merge!(@inputs.last) if @inputs.last
-      new_inputs[key] = value
-      @inputs << new_inputs
-    else
-      @inputs.last[key] = value
-    end
-    @touched = true
-  end
-
   def current_inputs
     inputs.last
   end
@@ -96,6 +83,20 @@ class Scenario
 #######
 private
 #######
+
+  def set_input(key, value)
+    return if @inputs.last[key] == value rescue nil #do nothing if nothing changed
+    if untouched?
+      new_inputs = {}
+      new_inputs.merge!(@inputs.last) if @inputs.last
+      new_inputs[key] = value
+      @inputs << new_inputs
+    else
+      @inputs.last[key] = value
+    end
+    @touched = true
+  end
+  
 
   def add_result(key)
     @results[key] = Result.new(key, self)
