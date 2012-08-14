@@ -8,7 +8,7 @@ describe "network infrastructure investments" do
 
   context "start scenario" do
 
-    it "no infrastructure investments need" do
+    it "no infrastructure investments needed" do
       @scenario.lv_net_in_additional_infrastructure_investments.value.should be == 0.0
       @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be == 0.0
       @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be == 0.0
@@ -19,275 +19,275 @@ describe "network infrastructure investments" do
     end
   end
 
-  context "scenario a(3887)" do
+  context "Test scenario A id 3887" do
 
-    it "infrastructure investments need" do
-      @scenario.set_input 333, 0.0
-      @scenario.set_input 339, 0.0
-      @scenario.set_input 317, 0.0
-      @scenario.set_input 341, 0.0
-      @scenario.set_input 340, 0.0
-      @scenario.set_input 52, 0.0
-      @scenario.set_input 441, 0.0
-      @scenario.set_input 248, 0.0
-      @scenario.set_input 411, 0.0
-      @scenario.set_input 352, 0.0
-      @scenario.set_input 372, -1.6
-      @scenario.set_input 48, 0.0
-      @scenario.set_input 338, 90.0
-      @scenario.set_input 344, 0.0
-      @scenario.set_input 51, 0.0
-      @scenario.set_input 375, 0.0
-      @scenario.set_input 343, 100.0
-      @scenario.set_input 242, 0.0
-      @scenario.set_input 47, 100.0
-      @scenario.set_input 383, 0.0
-      @scenario.set_input 387, 0.0
-      @scenario.set_input 409, 0.0
-      @scenario.set_input 406, 0.0
-      @scenario.set_input 386, 0.0
-      @scenario.set_input 377, -1.6
-      @scenario.set_input 394, 90.0
-      @scenario.set_input 390, 0.0
-      @scenario.set_input 389, 0.0
-      @scenario.set_input 385, 0.0
-      @scenario.set_input 388, 10.0
-      @scenario.set_input 405, 100.0
-      @scenario.set_input 147, 30.000000000000004
-      @scenario.set_input 148, 0.0
-      @scenario.set_input 238, 0.0
-      @scenario.set_input 239, 0.0
-      @scenario.set_input 428, 6.4
-      @scenario.set_input 429, 93.6
-      @scenario.set_input 141, 1.3000000000000003
-      @scenario.set_input 142, 1.3000000000000003
-      @scenario.set_input 146, 70.0
-      @scenario.set_input 159, 70.0
-      @scenario.set_input 158, 30.000000000000004
-      @scenario.set_input 157, 0.0
-      @scenario.set_input 240, 0.0
-      @scenario.set_input 171, 0.6000000000000001
-      @scenario.set_input 328, 0.6
-      @scenario.set_input 186, 0.6
-      @scenario.set_input 216, 0.0
-      @scenario.set_input 217, 0.0
-      @scenario.set_input 218, 0.0
-      @scenario.set_input 219, 100.0
-      @scenario.set_input 326, 0.0
-      @scenario.set_input 214, -1.1999999999853914
-      @scenario.set_input 170, 0.2
-      @scenario.set_input 322, 120.2
-      @scenario.set_input 324, 104.8
-      @scenario.set_input 246, 0.0
-      @scenario.set_input 223, 0.0
-      @scenario.set_input 327, 10.0
-      @scenario.set_input 221, -1.5999999401626401
-      @scenario.set_input 225, 0.0
-      @scenario.set_input 227, 20.000000000000004
-      @scenario.set_input 228, 70.0
-      @scenario.set_input 250, 0.0
-      @scenario.set_input 253, 0.0
-      @scenario.set_input 315, 0.0
-      @scenario.set_input 551, 0.0
-      @scenario.set_input 259, 0.0
-      @scenario.set_input 292, 100.0
-      @scenario.set_input 293, 0.0
-      @scenario.set_input 294, 96.8
-      @scenario.set_input 295, 3.2
-      @scenario.set_input 489, 0.0
-      @scenario.set_input 488, 100.0
-      @scenario.set_input 263, 2325.0
-      @scenario.set_input 264, 0.0
-      @scenario.set_input 265, 6675.000000000001
-      @scenario.set_input 582, 10.0
+    it "the infrastructure investments need to be around 57" do
+      @scenario.set_input "households_heating_gas_combi_heater_share", 0.0
+      @scenario.set_input "households_heating_heat_pump_add_on_share", 0.0
+      @scenario.set_input "households_heating_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input "households_heating_heat_network_share", 0.0
+      @scenario.set_input "households_heating_pellet_stove_share", 0.0
+      @scenario.set_input "households_heating_electric_heater_share", 0.0
+      @scenario.set_input "households_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "households_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "households_heating_coal_fired_heater_share", 0.0
+      @scenario.set_input "households_cooling_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input "households_heat_demand_per_person", -1.6
+      @scenario.set_input "households_heating_heat_pump_ground_share", 90.0
+      @scenario.set_input "households_heating_geothermal_share", 0.0
+      @scenario.set_input "households_heating_micro_chp_share", 0.0
+      @scenario.set_input "households_heating_heat_pump_with_ts_share", 0.0
+      @scenario.set_input "households_heating_biomass_chp_share", 100.0
+      @scenario.set_input "households_heating_small_gas_chp_share", 0.0
+      @scenario.set_input "households_market_penetration_solar_panels", 100.0
+      @scenario.set_input "buildings_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "buildings_heating_electric_heater_share", 0.0
+      @scenario.set_input "buildings_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "buildings_heating_biomass_fired_heater_share", 0.0
+      @scenario.set_input "buildings_heating_small_gas_chp_share", 0.0
+      @scenario.set_input "buildings_electricity_per_student_employee", -1.6
+      @scenario.set_input "buildings_heating_heat_pump_with_ts_share", 90.0
+      @scenario.set_input "buildings_heating_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input "buildings_heating_solar_thermal_panels_share", 0.0
+      @scenario.set_input "buildings_heating_biomass_chp_share", 0.0
+      @scenario.set_input "buildings_heating_heat_network_share", 10.0
+      @scenario.set_input "buildings_market_penetration_solar_panels", 100.0
+      @scenario.set_input "transport_cars_diesel_share", 30.000000000000004
+      @scenario.set_input "transport_cars_gasoline_share", 0.0
+      @scenario.set_input "transport_cars_lpg_share", 0.0
+      @scenario.set_input "transport_cars_compressed_gas_share", 0.0
+      @scenario.set_input "transport_trains_diesel_share", 6.4
+      @scenario.set_input "transport_trains_electric_share", 93.6
+      @scenario.set_input "transport_cars", 1.3000000000000003
+      @scenario.set_input "transport_trucks", 1.3000000000000003
+      @scenario.set_input "transport_cars_electric_share", 70.0
+      @scenario.set_input "transport_trucks_electric_share", 70.0
+      @scenario.set_input "transport_trucks_diesel_share", 30.000000000000004
+      @scenario.set_input "transport_trucks_gasoline_share", 0.0
+      @scenario.set_input "transport_trucks_compressed_gas_share", 0.0
+      @scenario.set_input "transport_efficiency_electric_vehicles", 0.6000000000000001
+      @scenario.set_input "transport_efficiency_combustion_engine_trucks", 0.6
+      @scenario.set_input "transport_efficiency_combustion_engine_cars", 0.6
+      @scenario.set_input "industry_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "industry_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "industry_heating_coal_fired_heater_share", 0.0
+      @scenario.set_input "industry_heating_biomass_fired_heater_share", 100.0
+      @scenario.set_input "industry_heating_combined_heat_power_share", 0.0
+      @scenario.set_input "industry_heat_demand", -1.1999999999853914
+      @scenario.set_input "industry_heat_from_fuels", 0.2
+      @scenario.set_input "industry_number_of_gas_chp", 120.2
+      @scenario.set_input "industry_number_of_biomass_chp", 104.8
+      @scenario.set_input "agriculture_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "agriculture_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "agriculture_heating_combined_heat_power_share", 10.0
+      @scenario.set_input "agriculture_heat_demand", -1.5999999401601
+      @scenario.set_input "agriculture_heating_biomass_fired_heater_share", 0.0
+      @scenario.set_input "agriculture_heating_heat_pump_with_ts_share", 20.000000000000004
+      @scenario.set_input "agriculture_heating_geothermal_share", 70.0
+      @scenario.set_input "number_of_pulverized_coal", 0.0
+      @scenario.set_input "number_of_coal_iggc", 0.0
+      @scenario.set_input "number_of_coal_conventional", 0.0
+      @scenario.set_input "number_of_central_coal_chp", 0.0
+      @scenario.set_input "number_of_nuclear_3rd_gen", 0.0
+      @scenario.set_input "transport_diesel_share", 100.0
+      @scenario.set_input "transport_biodiesel_share", 0.0
+      @scenario.set_input "transport_gasoline_share", 96.8
+      @scenario.set_input "transport_bio_ethanol_share", 3.2
+      @scenario.set_input "natural_gas_total_share", 0.0
+      @scenario.set_input "green_gas_total_share", 100.0
+      @scenario.set_input "number_of_wind_onshore_land", 2325.0
+      @scenario.set_input "number_of_wind_onshore_coast", 0.0
+      @scenario.set_input "number_of_wind_offshore", 6675.000000000001
+      @scenario.set_input "households_heating_district_heating_network_share", 10.0
     
-      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1000000000).of(23000000000)
-      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1000000000).of(5000000000)
-      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1000000000).of(2000000000)
-      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1000000000).of(6000000000)
-      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1000000000).of(6000000000)
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1000000000).of(15000000000)
+      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(23* 10**9)
+      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(5* 10**9)
+      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(2* 10**9)
+      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(6* 10**9)
+      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(6* 10**9)
+      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(15* 10**9)
     end
   end  
   
-  context "scenario b(3893)" do
+  context "Test scenario B id 3893" do
 
-    it "infrastructure investments need" do
-      @scenario.set_input 339, 0.0
-      @scenario.set_input 333, 0.0
-      @scenario.set_input 317, 0.0
-      @scenario.set_input 341, 100.0
-      @scenario.set_input 340, 0.0
-      @scenario.set_input 52, 0.0
-      @scenario.set_input 441, 0.0
-      @scenario.set_input 248, 0.0
-      @scenario.set_input 411, 0.0
-      @scenario.set_input 352, 0.0
-      @scenario.set_input 203, 2.5000000000000004
-      @scenario.set_input 372, -0.9999999997635315
-      @scenario.set_input 48, 0.0
-      @scenario.set_input 338, 20.000000000000004
-      @scenario.set_input 344, 0.0
-      @scenario.set_input 51, 60.0000000000001
-      @scenario.set_input 375, 0.0
-      @scenario.set_input 343, 0.0
-      @scenario.set_input 242, 0.0
-      @scenario.set_input 47, 76.5
-      @scenario.set_input 383, 0.0
-      @scenario.set_input 387, 0.0
-      @scenario.set_input 409, 0.0
-      @scenario.set_input 406, 70.0
-      @scenario.set_input 386, 0.0
-      @scenario.set_input 377, 1.0
-      @scenario.set_input 378, -0.9999999999997718
-      @scenario.set_input 394, 20.000000000000004
-      @scenario.set_input 390, 0.0
-      @scenario.set_input 389, 0.0
-      @scenario.set_input 385, 0.0
-      @scenario.set_input 388, 10.0
-      @scenario.set_input 147, 30.000000000000004
-      @scenario.set_input 148, 0.0
-      @scenario.set_input 238, 0.0
-      @scenario.set_input 239, 0.0
-      @scenario.set_input 428, 6.4
-      @scenario.set_input 429, 93.6
-      @scenario.set_input 141, 1.2000000000000002
-      @scenario.set_input 142, 1.2000000000000002
-      @scenario.set_input 146, 70.0
-      @scenario.set_input 159, 70.0
-      @scenario.set_input 158, 30.000000000000004
-      @scenario.set_input 157, 0.0
-      @scenario.set_input 240, 0.0
-      @scenario.set_input 216, 100.0
-      @scenario.set_input 217, 0.0
-      @scenario.set_input 218, 0.0
-      @scenario.set_input 219, 0.0
-      @scenario.set_input 326, 0.0
-      @scenario.set_input 214, -0.5
-      @scenario.set_input 170, 0.2
-      @scenario.set_input 324, 104.8
-      @scenario.set_input 246, 0.0
-      @scenario.set_input 223, 0.0
-      @scenario.set_input 327, 30.000000000000004
-      @scenario.set_input 221, -0.9999999999999999
-      @scenario.set_input 225, 70.0
-      @scenario.set_input 227, 0.0
-      @scenario.set_input 228, 0.0
-      @scenario.set_input 250, 0.0
-      @scenario.set_input 253, 0.0
-      @scenario.set_input 315, 0.0
-      @scenario.set_input 551, 0.0
-      @scenario.set_input 256, 0.0
-      @scenario.set_input 257, 0.0
-      @scenario.set_input 276, 0.0
-      @scenario.set_input 416, 26.200000000000003
-      @scenario.set_input 259, 0.0
-      @scenario.set_input 489, 0.0
-      @scenario.set_input 488, 100.0
-      @scenario.set_input 263, 1650.0
-      @scenario.set_input 264, 0.0
-      @scenario.set_input 265, 2000.0
-      @scenario.set_input 292, 100.0
-      @scenario.set_input 293, 0.0
-      @scenario.set_input 294, 96.8
-      @scenario.set_input 295, 3.2
-      @scenario.set_input 582, 20.000000000000004
+    it "the infrastructure investments need to be around 32" do
+      @scenario.set_input "households_heating_heat_pump_add_on_share", 0.0
+      @scenario.set_input "households_heating_gas_combi_heater_share", 0.0
+      @scenario.set_input "households_heating_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input "households_heating_heat_network_share", 100.0
+      @scenario.set_input "households_heating_pellet_stove_share", 0.0
+      @scenario.set_input "households_heating_electric_heater_share", 0.0
+      @scenario.set_input "households_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "households_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "households_heating_coal_fired_heater_share", 0.0
+      @scenario.set_input "households_cooling_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input "households_electricity_demand_per_person", 2.5000000000000004
+      @scenario.set_input "households_heat_demand_per_person", -0.9999999997635
+      @scenario.set_input "households_heating_heat_pump_ground_share", 20.000000000000004
+      @scenario.set_input "households_heating_geothermal_share", 0.0
+      @scenario.set_input "households_heating_micro_chp_share", 60.0000000000001
+      @scenario.set_input "households_heating_heat_pump_with_ts_share", 0.0
+      @scenario.set_input "households_heating_biomass_chp_share", 0.0
+      @scenario.set_input "households_heating_small_gas_chp_share", 0.0
+      @scenario.set_input "households_market_penetration_solar_panels", 76.5
+      @scenario.set_input "buildings_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "buildings_heating_electric_heater_share", 0.0
+      @scenario.set_input "buildings_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "buildings_heating_biomass_fired_heater_share", 70.0
+      @scenario.set_input "buildings_heating_small_gas_chp_share", 0.0
+      @scenario.set_input "buildings_electricity_per_student_employee", 1.0
+      @scenario.set_input "buildings_heat_per_employee_student", -0.9999999999997718
+      @scenario.set_input "buildings_heating_heat_pump_with_ts_share", 20.000000000000004
+      @scenario.set_input "buildings_heating_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input "buildings_heating_solar_thermal_panels_share", 0.0
+      @scenario.set_input "buildings_heating_biomass_chp_share", 0.0
+      @scenario.set_input "buildings_heating_heat_network_share", 10.0
+      @scenario.set_input "transport_cars_diesel_share", 30.000000000000004
+      @scenario.set_input "transport_cars_gasoline_share", 0.0
+      @scenario.set_input "transport_cars_lpg_share", 0.0
+      @scenario.set_input "transport_cars_compressed_gas_share", 0.0
+      @scenario.set_input "transport_trains_diesel_share", 6.4
+      @scenario.set_input "transport_trains_electric_share", 93.6
+      @scenario.set_input "transport_cars", 1.2000000000000002
+      @scenario.set_input "transport_trucks", 1.2000000000000002
+      @scenario.set_input "transport_cars_electric_share", 70.0
+      @scenario.set_input "transport_trucks_electric_share", 70.0
+      @scenario.set_input "transport_trucks_diesel_share", 30.000000000000004
+      @scenario.set_input "transport_trucks_gasoline_share", 0.0
+      @scenario.set_input "transport_trucks_compressed_gas_share", 0.0
+      @scenario.set_input "industry_heating_gas_fired_heater_share", 100.0
+      @scenario.set_input "industry_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "industry_heating_coal_fired_heater_share", 0.0
+      @scenario.set_input "industry_heating_biomass_fired_heater_share", 0.0
+      @scenario.set_input "industry_heating_combined_heat_power_share", 0.0
+      @scenario.set_input "industry_heat_demand", -0.5
+      @scenario.set_input "industry_heat_from_fuels", 0.2
+      @scenario.set_input "industry_number_of_biomass_chp", 104.8
+      @scenario.set_input "agriculture_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input "agriculture_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input "agriculture_heating_combined_heat_power_share", 30.000000000000004
+      @scenario.set_input "agriculture_heat_demand", -0.9999999999999999
+      @scenario.set_input "agriculture_heating_biomass_fired_heater_share", 70.0
+      @scenario.set_input "agriculture_heating_heat_pump_with_ts_share", 0.0
+      @scenario.set_input "agriculture_heating_geothermal_share", 0.0
+      @scenario.set_input "number_of_pulverized_coal", 0.0
+      @scenario.set_input "number_of_coal_iggc", 0.0
+      @scenario.set_input "number_of_coal_conventional", 0.0
+      @scenario.set_input "number_of_central_coal_chp", 0.0
+      @scenario.set_input "number_of_gas_conventional", 0.0
+      @scenario.set_input "number_of_gas_ccgt", 0.0
+      @scenario.set_input "number_of_large_gas_chp", 0.0
+      @scenario.set_input "number_of_gas_ccgt_ccs", 26.200000000000003
+      @scenario.set_input "number_of_nuclear_3rd_gen", 0.0
+      @scenario.set_input "natural_gas_total_share", 0.0
+      @scenario.set_input "green_gas_total_share", 100.0
+      @scenario.set_input "number_of_wind_onshore_land", 1650.0
+      @scenario.set_input "number_of_wind_onshore_coast", 0.0
+      @scenario.set_input "number_of_wind_offshore", 2000.0
+      @scenario.set_input "transport_diesel_share", 100.0
+      @scenario.set_input "transport_biodiesel_share", 0.0
+      @scenario.set_input "transport_gasoline_share", 96.8
+      @scenario.set_input "transport_bio_ethanol_share", 3.2
+      @scenario.set_input "households_heating_district_heating_network_share", 20.000000000000004
 
-      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1000000000).of(13000000000)
-      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1000000000).of(3000000000)
-      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1000000000).of(2000000000)
-      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1000000000).of(4000000000)
-      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1000000000).of(5000000000)
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1000000000).of(6000000000)
+
+
+      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(13* 10**9)
+      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(3* 10**9)
+      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(2* 10**9)
+      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(4* 10**9)
+      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(5* 10**9)
+      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(6* 10**9)
     end
   end
   
-  context "scenario c(3901)" do
+  context "Test scenario C id 3901" do
 
-    it "infrastructure investments need" do
-      @scenario.set_input   333, 0.0
-      @scenario.set_input   339, 0.0
-      @scenario.set_input   317, 0.0
-      @scenario.set_input   341, 100.0
-      @scenario.set_input   340, 0.0
-      @scenario.set_input   52, 0.0
-      @scenario.set_input   441, 0.0
-      @scenario.set_input   248, 0.0
-      @scenario.set_input   411, 0.0
-      @scenario.set_input   352, 0.0
-      @scenario.set_input   203, 2.5000000000000004
-      @scenario.set_input   372, -0.9999999999999999
-      @scenario.set_input   48, 0.0
-      @scenario.set_input   338, 65.0
-      @scenario.set_input   344, 0.0
-      @scenario.set_input   51, 0.0
-      @scenario.set_input   375, 0.0
-      @scenario.set_input   343, 0.0
-      @scenario.set_input   242, 0.0
-      @scenario.set_input   47, 27.000000000000004
-      @scenario.set_input   383, 0.0
-      @scenario.set_input   387, 0.0
-      @scenario.set_input   409, 0.0
-      @scenario.set_input   406, 0.0
-      @scenario.set_input   386, 0.0
-      @scenario.set_input   377, 1.0
-      @scenario.set_input   378, -0.9999999999997718
-      @scenario.set_input   394, 71.8
-      @scenario.set_input   390, 0.0
-      @scenario.set_input   389, 0.0
-      @scenario.set_input   385, 0.0
-      @scenario.set_input   388, 28.200000000000003
-      @scenario.set_input   147, 0.0
-      @scenario.set_input   148, 0.0
-      @scenario.set_input   238, 0.0
-      @scenario.set_input   239, 0.0
-      @scenario.set_input   428, 6.4
-      @scenario.set_input   429, 93.6
-      @scenario.set_input   141, 2.5000000000000004
-      @scenario.set_input   142, 2.5000000000000004
-      @scenario.set_input   146, 100.0
-      @scenario.set_input   159, 100.0
-      @scenario.set_input   158, 0.0
-      @scenario.set_input   157, 0.0
-      @scenario.set_input   240, 0.0
-      @scenario.set_input   216, 100.0
-      @scenario.set_input   217, 0.0
-      @scenario.set_input   218, 0.0
-      @scenario.set_input   219, 0.0
-      @scenario.set_input   326, 0.0
-      @scenario.set_input   214, -0.5
-      @scenario.set_input   170, 0.2
-      @scenario.set_input   324, 133.0
-      @scenario.set_input   246, 0.0
-      @scenario.set_input   223, 0.0
-      @scenario.set_input   327, 35.0
-      @scenario.set_input   221, -0.9999999999997718
-      @scenario.set_input   225, 10.0
-      @scenario.set_input   227, 15.0
-      @scenario.set_input   228, 40.00000000000001
-      @scenario.set_input   250, 0.0
-      @scenario.set_input   253, 0.0
-      @scenario.set_input   315, 0.0
-      @scenario.set_input   551, 0.0
-      @scenario.set_input   251, 31.000000000000004
-      @scenario.set_input   259, 8.7
-      @scenario.set_input   489, 0.0
-      @scenario.set_input   488, 100.0
-      @scenario.set_input   263, 660.0000000000001
-      @scenario.set_input   264, 0.0
-      @scenario.set_input   265, 2000.0
-      @scenario.set_input   292, 100.0
-      @scenario.set_input   293, 0.0
-      @scenario.set_input   294, 96.8
-      @scenario.set_input   295, 3.2
-      @scenario.set_input   582, 35.0
+    it "the infrastructure investments need to be around 112" do
+      @scenario.set_input   "households_heating_gas_combi_heater_share", 0.0
+      @scenario.set_input   "households_heating_heat_pump_add_on_share", 0.0
+      @scenario.set_input   "households_heating_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input   "households_heating_heat_network_share", 100.0
+      @scenario.set_input   "households_heating_pellet_stove_share", 0.0
+      @scenario.set_input   "households_heating_electric_heater_share", 0.0
+      @scenario.set_input   "households_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input   "households_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input   "households_heating_coal_fired_heater_share", 0.0
+      @scenario.set_input   "households_cooling_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input   "households_electricity_demand_per_person", 2.5000000000000004
+      @scenario.set_input   "households_heat_demand_per_person", -0.9999999999999999
+      @scenario.set_input   "households_heating_heat_pump_ground_share", 65.0
+      @scenario.set_input   "households_heating_geothermal_share", 0.0
+      @scenario.set_input   "households_heating_micro_chp_share", 0.0
+      @scenario.set_input   "households_heating_heat_pump_with_ts_share", 0.0
+      @scenario.set_input   "households_heating_biomass_chp_share", 0.0
+      @scenario.set_input   "households_heating_small_gas_chp_share", 0.0
+      @scenario.set_input   "households_market_penetration_solar_panels", 27.000000000000004
+      @scenario.set_input   "buildings_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input   "buildings_heating_electric_heater_share", 0.0
+      @scenario.set_input   "buildings_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input   "buildings_heating_biomass_fired_heater_share", 0.0
+      @scenario.set_input   "buildings_heating_small_gas_chp_share", 0.0
+      @scenario.set_input   "buildings_electricity_per_student_employee", 1.0
+      @scenario.set_input   "buildings_heat_per_employee_student", -0.9999999999997718
+      @scenario.set_input   "buildings_heating_heat_pump_with_ts_share", 71.8
+      @scenario.set_input   "buildings_heating_gas_fired_heat_pump_share", 0.0
+      @scenario.set_input   "buildings_heating_solar_thermal_panels_share", 0.0
+      @scenario.set_input   "buildings_heating_biomass_chp_share", 0.0
+      @scenario.set_input   "buildings_heating_heat_network_share", 28.200000000000003
+      @scenario.set_input   "transport_cars_diesel_share", 0.0
+      @scenario.set_input   "transport_cars_gasoline_share", 0.0
+      @scenario.set_input   "transport_cars_lpg_share", 0.0
+      @scenario.set_input   "transport_cars_compressed_gas_share", 0.0
+      @scenario.set_input   "transport_trains_diesel_share", 6.4
+      @scenario.set_input   "transport_trains_electric_share", 93.6
+      @scenario.set_input   "transport_cars", 2.5000000000000004
+      @scenario.set_input   "transport_trucks", 2.5000000000000004
+      @scenario.set_input   "transport_cars_electric_share", 100.0
+      @scenario.set_input   "transport_trucks_electric_share", 100.0
+      @scenario.set_input   "transport_trucks_diesel_share", 0.0
+      @scenario.set_input   "transport_trucks_gasoline_share", 0.0
+      @scenario.set_input   "transport_trucks_compressed_gas_share", 0.0
+      @scenario.set_input   "industry_heating_gas_fired_heater_share", 100.0
+      @scenario.set_input   "industry_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input   "industry_heating_coal_fired_heater_share", 0.0
+      @scenario.set_input   "industry_heating_biomass_fired_heater_share", 0.0
+      @scenario.set_input   "industry_heating_combined_heat_power_share", 0.0
+      @scenario.set_input   "industry_heat_demand", -0.5
+      @scenario.set_input   "industry_heat_from_fuels", 0.2
+      @scenario.set_input   "industry_number_of_biomass_chp", 133.0
+      @scenario.set_input   "agriculture_heating_gas_fired_heater_share", 0.0
+      @scenario.set_input   "agriculture_heating_oil_fired_heater_share", 0.0
+      @scenario.set_input   "agriculture_heating_combined_heat_power_share", 35.0
+      @scenario.set_input   "agriculture_heat_demand", -0.9999999999997718
+      @scenario.set_input   "agriculture_heating_biomass_fired_heater_share", 10.0
+      @scenario.set_input   "agriculture_heating_heat_pump_with_ts_share", 15.0
+      @scenario.set_input   "agriculture_heating_geothermal_share", 40.00000000000001
+      @scenario.set_input   "number_of_pulverized_coal", 0.0
+      @scenario.set_input   "number_of_coal_iggc", 0.0
+      @scenario.set_input   "number_of_coal_conventional", 0.0
+      @scenario.set_input   "number_of_central_coal_chp", 0.0
+      @scenario.set_input   "number_of_pulverized_coal_ccs", 31.000000000000004
+      @scenario.set_input   "number_of_nuclear_3rd_gen", 8.7
+      @scenario.set_input   "natural_gas_total_share", 0.0
+      @scenario.set_input   "green_gas_total_share", 0.0
+      @scenario.set_input   "number_of_wind_onshore_land", 660.0000000000001
+      @scenario.set_input   "number_of_wind_onshore_coast", 0.0
+      @scenario.set_input   "number_of_wind_offshore", 2000.0
+      @scenario.set_input   "transport_diesel_share", 100.0
+      @scenario.set_input   "transport_biodiesel_share", 0.0
+      @scenario.set_input   "transport_gasoline_share", 96.8
+      @scenario.set_input   "transport_bio_ethanol_share", 3.2
+      @scenario.set_input   "households_heating_district_heating_network_share", 35.0
+      
 
-      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1000000000).of(60000000000)
-      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1000000000).of(10000000000)
-      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1000000000).of(5000000000)
-      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1000000000).of(12000000000)
-      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1000000000).of(13000000000)
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1000000000).of(13000000000)
+      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(60* 10**9)
+      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(10* 10**9)
+      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(5* 10**9)
+      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(12* 10**9)
+      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(13* 10**9)
+      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(13* 10**9)
     end
   end
 
