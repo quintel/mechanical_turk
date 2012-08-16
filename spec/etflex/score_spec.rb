@@ -21,7 +21,7 @@ require 'spec_helper'
 describe "ETFlex Scoring mechanism" do
 
   before(:each) do
-    @s = Turk::Scenario.new(area_code: 'nl', end_year: 2030)
+    @s = Turk::Scenario.new(area_code: 'nl', end_year: 2030, autobalance: true)
   end
 
   describe "Demand" do
@@ -161,10 +161,6 @@ describe "ETFlex Scoring mechanism" do
     describe "Green gas" do
       it "should raise your score on CO2" do
         @s.green_gas_total_share = 10 #%
-        # The ETlite uses a balancer to also send the 'other' slider value
-        # As of now, we are implementing a Balancer on the ETEngine, when
-        # that is done, we can get rid of the following line.
-        @s.natural_gas_total_share = 90 #%
         @s.etflex_score_co2.should increase
       end
     end

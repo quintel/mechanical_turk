@@ -17,6 +17,7 @@ class Connection
   def initialize(scenario = nil, settings = nil)
     @scenario = scenario
     @settings = settings
+    @autobalance = settings.delete(:autobalance)
   end
 
   def fetch_session_id
@@ -58,11 +59,12 @@ private
     url = "/#{session_id}.json"
     request_params = {
       gqueries: scenario.queries,
-      source:   "Mechanical Turk",
+      source: "Mechanical Turk",
       reset: true,
       scenario: {
       }
     }
+    request_params[:autobalance] = true if @autobalance
     request_params[:scenario][:user_values] = inputs if inputs
     self.class.put(url, query: request_params)
   end
