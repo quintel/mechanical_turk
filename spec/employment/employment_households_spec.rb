@@ -5,7 +5,7 @@ require 'spec_helper'
 describe "Households, Space Heating" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true)
   end
 
   context "for the start scenario" do
@@ -44,7 +44,7 @@ describe "Households, Space Heating" do
 
     it "number of households_space_heater_electricity should be #HHs (7349500.0)" do
       @scenario.households_heating_electric_heater_share = 100 #%
-      @scenario.turk_number_of_households_space_heater_electricity.value.should be_within(100.0).of(7349500.0)
+      @scenario.turk_number_of_households_space_heater_electricity.value.should be_within(10.0).of(7349500.0)
     end
 
     it "number of households_space_heater_network_gas should be #HHs (7349500.0)" do
