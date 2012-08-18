@@ -30,7 +30,7 @@ end
 
 # Specify attributes to query
 attributes = ["full_load_hours", "number_of_units"]
-values = {"full_load_hours" => "7349500.0,10.0", "number_of_units" => "4380.0, 4380.0"}
+values = {"full_load_hours" => [4380.0, 4380.0], "number_of_units" => [10.0,7349500.0]}
 
 # Main loop
 converters.each do|c|
@@ -38,10 +38,10 @@ converters.each do|c|
 	attributes.each do|a|
 
  		# Dynamically create fileNmame
-		fileName = "turk_#{a}_of_#{c[0]}.gql"
+		fileName = "turk_#{a}_of_#{c[0]}"
 
 		# Open file
-			outFile = File.new(fileName, "w")
+			outFile = File.new(fileName+".gql", "w")
 		if outFile
 		  	outFile.syswrite("# Return #{a} of #{c[0]}
 
@@ -58,7 +58,7 @@ V(#{c[0]}, #{a})
 		puts "it \"turk_#{a}_of_#{c[0]}\" do"
     puts "	@scenario.#{c[1]} = 100 #%"
     range = values[a]
-    puts "	the_future.should be_within(#{range})"
+    puts "	@scenario.#{fileName}.value.should be_within(#{range[0]}).of(#{range[1]})"
     puts "end"
     puts ""
 
