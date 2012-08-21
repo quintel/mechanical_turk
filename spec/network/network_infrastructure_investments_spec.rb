@@ -4,293 +4,139 @@ describe "network infrastructure investments" do
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2040)
+    @scenario.households_heating_gas_combi_heater_share = 0.0
+    @scenario.households_heating_heat_pump_ground_share = 0.0
+    @scenario.households_heating_district_heating_network_share = 0.0
+    @scenario.households_heating_pellet_stove_share = 0.0
+    @scenario.households_heating_electric_heater_share = 100.0
+    @scenario.households_heating_gas_fired_heater_share = 0.0
+    @scenario.households_heating_oil_fired_heater_share = 0.0
+    @scenario.households_heating_coal_fired_heater_share = 0.0
+    @scenario.households_heating_micro_chp_share = 0.0
+    
+    @scenario.network_total_costs.should increase
   end
-
+  
+  
   context "start scenario" do
-
     it "no infrastructure investments needed" do
+      @scenario.households_heating_gas_combi_heater_share = 82.1
+      @scenario.households_heating_heat_pump_ground_share = 0.1
+      @scenario.households_heating_district_heating_network_share = 3.0
+      @scenario.households_heating_pellet_stove_share = 2.6
+      @scenario.households_heating_electric_heater_share = 1.8
+      @scenario.households_heating_gas_fired_heater_share = 9.1
+      @scenario.households_heating_oil_fired_heater_share = 1.2
+      @scenario.households_heating_coal_fired_heater_share = 0.1
+      @scenario.households_heating_micro_chp_share = 0.0
+      
       @scenario.lv_net_in_additional_infrastructure_investments.value.should be == 0.0
       @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be == 0.0
       @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be == 0.0
       @scenario.mv_transport_in_additional_infrastructure_investments.value.should be == 0.0
       @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be == 0.0
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be == 0.0
+      @scenario.hv_net_in_additional_infrastructure_investments.value.should be == 0.0    end
+  end
+  
 
+  context "when households heating got to electric heating" do
+    it "should increase all network total cost" do
+      @scenario.network_total_costs.should increase
     end
   end
 
-  context "Test scenario A id 3887" do
 
-    it "the infrastructure investments need to be around 57" do
-      @scenario.households_heating_gas_combi_heater_share = 0.0
-      @scenario.households_heating_heat_pump_add_on_share = 0.0
-      @scenario.households_heating_gas_fired_heat_pump_share = 0.0
-      @scenario.households_heating_heat_network_share = 0.0
-      @scenario.households_heating_pellet_stove_share = 0.0
-      @scenario.households_heating_electric_heater_share = 0.0
-      @scenario.households_heating_gas_fired_heater_share = 0.0
-      @scenario.households_heating_oil_fired_heater_share = 0.0
-      @scenario.households_heating_coal_fired_heater_share = 0.0
-      @scenario.households_cooling_gas_fired_heat_pump_share = 0.0
-      @scenario.households_heat_demand_per_person = -1.6
-      @scenario.households_heating_heat_pump_ground_share = 90.0
-      @scenario.households_heating_geothermal_share = 0.0
-      @scenario.households_heating_micro_chp_share = 0.0
-      @scenario.households_heating_heat_pump_with_ts_share = 0.0
-      @scenario.households_heating_biomass_chp_share = 100.0
-      @scenario.households_heating_small_gas_chp_share = 0.0
-      @scenario.households_market_penetration_solar_panels = 100.0
-      @scenario.buildings_heating_gas_fired_heater_share = 0.0
-      @scenario.buildings_heating_electric_heater_share = 0.0
-      @scenario.buildings_heating_oil_fired_heater_share = 0.0
-      @scenario.buildings_heating_biomass_fired_heater_share = 0.0
-      @scenario.buildings_heating_small_gas_chp_share = 0.0
-      @scenario.buildings_electricity_per_student_employee = -1.6
-      @scenario.buildings_heating_heat_pump_with_ts_share = 90.0
-      @scenario.buildings_heating_gas_fired_heat_pump_share = 0.0
-      @scenario.buildings_heating_solar_thermal_panels_share = 0.0
-      @scenario.buildings_heating_biomass_chp_share = 0.0
-      @scenario.buildings_heating_heat_network_share = 10.0
-      @scenario.buildings_market_penetration_solar_panels = 100.0
-      @scenario.transport_cars_diesel_share = 30.000000000000004
-      @scenario.transport_cars_gasoline_share = 0.0
-      @scenario.transport_cars_lpg_share = 0.0
-      @scenario.transport_cars_compressed_gas_share = 0.0
-      @scenario.transport_trains_diesel_share = 6.4
-      @scenario.transport_trains_electric_share = 93.6
-      @scenario.transport_cars = 1.3000000000000003
-      @scenario.transport_trucks = 1.3000000000000003
-      @scenario.transport_cars_electric_share = 70.0
-      @scenario.transport_trucks_electric_share = 70.0
-      @scenario.transport_trucks_diesel_share = 30.000000000000004
-      @scenario.transport_trucks_gasoline_share = 0.0
-      @scenario.transport_trucks_compressed_gas_share = 0.0
-      @scenario.transport_efficiency_electric_vehicles = 0.6000000000000001
-      @scenario.transport_efficiency_combustion_engine_trucks = 0.6
-      @scenario.transport_efficiency_combustion_engine_cars = 0.6
-      @scenario.industry_heating_gas_fired_heater_share = 0.0
-      @scenario.industry_heating_oil_fired_heater_share = 0.0
-      @scenario.industry_heating_coal_fired_heater_share = 0.0
-      @scenario.industry_heating_biomass_fired_heater_share = 100.0
-      @scenario.industry_heating_combined_heat_power_share = 0.0
-      @scenario.industry_heat_demand = -1.1999999999853914
-      @scenario.industry_heat_from_fuels = 0.2
-      @scenario.industry_number_of_gas_chp = 120.2
-      @scenario.industry_number_of_biomass_chp = 104.8
-      @scenario.agriculture_heating_gas_fired_heater_share = 0.0
-      @scenario.agriculture_heating_oil_fired_heater_share = 0.0
-      @scenario.agriculture_heating_combined_heat_power_share = 10.0
-      @scenario.agriculture_heat_demand = -1.5999999401601
-      @scenario.agriculture_heating_biomass_fired_heater_share = 0.0
-      @scenario.agriculture_heating_heat_pump_with_ts_share = 20.000000000000004
-      @scenario.agriculture_heating_geothermal_share = 70.0
-      @scenario.number_of_pulverized_coal = 0.0
-      @scenario.number_of_coal_iggc = 0.0
-      @scenario.number_of_coal_conventional = 0.0
-      @scenario.number_of_central_coal_chp = 0.0
-      @scenario.number_of_nuclear_3rd_gen = 0.0
-      @scenario.transport_diesel_share = 100.0
-      @scenario.transport_biodiesel_share = 0.0
-      @scenario.transport_gasoline_share = 96.8
-      @scenario.transport_bio_ethanol_share = 3.2
-      @scenario.natural_gas_total_share = 0.0
-      @scenario.green_gas_total_share = 100.0
-      @scenario.number_of_wind_onshore_land = 2325.0
-      @scenario.number_of_wind_onshore_coast = 0.0
-      @scenario.number_of_wind_offshore = 6675.000000000001
-      @scenario.households_heating_district_heating_network_share = 10.0
-    
-      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(23* 10**9)
-      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(5* 10**9)
-      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(2* 10**9)
-      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(6* 10**9)
-      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(6* 10**9)
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(15* 10**9)
-    end
-  end  
-  
-  context "Test scenario B id 3893" do
-
-    it "the infrastructure investments need to be around 32" do
-      @scenario.households_heating_heat_pump_add_on_share = 0.0
-      @scenario.households_heating_gas_combi_heater_share = 0.0
-      @scenario.households_heating_gas_fired_heat_pump_share = 0.0
-      @scenario.households_heating_heat_network_share = 100.0
-      @scenario.households_heating_pellet_stove_share = 0.0
-      @scenario.households_heating_electric_heater_share = 0.0
-      @scenario.households_heating_gas_fired_heater_share = 0.0
-      @scenario.households_heating_oil_fired_heater_share = 0.0
-      @scenario.households_heating_coal_fired_heater_share = 0.0
-      @scenario.households_cooling_gas_fired_heat_pump_share = 0.0
-      @scenario.households_electricity_demand_per_person = 2.5000000000000004
-      @scenario.households_heat_demand_per_person = -0.9999999997635
-      @scenario.households_heating_heat_pump_ground_share = 20.000000000000004
-      @scenario.households_heating_geothermal_share = 0.0
-      @scenario.households_heating_micro_chp_share = 60.0000000000001
-      @scenario.households_heating_heat_pump_with_ts_share = 0.0
-      @scenario.households_heating_biomass_chp_share = 0.0
-      @scenario.households_heating_small_gas_chp_share = 0.0
-      @scenario.households_market_penetration_solar_panels = 76.5
-      @scenario.buildings_heating_gas_fired_heater_share = 0.0
-      @scenario.buildings_heating_electric_heater_share = 0.0
-      @scenario.buildings_heating_oil_fired_heater_share = 0.0
-      @scenario.buildings_heating_biomass_fired_heater_share = 70.0
-      @scenario.buildings_heating_small_gas_chp_share = 0.0
-      @scenario.buildings_electricity_per_student_employee = 1.0
-      @scenario.buildings_heat_per_employee_student = -0.9999999999997718
-      @scenario.buildings_heating_heat_pump_with_ts_share = 20.000000000000004
-      @scenario.buildings_heating_gas_fired_heat_pump_share = 0.0
-      @scenario.buildings_heating_solar_thermal_panels_share = 0.0
-      @scenario.buildings_heating_biomass_chp_share = 0.0
-      @scenario.buildings_heating_heat_network_share = 10.0
-      @scenario.transport_cars_diesel_share = 30.000000000000004
-      @scenario.transport_cars_gasoline_share = 0.0
-      @scenario.transport_cars_lpg_share = 0.0
-      @scenario.transport_cars_compressed_gas_share = 0.0
-      @scenario.transport_trains_diesel_share = 6.4
-      @scenario.transport_trains_electric_share = 93.6
-      @scenario.transport_cars = 1.2000000000000002
-      @scenario.transport_trucks = 1.2000000000000002
-      @scenario.transport_cars_electric_share = 70.0
-      @scenario.transport_trucks_electric_share = 70.0
-      @scenario.transport_trucks_diesel_share = 30.000000000000004
-      @scenario.transport_trucks_gasoline_share = 0.0
-      @scenario.transport_trucks_compressed_gas_share = 0.0
-      @scenario.industry_heating_gas_fired_heater_share = 100.0
-      @scenario.industry_heating_oil_fired_heater_share = 0.0
-      @scenario.industry_heating_coal_fired_heater_share = 0.0
-      @scenario.industry_heating_biomass_fired_heater_share = 0.0
-      @scenario.industry_heating_combined_heat_power_share = 0.0
-      @scenario.industry_heat_demand = -0.5
-      @scenario.industry_heat_from_fuels = 0.2
-      @scenario.industry_number_of_biomass_chp = 104.8
-      @scenario.agriculture_heating_gas_fired_heater_share = 0.0
-      @scenario.agriculture_heating_oil_fired_heater_share = 0.0
-      @scenario.agriculture_heating_combined_heat_power_share = 30.000000000000004
-      @scenario.agriculture_heat_demand = -0.9999999999999999
-      @scenario.agriculture_heating_biomass_fired_heater_share = 70.0
-      @scenario.agriculture_heating_heat_pump_with_ts_share = 0.0
-      @scenario.agriculture_heating_geothermal_share = 0.0
-      @scenario.number_of_pulverized_coal = 0.0
-      @scenario.number_of_coal_iggc = 0.0
-      @scenario.number_of_coal_conventional = 0.0
-      @scenario.number_of_central_coal_chp = 0.0
-      @scenario.number_of_gas_conventional = 0.0
-      @scenario.number_of_gas_ccgt = 0.0
-      @scenario.number_of_large_gas_chp = 0.0
-      @scenario.number_of_gas_ccgt_ccs = 26.200000000000003
-      @scenario.number_of_nuclear_3rd_gen = 0.0
-      @scenario.natural_gas_total_share = 0.0
-      @scenario.green_gas_total_share = 100.0
-      @scenario.number_of_wind_onshore_land = 1650.0
-      @scenario.number_of_wind_onshore_coast = 0.0
-      @scenario.number_of_wind_offshore = 2000.0
-      @scenario.transport_diesel_share = 100.0
-      @scenario.transport_biodiesel_share = 0.0
-      @scenario.transport_gasoline_share = 96.8
-      @scenario.transport_bio_ethanol_share = 3.2
-      @scenario.households_heating_district_heating_network_share = 20.000000000000004
-
-
-
-      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(13* 10**9)
-      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(3* 10**9)
-      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(2* 10**9)
-      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(4* 10**9)
-      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(5* 10**9)
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(6* 10**9)
-    end
-  end
-  
-  context "Test scenario C id 3901" do
-
-    it "the infrastructure investments need to be around 112" do
-      @scenario.households_heating_gas_combi_heater_share = 0.0
-      @scenario.households_heating_heat_pump_add_on_share = 0.0
-      @scenario.households_heating_gas_fired_heat_pump_share = 0.0
-      @scenario.households_heating_heat_network_share = 100.0
-      @scenario.households_heating_pellet_stove_share = 0.0
-      @scenario.households_heating_electric_heater_share = 0.0
-      @scenario.households_heating_gas_fired_heater_share = 0.0
-      @scenario.households_heating_oil_fired_heater_share = 0.0
-      @scenario.households_heating_coal_fired_heater_share = 0.0
-      @scenario.households_cooling_gas_fired_heat_pump_share = 0.0
-      @scenario.households_electricity_demand_per_person = 2.5000000000000004
-      @scenario.households_heat_demand_per_person = -0.9999999999999999
-      @scenario.households_heating_heat_pump_ground_share = 65.0
-      @scenario.households_heating_geothermal_share = 0.0
-      @scenario.households_heating_micro_chp_share = 0.0
-      @scenario.households_heating_heat_pump_with_ts_share = 0.0
-      @scenario.households_heating_biomass_chp_share = 0.0
-      @scenario.households_heating_small_gas_chp_share = 0.0
-      @scenario.households_market_penetration_solar_panels = 27.000000000000004
-      @scenario.buildings_heating_gas_fired_heater_share = 0.0
-      @scenario.buildings_heating_electric_heater_share = 0.0
-      @scenario.buildings_heating_oil_fired_heater_share = 0.0
-      @scenario.buildings_heating_biomass_fired_heater_share = 0.0
-      @scenario.buildings_heating_small_gas_chp_share = 0.0
-      @scenario.buildings_electricity_per_student_employee = 1.0
-      @scenario.buildings_heat_per_employee_student = -0.9999999999997718
-      @scenario.buildings_heating_heat_pump_with_ts_share = 71.8
-      @scenario.buildings_heating_gas_fired_heat_pump_share = 0.0
-      @scenario.buildings_heating_solar_thermal_panels_share = 0.0
-      @scenario.buildings_heating_biomass_chp_share = 0.0
-      @scenario.buildings_heating_heat_network_share = 28.200000000000003
+  context "when transport with cars used all electric" do
+    it "should increase all network total cost" do
+      @scenario.transport_cars_electric_share = 100.0
       @scenario.transport_cars_diesel_share = 0.0
       @scenario.transport_cars_gasoline_share = 0.0
       @scenario.transport_cars_lpg_share = 0.0
       @scenario.transport_cars_compressed_gas_share = 0.0
-      @scenario.transport_trains_diesel_share = 6.4
-      @scenario.transport_trains_electric_share = 93.6
-      @scenario.transport_cars = 2.5000000000000004
-      @scenario.transport_trucks = 2.5000000000000004
-      @scenario.transport_cars_electric_share = 100.0
-      @scenario.transport_trucks_electric_share = 100.0
-      @scenario.transport_trucks_diesel_share = 0.0
-      @scenario.transport_trucks_gasoline_share = 0.0
-      @scenario.transport_trucks_compressed_gas_share = 0.0
-      @scenario.industry_heating_gas_fired_heater_share = 100.0
-      @scenario.industry_heating_oil_fired_heater_share = 0.0
-      @scenario.industry_heating_coal_fired_heater_share = 0.0
-      @scenario.industry_heating_biomass_fired_heater_share = 0.0
-      @scenario.industry_heating_combined_heat_power_share = 0.0
-      @scenario.industry_heat_demand = -0.5
-      @scenario.industry_heat_from_fuels = 0.2
-      @scenario.industry_number_of_biomass_chp = 133.0
-      @scenario.agriculture_heating_gas_fired_heater_share = 0.0
-      @scenario.agriculture_heating_oil_fired_heater_share = 0.0
-      @scenario.agriculture_heating_combined_heat_power_share = 35.0
-      @scenario.agriculture_heat_demand = -0.9999999999997718
-      @scenario.agriculture_heating_biomass_fired_heater_share = 10.0
-      @scenario.agriculture_heating_heat_pump_with_ts_share = 15.0
-      @scenario.agriculture_heating_geothermal_share = 40.00000000000001
-      @scenario.number_of_pulverized_coal = 0.0
-      @scenario.number_of_coal_iggc = 0.0
-      @scenario.number_of_coal_conventional = 0.0
-      @scenario.number_of_central_coal_chp = 0.0
-      @scenario.number_of_pulverized_coal_ccs = 31.000000000000004
-      @scenario.number_of_nuclear_3rd_gen = 8.7
-      @scenario.natural_gas_total_share = 0.0
-      @scenario.green_gas_total_share = 0.0
-      @scenario.number_of_wind_onshore_land = 660.0000000000001
-      @scenario.number_of_wind_onshore_coast = 0.0
-      @scenario.number_of_wind_offshore = 2000.0
-      @scenario.transport_diesel_share = 100.0
-      @scenario.transport_biodiesel_share = 0.0
-      @scenario.transport_gasoline_share = 96.8
-      @scenario.transport_bio_ethanol_share = 3.2
-      @scenario.households_heating_district_heating_network_share = 35.0
-      
 
-      @scenario.lv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(60* 10**9)
-      @scenario.lv_mv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(10* 10**9)
-      @scenario.mv_distribution_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(5* 10**9)
-      @scenario.mv_transport_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(12* 10**9)
-      @scenario.mv_hv_transformer_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(13* 10**9)
-      @scenario.hv_net_in_additional_infrastructure_investments.value.should be_within(1* 10**9).of(13* 10**9)
+      @scenario.network_total_costs.should increase
     end
   end
+  
+  context "when building heat micro chp 25 %" do
+    it "should decrease all network total cost" do
+      @scenario.households_heating_electric_heater_share = 75.0
+      @scenario.households_heating_micro_chp_share = 25.0
 
+      @scenario.network_total_costs.should decrease
+    end
+  end
+  
+  context "when households hot water fuel cell 100%" do
+    it "should decrease all network total cost" do
+      @scenario.households_hot_water_gas_fired_heater_share = 0.0
+      @scenario.households_hot_water_heat_network_share = 0.0
+      @scenario.households_hot_water_fuel_cell_share = 100.0
+      @scenario.households_hot_water_electric_boiler_share = 0.0
+      @scenario.households_hot_water_gas_water_heater_share = 0.0
 
+      @scenario.network_total_costs.should decrease
+    end
+  end
+  
+  context "when building heat pump with ts 100%" do
+     it "should increase all network total cost" do
+       @scenario.buildings_heating_gas_fired_heater_share = 0.0
+       @scenario.buildings_heating_heat_pump_with_ts_share = 100.0
+       @scenario.buildings_heating_gas_fired_heat_pump_share = 0.0
+       @scenario.buildings_heating_electric_heater_share = 0.0
+       @scenario.buildings_heating_oil_fired_heater_share = 0.0
+       @scenario.buildings_heating_district_heating_network_share = 0.0
+       
+       @scenario.network_total_costs.should increase
+     end
+   end
+  
+   context "when building electric heater 100%" do
+      it "should increase all network total cost" do
+        @scenario.buildings_heating_gas_fired_heater_share = 0.0
+        @scenario.buildings_heating_heat_pump_with_ts_share = 0.0
+        @scenario.buildings_heating_gas_fired_heat_pump_share = 0.0
+        @scenario.buildings_heating_electric_heater_share = 100.0
+        @scenario.buildings_heating_oil_fired_heater_share = 0.0
+        @scenario.buildings_heating_district_heating_network_share = 0.0
 
+        @scenario.network_total_costs.should increase
+      end
+    end
+    
+    context "when building insulation 4" do
+      it "should decrease all network total cost" do
+        @scenario.buildings_insulation_level = 4.0
+
+        @scenario.network_total_costs.should decrease
+      end
+    end
+    
+    
+    context "when agriculture  small gas chp increase" do
+      it "should decrease all network total cost" do
+        @scenario.agriculture_number_of_small_gas_chp = 5000
+
+        @scenario.network_total_costs.should decrease
+      end
+    end
+    
+    context "when industry gas chp increase" do
+      it "should decrease all network total cost" do
+        @scenario.industry_number_of_gas_chp = 225.0
+
+        @scenario.network_total_costs.should decrease
+      end
+    end
+    
+    context "when wind onshore increase" do
+      it "should decrease all network total cost" do
+        @scenario.number_of_wind_onshore_coast = 1000
+
+        @scenario.network_total_costs.should decrease
+      end
+    end
+  
+  
 end
