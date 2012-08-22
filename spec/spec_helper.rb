@@ -28,3 +28,10 @@ RSpec::Matchers.define :not_change do
     "I expected the value not to change, but actually it changed with #{actual.increase}"
   end
 end
+
+RSpec::Matchers.define :change do
+  match { |actual| actual.decrease != 0 }
+  failure_message_for_should do |actual|
+    "I expected the value to change, but it didn't"
+  end
+end

@@ -22,6 +22,7 @@ converters = []
 CSV.foreach(input_file) do |row|
   #this is how the columns of the CSV are ordered
   converter, inputStatement = row
+  puts converter + " " + inputStatement
   converter.strip!
   inputStatement.strip!
   converters.push([converter, inputStatement])
@@ -47,9 +48,9 @@ attributes.each do|a|
     fileName = "turk_#{a}_of_#{c[0]}"
 
     # Open file
-      outFile = File.new(fileName+".gql", "w")
+    outFile = File.new(fileName+".gql", "w")
     if outFile
-        outFile.syswrite("# Return #{a} of #{c[0]}
+      outFile.syswrite("# Return #{a} of #{c[0]}
 
 - unit =
 
@@ -60,8 +61,6 @@ V(#{c[0]}, #{a})
        puts "ERROR: Unable to open file " + outFile + "!"
     end
 
-"number of households_space_heater_wood_pellets should be #HHs (7349500.0)"
-
     # Write rspec code to screen
     range = values[a]
     puts "it \"#{a} of #{c[0]} should be within #{range[0]} of #{range[1]}\" do"
@@ -69,6 +68,13 @@ V(#{c[0]}, #{a})
     puts "  @scenario.#{fileName}.value.should be_within(#{range[0]}).of(#{range[1]})"
     puts "end"
     puts ""
+
+
+    # puts "it \"it should change total employment when the #{c[0]} is pulled to max\" do"
+    # puts "  @scenario.#{c[1]} = 100 #%"
+    # puts "  @scenario.dashboad_employment.should change"
+    # puts "end"
+    # puts ""
 
   end
 end
