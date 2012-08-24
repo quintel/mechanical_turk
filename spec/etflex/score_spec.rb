@@ -98,13 +98,13 @@ describe "ETFlex Scoring mechanism" do
         @s.etflex_score_heatpump.should decrease
       end
       it "penalty of heatpump should be lower than co2 + costs when at 1%" do
-        @s.households_lighting_light_emitting_diode_share = 1 #%
+        @s.households_heating_heat_pump_ground_share = 1 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_heatpump.increase).should be > 0
       end
       it "penalty of heatpump should be higher than co2 + costs when at 100%" do
-        @s.households_lighting_light_emitting_diode_share = 100 #%
+        @s.households_heating_heat_pump_ground_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_heatpump.increase).should be < 0
