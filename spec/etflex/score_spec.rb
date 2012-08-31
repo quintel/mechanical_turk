@@ -12,7 +12,9 @@
 #    Q(etflex_score_nuclear_waste),
 #    Q(etflex_score_reliability),
 #
-#    Q(etflex_score_renewability)
+#    Q(etflex_score_renewability),
+#
+#    Q(etflex_score_deviations_from_reference_scenario)
 #  )
 #)
 
@@ -80,7 +82,7 @@ describe "ETFlex Scoring mechanism" do
         @s.households_lighting_light_emitting_diode_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
-         @s.etflex_score_led.increase).should be < 0
+         @s.etflex_score_led.increase).should be < 1
       end
     end
 
@@ -107,7 +109,7 @@ describe "ETFlex Scoring mechanism" do
         @s.households_heating_heat_pump_ground_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
-         @s.etflex_score_heatpump.increase).should be < 0
+         @s.etflex_score_heatpump.increase).should be < 1
       end
     end
   end
@@ -134,13 +136,13 @@ describe "ETFlex Scoring mechanism" do
         @s.number_of_nuclear_3rd_gen = 0.1 #nuclear power plants
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
-         @s.etflex_score_nuclear_waste.increase).should be < 0
+         @s.etflex_score_nuclear_waste.increase).should be < 1
       end
       it "penalty of nuclear should be higher than co2 + costs when at 2" do
         @s.number_of_nuclear_3rd_gen = 2 #nuclear power plants
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
-         @s.etflex_score_nuclear_waste.increase).should be < 0
+         @s.etflex_score_nuclear_waste.increase).should be < 1
       end
     end
 
