@@ -1,22 +1,40 @@
-#MAX(0,
-#  SUM(
-#    Q(etflex_score_base),
+# Total score calculated for ETFlex.
+# We start of with ~1000 points (see base) and give penalties or bonus points
 #
-#    Q(etflex_score_cost),
-#    Q(etflex_score_co2),
-#    Q(etflex_score_electric_car),
-#    Q(etflex_score_greengas),
-#    Q(etflex_score_heatpump),
-#    Q(etflex_score_imblance),
-#    Q(etflex_score_led),
-#    Q(etflex_score_nuclear_waste),
-#    Q(etflex_score_reliability),
+# * cost:          penalty
+# * co2:           penalty
+# * electric car:  penalty
+# * greengas:      penalty
+# * heatpump:      penalty
+# * imbalance:     penalty
+# * led:           penalty
+# * nuclear waste: penalty
+# * reliability:   penalty
+# * renewability:  bonus
 #
-#    Q(etflex_score_renewability),
+# * deviations:    penalty
 #
-#    Q(etflex_score_deviations_from_reference_scenario)
-#  )
-#)
+#
+# MAX(0,
+#   SUM(
+#     Q(etflex_score_base),
+#
+#     Q(etflex_score_cost),
+#     Q(etflex_score_co2),
+#     Q(etflex_score_electric_car),
+#     Q(etflex_score_greengas),
+#     Q(etflex_score_heatpump),
+#     Q(etflex_score_imbalance),
+#     Q(etflex_score_led),
+#     Q(etflex_score_nuclear_waste),
+#     Q(etflex_score_reliability),
+#
+#     Q(etflex_score_renewability),
+#
+#     Q(etflex_score_deviations_from_reference_scenario)
+#   )
+
+- unit = #
 
 require 'spec_helper'
 
@@ -166,6 +184,20 @@ describe "ETFlex Scoring mechanism" do
         @s.etflex_score_co2.should increase
       end
     end
+  end
+
+  describe "Imbalance" do
+
+    it "should be at least 8 points when all supply sliders to the right" do
+      @s.number_of_pulverized_coal = 10
+      @s.number_of_nuclear_3rd_gen = 2
+      @s.number_of_gas_ccgt = 10
+      @s.number_of_wind_onshore_land = 2000
+      @s.green_gas_total_share = 10 #%
+      @s.households_market_penetration_solar_panels = 100 #%
+      @s.etflex_score_imbalance.value.should be < 500
+    end
+
   end
 
 end
