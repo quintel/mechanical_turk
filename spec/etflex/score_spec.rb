@@ -34,7 +34,7 @@
 #     Q(etflex_score_deviations_from_reference_scenario)
 #   )
 
-- unit = #
+#- unit = #
 
 require 'spec_helper'
 
