@@ -243,17 +243,17 @@ describe "Testing employment module" do
     end
 
     it "it should change total employment when the households_cooling_airconditioning_electricity is pulled to min" do
-      @scenario.households_cooling_airconditioning_share = 0 #%
+      @scenario.households_cooling_airconditioning_share = 60 #%
       @scenario.dashboard_employment.should change
     end
 
     it "it should change total employment when the households_cooling_heatpump_air_water_electricity is pulled to max" do
-      @scenario.households_cooling_heatpump_air_water_electricity_share = 100 #%
+      @scenario.households_cooling_heatpump_air_water_electricity_share = 20 #%
       @scenario.dashboard_employment.should change
     end
 
     it "it should change total employment when the households_cooling_heatpump_ground_water_electricity is pulled to max" do
-      @scenario.households_cooling_heat_pump_ground_share = 100 #%
+      @scenario.households_cooling_heat_pump_ground_share = 20 #%
       @scenario.dashboard_employment.should change
     end
 
