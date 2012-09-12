@@ -87,7 +87,8 @@ describe "network infrastructure investments" do
        @scenario.buildings_heating_electric_heater_share = 0.0
        @scenario.buildings_heating_oil_fired_heater_share = 0.0
        @scenario.buildings_heating_district_heating_network_share = 0.0
-       
+       @scenario.buildings_heating_solar_thermal_panels_share = 0.0
+
        @scenario.network_total_costs.should increase
      end
    end
@@ -100,6 +101,7 @@ describe "network infrastructure investments" do
         @scenario.buildings_heating_electric_heater_share = 100.0
         @scenario.buildings_heating_oil_fired_heater_share = 0.0
         @scenario.buildings_heating_district_heating_network_share = 0.0
+        @scenario.buildings_heating_solar_thermal_panels_share = 0.0
 
         @scenario.network_total_costs.should increase
       end
