@@ -90,14 +90,14 @@ describe "ETFlex Scoring mechanism" do
         @s.households_lighting_light_emitting_diode_share = 10 #%
         @s.etflex_score_led.should decrease
       end
-      it "penalty of led should be lower than co2 + costs when at 1%" do
+      it "penalty of led should be lower than co2 + costs + renewability when at 1%" do
         @s.households_lighting_light_emitting_diode_share = 1 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
          @s.etflex_score_led.increase).should be > 0
       end
-      it "penalty of led should be higher than co2 + costs when at 100%" do
+      it "penalty of led should be higher than co2 + costs + renewability when at 100%" do
         @s.households_lighting_light_emitting_diode_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
@@ -119,14 +119,14 @@ describe "ETFlex Scoring mechanism" do
         @s.households_heating_heat_pump_ground_share = 10 #%
         @s.etflex_score_heatpump.should decrease
       end
-      it "penalty of heatpump should be lower than co2 + costs when at 1%" do
+      it "penalty of heatpump should be lower than co2 + costs + renewability when at 1%" do
         @s.households_heating_heat_pump_ground_share = 1 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
          @s.etflex_score_heatpump.increase).should be > 0
       end
-      it "penalty of heatpump should be higher than co2 + costs when at 100%" do
+      it "penalty of heatpump should be higher than co2 + costs + renewability when at 100%" do
         @s.households_heating_heat_pump_ground_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
@@ -154,16 +154,18 @@ describe "ETFlex Scoring mechanism" do
         @s.number_of_nuclear_3rd_gen = 2 #maximum number of nucl. power plants
         @s.etflex_score_co2.should increase
       end
-      it "penalty of nuclear should be higher than co2 + costs when at 0.1" do
+      it "penalty of nuclear should be higher than co2 + costs + renewability when at 0.1" do
         @s.number_of_nuclear_3rd_gen = 0.1 #nuclear power plants
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
+         @s.etflex_score_renewability.increase +
          @s.etflex_score_nuclear_waste.increase).should be < 1
       end
-      it "penalty of nuclear should be higher than co2 + costs when at 2" do
+      it "penalty of nuclear should be higher than co2 + costs + renewability when at 2" do
         @s.number_of_nuclear_3rd_gen = 2 #nuclear power plants
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
+         @s.etflex_score_renewability.increase +
          @s.etflex_score_nuclear_waste.increase).should be < 1
       end
     end
