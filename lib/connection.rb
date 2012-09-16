@@ -17,7 +17,7 @@ class Connection
   def initialize(scenario = nil, settings = nil)
     @scenario = scenario
     @settings = settings
-    @autobalance = settings.delete(:autobalance)
+    @autobalance = settings.delete(:autobalance) if settings
   end
 
   def fetch_session_id
