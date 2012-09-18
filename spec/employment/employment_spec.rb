@@ -117,7 +117,7 @@ describe "Testing employment module" do
       @scenario.dashboard_employment.should change
     end
 
-    it "it should change total employment when the energy_chp_ultra_supercritical_coal is set to 2" do
+    it "it should change total employment when the energy_chp_ultra_supercritical_coal is set to 52.9 " do
       @scenario.number_of_central_coal_chp = 52.9 #
       @scenario.dashboard_employment.should change
     end
