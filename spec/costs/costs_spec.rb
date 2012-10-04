@@ -98,8 +98,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_space_heater_electricity.value.should be_within(9.786000000000001).of(195.72)
     end
 
-    it "total cost of buildings_space_heater_heatpump_air_water_network_gas should be within 5.0% of 2410325.795" do
-      @scenario.total_cost_of_buildings_space_heater_heatpump_air_water_network_gas.value.should be_within(120516.28975).of(2410325.795)
+    it "total cost of buildings_space_heater_heatpump_air_water_network_gas should be within 5.0% of 609197.7948127043" do
+      @scenario.total_cost_of_buildings_space_heater_heatpump_air_water_network_gas.value.should be_within(30459.8897406352).of(609197.7948127043)
     end
 
     it "total cost of buildings_space_heater_network_gas should be within 5.0% of 2363.276535" do
@@ -490,8 +490,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_industry_other_metals_burner.value.should be_within(347932.58895).of(6958651.779)
     end
 
-    it "total cost of industry_steel_blastfurnace_burner should be within 5.0% of 4518545.444" do
-      @scenario.total_cost_of_industry_steel_blastfurnace_burner.value.should be_within(225927.2722).of(4518545.444)
+    it "total cost of industry_steel_blastfurnace_burner should be within 5.0% of 3717418.8935204055" do
+      @scenario.total_cost_of_industry_steel_blastfurnace_burner.value.should be_within(185870.94467602).of(3717418.8935204055)
     end
 
     it "total cost of industry_steel_electricfurnace_burner should be within 5.0% of 6958651.779" do
