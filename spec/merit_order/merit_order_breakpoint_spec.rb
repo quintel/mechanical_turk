@@ -3,7 +3,8 @@
 
 require 'spec_helper'
 
-describe "merit order module" do
+
+pending "merit order module" do
   it "enabling/disabling" do
     # Test that enabling/disabling merit order works. Enabling merit order
     # will automatically increase total_electricity_produced, because apparently it is
