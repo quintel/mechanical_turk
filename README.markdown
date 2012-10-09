@@ -91,6 +91,15 @@ This can also be written shorter as:
 @scenario.co2.should decrease
 ````
 
+*Attention*: increase and decrease compare the number with the one before the slider was pulled and not the increase of future compared to present.
+
+To test the de/increase of future in relation to the present:
+
+````ruby
+@scenario.co2.future_increase.should > 0
+@scenario.co2.future_decrease.should > 0
+````
+
 Of course, sometimes we want a number **not** to change when we pull a
 input:
 

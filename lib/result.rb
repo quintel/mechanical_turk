@@ -11,7 +11,7 @@ class Result
 
   def update(present, future)
     if @future
-      @previous = @future 
+      @previous = @future
     end
     @future = future
     @present = present
@@ -21,10 +21,22 @@ class Result
     @previous = previous
   end
 
+  # The absolute increase of the future compared to present
+  def future_increase
+    future - present
+  end
+
+  # The absolute decrease of the future compared to present
+  def future_decrease
+    -future_increase
+  end
+
+  # Absolute increase compared to *previous request*
   def increase
     future - previous
   end
 
+  # Absolute decrease compared to *previous request*
   def decrease
     -increase
   end
