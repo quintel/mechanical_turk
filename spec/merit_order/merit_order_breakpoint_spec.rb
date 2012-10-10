@@ -1,14 +1,18 @@
-# Reported bug on et-model.com by Wouter Meyers on Fri Apr 13, 2012
-# as described here: https://github.com/dennisschoenmakers/etmodel/issues/695
-
+# Testing behavior of Merit Order extension with EnergieNederland 'Step I'
+# which includes the injection of FLH from MO calculation back into the ETM.
+# In particular, the graph calculation is interrupted at the dispatchable 
+# power plants that feature in the MO using breakpoints. When the MO calculation
+# has completed, the new FLH are injected in the MO plants and the graph 
+# calculation is restarted.
 require 'spec_helper'
 
 
-pending "merit order module" do
+#describe "merit order module", :pending => true do 
+describe "merit order module" do 
   it "enabling/disabling" do
     # Test that enabling/disabling merit order works. Enabling merit order
-    # will automatically increase total_electricity_produced, because apparently it is
-    # cheaper than importing it (?)
+    # will automatically increase total_electricity_produced, because import is
+    # not taken into account in the MO currently.
     scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
     # by default turned off:
     scenario.use_merit_order_demands_enabled.present.should == 0
@@ -19,7 +23,7 @@ pending "merit order module" do
     # only inject merit order from future:
     scenario.use_merit_order_demands_enabled.present.should == 0
     scenario.use_merit_order_demands_enabled.future.should == 1
-    scenario.total_electricity_produced.future_decrease.should > 8_000_000_0000
+    scenario.total_electricity_produced.future_decrease.should > 80_000_000_000
 
     scenario.use_merit_order_demands = 0
     # disabling again works:
@@ -33,6 +37,12 @@ pending "merit order module" do
     # Tests that the merit order calculation injects/overwrites the newly calculated demands
     # back into the model. Increasing the costs of coal brings the demand to 0, because it is
     # too expensive to produce. Instead it'll consume the energy from import/export (interconnector).
+
+    # CK: I'm confused by this behavior! I would expect the import/export to stay constant WHATEVER
+    # happens to the dispatchables. Their combined installed capacity will not change due to cost and
+    # therefore they will contunue to cover the total demand.
+    # In this specific case, the gas-plants will take over the load of the coal plants. 
+
     before(:each) do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
       @scenario.costs_coal = 1000
@@ -54,7 +64,7 @@ pending "merit order module" do
 
 
   describe 'slider: number_of_xxx' do
-    # updating the number of wind mills increases the total electricity produced. The additional energy produced
+    # updating the number of wind turbines increases the total electricity produced. The additional energy produced
     # gets routed to the inversed_flexible link to energy_export_electricity. Merit Order calculation should not
     # have any significant effect to the calculation (except that NL produces more energy, as it's cheaper).
     before(:each) do
@@ -65,21 +75,21 @@ pending "merit order module" do
     it "merit_order enabled: " do
       @scenario.number_of_wind_onshore_land = 10000
       @scenario.wind_turbine_inland_constant_link_value.should  increase
-      @scenario.total_electricity_produced.should               increase
+      @scenario.total_electricity_produced.future_increase.should  == 0
       @scenario.merit_order_inversed_flexible_link_value.should increase
 
       @scenario.number_of_wind_onshore_land = 0
       @scenario.wind_turbine_inland_constant_link_value.should  decrease
-      @scenario.total_electricity_produced.should               decrease
+      @scenario.total_electricity_produced.should == 0
       @scenario.merit_order_inversed_flexible_link_value.should decrease
     end
 
-    it "merit_order enabled: affects demand of coal plants and interconnector" do
+    it "merit_order enabled: affects energy flow through coal plants but not interconnector" do
       @scenario.number_of_pulverized_coal = 0
       @scenario.energy_power_ultra_supercritical_coal_demand.should decrease
-      @scenario.interconnector_demand.future.should > 1_000_000_000
+      @scenario.interconnector_demand.future.should == 0
 
-      @scenario.number_of_pulverized_coal = 20
+      @scenario.number_of_pulverized_coal = 10
       @scenario.energy_power_ultra_supercritical_coal_demand.should increase
       @scenario.interconnector_demand.future_decrease.should == 0
     end

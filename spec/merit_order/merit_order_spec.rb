@@ -1,6 +1,4 @@
-# Reported bug on et-model.com by Wouter Meyers on Fri Apr 13, 2012
-# as described here: https://github.com/dennisschoenmakers/etmodel/issues/695
-
+# Testing basic behavior of the Merit Order calculation
 require 'spec_helper'
 
 describe "merit order module" do
@@ -49,8 +47,6 @@ describe "merit order module" do
     it "should increase full load hours of gas power plants when natural gas price decreases" do
       @scenario.costs_gas = -50
       @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should increase
-    #  @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.should decrease
-    #  @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.should decrease
     end
 
     it "should decrease full load hours of coal power plants when coal price increases" do
