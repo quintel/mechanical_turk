@@ -42,14 +42,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_collective_chp_gas_power_fuelmix.value.should be_within(11118.57033).of(222371.4066)
     end
 
-    it "total cost of buildings_collective_chp_gas_power_fuelmix should be within 5.0% of 222371.4066" do
-      @scenario.total_cost_of_buildings_collective_chp_gas_power_fuelmix.value.should be_within(11118.57033).of(222371.4066)
-    end
-
-    it "total cost of buildings_collective_chp_wood_pellets should be within 5.0% of 63403922.66" do
-      @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(3170196.133).of(63403922.66)
-    end
-
     it "total cost of buildings_collective_chp_wood_pellets should be within 5.0% of 63403922.66" do
       @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(3170196.133).of(63403922.66)
     end
@@ -318,10 +310,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(3051806.227).of(61036124.54)
     end
 
-    it "total cost of households_collective_chp_wood_pellets should be within 5.0% of 61036124.54" do
-      @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(3051806.227).of(61036124.54)
-    end
-
     it "total cost of households_collective_geothermal should be within 5.0% of 287417.4843" do
       @scenario.total_cost_of_households_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
@@ -404,10 +392,6 @@ describe "Testing costs" do
 
     it "total cost of households_water_heater_district_heating_steam_hot_water should be within 5.0% of 594.3333333" do
       @scenario.total_cost_of_households_water_heater_district_heating_steam_hot_water.value.should be_within(29.716666665000005).of(594.3333333)
-    end
-
-    it "total cost of households_water_heater_fuel_cell_chp_network_gas should be within 5.0% of 2453.333333" do
-      @scenario.total_cost_of_households_water_heater_fuel_cell_chp_network_gas.value.should be_within(122.66666665000001).of(2453.333333)
     end
 
     it "total cost of households_water_heater_fuel_cell_chp_network_gas should be within 5.0% of 2453.333333" do
