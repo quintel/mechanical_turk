@@ -7,7 +7,7 @@ describe "merit order module" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
-  context "for the start scenario" do
+  describe "for the start scenario" do
 
     it "the full load hours of the cheapest five power plants should be greater than zero and less than 8760" do
       @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value.should be_within(4379).of(4380)
