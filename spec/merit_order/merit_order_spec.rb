@@ -10,11 +10,11 @@ describe "merit order module" do
   describe "for the start scenario" do
 
     it "the full load hours of the cheapest five power plants should be greater than zero and less than 8760" do
-      @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value.should be_within(4379).of(4380)
-      @scenario.merit_order_coal_igcc_full_load_hours_in_merit_order_table.value.should be_within(4379).of(4380)
-      @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value.should be_within(4379).of(4380)
-      @scenario.merit_order_coal_chp_full_load_hours_in_merit_order_table.value.should be_within(4379).of(4380)
-      @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value.should be_within(4379).of(4380)
+      expect(@scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
+      expect(@scenario.merit_order_coal_igcc_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
+      expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
+      expect(@scenario.merit_order_coal_chp_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
+      expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
     end
   end
 
@@ -22,23 +22,23 @@ describe "merit order module" do
 
     it "the full load hours of a power plant should become zero if the number of units becomes zero" do
       @scenario.number_of_gas_ccgt = 0
-      @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value.should be == 0.0
+      expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value).to be == 0.0
 
       @scenario.number_of_nuclear_3rd_gen = 0
-      @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value.should be == 0.0
+      expect(@scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value).to be == 0.0
 
       @scenario.number_of_pulverized_coal = 0
-      @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value.should be == 0.0
+      expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value).to be == 0.0
     end
   end
 
   context "when adding wind power" do
 
     it "should lower full load hours of central production power plants" do
-      @scenario.number_of_wind_offshore = 4000 
-      @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should decrease
-      @scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.should decrease
-      @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.should decrease
+      @scenario.number_of_wind_offshore = 4000
+      expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to decrease
+      expect(@scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table).to decrease
+      expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
     end
   end
 
@@ -46,12 +46,12 @@ describe "merit order module" do
 
     it "should increase full load hours of gas power plants when natural gas price decreases" do
       @scenario.costs_gas = -50
-      @scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.should increase
+      expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to increase
     end
 
     it "should decrease full load hours of coal power plants when coal price increases" do
-        @scenario.costs_coal = 300 
-        @scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.should decrease
+        @scenario.costs_coal = 300
+        expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
     end
   end
 

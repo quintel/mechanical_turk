@@ -49,11 +49,11 @@ describe "ETFlex Scoring mechanism" do
     describe "Insulation level" do
       it "should raise your CO2 score" do
         @s.households_insulation_level_old_houses = 1.1 #Rc value
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
       it "should lower your cost score" do
         @s.households_insulation_level_old_houses = 1.1 #Rc value
-        @s.etflex_score_cost.should increase
+        expect(@s.etflex_score_cost).to increase
       end
 
     end
@@ -61,77 +61,77 @@ describe "ETFlex Scoring mechanism" do
     describe "Electric car share" do
       it "should increase renewability score" do
         @s.transport_cars_electric_share = 10 #%
-        @s.etflex_score_renewability.should increase
+        expect(@s.etflex_score_renewability).to increase
       end
       it "should increase co2 score" do
         @s.transport_cars_electric_share = 10 #%
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
       it "should decrease cost score" do
         @s.transport_cars_electric_share = 10 #%
-        @s.etflex_score_cost.should increase
+        expect(@s.etflex_score_cost).to increase
       end
       it "should lower electric car score (penalty)" do
         @s.transport_cars_electric_share = 10 #%
-        @s.etflex_score_electric_car.should decrease
+        expect(@s.etflex_score_electric_car).to decrease
       end
     end
 
     describe "LED lighting" do
       it "should raise co2 score" do
         @s.households_lighting_light_emitting_diode_share = 10 #%
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
       it "should raise cost score" do
         @s.households_lighting_light_emitting_diode_share = 10 #%
-        @s.etflex_score_cost.should increase
+        expect(@s.etflex_score_cost).to increase
       end
       it "should lower led score (penalty)" do
         @s.households_lighting_light_emitting_diode_share = 10 #%
-        @s.etflex_score_led.should decrease
+        expect(@s.etflex_score_led).to decrease
       end
       it "penalty of led should be lower than co2 + costs + renewability when at 1%" do
         @s.households_lighting_light_emitting_diode_share = 1 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_led.increase).should be > 0
+         expect(@s.etflex_score_led.increase)).to be > 0
       end
       it "penalty of led should be higher than co2 + costs + renewability when at 100%" do
         @s.households_lighting_light_emitting_diode_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_led.increase).should be < 1
+         expect(@s.etflex_score_led.increase)).to be < 1
       end
     end
 
     describe "Heatpump add-on" do
       it "should raise co2 score" do
         @s.households_heating_heat_pump_add_on_share = 10 #%
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
       it "should lower cost score" do
         @s.households_heating_heat_pump_add_on_share = 10 #%
-        @s.etflex_score_cost.should decrease
+        expect(@s.etflex_score_cost).to decrease
       end
       it "should lower heatpump score (penalty)" do
         @s.households_heating_heat_pump_add_on_share = 10 #%
-        @s.etflex_score_heatpump.should decrease
+        expect(@s.etflex_score_heatpump).to decrease
       end
       it "penalty of heatpump should be lower than co2 + costs + renewability when at 1%" do
         @s.households_heating_heat_pump_add_on_share = 1 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_heatpump.increase).should be > 0
+         expect(@s.etflex_score_heatpump.increase)).to be > 0
       end
       it "penalty of heatpump should be higher than co2 + costs + renewability when at 100%" do
         @s.households_heating_heat_pump_add_on_share = 100 #%
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_heatpump.increase).should be < 1
+         expect(@s.etflex_score_heatpump.increase)).to be < 1
       end
     end
   end
@@ -141,53 +141,53 @@ describe "ETFlex Scoring mechanism" do
     describe "Coal plant" do
       it "should lower your CO2 score" do
         @s.number_of_pulverized_coal = 10
-        @s.etflex_score_co2.should decrease
+        expect(@s.etflex_score_co2).to decrease
       end
     end
 
     describe "Nuclear power plant" do
       it "should lower your nuclear score (penalty)" do
         @s.number_of_nuclear_3rd_gen = 2 #maximum number of nucl. power plants
-        @s.etflex_score_nuclear_waste.should decrease
+        expect(@s.etflex_score_nuclear_waste).to decrease
       end
       it "should increase your co2 score" do
         @s.number_of_nuclear_3rd_gen = 2 #maximum number of nucl. power plants
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
       it "penalty of nuclear should be higher than co2 + costs + renewability when at 0.1" do
         @s.number_of_nuclear_3rd_gen = 0.1 #nuclear power plants
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_nuclear_waste.increase).should be < 1
+         expect(@s.etflex_score_nuclear_waste.increase)).to be < 1
       end
       it "penalty of nuclear should be higher than co2 + costs + renewability when at 2" do
         @s.number_of_nuclear_3rd_gen = 2 #nuclear power plants
         (@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_nuclear_waste.increase).should be < 1
+         expect(@s.etflex_score_nuclear_waste.increase)).to be < 1
       end
     end
 
     describe "Wind turbines" do
       it "should raise your score on CO2" do
         @s.number_of_wind_onshore_land = 2000
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
     end
 
     describe "Solar panels" do
       it "should raise your score on CO2" do
         @s.households_market_penetration_solar_panels = 100 #%
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
     end
 
     describe "Green gas" do
       it "should raise your score on CO2" do
         @s.green_gas_total_share = 10 #%
-        @s.etflex_score_co2.should increase
+        expect(@s.etflex_score_co2).to increase
       end
     end
   end
@@ -201,7 +201,7 @@ describe "ETFlex Scoring mechanism" do
       @s.number_of_wind_onshore_land = 2000
       @s.green_gas_total_share = 10 #%
       @s.households_market_penetration_solar_panels = 100 #%
-      @s.etflex_score_imbalance.value.should be < 500
+      expect(@s.etflex_score_imbalance.value).to be < 500
     end
 
   end

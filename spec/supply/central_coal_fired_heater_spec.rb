@@ -12,24 +12,24 @@ describe "Central coal-fired heater" do
   end
 
   it "should increase primary demand" do
-    @scenario.primary_demand.should increase
+    expect(@scenario.primary_demand).to increase
   end
 
   it "should increase import" do
-    @scenario.import.should increase
+    expect(@scenario.import).to increase
   end
 
   it "should increase co2" do
-    @scenario.co2.should increase
+    expect(@scenario.co2).to increase
   end
 
   it "should not change bio footprint" do
-    @scenario.footprint.should not_change
+    expect(@scenario.footprint).to not_change
   end
 
   # This converter does not supply a heat of cold network
   it "should not change the fossile energy for heat and cold production" do
-    @scenario.fossil_energy_used_for_heat_and_cold_production.should not_change
+    expect(@scenario.fossil_energy_used_for_heat_and_cold_production).to not_change
   end
 
 end

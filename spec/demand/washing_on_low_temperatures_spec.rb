@@ -13,7 +13,7 @@ describe "#371: Washing on low temperatures" do
 
     it "should lower CO2 emissions when washing machine efficiencies increase to max value" do
       @scenario.households_efficiency_low_temperature_washing = 100 #%
-      @scenario.co2.should decrease
+      expect(@scenario.co2).to decrease
     end
 
   end
@@ -22,9 +22,9 @@ describe "#371: Washing on low temperatures" do
 
     it "should lower CO2 emissions when washing machine efficiencies increase to max value" do
       @scenario.households_efficiency_washing_machine = 86 #%
-      @scenario.co2.should decrease
+      expect(@scenario.co2).to decrease
       @scenario.households_efficiency_low_temperature_washing = 100 #%
-      @scenario.co2.should decrease
+      expect(@scenario.co2).to decrease
     end
 
   end

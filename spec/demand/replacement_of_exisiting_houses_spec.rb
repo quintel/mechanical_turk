@@ -19,20 +19,20 @@ describe "Replacement of existing houses" do
   end
 
   it "should not increase primary demand" do
-    @scenario.primary_demand.decrease.should be > 0
+    expect(@scenario.primary_demand.decrease).to be > 0
   end
 
   it "should decrease co2" do
-    @scenario.co2.decrease.should be > 0
+    expect(@scenario.co2.decrease).to be > 0
   end
 
   it "should decrease the heat demand for houses" do
-    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease.should be > 0
+    expect(@scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").decrease).to be > 0
   end
 
   it "should decrease the heat demand for houses between the min and max values" do
-    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value.should be  <  VALUE_IF_NO_HOUSES_REPLACED
-    @scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value.should be >  VALUE_IF_ALL_HOUSES_REPLACED
+    expect(@scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value).to be  <  VALUE_IF_NO_HOUSES_REPLACED
+    expect(@scenario.result("heat_demand_including_electric_heating_in_use_of_final_demand_in_households").value).to be >  VALUE_IF_ALL_HOUSES_REPLACED
   end
 
 
