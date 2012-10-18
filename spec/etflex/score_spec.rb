@@ -92,17 +92,17 @@ describe "ETFlex Scoring mechanism" do
       end
       it "penalty of led should be lower than co2 + costs + renewability when at 1%" do
         @s.households_lighting_light_emitting_diode_share = 1 #%
-        (@s.etflex_score_co2.increase +
+        expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         expect(@s.etflex_score_led.increase)).to be > 0
+         @s.etflex_score_led.increase).to be > 0
       end
       it "penalty of led should be higher than co2 + costs + renewability when at 100%" do
         @s.households_lighting_light_emitting_diode_share = 100 #%
-        (@s.etflex_score_co2.increase +
+        expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         expect(@s.etflex_score_led.increase)).to be < 1
+         @s.etflex_score_led.increase).to be < 1
       end
     end
 
@@ -121,17 +121,17 @@ describe "ETFlex Scoring mechanism" do
       end
       it "penalty of heatpump should be lower than co2 + costs + renewability when at 1%" do
         @s.households_heating_heat_pump_add_on_share = 1 #%
-        (@s.etflex_score_co2.increase +
+        expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         expect(@s.etflex_score_heatpump.increase)).to be > 0
+         @s.etflex_score_heatpump.increase).to be > 0
       end
       it "penalty of heatpump should be higher than co2 + costs + renewability when at 100%" do
         @s.households_heating_heat_pump_add_on_share = 100 #%
-        (@s.etflex_score_co2.increase +
+        expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         expect(@s.etflex_score_heatpump.increase)).to be < 1
+         @s.etflex_score_heatpump.increase).to be < 1
       end
     end
   end
@@ -156,17 +156,17 @@ describe "ETFlex Scoring mechanism" do
       end
       it "penalty of nuclear should be higher than co2 + costs + renewability when at 0.1" do
         @s.number_of_nuclear_3rd_gen = 0.1 #nuclear power plants
-        (@s.etflex_score_co2.increase +
+        expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         expect(@s.etflex_score_nuclear_waste.increase)).to be < 1
+         @s.etflex_score_nuclear_waste.increase).to be < 1
       end
       it "penalty of nuclear should be higher than co2 + costs + renewability when at 2" do
         @s.number_of_nuclear_3rd_gen = 2 #nuclear power plants
-        (@s.etflex_score_co2.increase +
+        expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         expect(@s.etflex_score_nuclear_waste.increase)).to be < 1
+         @s.etflex_score_nuclear_waste.increase).to be < 1
       end
     end
 
