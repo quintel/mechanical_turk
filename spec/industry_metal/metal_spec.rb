@@ -148,10 +148,6 @@ describe "Standard scenario: Metal production" do
 
     it "Should decrease the load of the backup burner when putting the hisarna to 1%" do
 
-
-
-
-
       # Putting the Smeltoven to 100%
       @scenario.industry_steel_blastfurnace_current_share = 0 #%
       @scenario.industry_steel_blastfurnace_bat_share = 99 #%
@@ -159,6 +155,20 @@ describe "Standard scenario: Metal production" do
 
       expect(@scenario.energy_heat_network_backup_heater_gas_power_fuelmix_demand).to decrease
       expect(@scenario.energy_heat_remainder_from_heat_network_unused_steam_hot_water_demand).to_not change
+    end
+  end
+
+  describe "Bio Feedstock" do
+
+    it "Using Bio Feedstock in Hisarna furnace should, CO2 and cost but increase bio-footprint" do
+      @scenario.industry_steel_blastfurnace_current_share = 0 #%
+      @scenario.industry_steel_blastfurnace_bat_share = 0 #%
+      @scenario.industry_steel_hisarna_share = 100 #%
+      @scenario.industry_steel_biofeedstock_for_hisarna_share = 100 #%
+
+      expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
+      expect(@scenario.dashboard_bio_footprint).to increase
+      expect(@scenario.total_costs).to decrease
     end
   end
 end
