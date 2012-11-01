@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe "Central coal-fired heater" do
+describe "Central coal-plant" do
 
   before(:all) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)

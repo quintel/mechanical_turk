@@ -474,8 +474,8 @@ describe "Testing costs" do
       expect(@scenario.total_cost_of_industry_other_metals_burner.value).to be_within(347932.58895).of(6958651.779)
     end
 
-    it "total cost of industry_steel_blastfurnace_burner should be within 5.0% of 3717418.8935204055" do
-      expect(@scenario.total_cost_of_industry_steel_blastfurnace_burner.value).to be_within(185870.94467602).of(3717418.8935204055)
+    it "total cost of industry_steel_blastfurnace_burner should be within 5.0% of 4424131.3301127665" do
+      expect(@scenario.total_cost_of_industry_steel_blastfurnace_burner.value).to be_within(221026.0).of(4424131.3301127665)
     end
 
     it "total cost of industry_steel_electricfurnace_burner should be within 5.0% of 6958651.779" do

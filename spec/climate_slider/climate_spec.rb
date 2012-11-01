@@ -9,7 +9,7 @@ describe "Testing climate slider" do
 
   context "Testing impact on heat demand of residences" do
 
-    it "it should decrease heat demand if climate slider is pulled to max" do
+    xit "it should decrease heat demand if climate slider is pulled to max" do
       demand_before_update = @scenario.households_new_houses_useful_demand_for_heating.future
       pp demand_before_update
 
@@ -23,7 +23,7 @@ describe "Testing climate slider" do
       @scenario.households_old_houses_useful_demand_for_heating.should decrease
     end
 
-    it "it should increase heat demand if climate slider is pulled to min" do
+    xit "it should increase heat demand if climate slider is pulled to min" do
       demand_before_update = @scenario.households_new_houses_useful_demand_for_heating.future
       pp demand_before_update
 
@@ -37,7 +37,7 @@ describe "Testing climate slider" do
       @scenario.households_old_houses_useful_demand_for_heating.should increase
     end
 
-    it "it should increase cooling demand if climate slider is pulled to max" do
+    xit "it should increase cooling demand if climate slider is pulled to max" do
       demand_before_update = @scenario.households_new_houses_useful_demand_for_cooling.future
       pp demand_before_update
 
@@ -51,7 +51,7 @@ describe "Testing climate slider" do
       @scenario.households_old_houses_useful_demand_for_cooling.should increase
     end
 
-    it "it should decrease cooling demand if climate slider is pulled to min" do
+    xit "it should decrease cooling demand if climate slider is pulled to min" do
       demand_before_update =  @scenario.households_new_houses_useful_demand_for_cooling.future
       pp demand_before_update
 
