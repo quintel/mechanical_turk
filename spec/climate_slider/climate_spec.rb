@@ -21,6 +21,7 @@ describe "Testing climate slider" do
 
       @scenario.households_new_houses_useful_demand_for_heating.should decrease
       @scenario.households_old_houses_useful_demand_for_heating.should decrease
+      @scenario.buildings_useful_demand_for_space_heating.should decrease
     end
 
     it "it should increase heat demand if climate slider is pulled to min" do
@@ -35,6 +36,7 @@ describe "Testing climate slider" do
 
       @scenario.households_new_houses_useful_demand_for_heating.should increase
       @scenario.households_old_houses_useful_demand_for_heating.should increase
+      @scenario.buildings_useful_demand_for_space_heating.should increase
     end
 
     it "it should increase cooling demand if climate slider is pulled to max" do
@@ -49,6 +51,7 @@ describe "Testing climate slider" do
 
       @scenario.households_new_houses_useful_demand_for_cooling.should increase
       @scenario.households_old_houses_useful_demand_for_cooling.should increase
+      @scenario.buildings_useful_demand_cooling.should increase
     end
 
     it "it should decrease cooling demand if climate slider is pulled to min" do
@@ -63,7 +66,7 @@ describe "Testing climate slider" do
 
       @scenario.households_new_houses_useful_demand_for_cooling.should decrease
       @scenario.households_old_houses_useful_demand_for_cooling.should decrease
+      @scenario.buildings_useful_demand_cooling.should decrease
     end
-
   end
 end
