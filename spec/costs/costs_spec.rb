@@ -501,17 +501,5 @@ describe "Testing costs" do
     it "total cost of other_chp_engine_gas_power_fuelmix should be within 5.0% of 200638.1854" do
       expect(@scenario.total_cost_of_other_chp_engine_gas_power_fuelmix.value).to be_within(10031.90927).of(200638.1854)
     end
-
-    it "total cost of other_chp_engine_gas_power_fuelmix should be within 5.0% of 200638.1854" do
-      expect(@scenario.total_cost_of_other_chp_engine_gas_power_fuelmix.value).to be_within(10031.90927).of(200638.1854)
-    end
-
-    it "total cost of other_chp_supercritical_wood_pellets should be within 5.0% of 65940849.21" do
-      expect(@scenario.total_cost_of_other_chp_supercritical_wood_pellets.value).to be_within(3297042.4605).of(65940849.21)
-    end
-
-    it "total cost of other_chp_supercritical_wood_pellets should be within 5.0% of 65940849.21" do
-      expect(@scenario.total_cost_of_other_chp_supercritical_wood_pellets.value).to be_within(3297042.4605).of(65940849.21)
-    end
   end
 end
