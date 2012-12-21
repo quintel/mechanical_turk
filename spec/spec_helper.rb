@@ -1,5 +1,7 @@
 Dir[File.expand_path("../../lib/*.rb", __FILE__)].each {|f| require f}
 
+puts "INFO: Using Server #{Turk::Connection::SERVER_ADDRESS}...."
+
 RSpec::Matchers.define :increase do
   match{ |actual| actual.increase > 0 }
   failure_message_for_should do |actual|
