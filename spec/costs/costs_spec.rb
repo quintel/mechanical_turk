@@ -10,496 +10,464 @@ describe "Testing costs" do
   #Checking for change
   context "Testing all converters with total cost" do
 
-    it "total cost of agriculture_burner_crude_oil should be within 5.0% of 617084.0758" do
-      expect(@scenario.total_cost_of_agriculture_burner_crude_oil.value).to be_within(30854.20379).of(617084.0758)
+    it "total cost of agriculture_burner_crude_oil should be within 5.0% of 669753.6637" do
+      @scenario.total_cost_of_agriculture_burner_crude_oil.value.should be_within(33487.683185).of(669753.6637)
     end
 
-    it "total cost of agriculture_burner_network_gas should be within 5.0% of 347932.5889" do
-      expect(@scenario.total_cost_of_agriculture_burner_network_gas.value).to be_within(17396.629445).of(347932.5889)
+    it "total cost of agriculture_burner_network_gas should be within 5.0% of 369782.985" do
+      @scenario.total_cost_of_agriculture_burner_network_gas.value.should be_within(18489.14925).of(369782.985)
     end
 
-    it "total cost of agriculture_burner_wood_pellets should be within 5.0% of 524434.3319" do
-      expect(@scenario.total_cost_of_agriculture_burner_wood_pellets.value).to be_within(26221.716595).of(524434.3319)
+    it "total cost of agriculture_burner_wood_pellets should be within 5.0% of 518989.6606" do
+      @scenario.total_cost_of_agriculture_burner_wood_pellets.value.should be_within(25949.483030000003).of(518989.6606)
     end
 
-    it "total cost of agriculture_chp_engine_gas_power_fuelmix should be within 5.0% of 432370.2664" do
-      expect(@scenario.total_cost_of_agriculture_chp_engine_gas_power_fuelmix.value).to be_within(21618.513320000002).of(432370.2664)
-    end
-
-    it "total cost of agriculture_chp_engine_gas_power_fuelmix should be within 5.0% of 432370.2664" do
-      expect(@scenario.total_cost_of_agriculture_chp_engine_gas_power_fuelmix.value).to be_within(21618.513320000002).of(432370.2664)
+    it "total cost of agriculture_chp_engine_natural_gas should be within 5.0% of 451954.6275" do
+      @scenario.total_cost_of_agriculture_chp_engine_natural_gas.value.should be_within(22597.731375000003).of(451954.6275)
     end
 
     it "total cost of agriculture_geothermal should be within 5.0% of 793333.3333" do
-      expect(@scenario.total_cost_of_agriculture_geothermal.value).to be_within(39666.666665000004).of(793333.3333)
+      @scenario.total_cost_of_agriculture_geothermal.value.should be_within(39666.666665000004).of(793333.3333)
     end
 
     it "total cost of agriculture_heatpump_water_water_ts_electricity should be within 5.0% of 404644.3224" do
-      expect(@scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value).to be_within(20232.21612).of(404644.3224)
+      @scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value.should be_within(20232.21612).of(404644.3224)
     end
 
-    it "total cost of buildings_collective_chp_gas_power_fuelmix should be within 5.0% of 222371.4066" do
-      expect(@scenario.total_cost_of_buildings_collective_chp_gas_power_fuelmix.value).to be_within(11118.57033).of(222371.4066)
+    it "total cost of buildings_collective_chp_natural_gas should be within 5.0% of 232359.5784" do
+      @scenario.total_cost_of_buildings_collective_chp_natural_gas.value.should be_within(11617.978920000001).of(232359.5784)
     end
 
-    it "total cost of buildings_collective_chp_wood_pellets should be within 5.0% of 63403922.66" do
-      expect(@scenario.total_cost_of_buildings_collective_chp_wood_pellets.value).to be_within(3170196.133).of(63403922.66)
+    it "total cost of buildings_collective_chp_wood_pellets should be within 5.0% of 62923335.09" do
+      @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(3146166.7545000003).of(62923335.09)
     end
 
     it "total cost of buildings_collective_geothermal should be within 5.0% of 287417.4843" do
-      expect(@scenario.total_cost_of_buildings_collective_geothermal.value).to be_within(14370.874215000002).of(287417.4843)
+      @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
 
     it "total cost of buildings_cooling_airconditioning should be within 5.0% of 199.0" do
-      expect(@scenario.total_cost_of_buildings_cooling_airconditioning.value).to be_within(9.950000000000001).of(199.0)
+      @scenario.total_cost_of_buildings_cooling_airconditioning.value.should be_within(9.950000000000001).of(199.0)
     end
 
     it "total cost of buildings_cooling_collective_heatpump_water_water_ts_electricity should be within 5.0% of 1314033.788" do
-      expect(@scenario.total_cost_of_buildings_cooling_collective_heatpump_water_water_ts_electricity.value).to be_within(65701.6894).of(1314033.788)
+      @scenario.total_cost_of_buildings_cooling_collective_heatpump_water_water_ts_electricity.value.should be_within(65701.6894).of(1314033.788)
     end
 
-    it "total cost of buildings_cooling_heatpump_air_water_network_gas should be within 5.0% of 839860.0733" do
-      expect(@scenario.total_cost_of_buildings_cooling_heatpump_air_water_network_gas.value).to be_within(41993.003665000004).of(839860.0733)
+    it "total cost of buildings_cooling_heatpump_air_water_network_gas should be within 5.0% of 858888.4054" do
+      @scenario.total_cost_of_buildings_cooling_heatpump_air_water_network_gas.value.should be_within(42944.42027).of(858888.4054)
     end
 
-    it "total cost of buildings_heat_network_connection_steam_hot_water should be within 5.0% of 587333.3333" do
-      expect(@scenario.total_cost_of_buildings_heat_network_connection_steam_hot_water.value).to be_within(29366.666665000004).of(587333.3333)
+    it "total cost of buildings_heat_network_connection_steam_hot_water should be within 5.0% of 587333.0" do
+      @scenario.total_cost_of_buildings_heat_network_connection_steam_hot_water.value.should be_within(29366.65).of(587333.0)
     end
 
     it "total cost of buildings_solar_pv_solar_radiation should be within 5.0% of 2545.292412" do
-      expect(@scenario.total_cost_of_buildings_solar_pv_solar_radiation.value).to be_within(127.2646206).of(2545.292412)
+      @scenario.total_cost_of_buildings_solar_pv_solar_radiation.value.should be_within(127.2646206).of(2545.292412)
     end
 
-    it "total cost of buildings_space_heater_coal should be within 5.0% of 5041.137264" do
-      expect(@scenario.total_cost_of_buildings_space_heater_coal.value).to be_within(252.0568632).of(5041.137264)
+    it "total cost of buildings_space_heater_coal should be within 5.0% of 4942.535558" do
+      @scenario.total_cost_of_buildings_space_heater_coal.value.should be_within(247.12677789999998).of(4942.535558)
     end
 
     it "total cost of buildings_space_heater_collective_heatpump_water_water_ts_electricity should be within 5.0% of 365365.4375" do
-      expect(@scenario.total_cost_of_buildings_space_heater_collective_heatpump_water_water_ts_electricity.value).to be_within(18268.271875000002).of(365365.4375)
+      @scenario.total_cost_of_buildings_space_heater_collective_heatpump_water_water_ts_electricity.value.should be_within(18268.271875000002).of(365365.4375)
     end
 
-    it "total cost of buildings_space_heater_crude_oil should be within 5.0% of 9093.962029" do
-      expect(@scenario.total_cost_of_buildings_space_heater_crude_oil.value).to be_within(454.69810145).of(9093.962029)
+    it "total cost of buildings_space_heater_crude_oil should be within 5.0% of 9715.061477" do
+      @scenario.total_cost_of_buildings_space_heater_crude_oil.value.should be_within(485.75307384999996).of(9715.061477)
     end
 
-    it "total cost of buildings_space_heater_district_heating_steam_hot_water should be within 5.0% of 594.3333333" do
-      expect(@scenario.total_cost_of_buildings_space_heater_district_heating_steam_hot_water.value).to be_within(29.716666665000005).of(594.3333333)
+    it "total cost of buildings_space_heater_district_heating_steam_hot_water should be within 5.0% of 594.0" do
+      @scenario.total_cost_of_buildings_space_heater_district_heating_steam_hot_water.value.should be_within(29.700000000000003).of(594.0)
     end
 
     it "total cost of buildings_space_heater_electricity should be within 5.0% of 195.72" do
-      expect(@scenario.total_cost_of_buildings_space_heater_electricity.value).to be_within(9.786000000000001).of(195.72)
+      @scenario.total_cost_of_buildings_space_heater_electricity.value.should be_within(9.786000000000001).of(195.72)
     end
 
-    it "total cost of buildings_space_heater_heatpump_air_water_network_gas should be within 5.0% of 609197.7948127043" do
-      expect(@scenario.total_cost_of_buildings_space_heater_heatpump_air_water_network_gas.value).to be_within(30459.8897406352).of(609197.7948127043)
+    it "total cost of buildings_space_heater_heatpump_air_water_network_gas should be within 5.0% of 618052.7509" do
+      @scenario.total_cost_of_buildings_space_heater_heatpump_air_water_network_gas.value.should be_within(30902.637545).of(618052.7509)
     end
 
-    it "total cost of buildings_space_heater_network_gas should be within 5.0% of 2363.276535" do
-      expect(@scenario.total_cost_of_buildings_space_heater_network_gas.value).to be_within(118.16382675).of(2363.276535)
+    it "total cost of buildings_space_heater_network_gas should be within 5.0% of 2507.694256" do
+      @scenario.total_cost_of_buildings_space_heater_network_gas.value.should be_within(125.38471280000002).of(2507.694256)
     end
 
-    it "total cost of buildings_space_heater_solar_thermal should be within 5.0% of 13387.47" do
-      expect(@scenario.total_cost_of_buildings_space_heater_solar_thermal.value).to be_within(669.3735).of(13387.47)
+    it "total cost of buildings_space_heater_solar_thermal should be within 5.0% of 13386.72" do
+      @scenario.total_cost_of_buildings_space_heater_solar_thermal.value.should be_within(669.336).of(13386.72)
     end
 
-    it "total cost of buildings_space_heater_wood_pellets should be within 5.0% of 9707.964825" do
-      expect(@scenario.total_cost_of_buildings_space_heater_wood_pellets.value).to be_within(485.39824124999996).of(9707.964825)
+    it "total cost of buildings_space_heater_wood_pellets should be within 5.0% of 9643.738808" do
+      @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(482.1869404).of(9643.738808)
     end
 
-    it "total cost of energy_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 239836732.1" do
-      expect(@scenario.total_cost_of_energy_chp_combined_cycle_gas_power_fuelmix.value).to be_within(11991836.605).of(239836732.1)
+    it "total cost of energy_chp_combined_cycle_network_gas should be within 5.0% of 251658655.7" do
+      @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(12582932.785).of(251658655.7)
     end
 
-    it "total cost of energy_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 239836732.1" do
-      expect(@scenario.total_cost_of_energy_chp_combined_cycle_gas_power_fuelmix.value).to be_within(11991836.605).of(239836732.1)
+    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 250935350.0" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12546767.5).of(250935350.0)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 257671362.7" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value).to be_within(12883568.135).of(257671362.7)
+    it "total cost of energy_chp_ultra_supercritical_crude_oil should be within 5.0% of 377260702.4" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_crude_oil.value.should be_within(18863035.12).of(377260702.4)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 257671362.7" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value).to be_within(12883568.135).of(257671362.7)
+    it "total cost of energy_chp_ultra_supercritical_lignite should be within 5.0% of 135687530.4" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value.should be_within(6784376.5200000005).of(135687530.4)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_crude_oil should be within 5.0% of 349836623.2" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_crude_oil.value).to be_within(17491831.16).of(349836623.2)
+    it "total cost of energy_chp_ultra_supercritical_wood_pellets should be within 5.0% of 84195425.48" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_wood_pellets.value.should be_within(4209771.274).of(84195425.48)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_crude_oil should be within 5.0% of 349836623.2" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_crude_oil.value).to be_within(17491831.16).of(349836623.2)
+    it "total cost of energy_heat_network_backup_heater_network_gas should be within 5.0% of 7395659.701" do
+      @scenario.total_cost_of_energy_heat_network_backup_heater_network_gas.value.should be_within(369782.98505).of(7395659.701)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_lignite should be within 5.0% of 135687530.7" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value).to be_within(6784376.535).of(135687530.7)
+    it "total cost of energy_heater_for_heat_network_coal should be within 5.0% of 5202804.488" do
+      @scenario.total_cost_of_energy_heater_for_heat_network_coal.value.should be_within(260140.2244).of(5202804.488)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_lignite should be within 5.0% of 135687530.7" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value).to be_within(6784376.535).of(135687530.7)
-    end
-
-    it "total cost of energy_chp_ultra_supercritical_wood_pellets should be within 5.0% of 84967798.36" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_wood_pellets.value).to be_within(4248389.9180000005).of(84967798.36)
-    end
-
-    it "total cost of energy_chp_ultra_supercritical_wood_pellets should be within 5.0% of 84967798.36" do
-      expect(@scenario.total_cost_of_energy_chp_ultra_supercritical_wood_pellets.value).to be_within(4248389.9180000005).of(84967798.36)
-    end
-
-    it "total cost of energy_heat_network_backup_heater_gas_power_fuelmix should be within 5.0% of 6958651.779" do
-      expect(@scenario.total_cost_of_energy_heat_network_backup_heater_gas_power_fuelmix.value).to be_within(347932.58895).of(6958651.779)
-    end
-
-    it "total cost of energy_heater_for_heat_network_coal should be within 5.0% of 5375274.128" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_coal.value).to be_within(268763.70639999997).of(5375274.128)
-    end
-
-    it "total cost of energy_heater_for_heat_network_crude_oil should be within 5.0% of 13442305.78" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_crude_oil.value).to be_within(672115.289).of(13442305.78)
+    it "total cost of energy_heater_for_heat_network_crude_oil should be within 5.0% of 14596149.85" do
+      @scenario.total_cost_of_energy_heater_for_heat_network_crude_oil.value.should be_within(729807.4925).of(14596149.85)
     end
 
     it "total cost of energy_heater_for_heat_network_geothermal should be within 5.0% of 793333.3333" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_geothermal.value).to be_within(39666.666665000004).of(793333.3333)
+      @scenario.total_cost_of_energy_heater_for_heat_network_geothermal.value.should be_within(39666.666665000004).of(793333.3333)
     end
 
     it "total cost of energy_heater_for_heat_network_lignite should be within 5.0% of 100225.0" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_lignite.value).to be_within(5011.25).of(100225.0)
+      @scenario.total_cost_of_energy_heater_for_heat_network_lignite.value.should be_within(5011.25).of(100225.0)
     end
 
-    it "total cost of energy_heater_for_heat_network_network_gas should be within 5.0% of 8290252.163" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_network_gas.value).to be_within(414512.60815).of(8290252.163)
+    it "total cost of energy_heater_for_heat_network_network_gas should be within 5.0% of 8821748.285" do
+      @scenario.total_cost_of_energy_heater_for_heat_network_network_gas.value.should be_within(441087.41425000003).of(8821748.285)
     end
 
     it "total cost of energy_heater_for_heat_network_waste_mix should be within 5.0% of 40000.0" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_waste_mix.value).to be_within(2000.0).of(40000.0)
+      @scenario.total_cost_of_energy_heater_for_heat_network_waste_mix.value.should be_within(2000.0).of(40000.0)
     end
 
-    it "total cost of energy_heater_for_heat_network_wood_pellets should be within 5.0% of 9981498.52" do
-      expect(@scenario.total_cost_of_energy_heater_for_heat_network_wood_pellets.value).to be_within(499074.926).of(9981498.52)
+    it "total cost of energy_heater_for_heat_network_wood_pellets should be within 5.0% of 9879467.962" do
+      @scenario.total_cost_of_energy_heater_for_heat_network_wood_pellets.value.should be_within(493973.3981).of(9879467.962)
     end
 
-    it "total cost of energy_power_combined_cycle_ccs_coal should be within 5.0% of 288360364.6" do
-      expect(@scenario.total_cost_of_energy_power_combined_cycle_ccs_coal.value).to be_within(14418018.230000002).of(288360364.6)
+    it "total cost of energy_power_combined_cycle_ccs_coal should be within 5.0% of 282404665.4" do
+      @scenario.total_cost_of_energy_power_combined_cycle_ccs_coal.value.should be_within(14120233.27).of(282404665.4)
     end
 
-    it "total cost of energy_power_combined_cycle_ccs_gas_power_fuelmix should be within 5.0% of 256194199.8" do
-      expect(@scenario.total_cost_of_energy_power_combined_cycle_ccs_gas_power_fuelmix.value).to be_within(12809709.990000002).of(256194199.8)
+    it "total cost of energy_power_combined_cycle_ccs_network_gas should be within 5.0% of 267656871.2" do
+      @scenario.total_cost_of_energy_power_combined_cycle_ccs_network_gas.value.should be_within(13382843.56).of(267656871.2)
     end
 
-    it "total cost of energy_power_combined_cycle_coal should be within 5.0% of 250159557.9" do
-      expect(@scenario.total_cost_of_energy_power_combined_cycle_coal.value).to be_within(12507977.895000001).of(250159557.9)
+    it "total cost of energy_power_combined_cycle_coal should be within 5.0% of 244612695.4" do
+      @scenario.total_cost_of_energy_power_combined_cycle_coal.value.should be_within(12230634.770000001).of(244612695.4)
     end
 
-    it "total cost of energy_power_combined_cycle_gas_power_fuelmix should be within 5.0% of 252993021.4" do
-      expect(@scenario.total_cost_of_energy_power_combined_cycle_gas_power_fuelmix.value).to be_within(12649651.07).of(252993021.4)
+    it "total cost of energy_power_combined_cycle_network_gas should be within 5.0% of 265687203.4" do
+      @scenario.total_cost_of_energy_power_combined_cycle_network_gas.value.should be_within(13284360.170000002).of(265687203.4)
     end
 
-    it "total cost of energy_power_engine_diesel should be within 5.0% of 305099325.1" do
-      expect(@scenario.total_cost_of_energy_power_engine_diesel.value).to be_within(15254966.255000003).of(305099325.1)
+    it "total cost of energy_power_engine_diesel should be within 5.0% of 327951301.0" do
+      @scenario.total_cost_of_energy_power_engine_diesel.value.should be_within(16397565.05).of(327951301.0)
     end
 
     it "total cost of energy_power_geothermal should be within 5.0% of 9315783.898" do
-      expect(@scenario.total_cost_of_energy_power_geothermal.value).to be_within(465789.1949).of(9315783.898)
+      @scenario.total_cost_of_energy_power_geothermal.value.should be_within(465789.1949).of(9315783.898)
     end
 
     it "total cost of energy_power_hv_network_electricity should be within 5.0% of 47926596.97" do
-      expect(@scenario.total_cost_of_energy_power_hv_network_electricity.value).to be_within(2396329.8485).of(47926596.97)
+      @scenario.total_cost_of_energy_power_hv_network_electricity.value.should be_within(2396329.8485).of(47926596.97)
     end
 
     it "total cost of energy_power_hydro_mountain should be within 5.0% of 56067143.15" do
-      expect(@scenario.total_cost_of_energy_power_hydro_mountain.value).to be_within(2803357.1575).of(56067143.15)
+      @scenario.total_cost_of_energy_power_hydro_mountain.value.should be_within(2803357.1575).of(56067143.15)
     end
 
     it "total cost of energy_power_hydro_river should be within 5.0% of 3000000.0" do
-      expect(@scenario.total_cost_of_energy_power_hydro_river.value).to be_within(150000.0).of(3000000.0)
+      @scenario.total_cost_of_energy_power_hydro_river.value.should be_within(150000.0).of(3000000.0)
     end
 
     it "total cost of energy_power_lv_network_electricity should be within 5.0% of 1999.279402" do
-      expect(@scenario.total_cost_of_energy_power_lv_network_electricity.value).to be_within(99.9639701).of(1999.279402)
+      @scenario.total_cost_of_energy_power_lv_network_electricity.value.should be_within(99.9639701).of(1999.279402)
     end
 
     it "total cost of energy_power_mv_distribution_network_electricity should be within 5.0% of 7789.192549" do
-      expect(@scenario.total_cost_of_energy_power_mv_distribution_network_electricity.value).to be_within(389.45962745).of(7789.192549)
+      @scenario.total_cost_of_energy_power_mv_distribution_network_electricity.value.should be_within(389.45962745).of(7789.192549)
     end
 
     it "total cost of energy_power_mv_transport_network_electricity should be within 5.0% of 86884.46792" do
-      expect(@scenario.total_cost_of_energy_power_mv_transport_network_electricity.value).to be_within(4344.223396).of(86884.46792)
+      @scenario.total_cost_of_energy_power_mv_transport_network_electricity.value.should be_within(4344.223396).of(86884.46792)
     end
 
-    it "total cost of energy_power_nuclear_gen2_uranium_oxide should be within 5.0% of 368825614.4" do
-      expect(@scenario.total_cost_of_energy_power_nuclear_gen2_uranium_oxide.value).to be_within(18441280.72).of(368825614.4)
+    it "total cost of energy_power_nuclear_gen2_uranium_oxide should be within 5.0% of 366156088.5" do
+      @scenario.total_cost_of_energy_power_nuclear_gen2_uranium_oxide.value.should be_within(18307804.425).of(366156088.5)
     end
 
-    it "total cost of energy_power_nuclear_gen3_uranium_oxide should be within 5.0% of 650664222.6" do
-      expect(@scenario.total_cost_of_energy_power_nuclear_gen3_uranium_oxide.value).to be_within(32533211.130000003).of(650664222.6)
+    it "total cost of energy_power_nuclear_gen3_uranium_oxide should be within 5.0% of 647123302.8" do
+      @scenario.total_cost_of_energy_power_nuclear_gen3_uranium_oxide.value.should be_within(32356165.14).of(647123302.8)
     end
 
-    it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15154166.67" do
-      expect(@scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value).to be_within(757708.3335000001).of(15154166.67)
+    it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15154166.33" do
+      @scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value.should be_within(757708.3165000001).of(15154166.33)
     end
 
-    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 4236515.76" do
-      expect(@scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value).to be_within(211825.788).of(4236515.76)
+    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 4236515.36" do
+      @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(211825.76800000004).of(4236515.36)
     end
 
-    it "total cost of energy_power_supercritical_coal should be within 5.0% of 184211558.7" do
-      expect(@scenario.total_cost_of_energy_power_supercritical_coal.value).to be_within(9210577.935).of(184211558.7)
+    it "total cost of energy_power_supercritical_coal should be within 5.0% of 178126907.2" do
+      @scenario.total_cost_of_energy_power_supercritical_coal.value.should be_within(8906345.36).of(178126907.2)
     end
 
     it "total cost of energy_power_supercritical_waste_mix should be within 5.0% of 27279530.95" do
-      expect(@scenario.total_cost_of_energy_power_supercritical_waste_mix.value).to be_within(1363976.5475).of(27279530.95)
+      @scenario.total_cost_of_energy_power_supercritical_waste_mix.value.should be_within(1363976.5475).of(27279530.95)
     end
 
     it "total cost of energy_power_transformer_lv_mv_electricity should be within 5.0% of 1999.279402" do
-      expect(@scenario.total_cost_of_energy_power_transformer_lv_mv_electricity.value).to be_within(99.9639701).of(1999.279402)
+      @scenario.total_cost_of_energy_power_transformer_lv_mv_electricity.value.should be_within(99.9639701).of(1999.279402)
     end
 
     it "total cost of energy_power_transformer_mv_hv_electricity should be within 5.0% of 321203.8165" do
-      expect(@scenario.total_cost_of_energy_power_transformer_mv_hv_electricity.value).to be_within(16060.190825000001).of(321203.8165)
+      @scenario.total_cost_of_energy_power_transformer_mv_hv_electricity.value.should be_within(16060.190825000001).of(321203.8165)
     end
 
-    it "total cost of energy_power_turbine_network_gas should be within 5.0% of 17016304.68" do
-      expect(@scenario.total_cost_of_energy_power_turbine_network_gas.value).to be_within(850815.234).of(17016304.68)
+    it "total cost of energy_power_turbine_network_gas should be within 5.0% of 17705160.81" do
+      @scenario.total_cost_of_energy_power_turbine_network_gas.value.should be_within(885258.0405).of(17705160.81)
     end
 
-    it "total cost of energy_power_ultra_supercritical_ccs_coal should be within 5.0% of 268082655.2" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_ccs_coal.value).to be_within(13404132.76).of(268082655.2)
+    it "total cost of energy_power_ultra_supercritical_ccs_coal should be within 5.0% of 262124830.6" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_ccs_coal.value.should be_within(13106241.530000001).of(262124830.6)
     end
 
-    it "total cost of energy_power_ultra_supercritical_coal should be within 5.0% of 269651035.0" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_coal.value).to be_within(13482551.75).of(269651035.0)
+    it "total cost of energy_power_ultra_supercritical_coal should be within 5.0% of 262363802.8" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_coal.value.should be_within(13118190.14).of(262363802.8)
     end
 
-    it "total cost of energy_power_ultra_supercritical_cofiring_wood_pellets should be within 5.0% of 517642372.4" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_cofiring_wood_pellets.value).to be_within(25882118.62).of(517642372.4)
+    it "total cost of energy_power_ultra_supercritical_cofiring_wood_pellets should be within 5.0% of 512651920.0" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_cofiring_wood_pellets.value.should be_within(25632596.0).of(512651920.0)
     end
 
-    it "total cost of energy_power_ultra_supercritical_crude_oil should be within 5.0% of 305099325.1" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_crude_oil.value).to be_within(15254966.255000003).of(305099325.1)
+    it "total cost of energy_power_ultra_supercritical_crude_oil should be within 5.0% of 327951301.0" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_crude_oil.value.should be_within(16397565.05).of(327951301.0)
     end
 
-    it "total cost of energy_power_ultra_supercritical_gas_power_fuelmix should be within 5.0% of 101504776.4" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_gas_power_fuelmix.value).to be_within(5075238.82).of(101504776.4)
+    it "total cost of energy_power_ultra_supercritical_lignite should be within 5.0% of 181196389.5" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_lignite.value.should be_within(9059819.475).of(181196389.5)
     end
 
-    it "total cost of energy_power_ultra_supercritical_lignite should be within 5.0% of 182036601.0" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_lignite.value).to be_within(9101830.05).of(182036601.0)
+    it "total cost of energy_power_ultra_supercritical_network_gas should be within 5.0% of 106339848.5" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_network_gas.value.should be_within(5316992.425000001).of(106339848.5)
     end
 
-    it "total cost of energy_power_ultra_supercritical_oxyfuel_ccs_lignite should be within 5.0% of 315359774.7" do
-      expect(@scenario.total_cost_of_energy_power_ultra_supercritical_oxyfuel_ccs_lignite.value).to be_within(15767988.735).of(315359774.7)
+    it "total cost of energy_power_ultra_supercritical_oxyfuel_ccs_lignite should be within 5.0% of 315233432.2" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_oxyfuel_ccs_lignite.value.should be_within(15761671.61).of(315233432.2)
     end
 
     it "total cost of energy_power_wind_turbine_coastal should be within 5.0% of 531768.45" do
-      expect(@scenario.total_cost_of_energy_power_wind_turbine_coastal.value).to be_within(26588.4225).of(531768.45)
+      @scenario.total_cost_of_energy_power_wind_turbine_coastal.value.should be_within(26588.4225).of(531768.45)
     end
 
     it "total cost of energy_power_wind_turbine_inland should be within 5.0% of 531768.45" do
-      expect(@scenario.total_cost_of_energy_power_wind_turbine_inland.value).to be_within(26588.4225).of(531768.45)
+      @scenario.total_cost_of_energy_power_wind_turbine_inland.value.should be_within(26588.4225).of(531768.45)
     end
 
     it "total cost of energy_power_wind_turbine_offshore should be within 5.0% of 1643536.011" do
-      expect(@scenario.total_cost_of_energy_power_wind_turbine_offshore.value).to be_within(82176.80055).of(1643536.011)
+      @scenario.total_cost_of_energy_power_wind_turbine_offshore.value.should be_within(82176.80055).of(1643536.011)
     end
 
-    it "total cost of households_collective_chp_network_gas should be within 5.0% of 254545.3493" do
-      expect(@scenario.total_cost_of_households_collective_chp_network_gas.value).to be_within(12727.267465).of(254545.3493)
+    it "total cost of households_collective_chp_network_gas should be within 5.0% of 266816.5318" do
+      @scenario.total_cost_of_households_collective_chp_network_gas.value.should be_within(13340.82659).of(266816.5318)
     end
 
-    it "total cost of households_collective_chp_wood_pellets should be within 5.0% of 61036124.54" do
-      expect(@scenario.total_cost_of_households_collective_chp_wood_pellets.value).to be_within(3051806.227).of(61036124.54)
+    it "total cost of households_collective_chp_wood_pellets should be within 5.0% of 60587576.14" do
+      @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(3029378.807).of(60587576.14)
     end
 
     it "total cost of households_collective_geothermal should be within 5.0% of 287417.4843" do
-      expect(@scenario.total_cost_of_households_collective_geothermal.value).to be_within(14370.874215000002).of(287417.4843)
+      @scenario.total_cost_of_households_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
 
     it "total cost of households_cooling_airconditioning_electricity should be within 5.0% of 181.0" do
-      expect(@scenario.total_cost_of_households_cooling_airconditioning_electricity.value).to be_within(9.05).of(181.0)
+      @scenario.total_cost_of_households_cooling_airconditioning_electricity.value.should be_within(9.05).of(181.0)
     end
 
-    it "total cost of households_cooling_heatpump_air_water_electricity should be within 5.0% of 923.3333333" do
-      expect(@scenario.total_cost_of_households_cooling_heatpump_air_water_electricity.value).to be_within(46.16666666500001).of(923.3333333)
+    it "total cost of households_cooling_heatpump_air_water_electricity should be within 5.0% of 923.0" do
+      @scenario.total_cost_of_households_cooling_heatpump_air_water_electricity.value.should be_within(46.150000000000006).of(923.0)
     end
 
-    it "total cost of households_cooling_heatpump_ground_water_electricity should be within 5.0% of 1226.666667" do
-      expect(@scenario.total_cost_of_households_cooling_heatpump_ground_water_electricity.value).to be_within(61.333333350000004).of(1226.666667)
+    it "total cost of households_cooling_heatpump_ground_water_electricity should be within 5.0% of 1226.0" do
+      @scenario.total_cost_of_households_cooling_heatpump_ground_water_electricity.value.should be_within(61.300000000000004).of(1226.0)
     end
 
-    it "total cost of households_heat_network_connection_steam_hot_water should be within 5.0% of 633.3333333" do
-      expect(@scenario.total_cost_of_households_heat_network_connection_steam_hot_water.value).to be_within(31.666666665000005).of(633.3333333)
+    it "total cost of households_heat_network_connection_steam_hot_water should be within 5.0% of 633.0" do
+      @scenario.total_cost_of_households_heat_network_connection_steam_hot_water.value.should be_within(31.650000000000002).of(633.0)
     end
 
     it "total cost of households_solar_pv_solar_radiation should be within 5.0% of 222.9245208" do
-      expect(@scenario.total_cost_of_households_solar_pv_solar_radiation.value).to be_within(11.146226040000002).of(222.9245208)
+      @scenario.total_cost_of_households_solar_pv_solar_radiation.value.should be_within(11.146226040000002).of(222.9245208)
     end
 
-    it "total cost of households_space_heater_coal should be within 5.0% of 366.6265729" do
-      expect(@scenario.total_cost_of_households_space_heater_coal.value).to be_within(18.331328645).of(366.6265729)
+    it "total cost of households_space_heater_coal should be within 5.0% of 358.6544642" do
+      @scenario.total_cost_of_households_space_heater_coal.value.should be_within(17.932723210000002).of(358.6544642)
     end
 
-    it "total cost of households_space_heater_combined_network_gas should be within 5.0% of 494.7975139" do
-      expect(@scenario.total_cost_of_households_space_heater_combined_network_gas.value).to be_within(24.739875695000002).of(494.7975139)
+    it "total cost of households_space_heater_combined_network_gas should be within 5.0% of 513.729032" do
+      @scenario.total_cost_of_households_space_heater_combined_network_gas.value.should be_within(25.686451599999998).of(513.729032)
     end
 
-    it "total cost of households_space_heater_crude_oil should be within 5.0% of 794.9939354" do
-      expect(@scenario.total_cost_of_households_space_heater_crude_oil.value).to be_within(39.74969677000001).of(794.9939354)
+    it "total cost of households_space_heater_crude_oil should be within 5.0% of 845.1910473" do
+      @scenario.total_cost_of_households_space_heater_crude_oil.value.should be_within(42.259552365000005).of(845.1910473)
     end
 
-    it "total cost of households_space_heater_district_heating_steam_hot_water should be within 5.0% of 594.3333333" do
-      expect(@scenario.total_cost_of_households_space_heater_district_heating_steam_hot_water.value).to be_within(29.716666665000005).of(594.3333333)
+    it "total cost of households_space_heater_district_heating_steam_hot_water should be within 5.0% of 594.0" do
+      @scenario.total_cost_of_households_space_heater_district_heating_steam_hot_water.value.should be_within(29.700000000000003).of(594.0)
     end
 
     it "total cost of households_space_heater_electricity should be within 5.0% of 26.0" do
-      expect(@scenario.total_cost_of_households_space_heater_electricity.value).to be_within(1.3).of(26.0)
+      @scenario.total_cost_of_households_space_heater_electricity.value.should be_within(1.3).of(26.0)
     end
 
-    it "total cost of households_space_heater_heatpump_add_on_electricity should be within 5.0% of 281.6666667" do
-      expect(@scenario.total_cost_of_households_space_heater_heatpump_add_on_electricity.value).to be_within(14.083333335).of(281.6666667)
+    it "total cost of households_space_heater_heatpump_add_on_electricity should be within 5.0% of 281.0" do
+      @scenario.total_cost_of_households_space_heater_heatpump_add_on_electricity.value.should be_within(14.05).of(281.0)
     end
 
-    it "total cost of households_space_heater_heatpump_air_water_electricity should be within 5.0% of 923.3333333" do
-      expect(@scenario.total_cost_of_households_space_heater_heatpump_air_water_electricity.value).to be_within(46.16666666500001).of(923.3333333)
+    it "total cost of households_space_heater_heatpump_air_water_electricity should be within 5.0% of 923.0" do
+      @scenario.total_cost_of_households_space_heater_heatpump_air_water_electricity.value.should be_within(46.150000000000006).of(923.0)
     end
 
-    it "total cost of households_space_heater_heatpump_ground_water_electricity should be within 5.0% of 1226.666667" do
-      expect(@scenario.total_cost_of_households_space_heater_heatpump_ground_water_electricity.value).to be_within(61.333333350000004).of(1226.666667)
+    it "total cost of households_space_heater_heatpump_ground_water_electricity should be within 5.0% of 1226.0" do
+      @scenario.total_cost_of_households_space_heater_heatpump_ground_water_electricity.value.should be_within(61.300000000000004).of(1226.0)
     end
 
-    it "total cost of households_space_heater_micro_chp_network_gas should be within 5.0% of 933.3333333" do
-      expect(@scenario.total_cost_of_households_space_heater_micro_chp_network_gas.value).to be_within(46.66666666500001).of(933.3333333)
+    it "total cost of households_space_heater_micro_chp_network_gas should be within 5.0% of 933.0" do
+      @scenario.total_cost_of_households_space_heater_micro_chp_network_gas.value.should be_within(46.650000000000006).of(933.0)
     end
 
-    it "total cost of households_space_heater_network_gas should be within 5.0% of 553.5078509" do
-      expect(@scenario.total_cost_of_households_space_heater_network_gas.value).to be_within(27.675392545).of(553.5078509)
+    it "total cost of households_space_heater_network_gas should be within 5.0% of 578.0910964" do
+      @scenario.total_cost_of_households_space_heater_network_gas.value.should be_within(28.90455482).of(578.0910964)
     end
 
-    it "total cost of households_space_heater_wood_pellets should be within 5.0% of 807.6898519" do
-      expect(@scenario.total_cost_of_households_space_heater_wood_pellets.value).to be_within(40.384492595000005).of(807.6898519)
+    it "total cost of households_space_heater_wood_pellets should be within 5.0% of 802.5007705" do
+      @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(40.12503852500001).of(802.5007705)
     end
 
     it "total cost of households_water_heater_coal should be within 5.0% of 231.0" do
-      expect(@scenario.total_cost_of_households_water_heater_coal.value).to be_within(11.55).of(231.0)
+      @scenario.total_cost_of_households_water_heater_coal.value.should be_within(11.55).of(231.0)
     end
 
-    it "total cost of households_water_heater_combined_network_gas should be within 5.0% of 316.5859657" do
-      expect(@scenario.total_cost_of_households_water_heater_combined_network_gas.value).to be_within(15.829298285).of(316.5859657)
+    it "total cost of households_water_heater_combined_network_gas should be within 5.0% of 322.8718818" do
+      @scenario.total_cost_of_households_water_heater_combined_network_gas.value.should be_within(16.14359409).of(322.8718818)
     end
 
     it "total cost of households_water_heater_crude_oil should be within 5.0% of 245.0" do
-      expect(@scenario.total_cost_of_households_water_heater_crude_oil.value).to be_within(12.25).of(245.0)
+      @scenario.total_cost_of_households_water_heater_crude_oil.value.should be_within(12.25).of(245.0)
     end
 
-    it "total cost of households_water_heater_district_heating_steam_hot_water should be within 5.0% of 594.3333333" do
-      expect(@scenario.total_cost_of_households_water_heater_district_heating_steam_hot_water.value).to be_within(29.716666665000005).of(594.3333333)
+    it "total cost of households_water_heater_district_heating_steam_hot_water should be within 5.0% of 594.0" do
+      @scenario.total_cost_of_households_water_heater_district_heating_steam_hot_water.value.should be_within(29.700000000000003).of(594.0)
     end
 
-    it "total cost of households_water_heater_fuel_cell_chp_network_gas should be within 5.0% of 2453.333333" do
-      expect(@scenario.total_cost_of_households_water_heater_fuel_cell_chp_network_gas.value).to be_within(122.66666665000001).of(2453.333333)
+    it "total cost of households_water_heater_fuel_cell_chp_network_gas should be within 5.0% of 2453.0" do
+      @scenario.total_cost_of_households_water_heater_fuel_cell_chp_network_gas.value.should be_within(122.65).of(2453.0)
     end
 
-    it "total cost of households_water_heater_heatpump_air_water_electricity should be within 5.0% of 923.3333333" do
-      expect(@scenario.total_cost_of_households_water_heater_heatpump_air_water_electricity.value).to be_within(46.16666666500001).of(923.3333333)
+    it "total cost of households_water_heater_heatpump_air_water_electricity should be within 5.0% of 923.0" do
+      @scenario.total_cost_of_households_water_heater_heatpump_air_water_electricity.value.should be_within(46.150000000000006).of(923.0)
     end
 
     it "total cost of households_water_heater_heatpump_ground_water_electricity should be within 5.0% of 1226.0" do
-      expect(@scenario.total_cost_of_households_water_heater_heatpump_ground_water_electricity.value).to be_within(61.3).of(1226.0)
+      @scenario.total_cost_of_households_water_heater_heatpump_ground_water_electricity.value.should be_within(61.300000000000004).of(1226.0)
     end
 
-    it "total cost of households_water_heater_micro_chp_network_gas should be within 5.0% of 933.3333333" do
-      expect(@scenario.total_cost_of_households_water_heater_micro_chp_network_gas.value).to be_within(46.66666666500001).of(933.3333333)
+    it "total cost of households_water_heater_micro_chp_network_gas should be within 5.0% of 933.0" do
+      @scenario.total_cost_of_households_water_heater_micro_chp_network_gas.value.should be_within(46.650000000000006).of(933.0)
     end
 
-    it "total cost of households_water_heater_network_gas should be within 5.0% of 190.94274" do
-      expect(@scenario.total_cost_of_households_water_heater_network_gas.value).to be_within(9.547137).of(190.94274)
+    it "total cost of households_water_heater_network_gas should be within 5.0% of 199.1198413" do
+      @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(9.955992065).of(199.1198413)
     end
 
     it "total cost of households_water_heater_resistive_electricity should be within 5.0% of 14.68" do
-      expect(@scenario.total_cost_of_households_water_heater_resistive_electricity.value).to be_within(0.734).of(14.68)
+      @scenario.total_cost_of_households_water_heater_resistive_electricity.value.should be_within(0.734).of(14.68)
     end
 
-    it "total cost of households_water_heater_solar_thermal should be within 5.0% of 95.53" do
-      expect(@scenario.total_cost_of_households_water_heater_solar_thermal.value).to be_within(4.7765).of(95.53)
+    it "total cost of households_water_heater_solar_thermal should be within 5.0% of 94.78" do
+      @scenario.total_cost_of_households_water_heater_solar_thermal.value.should be_within(4.739).of(94.78)
     end
 
     it "total cost of households_water_heater_wood_pellets should be within 5.0% of 476.6108108" do
-      expect(@scenario.total_cost_of_households_water_heater_wood_pellets.value).to be_within(23.83054054).of(476.6108108)
+      @scenario.total_cost_of_households_water_heater_wood_pellets.value.should be_within(23.83054054).of(476.6108108)
     end
 
-    it "total cost of industry_aluminium_burner should be within 5.0% of 6958651.779" do
-      expect(@scenario.total_cost_of_industry_aluminium_burner.value).to be_within(347932.58895).of(6958651.779)
+    it "total cost of industry_aluminium_burner should be within 5.0% of 7395659.701" do
+      @scenario.total_cost_of_industry_aluminium_burner.value.should be_within(369782.98505).of(7395659.701)
     end
 
-    it "total cost of industry_burner_coal should be within 5.0% of 5081857.827" do
-      expect(@scenario.total_cost_of_industry_burner_coal.value).to be_within(254092.89135).of(5081857.827)
+    it "total cost of industry_burner_coal should be within 5.0% of 4926635.15" do
+      @scenario.total_cost_of_industry_burner_coal.value.should be_within(246331.75750000004).of(4926635.15)
     end
 
-    it "total cost of industry_burner_crude_oil should be within 5.0% of 11766819.48" do
-      expect(@scenario.total_cost_of_industry_burner_crude_oil.value).to be_within(588340.974).of(11766819.48)
+    it "total cost of industry_burner_crude_oil should be within 5.0% of 12767744.45" do
+      @scenario.total_cost_of_industry_burner_crude_oil.value.should be_within(638387.2225).of(12767744.45)
     end
 
-    it "total cost of industry_burner_network_gas should be within 5.0% of 6958651.779" do
-      expect(@scenario.total_cost_of_industry_burner_network_gas.value).to be_within(347932.58895).of(6958651.779)
+    it "total cost of industry_burner_network_gas should be within 5.0% of 7395659.701" do
+      @scenario.total_cost_of_industry_burner_network_gas.value.should be_within(369782.98505).of(7395659.701)
     end
 
-    it "total cost of industry_burner_wood_pellets should be within 5.0% of 10094604.33" do
-      expect(@scenario.total_cost_of_industry_burner_wood_pellets.value).to be_within(504730.21650000004).of(10094604.33)
+    it "total cost of industry_burner_wood_pellets should be within 5.0% of 9991043.315" do
+      @scenario.total_cost_of_industry_burner_wood_pellets.value.should be_within(499552.16575).of(9991043.315)
     end
 
-    it "total cost of industry_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 17699091.77" do
-      expect(@scenario.total_cost_of_industry_chp_combined_cycle_gas_power_fuelmix.value).to be_within(884954.5885000001).of(17699091.77)
+    it "total cost of industry_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 18731502.14" do
+      @scenario.total_cost_of_industry_chp_combined_cycle_gas_power_fuelmix.value.should be_within(936575.1070000001).of(18731502.14)
     end
 
-    it "total cost of industry_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 17699091.77" do
-      expect(@scenario.total_cost_of_industry_chp_combined_cycle_gas_power_fuelmix.value).to be_within(884954.5885000001).of(17699091.77)
+    it "total cost of industry_chp_supercritical_wood_pellets should be within 5.0% of 33013074.91" do
+      @scenario.total_cost_of_industry_chp_supercritical_wood_pellets.value.should be_within(1650653.7455000002).of(33013074.91)
     end
 
-    it "total cost of industry_chp_supercritical_wood_pellets should be within 5.0% of 33335883.77" do
-      expect(@scenario.total_cost_of_industry_chp_supercritical_wood_pellets.value).to be_within(1666794.1885000002).of(33335883.77)
+    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 6447245.689" do
+      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(322362.28445000004).of(6447245.689)
     end
 
-    it "total cost of industry_chp_supercritical_wood_pellets should be within 5.0% of 33335883.77" do
-      expect(@scenario.total_cost_of_industry_chp_supercritical_wood_pellets.value).to be_within(1666794.1885000002).of(33335883.77)
+    it "total cost of industry_other_metals_burner should be within 5.0% of 7395659.701" do
+      @scenario.total_cost_of_industry_other_metals_burner.value.should be_within(369782.98505).of(7395659.701)
     end
 
-    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 6539229.831" do
-      expect(@scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value).to be_within(326961.49155000004).of(6539229.831)
+    it "total cost of industry_steel_blastfurnace_burner should be within 5.0% of 4478766.876" do
+      @scenario.total_cost_of_industry_steel_blastfurnace_burner.value.should be_within(223938.34380000003).of(4478766.876)
     end
 
-    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 6539229.831" do
-      expect(@scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value).to be_within(326961.49155000004).of(6539229.831)
+    it "total cost of industry_steel_electricfurnace_burner should be within 5.0% of 7395659.701" do
+      @scenario.total_cost_of_industry_steel_electricfurnace_burner.value.should be_within(369782.98505).of(7395659.701)
     end
 
-    it "total cost of industry_other_metals_burner should be within 5.0% of 6958651.779" do
-      expect(@scenario.total_cost_of_industry_other_metals_burner.value).to be_within(347932.58895).of(6958651.779)
+    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 250935350.0" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12546767.5).of(250935350.0)
     end
 
-    it "total cost of industry_steel_blastfurnace_burner should be within 5.0% of 4424131.3301127665" do
-      expect(@scenario.total_cost_of_industry_steel_blastfurnace_burner.value).to be_within(221026.0).of(4424131.3301127665)
+    it "total cost of other_burner_coal should be within 5.0% of 4926635.15" do
+      @scenario.total_cost_of_other_burner_coal.value.should be_within(246331.75750000004).of(4926635.15)
     end
 
-    it "total cost of industry_steel_electricfurnace_burner should be within 5.0% of 6958651.779" do
-      expect(@scenario.total_cost_of_industry_steel_electricfurnace_burner.value).to be_within(347932.58895).of(6958651.779)
+    it "total cost of other_burner_crude_oil should be within 5.0% of 669753.6637" do
+      @scenario.total_cost_of_other_burner_crude_oil.value.should be_within(33487.683185).of(669753.6637)
     end
 
-    it "total cost of other_burner_coal should be within 5.0% of 5081857.827" do
-      expect(@scenario.total_cost_of_other_burner_coal.value).to be_within(254092.89135).of(5081857.827)
+    it "total cost of other_burner_network_gas should be within 5.0% of 369782.985" do
+      @scenario.total_cost_of_other_burner_network_gas.value.should be_within(18489.14925).of(369782.985)
     end
 
-    it "total cost of other_burner_crude_oil should be within 5.0% of 617084.0758" do
-      expect(@scenario.total_cost_of_other_burner_crude_oil.value).to be_within(30854.20379).of(617084.0758)
+    it "total cost of other_burner_wood_pellets should be within 5.0% of 518989.6606" do
+      @scenario.total_cost_of_other_burner_wood_pellets.value.should be_within(25949.483030000003).of(518989.6606)
     end
 
-    it "total cost of other_burner_network_gas should be within 5.0% of 347932.5889" do
-      expect(@scenario.total_cost_of_other_burner_network_gas.value).to be_within(17396.629445).of(347932.5889)
-    end
-
-    it "total cost of other_burner_wood_pellets should be within 5.0% of 524434.3319" do
-      expect(@scenario.total_cost_of_other_burner_wood_pellets.value).to be_within(26221.716595).of(524434.3319)
-    end
-
-    it "total cost of other_chp_engine_gas_power_fuelmix should be within 5.0% of 200638.1854" do
-      expect(@scenario.total_cost_of_other_chp_engine_gas_power_fuelmix.value).to be_within(10031.90927).of(200638.1854)
+    it "total cost of other_chp_engine_network_gas should be within 5.0% of 209718.1656" do
+      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(10485.908280000001).of(209718.1656)
     end
   end
 end
