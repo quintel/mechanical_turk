@@ -43,7 +43,8 @@ describe "Standard scenario: Metal production" do
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 0 #%
       @scenario.industry_aluminium_smeltoven_share = 0 #%
-      pp "CURRENT: dashboard_energy_demand_primary_of_final_plus_export_losses: " + @scenario.dashboard_energy_demand_primary_of_final_plus_export_losses.future.to_s
+
+      @scenario.refresh!
 
       # Now put bat to 100 %
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
@@ -61,7 +62,8 @@ describe "Standard scenario: Metal production" do
       @scenario.industry_aluminium_electrolysis_bat_share = 100 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 0 #%
       @scenario.industry_aluminium_smeltoven_share = 0 #%
-      pp "CARBOTHERMAL REDUCTION: to 100% dashboard_energy_demand_primary_of_final_plus_export_losses: " + @scenario.dashboard_energy_demand_primary_of_final_plus_export_losses.future.to_s
+
+      @scenario.refresh!
 
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
@@ -78,7 +80,8 @@ describe "Standard scenario: Metal production" do
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 100 #%
       @scenario.industry_aluminium_smeltoven_share = 0 #%
-      pp "SMELT OVEN (RECYCLING): to 100% dashboard_energy_demand_primary_of_final_plus_export_losses: " + @scenario.dashboard_energy_demand_primary_of_final_plus_export_losses.future.to_s
+
+      @scenario.refresh!
 
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
