@@ -57,7 +57,7 @@ describe "Standard scenario: Metal production" do
 
     it "Using Carbothermal reduction instead of BAT should decrease demand, import, CO2 emission and cost" do
 
-      # Now put bat to 100 %
+      # Initialize put bat to 100 %
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
       @scenario.industry_aluminium_electrolysis_bat_share = 100 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 0 #%
@@ -65,6 +65,7 @@ describe "Standard scenario: Metal production" do
 
       @scenario.refresh!
 
+      # Now put carbothermal reduction to 100 %
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 100 #%
@@ -75,7 +76,7 @@ describe "Standard scenario: Metal production" do
 
     it "Using Smelt oven (recycling) instead of Carbothermal reduction should decrease demand, import, CO2 emission and cost" do
 
-      # Now put bat to 100 %
+      # Initialize carbothermal reduction to 100 %
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 100 #%
@@ -83,6 +84,7 @@ describe "Standard scenario: Metal production" do
 
       @scenario.refresh!
 
+      # Now put the smeltoven to 100%
       @scenario.industry_aluminium_electrolysis_current_share = 0 #%
       @scenario.industry_aluminium_electrolysis_bat_share = 0 #%
       @scenario.industry_aluminium_carbothermalreduction_share = 0 #%
@@ -115,7 +117,7 @@ describe "Standard scenario: Metal production" do
 
     it "Using BAT instead of current should decrease primary demand, import, CO2 emission and cost" do
 
-      # Now put bat to 100 %
+      # Put bat to 100 %
       @scenario.industry_steel_blastfurnace_current_share = 0 #%
       @scenario.industry_steel_blastfurnace_bat_share = 100 #%
       @scenario.industry_steel_hisarna_share = 0 #%
@@ -128,7 +130,7 @@ describe "Standard scenario: Metal production" do
 
     it "When putting industry_steel_hisarna to 1 % should decrease total energy demand, import, CO2 emission and cost" do
 
-      # Putting the hisarna to 100%
+      # Put hisarna to 1%
       @scenario.industry_steel_blastfurnace_current_share = 0 #%
       @scenario.industry_steel_blastfurnace_bat_share = 99 #%
       @scenario.industry_steel_hisarna_share = 1 #%
@@ -139,7 +141,7 @@ describe "Standard scenario: Metal production" do
 
     it "Using Electric furnace (recycling) should decrease total energy demand, import, CO2 emission and cost" do
 
-      # Putting the electric furnace to 100%
+      # Put the electric furnace to 100%
       @scenario.industry_steel_blastfurnace_current_share = 0 #%
       @scenario.industry_steel_blastfurnace_bat_share = 0 #%
       @scenario.industry_steel_hisarna_share = 0 #%
@@ -151,7 +153,7 @@ describe "Standard scenario: Metal production" do
 
     it "Should decrease the load of the backup burner when putting the hisarna to 1%" do
 
-      # Putting the Smeltoven to 100%
+      # Put hisarna to 1%
       @scenario.industry_steel_blastfurnace_current_share = 0 #%
       @scenario.industry_steel_blastfurnace_bat_share = 99 #%
       @scenario.industry_steel_hisarna_share = 1 #%
