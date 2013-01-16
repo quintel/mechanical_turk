@@ -1,3 +1,4 @@
+# This Rspec test verifies basic behavior of the Cost of FTE dashaboard item.
 require 'spec_helper'
 
 describe "Cost of FTE dashboard item" do
@@ -6,7 +7,7 @@ describe "Cost of FTE dashboard item" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true)
   end
 
-  context "If employment delta is zero, dashboard should be not defined (division by zero)" do
+  context "If employment delta is zero, dashboard should return zero" do
 
     it "should not give an error if present scenario == future scenario" do
       expect(@scenario.dashboard_cost_fte).to not_change
