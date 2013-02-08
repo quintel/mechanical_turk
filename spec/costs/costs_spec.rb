@@ -175,7 +175,7 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_power_geothermal should be within 5.0% of 9315783.898" do
-      @scenario.total_cost_of_energy_power_geothermal.value.should be_within(465789.1949).of(9315783.898)
+      @scenario.total_cost_of_energy_power_geothermal.value.should be_within(798495.7).of(15969915.25)
     end
 
     it "total cost of energy_power_hv_network_electricity should be within 5.0% of 47926596.97" do
