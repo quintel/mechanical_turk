@@ -2,6 +2,11 @@
 
 Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.org/wiki/The_Turk).
 
+## Build Status
+
+### Master
+![Master branch](https://semaphoreapp.com/api/v1/projects/a66422bf78c61fdcff71af305d38503f2779f5b6/16711/badge.png)
+
 ## The Idea
 
 In stead of pulling an input as a person to test the **correctness** of the ET Engine, we can let Rspec do that. We define
