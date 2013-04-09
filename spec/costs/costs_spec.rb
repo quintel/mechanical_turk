@@ -22,8 +22,12 @@ describe "Testing costs" do
       @scenario.total_cost_of_agriculture_burner_wood_pellets.value.should be_within(25949.483030000003).of(518989.6606)
     end
 
-    it "total cost of agriculture_chp_engine_natural_gas should be within 5.0% of 712226.3" do
-      @scenario.total_cost_of_agriculture_chp_engine_natural_gas.value.should be_within(35611).of(712226.3)
+    it "total cost of agriculture_chp_engine_biogas should be within 5.0% of 701111.1322" do
+      @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(35055.55661).of(701111.1322)
+    end
+
+    it "total cost of agriculture_chp_engine_network_gas should be within 5.0% of 712226.3581" do
+      @scenario.total_cost_of_agriculture_chp_engine_network_gas.value.should be_within(35611.317904999996).of(712226.3581)
     end
 
     it "total cost of agriculture_geothermal should be within 5.0% of 793333.3333" do
@@ -34,16 +38,16 @@ describe "Testing costs" do
       @scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value.should be_within(20232.21612).of(404644.3224)
     end
 
-    it "total cost of buildings_collective_chp_natural_gas should be within 5.0% of 741232" do
-      @scenario.total_cost_of_buildings_collective_chp_natural_gas.value.should be_within(37061).of(741232)
+    it "total cost of buildings_collective_chp_natural_gas should be within 5.0% of 741232.3143" do
+      @scenario.total_cost_of_buildings_collective_chp_natural_gas.value.should be_within(37061.615715).of(741232.3143)
     end
 
-    it "total cost of buildings_collective_chp_wood_pellets should be within 5.0% of 2296783" do
-      @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(114839).of(2296783)
+    it "total cost of buildings_collective_chp_wood_pellets should be within 5.0% of 2296783.898" do
+      @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(114839.1949).of(2296783.898)
     end
 
-   it "total cost of buildings_collective_geothermal should be within 5.0% of 287417.4843" do
-     @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
+    it "total cost of buildings_collective_geothermal should be within 5.0% of 287417.4843" do
+      @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
 
     it "total cost of buildings_cooling_airconditioning should be within 5.0% of 199.0" do
@@ -102,24 +106,24 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(482.1869404).of(9643.738808)
     end
 
-    it "total cost of energy_chp_combined_cycle_network_gas should be within 5.0% of 251658655.7" do
-      @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(12582932.785).of(251658655.7)
+    it "total cost of energy_chp_combined_cycle_network_gas should be within 5.0% of 246808065.9" do
+      @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(12340403.295000002).of(246808065.9)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 250935350.0" do
-      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12546767.5).of(250935350.0)
+    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 249890627.0" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12494531.350000001).of(249890627.0)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_crude_oil should be within 5.0% of 377260702.4" do
-      @scenario.total_cost_of_energy_chp_ultra_supercritical_crude_oil.value.should be_within(18863035.12).of(377260702.4)
+    it "total cost of energy_chp_ultra_supercritical_crude_oil should be within 5.0% of 380308908.7" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_crude_oil.value.should be_within(19015445.435).of(380308908.7)
     end
 
     it "total cost of energy_chp_ultra_supercritical_lignite should be within 5.0% of 135687530.4" do
       @scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value.should be_within(6784376.5200000005).of(135687530.4)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_wood_pellets should be within 5.0% of 84195425.48" do
-      @scenario.total_cost_of_energy_chp_ultra_supercritical_wood_pellets.value.should be_within(4209771.274).of(84195425.48)
+    it "total cost of energy_chp_ultra_supercritical_wood_pellets should be within 5.0% of 85644662.77" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_wood_pellets.value.should be_within(4282233.1385).of(85644662.77)
     end
 
     it "total cost of energy_heat_network_backup_heater_network_gas should be within 5.0% of 7395659.701" do
@@ -174,8 +178,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_engine_diesel.value.should be_within(16397565.05).of(327951301.0)
     end
 
-    it "total cost of energy_power_geothermal should be within 5.0% of 9315783.898" do
-      @scenario.total_cost_of_energy_power_geothermal.value.should be_within(798495.7).of(15969915.25)
+    it "total cost of energy_power_geothermal should be within 5.0% of 15969915" do
+      @scenario.total_cost_of_energy_power_geothermal.value.should be_within(798495).of(15969915)
     end
 
     it "total cost of energy_power_hv_network_electricity should be within 5.0% of 47926596.97" do
@@ -278,12 +282,12 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_wind_turbine_offshore.value.should be_within(82176.80055).of(1643536.011)
     end
 
-    it "total cost of households_collective_chp_network_gas should be within 5.0% of 741232" do
-      @scenario.total_cost_of_households_collective_chp_network_gas.value.should be_within(37061).of(741232)
+    it "total cost of households_collective_chp_network_gas should be within 5.0% of 741232.3143" do
+      @scenario.total_cost_of_households_collective_chp_network_gas.value.should be_within(37061.615715).of(741232.3143)
     end
 
-    it "total cost of households_collective_chp_wood_pellets should be within 5.0% of 2296783" do
-      @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(114839).of(2296783)
+    it "total cost of households_collective_chp_wood_pellets should be within 5.0% of 2296783.898" do
+      @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(114839.1949).of(2296783.898)
     end
 
     it "total cost of households_collective_geothermal should be within 5.0% of 287417.4843" do
@@ -422,16 +426,24 @@ describe "Testing costs" do
       @scenario.total_cost_of_industry_burner_wood_pellets.value.should be_within(499552.16575).of(9991043.315)
     end
 
-    it "total cost of industry_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 18731502.14" do
-      @scenario.total_cost_of_industry_chp_combined_cycle_gas_power_fuelmix.value.should be_within(936575.1).of(18731502.14)
+    it "total cost of industry_chp_combined_cycle_gas_power_fuelmix should be within 5.0% of 18450727.84" do
+      @scenario.total_cost_of_industry_chp_combined_cycle_gas_power_fuelmix.value.should be_within(922536.392).of(18450727.84)
     end
 
-    it "total cost of industry_chp_supercritical_wood_pellets should be within 5.0% of 33013074.91" do
-      @scenario.total_cost_of_industry_chp_supercritical_wood_pellets.value.should be_within(1650653.7455000002).of(33013074.91)
+    it "total cost of industry_chp_engine_gas_power_fuelmix should be within 5.0% of 511460.12" do
+      @scenario.total_cost_of_industry_chp_engine_gas_power_fuelmix.value.should be_within(25573.006).of(511460.12)
     end
 
-    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 6447245.689" do
-      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(322362.28445000004).of(6447245.689)
+    it "total cost of industry_chp_supercritical_wood_pellets should be within 5.0% of 33618775.41" do
+      @scenario.total_cost_of_industry_chp_supercritical_wood_pellets.value.should be_within(1680938.7704999999).of(33618775.41)
+    end
+
+    it "total cost of industry_chp_turbine_gas_power_fuelmix should be within 5.0% of 31862130.34" do
+      @scenario.total_cost_of_industry_chp_turbine_gas_power_fuelmix.value.should be_within(1593106.517).of(31862130.34)
+    end
+
+    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 6429259.931" do
+      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(321462.99655000004).of(6429259.931)
     end
 
     it "total cost of industry_other_metals_burner should be within 5.0% of 7395659.701" do
@@ -444,10 +456,6 @@ describe "Testing costs" do
 
     it "total cost of industry_steel_electricfurnace_burner should be within 5.0% of 7395659.701" do
       @scenario.total_cost_of_industry_steel_electricfurnace_burner.value.should be_within(369782.98505).of(7395659.701)
-    end
-
-    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 250935350.0" do
-      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12546767.5).of(250935350.0)
     end
 
     it "total cost of other_burner_coal should be within 5.0% of 4926635.15" do
@@ -466,8 +474,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_other_burner_wood_pellets.value.should be_within(25949.483030000003).of(518989.6606)
     end
 
-    it "total cost of other_chp_engine_network_gas should be within 5.0% of 209718.1656" do
-      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(10485.908280000001).of(209718.1656)
+    it "total cost of other_chp_engine_network_gas should be within 5.0% of 206347.7581" do
+      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(10317.387905000001).of(206347.7581)
     end
   end
 end
