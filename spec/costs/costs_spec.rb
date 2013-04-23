@@ -474,8 +474,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_other_burner_wood_pellets.value.should be_within(25949.483030000003).of(518989.6606)
     end
 
-    it "total cost of other_chp_engine_network_gas should be within 5.0% of 206347.7581" do
-      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(10317.387905000001).of(206347.7581)
+    it "total cost of other_chp_engine_network_gas should be within 5.0% of 243857.8" do
+      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(12193).of(243857.8)
     end
   end
 end
