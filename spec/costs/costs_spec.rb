@@ -126,10 +126,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value.should be_within(6784376.5200000005).of(135687530.4)
     end
 
-    it "total cost of energy_chp_ultra_supercritical_wood_pellets should be within 5.0% of 85644662.77" do
-      @scenario.total_cost_of_energy_chp_ultra_supercritical_wood_pellets.value.should be_within(4282233.1385).of(85644662.77)
-    end
-
     it "total cost of energy_heat_network_backup_heater_network_gas should be within 5.0% of 7395659.701" do
       @scenario.total_cost_of_energy_heat_network_backup_heater_network_gas.value.should be_within(369782.98505).of(7395659.701)
     end
@@ -446,8 +442,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_industry_chp_turbine_gas_power_fuelmix.value.should be_within(1593106.517).of(31862130.34)
     end
 
-    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 6429259.931" do
-      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(321462.99655000004).of(6429259.931)
+    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 7134894.8" do
+      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(356744).of(7134894.8)
     end
 
     it "total cost of industry_other_metals_burner should be within 5.0% of 7395659.701" do
