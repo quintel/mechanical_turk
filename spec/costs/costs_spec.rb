@@ -282,6 +282,10 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_wind_turbine_offshore.value.should be_within(82176.80055).of(1643536.011)
     end
 
+    it "total cost of households_collective_chp_biogas should be within 5.0% of 638724.9" do
+      @scenario.total_cost_of_households_collective_chp_biogas.value.should be_within(31936).of(638724.9)
+    end
+
     it "total cost of households_collective_chp_network_gas should be within 5.0% of 741232.3143" do
       @scenario.total_cost_of_households_collective_chp_network_gas.value.should be_within(37061.615715).of(741232.3143)
     end
