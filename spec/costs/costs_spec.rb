@@ -110,8 +110,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(482.1869404).of(9643.738808)
     end
 
-    it "total cost of energy_chp_combined_cycle_network_gas should be within 5.0% of 246808065.9" do
-      @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(12340403.295000002).of(246808065.9)
+    it "total cost of energy_chp_combined_cycle_network_gas should be within 5.0% of 50579558.7" do
+      @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(2528977.9).of(50579558.7)
     end
 
     it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 249890627.0" do
