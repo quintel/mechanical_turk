@@ -255,10 +255,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_ultra_supercritical_coal.value.should be_within(13118190.14).of(262363802.8)
     end
 
-    it "total cost of energy_power_ultra_supercritical_cofiring_wood_pellets should be within 5.0% of 512651920.0" do
-      @scenario.total_cost_of_energy_power_ultra_supercritical_cofiring_wood_pellets.value.should be_within(25632596.0).of(512651920.0)
-    end
-
     it "total cost of energy_power_ultra_supercritical_crude_oil should be within 5.0% of 327951301.0" do
       @scenario.total_cost_of_energy_power_ultra_supercritical_crude_oil.value.should be_within(16397565.05).of(327951301.0)
     end
