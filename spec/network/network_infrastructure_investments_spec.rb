@@ -126,7 +126,7 @@ describe "network infrastructure investments" do
 
     context "when industry gas chp increase" do
       it "should decrease all network total cost" do
-        @scenario.industry_number_of_gas_chp = 225.0
+        @scenario.industry_number_of_gas_chp = 70.0
 
         expect(@scenario.network_total_costs).to decrease
       end
