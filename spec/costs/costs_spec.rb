@@ -118,9 +118,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_chp_supercritical_waste_mix.value.should be_within(791250).of(15825000.0)
     end
 
-
-    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 249890627.0" do
-      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12494531.350000001).of(249890627.0)
+    it "total cost of energy_chp_ultra_supercritical_coal should be within 5.0% of 255495669" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12774783).of(255495669)
     end
 
     it "total cost of energy_chp_ultra_supercritical_crude_oil should be within 5.0% of 380308908.7" do
