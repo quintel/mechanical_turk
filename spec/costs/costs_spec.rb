@@ -438,10 +438,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_industry_chp_engine_gas_power_fuelmix.value.should be_within(25573.006).of(511460.12)
     end
 
-    it "total cost of industry_chp_supercritical_wood_pellets should be within 5.0% of 33618775.41" do
-      @scenario.total_cost_of_industry_chp_supercritical_wood_pellets.value.should be_within(1680938.7704999999).of(33618775.41)
-    end
-
     it "total cost of industry_chp_turbine_gas_power_fuelmix should be within 5.0% of 31862130.34" do
       @scenario.total_cost_of_industry_chp_turbine_gas_power_fuelmix.value.should be_within(1593106.517).of(31862130.34)
     end
