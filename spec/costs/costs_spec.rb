@@ -442,8 +442,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_industry_chp_turbine_gas_power_fuelmix.value.should be_within(1593106.517).of(31862130.34)
     end
 
-    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 7134894.8" do
-      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(356744).of(7134894.8)
+    it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 5711230.1" do
+      @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(285561).of(5711230.1)
     end
 
     it "total cost of industry_other_metals_burner should be within 5.0% of 7395659.701" do
