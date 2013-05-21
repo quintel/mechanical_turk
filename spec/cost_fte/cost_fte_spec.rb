@@ -17,7 +17,7 @@ describe "Cost of FTE dashboard item" do
   context "If a technology is cheap but is job-intensive..." do
 
     xit "should decrease when using more wood-pellet stoves" do
-      @scenario.households_heating_pellet_stove_share = 100 #%
+      @scenario.households_space_heater_wood_pellets_share = 100 #%
       # # binding.pry
       expect(@scenario.dashboard_cost_fte).to decrease
 
@@ -27,7 +27,7 @@ describe "Cost of FTE dashboard item" do
   context "If a technology is expensive but not job-intensive..." do
 
     xit "should increase when using more micro CHPs" do
-      @scenario.households_heating_micro_chp_share = 50 #%
+      @scenario.households_space_heater_micro_chp_network_gas_share = 50 #%
       expect(@scenario.dashboard_cost_fte).to increase
     end
   end

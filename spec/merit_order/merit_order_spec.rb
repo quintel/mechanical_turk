@@ -21,13 +21,13 @@ describe "merit order module" do
   context "when removing power plants" do
 
     xit "the full load hours of a power plant should become zero if the number of units becomes zero" do
-      @scenario.number_of_gas_ccgt = 0
+      @scenario.number_of_energy_power_combined_cycle_network_gas = 0
       expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.future).to be == 0.0
 
-      @scenario.number_of_nuclear_3rd_gen = 0
+      @scenario.number_of_energy_power_nuclear_gen3_uranium_oxide = 0
       expect(@scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value).to be == 0.0
 
-      @scenario.number_of_pulverized_coal = 0
+      @scenario.number_of_energy_power_ultra_supercritical_coal = 0
       expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value).to be == 0.0
     end
   end
@@ -35,7 +35,7 @@ describe "merit order module" do
   context "when adding wind power" do
 
     xit "should lower full load hours of central production power plants" do
-      @scenario.number_of_wind_offshore = 4000
+      @scenario.number_of_energy_power_wind_turbine_offshore = 4000
       expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to decrease
       expect(@scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table).to decrease
       expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease

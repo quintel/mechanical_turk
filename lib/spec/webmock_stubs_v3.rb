@@ -85,10 +85,10 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&gquer
                 "errors" => []
             )
 
-# Setting the input number_of_pulverized_coal to 10, will 'cause' an increase of foo with 10
+# Setting the input number_of_energy_power_ultra_supercritical_coal to 10, will 'cause' an increase of foo with 10
 # (present and future)
 
-WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&scenario[user_values][number_of_pulverized_coal]=10&gqueries[]=foo&source=Mechanical%20Turk"). \
+WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&scenario[user_values][number_of_energy_power_ultra_supercritical_coal]=10&gqueries[]=foo&source=Mechanical%20Turk"). \
   to_return( :status => 200,
              :body => {
                "gqueries" => {
@@ -108,7 +108,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&scena
 
 # User values and queries
 
-WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?gqueries%5B0%5D=foo&reset=true&scenario%5Buser_values%5D%5Bnumber_of_pulverized_coal%5D=10&scenario%5Buser_values%5D%5Bnumber_of_pulverized_coal_ccs%5D=11&source=Mechanical%20Turk"). \
+WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?gqueries%5B0%5D=foo&reset=true&scenario%5Buser_values%5D%5Bnumber_of_energy_power_ultra_supercritical_coal%5D=10&scenario%5Buser_values%5D%5Bnumber_of_energy_power_ultra_supercritical_coal_ccs%5D=11&source=Mechanical%20Turk"). \
   to_return( :status => 200,
              :body => {
                "gqueries" => {

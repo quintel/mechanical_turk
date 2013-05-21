@@ -35,68 +35,68 @@ describe Turk::Scenario do
   describe "#current_inputs" do
     it "should return the latest from the inputs stack" do
       scenario.stub(:inputs).and_return([{},
-                                         {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}, 
-                                         {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11, "number_of_coal_iggc" => 12}])
-      scenario.current_inputs.should == {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11, "number_of_coal_iggc" => 12}
+                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}, 
+                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11, "number_of_energy_power_combined_cycle_coal" => 12}])
+      scenario.current_inputs.should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11, "number_of_energy_power_combined_cycle_coal" => 12}
     end
   end
 
   describe "#previous_inputs" do
     it "should return the previous from the inputs stack" do
       scenario.stub(:inputs).and_return([{},
-                                         {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}, 
-                                         {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11, "number_of_coal_iggc" => 12}])
-      scenario.previous_inputs.should == {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}
+                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}, 
+                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11, "number_of_energy_power_combined_cycle_coal" => 12}])
+      scenario.previous_inputs.should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}
     end
   end
 
   describe "#set key" do
 
     it "should remember the key in @inputs" do
-      scenario.number_of_pulverized_coal = 10
-      scenario.inputs.should == [{},{"number_of_pulverized_coal" => 10}]
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+      scenario.inputs.should == [{},{"number_of_energy_power_ultra_supercritical_coal" => 10}]
     end
 
     it "should remember multiple key in @inputs" do
-      scenario.number_of_pulverized_coal = 10
-      scenario.number_of_pulverized_coal_ccs = 11
-      scenario.inputs.should == [{},{"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}]
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal_ccs = 11
+      scenario.inputs.should == [{},{"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}]
     end
 
     it "should remember former other inputs after being 'touched'" do
-      scenario.number_of_pulverized_coal = 10
-      scenario.number_of_pulverized_coal_ccs = 11
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal_ccs = 11
       scenario.instance_variable_set(:@touched, false)
-      scenario.number_of_coal_iggc = 12
-      scenario.inputs.last.should == {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11, "number_of_coal_iggc" => 12}
+      scenario.number_of_energy_power_combined_cycle_coal = 12
+      scenario.inputs.last.should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11, "number_of_energy_power_combined_cycle_coal" => 12}
     end
 
     it "should have a history of inputs" do
-      scenario.number_of_pulverized_coal = 10
-      scenario.number_of_pulverized_coal_ccs = 11
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal_ccs = 11
       scenario.instance_variable_set(:@touched, false)
-      scenario.number_of_coal_iggc = 12
+      scenario.number_of_energy_power_combined_cycle_coal = 12
       scenario.inputs.should == [{},
-                                 {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}, 
-                                 {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11, "number_of_coal_iggc" => 12}]
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}, 
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11, "number_of_energy_power_combined_cycle_coal" => 12}]
     end
 
     it "should have a history of inputs" do
-      scenario.number_of_pulverized_coal = 10
-      scenario.number_of_pulverized_coal_ccs = 11
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal_ccs = 11
       scenario.result("foo").value
-      scenario.number_of_coal_iggc = 12
+      scenario.number_of_energy_power_combined_cycle_coal = 12
       scenario.inputs.should == [{},
-                                 {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}, 
-                                 {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11, "number_of_coal_iggc" => 12}]
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}, 
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11, "number_of_energy_power_combined_cycle_coal" => 12}]
     end
 
     it "should be able to ask for the previous version of the inputs" do
-      scenario.number_of_pulverized_coal = 10
-      scenario.number_of_pulverized_coal_ccs = 11
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal_ccs = 11
       scenario.instance_variable_set(:@touched, false)
-      scenario.number_of_coal_iggc = 12
-      scenario.inputs[-2].should == {"number_of_pulverized_coal" => 10, "number_of_pulverized_coal_ccs" => 11}
+      scenario.number_of_energy_power_combined_cycle_coal = 12
+      scenario.inputs[-2].should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_coal_ccs" => 11}
     end
 
   end
@@ -113,7 +113,7 @@ describe Turk::Scenario do
 
     it "should update values for all results *a second time*" do
       scenario.result("foo").future.should == 2.0
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.result("foo").future.should == 12.0
     end
 
@@ -131,12 +131,12 @@ describe Turk::Scenario do
 
     it "should return a proper increase of the result after having updated the sliders" do
       scenario.result("foo").value.should == 2
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.result("foo").increase.should == 10.0
     end
 
     it "should return a proper increase of the result after having updated the sliders *without explicitly calling it before*" do
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.result("foo").increase.should == 10.0
     end
 
@@ -150,7 +150,7 @@ describe Turk::Scenario do
 
     it "should return true when a input has been set" do
       scenario.result("foo")
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.touched?.should be_true
     end
 
@@ -161,9 +161,9 @@ describe Turk::Scenario do
 
     it "should return false when a input has not moved" do
       scenario.result("foo")
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.result("foo")
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.touched?.should be_false
     end
 
@@ -172,7 +172,7 @@ describe Turk::Scenario do
   describe "#set key" do
 
     it "should receive different results when a input has been moved" do
-      scenario.number_of_pulverized_coal = 10
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.result("foo").value.should == 12
     end
 
