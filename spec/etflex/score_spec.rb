@@ -60,19 +60,19 @@ describe "ETFlex Scoring mechanism" do
 
     describe "Electric car share" do
       it "should increase renewability score" do
-        @s.transport_useful_demand_car_kms_electric_share = 10 #%
+        @s.transport_car_using_electricity_share = 10 #%
         expect(@s.etflex_score_renewability).to increase
       end
       it "should increase co2 score" do
-        @s.transport_useful_demand_car_kms_electric_share = 10 #%
+        @s.transport_car_using_electricity_share = 10 #%
         expect(@s.etflex_score_co2).to increase
       end
       it "should decrease cost score" do
-        @s.transport_useful_demand_car_kms_electric_share = 10 #%
+        @s.transport_car_using_electricity_share = 10 #%
         expect(@s.etflex_score_cost).to increase
       end
       it "should lower electric car score (penalty)" do
-        @s.transport_useful_demand_car_kms_electric_share = 10 #%
+        @s.transport_car_using_electricity_share = 10 #%
         expect(@s.etflex_score_electric_car).to decrease
       end
     end

@@ -48,11 +48,11 @@ describe "network infrastructure investments" do
 
   context "when transport with cars used all electric" do
     it "should increase all network total cost" do
-      @scenario.transport_useful_demand_car_kms_electric_share = 100.0
-      @scenario.transport_useful_demand_car_kms_diesel_share = 0.0
-      @scenario.transport_useful_demand_car_kms_gasoline_share = 0.0
-      @scenario.transport_useful_demand_car_kms_lpg_share = 0.0
-      @scenario.transport_useful_demand_car_kms_compressed_gas_share = 0.0
+      @scenario.transport_car_using_electricity_share = 100.0
+      @scenario.transport_car_using_diesel_mix_share = 0.0
+      @scenario.transport_car_using_gasoline_mix_share = 0.0
+      @scenario.transport_car_using_lpg_share = 0.0
+      @scenario.transport_car_using_compressed_natural_gas_share = 0.0
 
       expect(@scenario.network_total_costs).to increase
     end

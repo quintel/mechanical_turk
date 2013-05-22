@@ -108,7 +108,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&scena
 
 # User values and queries
 
-WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?gqueries%5B0%5D=foo&reset=true&scenario%5Buser_values%5D%5Bnumber_of_energy_power_ultra_supercritical_coal%5D=10&scenario%5Buser_values%5D%5Bnumber_of_energy_power_ultra_supercritical_coal_ccs%5D=11&source=Mechanical%20Turk"). \
+WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?gqueries%5B0%5D=foo&reset=true&scenario%5Buser_values%5D%5Bnumber_of_energy_power_ultra_supercritical_coal%5D=10&scenario%5Buser_values%5D%5Bnumber_of_energy_power_ultra_supercritical_ccs_coal%5D=11&source=Mechanical%20Turk"). \
   to_return( :status => 200,
              :body => {
                "gqueries" => {

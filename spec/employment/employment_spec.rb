@@ -133,7 +133,7 @@ describe "Testing employment module" do
     end
 
     it "it should change total employment when the energy_power_combined_cycle_ccs_gas_power_fuelmix is set to 2" do
-      @scenario.number_of_energy_power_combined_cycle_network_gas_ccs = 2.0 # number
+      @scenario.number_of_energy_power_combined_cycle_ccs_network_gas = 2.0 # number
       expect(@scenario.dashboard_employment).to change
     end
 
@@ -178,7 +178,7 @@ describe "Testing employment module" do
     end
 
     it "it should change total employment when the energy_power_ultra_supercritical_ccs_coal is set to 2" do
-      @scenario.number_of_energy_power_ultra_supercritical_coal_ccs = 2.0 # number
+      @scenario.number_of_energy_power_ultra_supercritical_ccs_coal = 2.0 # number
       expect(@scenario.dashboard_employment).to change
     end
 
