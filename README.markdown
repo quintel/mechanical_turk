@@ -40,7 +40,7 @@ to certain positions, and expect the outcome to
 We can set a input and change the expectation accordingly:
 
 ````ruby
-@scenario.number_of_pulverized_coal = 3
+@scenario.number_of_energy_power_ultra_supercritical_coal = 3
 ````
 
 We can also set a combination of inputs, e.g. that are in a group,
@@ -48,9 +48,9 @@ or when we went to test a *special* combination that produces an
 error prone situation:
 
 ````ruby
-@scenario.households_heating_micro_chp_share = 60 #percent
-@scenario.households_heating_heat_network_share = 40 #percent
-@scenario.number_of_pulverized_coal = 10 #number of typical plants
+@scenario.households_space_heater_micro_chp_network_gas_share = 60 #percent
+@scenario.households_heat_network_connection_steam_hot_water_share = 40 #percent
+@scenario.number_of_energy_power_ultra_supercritical_coal = 10 #number of typical plants
 ````
 
 Please note that the inputs are represented by sliders on
@@ -62,7 +62,7 @@ Please note that the inputs are represented by sliders on
 We can define that the outcome of the scenario is an exact number:
 
 ````ruby
-@scenario.number_of_pulverized_coal = 3
+@scenario.number_of_energy_power_ultra_supercritical_coal = 3
 @scenario.co2.value should be == 163_516_595_413.0 #kg
 ````
 
