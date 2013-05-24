@@ -22,8 +22,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_agriculture_burner_wood_pellets.value.should be_within(25949.483030000003).of(518989.6606)
     end
 
-    it "total cost of agriculture_chp_engine_biogas should be within 5.0% of 827342.31" do
-      @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(41376).of(827342.31)
+    it "total cost of agriculture_chp_engine_biogas should be within 5.0% of 698724.9" do
+      @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(34936).of(698724.9)
     end
 
     it "total costa of agriculture_chp_engine_network_gas should be within 5.0% of 712226.3581" do
