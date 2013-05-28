@@ -66,7 +66,7 @@ describe "Merit Order" do
     @scenario.energy_power_ultra_supercritical_coal_demand.future.should > 0
 
     # ... we need more of other (cheaper) plants.
-    @scenario.number_of_oil_fired_plant = 29
+    @scenario.number_of_energy_power_ultra_supercritical_crude_oil = 29
     @scenario.energy_power_ultra_supercritical_coal_demand.future.should == 0
 
     # now we increase price of oil, and coal plants are used again.
@@ -93,13 +93,13 @@ describe "Merit Order" do
     end
 
     xit "merit_order disabled: changing numbers of a volatile source" do
-      @scenario.number_of_wind_onshore_land = 10000
+      @scenario.number_of_energy_power_wind_turbine_inland = 10000
       @scenario.wind_turbine_inland_constant_link_value.should  increase
       @scenario.total_electricity_produced.should               increase
       # export should increase
       @scenario.merit_order_inversed_flexible_link_value.should increase
 
-      @scenario.number_of_wind_onshore_land = 0
+      @scenario.number_of_energy_power_wind_turbine_inland = 0
       @scenario.wind_turbine_inland_constant_link_value.should  decrease
       @scenario.total_electricity_produced.should               decrease
       @scenario.merit_order_inversed_flexible_link_value.should decrease
@@ -112,8 +112,8 @@ describe "Merit Order" do
       @scenario.use_merit_order_demands = 1
     end
 
-    xit "merit_order enabled: increasing number_of_wind_onshore_land with 1 should not change total produced electricity" do
-      @scenario.number_of_wind_onshore_land = 361
+    xit "merit_order enabled: increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
+      @scenario.number_of_energy_power_wind_turbine_inland = 361
       @scenario.wind_turbine_inland_constant_link_value.should  increase
       # ONLY true if some dispatchables still have FLH > 0
       @scenario.total_electricity_produced.future_increase.should == 0
@@ -122,8 +122,8 @@ describe "Merit Order" do
       @scenario.primary_demand_of_exported_electricity.future.should == 0
     end
 
-    xit "merit_order enabled: decreasing number_of_wind_onshore_land with 1 should not change total produced electricity" do
-      @scenario.number_of_wind_onshore_land = 359
+    xit "merit_order enabled: decreasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
+      @scenario.number_of_energy_power_wind_turbine_inland = 359
       @scenario.wind_turbine_inland_constant_link_value.should  decrease
       @scenario.total_electricity_produced.future_increase.should == 0
 
@@ -132,10 +132,10 @@ describe "Merit Order" do
     end
 
     xit "merit_order enabled: affects demand of (dispatchable) coal plants and interconnector" do
-      @scenario.number_of_pulverized_coal = 0
+      @scenario.number_of_energy_power_ultra_supercritical_coal = 0
       @scenario.energy_power_ultra_supercritical_coal_demand.value.should == 0
 
-      @scenario.number_of_pulverized_coal = 14
+      @scenario.number_of_energy_power_ultra_supercritical_coal = 14
       @scenario.energy_power_ultra_supercritical_coal_demand.should increase
     end
   end
