@@ -474,8 +474,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_other_chp_engine_biogas.value.should be_within(39136).of(638724.9)
     end
 
-    it "total cost of other_chp_engine_network_gas should be within 5.0% of 243857.8" do
-      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(30766).of(615325.0)
+    it "total cost of other_chp_engine_network_gas should be within 5.0% of 752946.9" do
+      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(37647).of(752946.9)
     end
   end
 end
