@@ -53,7 +53,7 @@ describe "ETFlex Scoring mechanism" do
       end
       it "should lower your cost score" do
         @s.households_insulation_level_old_houses = 1.1 #Rc value
-        expect(@s.etflex_score_cost).to increase
+        expect(@s.etflex_score_cost).to decrease
       end
 
     end
