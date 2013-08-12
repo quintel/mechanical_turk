@@ -43,7 +43,8 @@ describe "Halving the number of old and new residences" do
   end
 
   it "halve the heat demand for residences" do
-    expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be == 14184587997.518246 
+    expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(14184587997.518246)
+
   end
 
 end
@@ -63,7 +64,7 @@ describe "Doubling the number of residences" do
   end
 
   it "double the residential roof surface available for pv" do
-    expect(@scenario.turk_roof_surface_available_pv.value).to be == 494.20457720797333
+    expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 494.20457720797333
   end
 
 end
