@@ -45,11 +45,11 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
     it "should double the residential roof surface available for pv" do
       # move slider 1 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 7.3
+      @scenario.households_number_of_new_houses = 8.3
 
       #pp @scenario.turk_roof_surface_available_pv.future
     
-      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 494.20457720797333
+      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 530.4
     
     end
 
