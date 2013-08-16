@@ -107,9 +107,9 @@ describe "network infrastructure investments" do
       end
     end
 
-    context "when building insulation 4" do
+    context "when building insulation 2.5" do
       it "should decrease all network total cost" do
-        @scenario.buildings_insulation_level = 4.0
+        @scenario.buildings_insulation_level = 2.5
 
         expect(@scenario.network_total_costs).to decrease
       end
