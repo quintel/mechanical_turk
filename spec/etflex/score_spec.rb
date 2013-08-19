@@ -46,22 +46,27 @@ describe "ETFlex Scoring mechanism" do
 
   describe "Demand" do
 
-    describe "Insulation level to R = 1.1" do
+    context "Insulation level to R = 1.1" do
+
       it "should raise your CO2 score" do
         @s.households_insulation_level_old_houses = 1.1 #R value
         expect(@s.etflex_score_co2).to increase
       end
+
       it "should raise your cost score" do
         @s.households_insulation_level_old_houses = 1.1 #R value
         expect(@s.etflex_score_cost).to increase
       end
+
     end
-    
-    describe "Insulation level to R = 3.0" do
+
+    context "Insulation level to R = 3.0" do
+
       it "should lower your cost score" do
         @s.households_insulation_level_old_houses = 3.0 #R value
         expect(@s.etflex_score_cost).to decrease
       end
+
     end
 
     describe "Electric car share" do
