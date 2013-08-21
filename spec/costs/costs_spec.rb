@@ -42,6 +42,10 @@ describe "Testing costs" do
       @scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value.should be_within(20232.21612).of(404644.3224)
     end
 
+    it "total cost of buildings_chp_engine_biogas should be within 5.0% of 638724.9" do
+      @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(31936.2).of(638724.9)
+    end
+
     it "total cost of buildings_collective_chp_natural_gas should be within 5.0% of 741232.3143" do
       @scenario.total_cost_of_buildings_collective_chp_natural_gas.value.should be_within(37061.615715).of(741232.3143)
     end
