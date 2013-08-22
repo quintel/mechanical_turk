@@ -34,7 +34,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
       #pp heat_demand_future = @scenario.households_new_houses_useful_demand_for_heating.future
       
-      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(14184587997.518246)
+      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(9077052996.797956)
   
     end
   
@@ -49,7 +49,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
       #pp @scenario.turk_roof_surface_available_pv.future
     
-      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 530.4
+      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 504.4
     
     end
 
