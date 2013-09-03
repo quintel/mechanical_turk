@@ -122,6 +122,11 @@ describe "Testing employment module" do
       expect(@scenario.dashboard_employment).to change
     end
 
+    it "it should change total employment when the energy_chp_ultra_supercritical_cofiring_coal is set to 50.0 " do
+      @scenario.number_of_energy_chp_ultra_supercritical_cofiring_coal = 50.0 #
+      expect(@scenario.dashboard_employment).to change
+    end
+
     # it "it should change total employment when the energy_chp_ultra_supercritical_lignite is set to 2" do
     #   @scenario.number_of_energy_chp_ultra_supercritical_lignite = 2 #
     #   expect(@scenario.dashboard_employment).to change
@@ -184,6 +189,11 @@ describe "Testing employment module" do
 
     it "it should change total employment when the energy_power_ultra_supercritical_coal is set to 2" do
       @scenario.number_of_energy_power_ultra_supercritical_coal = 2.0 # number
+      expect(@scenario.dashboard_employment).to change
+    end
+
+    it "it should change total employment when the energy_power_ultra_supercritical_cofiring_coal is set to 2" do
+      @scenario.number_of_energy_power_ultra_supercritical_cofiring_coal = 2.0 # number
       expect(@scenario.dashboard_employment).to change
     end
 
