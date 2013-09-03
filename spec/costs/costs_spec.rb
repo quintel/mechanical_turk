@@ -126,6 +126,10 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_chp_ultra_supercritical_coal.value.should be_within(12774783).of(255495669)
     end
 
+    it "total cost of energy_chp_ultra_supercritical_cofiring_coal should be within 5.0% of 358349929" do
+      @scenario.total_cost_of_energy_chp_ultra_supercritical_cofiring_coal.value.should be_within(17917496).of(358349929)
+    end
+
     it "total cost of energy_chp_ultra_supercritical_lignite should be within 5.0% of 135687530.4" do
       @scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value.should be_within(6784376.5200000005).of(135687530.4)
     end
@@ -252,6 +256,10 @@ describe "Testing costs" do
 
     it "total cost of energy_power_ultra_supercritical_coal should be within 5.0% of 262363802.8" do
       @scenario.total_cost_of_energy_power_ultra_supercritical_coal.value.should be_within(13118190.14).of(262363802.8)
+    end
+
+    it "total cost of energy_power_ultra_supercritical_cofiring_coal should be within 5.0% of 344201361" do
+      @scenario.total_cost_of_energy_power_ultra_supercritical_cofiring_coal.value.should be_within(17210068).of(344201361)
     end
 
     it "total cost of energy_power_ultra_supercritical_crude_oil should be within 5.0% of 327951301.0" do
