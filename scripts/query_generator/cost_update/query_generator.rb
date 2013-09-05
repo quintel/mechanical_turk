@@ -44,9 +44,8 @@ converters.each do|c|
   if outFile
     outFile.syswrite("# Return total cost of #{c[0]}
 
-- unit =
-
-V(#{c[0]}, total_costs_per(:plant))
+- unit = euro
+- query = V(#{c[0]}, total_costs_per(:plant))
 
 ")
     else

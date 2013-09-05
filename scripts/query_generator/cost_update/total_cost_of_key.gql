@@ -1,6 +1,0 @@
-# Return total cost of key
-
-- unit =
-
-V(key, total_costs_per(:plant))
-
