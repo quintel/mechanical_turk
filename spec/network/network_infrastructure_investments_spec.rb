@@ -86,6 +86,7 @@ describe "network infrastructure investments" do
        @scenario.buildings_space_heater_heatpump_air_water_network_gas_share = 0.0
        @scenario.buildings_space_heater_electricity_share = 0.0
        @scenario.buildings_space_heater_crude_oil_share = 0.0
+       @scenario.buildings_space_heater_wood_pellets_share = 0.0
        @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
        @scenario.buildings_space_heater_solar_thermal_share = 0.0
 
@@ -100,6 +101,7 @@ describe "network infrastructure investments" do
         @scenario.buildings_space_heater_heatpump_air_water_network_gas_share = 0.0
         @scenario.buildings_space_heater_electricity_share = 100.0
         @scenario.buildings_space_heater_crude_oil_share = 0.0
+        @scenario.buildings_space_heater_wood_pellets_share = 0.0
         @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
         @scenario.buildings_space_heater_solar_thermal_share = 0.0
 
@@ -107,18 +109,9 @@ describe "network infrastructure investments" do
       end
     end
 
-    context "when building insulation 2.5" do
-      it "should decrease all network total cost" do
-        @scenario.buildings_insulation_level = 2.5
-
-        expect(@scenario.network_total_costs).to decrease
-      end
-    end
-
-
     context "when agriculture  small gas chp increase" do
       it "should decrease all network total cost" do
-        @scenario.number_of_agriculture_chp_engine_network_gas = 3000
+        @scenario.number_of_agriculture_chp_engine_network_gas = 2000
 
         expect(@scenario.network_total_costs).to decrease
       end
@@ -126,7 +119,7 @@ describe "network infrastructure investments" do
 
     context "when industry gas chp increase" do
       it "should decrease all network total cost" do
-        @scenario.number_of_industry_chp_combined_cycle_gas_power_fuelmix = 70.0
+        @scenario.number_of_industry_chp_combined_cycle_gas_power_fuelmix = 50.0
 
         expect(@scenario.network_total_costs).to decrease
       end
