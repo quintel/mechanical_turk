@@ -34,8 +34,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_space_heater_electricity.value.should be_within(9.787500000000001).of(195.75)
     end
 
-    it "total cost of households_water_heater_network_gas should be within 5.0% of 196.8904547" do
-      @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(9.844522735).of(196.8904547)
+    it "total cost of households_water_heater_network_gas should be within 5.0% of 175.17" do
+      @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(8.76).of(175.17)
     end
 
     it "total cost of buildings_cooling_airconditioning_electricity should be within 5.0% of 199.0" do
@@ -58,8 +58,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_space_heater_heatpump_add_on_electricity.value.should be_within(14.083333335).of(281.6666667)
     end
 
-    it "total cost of households_water_heater_combined_network_gas should be within 5.0% of 321.0137089" do
-      @scenario.total_cost_of_households_water_heater_combined_network_gas.value.should be_within(16.050685445).of(321.0137089)
+    it "total cost of households_water_heater_combined_network_gas should be within 5.0% of 304.84" do
+      @scenario.total_cost_of_households_water_heater_combined_network_gas.value.should be_within(15.24).of(304.84)
     end
 
     it "total cost of households_space_heater_coal should be within 5.0% of 327.4528956" do
