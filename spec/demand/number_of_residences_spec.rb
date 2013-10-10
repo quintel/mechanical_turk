@@ -65,7 +65,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
       # move slider 2 (number of new houses in millions)
       @scenario.households_number_of_new_houses = 0.8
       
-      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(9768807914.186022)
+      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(8992000972.177826)
   
     end
   
