@@ -274,14 +274,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_collective_chp_biogas.value.should be_within(31936.245475).of(638724.9095)
     end
 
-    it "total cost of other_chp_engine_biogas should be within 5.0% of 638724.9095" do
-      @scenario.total_cost_of_other_chp_engine_biogas.value.should be_within(31936.245475).of(638724.9095)
-    end
-
-    it "total cost of other_chp_engine_biogas should be within 5.0% of 638724.9095" do
-      @scenario.total_cost_of_other_chp_engine_biogas.value.should be_within(31936.245475).of(638724.9095)
-    end
-
     it "total cost of agriculture_burner_crude_oil should be within 5.0% of 675607.9264" do
       @scenario.total_cost_of_agriculture_burner_crude_oil.value.should be_within(33780.39632).of(675607.9264)
     end
@@ -486,10 +478,6 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(2297332.3475).of(45946646.95)
     end
 
-    it "total cost of other_chp_engine_network_gas should be within 5.0% of 752461.2579" do
-      @scenario.total_cost_of_other_chp_engine_network_gas.value.should be_within(37623.062895).of(752461.2579)
-    end
-
     it "total cost of energy_power_nuclear_gen2_uranium_oxide should be within 5.0% of 366049307.4" do
       @scenario.total_cost_of_energy_power_nuclear_gen2_uranium_oxide.value.should be_within(18302465.37).of(366049307.4)
     end
@@ -572,10 +560,6 @@ describe "Testing costs" do
 
     it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15154166.67" do
       @scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value.should be_within(757708.3335000001).of(15154166.67)
-    end
-
-    it "total cost of other_chp_engine_biogas should be within 5.0% of 638724.9095" do
-      @scenario.total_cost_of_other_chp_engine_biogas.value.should be_within(31936.245475).of(638724.9095)
     end
 
   end
