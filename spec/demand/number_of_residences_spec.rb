@@ -78,7 +78,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
       # move slider 1 (number of new houses in millions)
       @scenario.households_number_of_new_houses = 8.3
     
-      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 504.4
+      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 514.1
     
     end
 
