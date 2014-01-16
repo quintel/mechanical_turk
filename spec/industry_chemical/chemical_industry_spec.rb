@@ -30,7 +30,6 @@ describe "Standard scenario: Chemical industry" do
       @scenario.industry_useful_demand_for_chemical_network_gas_non_energetic = 5 #%
       @scenario.industry_useful_demand_for_chemical_other_non_energetic = 5 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
-      expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
       expect(@scenario.dashboard_energy_import_netto).to increase
       expect(@scenario.total_costs).to increase
     end
