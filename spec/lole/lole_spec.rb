@@ -28,6 +28,15 @@ describe "Starting with a scenario with nonzero LOLE," do
     end
   end
 
+  context "increasing the number of wind turbines" do
+
+    it "should not increase the LOLE" do
+      @scenario.number_of_energy_power_wind_turbine_inland = 56000.0
+      expect(@scenario.loss_of_load_expectation).to not_increase
+    end
+  end
+
+
   context "decreasing the population" do
 
     it "should decrease the total demand and hence the LOLE" do

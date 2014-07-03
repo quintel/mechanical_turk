@@ -27,6 +27,13 @@ RSpec::Matchers.define :decrease do
   end
 end
 
+RSpec::Matchers.define :not_increase do
+  match { |actual| actual.increase <= 0 }
+  failure_message_for_should do |actual|
+    "I expected the value not to increase, but actually it increased with #{actual.increase}"
+  end
+end
+
 RSpec::Matchers.define :not_change do
   match { |actual| actual.decrease == 0 }
   failure_message_for_should do |actual|
