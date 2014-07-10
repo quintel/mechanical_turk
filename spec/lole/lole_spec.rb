@@ -56,12 +56,12 @@ describe "Capacity credit wind" do
 
   context "Removing all wind turbines" do
 
-    it "should result in a capacity credit of 0.328" do
+    it "should result in a capacity credit of 0.33" do
       @scenario.number_of_energy_power_wind_turbine_coastal = 0.0
       @scenario.number_of_energy_power_wind_turbine_inland = 0.0
       @scenario.number_of_energy_power_wind_turbine_offshore = 0.0
 
-      expect(@scenario.capacity_credit_wind.value).to be == 0.328
+      expect(@scenario.capacity_credit_wind.value).to be == 0.33
     end
   end
 
