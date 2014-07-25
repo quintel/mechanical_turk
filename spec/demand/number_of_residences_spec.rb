@@ -23,7 +23,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
   end
 
-  context "removing all old residences and insulating them" do
+  context "Removing all old residences and insulating them" do
     
     it "should leave the cost unchanged" do
       # move slider 1 (number of old houses in millions)
@@ -40,7 +40,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
   
   end
 
-  context "removing all new residences and insulating them" do
+  context "Removing all new residences and insulating them" do
     
     it "should leave the cost unchanged" do
       # move slider 1 (number of new houses in millions)
@@ -57,20 +57,29 @@ describe "Sliders #639 and #640: number of old and new residences" do
   
   end
 
-  context "Halving the number of old and new residences" do
+  context "Halving the number of old residences" do
     
-    it "should halve the heat demand for residences" do
+    it "should halve the heat demand for old residences" do
       # move slider 1 (number of old houses in millions)
       @scenario.households_number_of_old_houses = 2.8
-      # move slider 2 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 0.8
       
-      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(8769457733.200233)
+      expect(@scenario.households_old_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(116540965520.55762)
   
     end
   
   end
 
+  context "Halving the number of new residences" do
+    
+    it "should halve the heat demand for new residences" do
+      # move slider 2 (number of new houses in millions)
+      @scenario.households_number_of_new_houses = 0.8
+      
+      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(9249282898.3303)
+  
+    end
+  
+  end
 
   context "Doubling the number of residences" do
 
@@ -78,7 +87,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
       # move slider 1 (number of new houses in millions)
       @scenario.households_number_of_new_houses = 8.3
     
-      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 506.8992468412668
+      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 276.16220684677944
     
     end
 
