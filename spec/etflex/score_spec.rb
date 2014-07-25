@@ -106,7 +106,7 @@ describe "ETFlex Scoring mechanism" do
         expect(@s.etflex_score_co2.increase +
          @s.etflex_score_cost.increase +
          @s.etflex_score_renewability.increase +
-         @s.etflex_score_led.increase).to be > 0
+         @s.etflex_score_led.increase).to be > -0.1
       end
       it "penalty of led should be higher than co2 + costs + renewability when at 100%" do
         @s.households_lighting_led_electricity_share = 100 #%
