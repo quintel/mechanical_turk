@@ -22,8 +22,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_agriculture_burner_wood_pellets.value.should be_within(26175.51855).of(523510.371)
     end   
 
-    it "total cost of agriculture_chp_engine_biogas should be within 5.0% of 701158.8757" do
-      @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(35057.943785).of(701158.8757)
+    it "total cost of agriculture_chp_engine_biogas should be within 5.0% of 1796777.325" do
+      @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(35057.943785).of(1796777.325)
     end   
 
     it "total cost of agriculture_chp_engine_network_gas should be within 5.0% of 598514.1625" do
@@ -42,8 +42,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value.should be_within(20232.21612).of(404644.3224)
     end   
 
-    it "total cost of buildings_chp_engine_biogas should be within 5.0% of 641158.8757" do
-      @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(32057.943785).of(641158.8757)
+    it "total cost of buildings_chp_engine_biogas should be within 5.0% of 1736777.32" do
+      @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(32057.943785).of(1736777.32)
     end   
 
     it "total cost of buildings_collective_chp_network_gas should be within 5.0% of 625460.1805" do
@@ -182,8 +182,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_combined_cycle_network_gas.value.should be_within(6002937.355).of(120058747.1)
     end   
 
-    it "total cost of energy_power_engine_diesel should be within 5.0% of 1038793.032" do
-      @scenario.total_cost_of_energy_power_engine_diesel.value.should be_within(51939.651600000005).of(1038793.032)
+    it "total cost of energy_power_engine_diesel should be within 5.0% of 1350615.924" do
+      @scenario.total_cost_of_energy_power_engine_diesel.value.should be_within(51939.651600000005).of(1350615.924)
     end   
 
     it "total cost of energy_power_engine_network_gas should be within 5.0% of 2444820.029" do
@@ -294,8 +294,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_wind_turbine_offshore.value.should be_within(82176.80055).of(1643536.011)
     end   
 
-    it "total cost of households_collective_chp_biogas should be within 5.0% of 641158.8757" do
-      @scenario.total_cost_of_households_collective_chp_biogas.value.should be_within(32057.943785).of(641158.8757)
+    it "total cost of households_collective_chp_biogas should be within 5.0% of 1736777.32" do
+      @scenario.total_cost_of_households_collective_chp_biogas.value.should be_within(32057.943785).of(1736777.325)
     end   
 
     it "total cost of households_collective_chp_network_gas should be within 5.0% of 625460.1805" do
@@ -478,8 +478,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_industry_other_metals_burner_network_gas.value.should be_within(228832.7323).of(4576654.646)
     end   
 
-    it "total cost of industry_steel_blastfurnace_burner_coal_gas should be within 5.0% of 3818439.729" do
-      @scenario.total_cost_of_industry_steel_blastfurnace_burner_coal_gas.value.should be_within(190921.98645).of(3818439.729)
+    it "total cost of industry_steel_blastfurnace_burner_coal_gas should be within 5.0% of 4171061.79" do
+      @scenario.total_cost_of_industry_steel_blastfurnace_burner_coal_gas.value.should be_within(190921.98645).of(4171061.79)
     end   
 
     it "total cost of industry_steel_electricfurnace_burner_network_gas should be within 5.0% of 6669208.391" do
