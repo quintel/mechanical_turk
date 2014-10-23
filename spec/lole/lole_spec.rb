@@ -18,7 +18,7 @@ describe "Starting with a scenario with nonzero LOLE," do
   context "decreasing the number of nuclear plants" do
 
     it "should increase the LOLE" do
-      @scenario.number_of_energy_power_nuclear_gen3_uranium_oxide = 0.0
+      @scenario.number_of_energy_power_nuclear_gen2_uranium_oxide = 0.0
       expect(@scenario.loss_of_load_expectation).to increase
     end
   end
