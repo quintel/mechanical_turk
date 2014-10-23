@@ -88,8 +88,9 @@ describe "Merit Order" do
   describe 'slider: number_of_xxx' do
 
     before(:each) do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
-      @scenario.use_merit_order_demands = 0
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+        use_merit_order_demands: 0
+      })
     end
 
     xit "merit_order disabled: changing numbers of a volatile source" do
@@ -108,8 +109,9 @@ describe "Merit Order" do
     # With the use_merit_order_demands enabled, the total production should not be affected by increment of number of
     # wind turbines
     before(:each) do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
-      @scenario.use_merit_order_demands = 1
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+        use_merit_order_demands: 1
+      })
     end
 
     xit "merit_order enabled: increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do

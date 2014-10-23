@@ -8,8 +8,9 @@ require 'spec_helper'
 describe "Population" do
 
   before(:all) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
-    @scenario.households_number_of_inhabitants = 30 # million
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      households_number_of_inhabitants: 30 # million
+    })
   end
 
   it "should increase primary demand" do

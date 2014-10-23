@@ -3,18 +3,17 @@ require 'spec_helper'
 describe "network infrastructure investments" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2040)
-    @scenario.households_space_heater_combined_network_gas_share = 0.0
-    @scenario.households_space_heater_heatpump_ground_water_electricity_share = 0.0
-    @scenario.households_space_heater_district_heating_steam_hot_water_share = 0.0
-    @scenario.households_space_heater_wood_pellets_share = 0.0
-    @scenario.households_space_heater_electricity_share = 100.0
-    @scenario.households_space_heater_network_gas_share = 0.0
-    @scenario.households_space_heater_crude_oil_share = 0.0
-    @scenario.households_space_heater_coal_share = 0.0
-    @scenario.households_space_heater_micro_chp_network_gas_share = 0.0
-
-    expect(@scenario.network_total_costs).to increase
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2040, inputs: {
+      households_space_heater_combined_network_gas_share: 0.0,
+      households_space_heater_heatpump_ground_water_electricity_share: 0.0,
+      households_space_heater_district_heating_steam_hot_water_share: 0.0,
+      households_space_heater_wood_pellets_share: 0.0,
+      households_space_heater_electricity_share: 100.0,
+      households_space_heater_network_gas_share: 0.0,
+      households_space_heater_crude_oil_share: 0.0,
+      households_space_heater_coal_share: 0.0,
+      households_space_heater_micro_chp_network_gas_share: 0.0
+    })
   end
 
 
@@ -35,7 +34,8 @@ describe "network infrastructure investments" do
       expect(@scenario.mv_distribution_in_additional_infrastructure_investments.value).to be == 0.0
       expect(@scenario.mv_transport_in_additional_infrastructure_investments.value).to be == 0.0
       expect(@scenario.mv_hv_transformer_in_additional_infrastructure_investments.value).to be == 0.0
-      expect(@scenario.hv_net_in_additional_infrastructure_investments.value).to be == 0.0    end
+      expect(@scenario.hv_net_in_additional_infrastructure_investments.value).to be == 0.0
+    end
   end
 
 

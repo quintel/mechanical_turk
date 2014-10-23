@@ -15,7 +15,7 @@ class Scenario
 
   def initialize(settings = {area_code: 'nl', end_year: 2040})
     @results = {}
-    @inputs = [{}]
+    @inputs = [settings[:inputs] || {}]
     @settings = settings
     @connection = Connection.new(self, settings)
     @touched = false

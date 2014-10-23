@@ -7,8 +7,9 @@ require 'spec_helper'
 describe "Central coal-plant" do
 
   before(:all) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
-    @scenario.number_of_energy_power_supercritical_coal = 10
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      number_of_energy_power_supercritical_coal: 10
+    })
   end
 
   it "should increase primary demand" do

@@ -6,10 +6,13 @@ require 'spec_helper'
 
 describe "Starting with a scenario with nonzero LOLE," do
 
-  before(:all) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
-    @scenario.number_of_energy_power_combined_cycle_network_gas = 0.0 # removing all the Gas CCGT to create a nonzero LOLP
-    @scenario.number_of_energy_chp_combined_cycle_network_gas = 0.0 # removing all Gas CHP to increase LOLP
+  before(:each) do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      # removing all the Gas CCGT to create a nonzero LOLP
+      number_of_energy_power_combined_cycle_network_gas: 0.0,
+      # removing all Gas CHP to increase LOLP
+      number_of_energy_chp_combined_cycle_network_gas: 0.0
+    })
   end
 
   context "decreasing the number of nuclear plants" do
