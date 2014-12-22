@@ -17,7 +17,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
       # move slider 2 (number of new houses in millions)
       @scenario.households_number_of_new_houses = 4.7
 
-      expect(@scenario.households_number_of_residences.value).to be == 7.600001
+      expect(@scenario.households_number_of_residences.value).to be == 7600001.0
   
     end
 
