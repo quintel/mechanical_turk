@@ -109,15 +109,15 @@ describe "network infrastructure investments" do
       end
     end
 
-    context "when agriculture  small gas chp increase" do
+    context "when agriculture small gas chp increases" do
       it "should decrease all network total cost" do
-        @scenario.number_of_agriculture_chp_engine_network_gas = 800
+        @scenario.number_of_agriculture_chp_engine_network_gas = 2000
 
         expect(@scenario.network_total_costs).to decrease
       end
     end
 
-    context "when industry gas chp increase" do
+    context "when industry gas chp increases" do
       it "should decrease all network total cost" do
         @scenario.number_of_industry_chp_combined_cycle_gas_power_fuelmix = 50.0
 
@@ -125,7 +125,7 @@ describe "network infrastructure investments" do
       end
     end
 
-    context "when wind onshore increase" do
+    context "when wind onshore increases" do
       it "should decrease all network total cost" do
         @scenario.number_of_energy_power_wind_turbine_coastal = 1000
 
