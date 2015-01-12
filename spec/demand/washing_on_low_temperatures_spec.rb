@@ -21,7 +21,7 @@ describe "#371: Washing on low temperatures" do
   context "when slider 361 (washing machine efficiencies) is on max value" do
 
     it "should lower CO2 emissions when washing machine efficiencies increase to max value" do
-      @scenario.households_appliances_washing_machine_electricity_efficiency = 86 #%
+      @scenario.households_appliances_washing_machine_electricity_efficiency = 28 #%
       expect(@scenario.co2).to decrease
       @scenario.households_behavior_low_temperature_washing = 100 #%
       expect(@scenario.co2).to decrease
