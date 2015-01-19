@@ -74,8 +74,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_heat_network_connection_steam_hot_water.value.should be_within(29366.666665000004).of(587333.3333)
     end   
 
-    it "total cost of buildings_solar_pv_solar_radiation should be within 5.0% of 2545.292412" do
-      @scenario.total_cost_of_buildings_solar_pv_solar_radiation.value.should be_within(127.2646206).of(2545.292412)
+    it "total cost of buildings_solar_pv_solar_radiation should be within 5.0% of 1716.42" do
+      @scenario.total_cost_of_buildings_solar_pv_solar_radiation.value.should be_within(85.82).of(1716.42)
     end   
 
     it "total cost of buildings_space_heater_coal should be within 5.0% of 4597.52495" do
@@ -230,8 +230,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value.should be_within(758625.8335000001).of(15172516.67)
     end   
 
-    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 4236515.76" do
-      @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(211825.788).of(4236515.76)
+    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 2549275.0" do
+      @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(127463.8).of(2549275.0)
     end   
 
     it "total cost of energy_power_supercritical_coal should be within 5.0% of 209495043.5" do
@@ -326,8 +326,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_heat_network_connection_steam_hot_water.value.should be_within(31.666666665000005).of(633.3333333)
     end   
 
-    it "total cost of households_solar_pv_solar_radiation should be within 5.0% of 222.9245208" do
-      @scenario.total_cost_of_households_solar_pv_solar_radiation.value.should be_within(11.146226040000002).of(222.9245208)
+    it "total cost of households_solar_pv_solar_radiation should be within 5.0% of 193.448" do
+      @scenario.total_cost_of_households_solar_pv_solar_radiation.value.should be_within(9.672).of(193.448)
     end   
 
     it "total cost of households_space_heater_coal should be within 5.0% of 316.7324084" do
