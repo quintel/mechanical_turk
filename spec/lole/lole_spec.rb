@@ -25,9 +25,9 @@ describe "Starting with a scenario with nonzero LOLE," do
 
   context "increasing the number of solar PV plants" do
 
-    it "should not change the LOLE" do
+    it "should not increase the LOLE" do
       @scenario.number_of_energy_power_solar_pv_solar_radiation = 1000.0
-      expect(@scenario.loss_of_load_expectation).to not_change
+      expect(@scenario.loss_of_load_expectation).to not_increase
     end
   end
 
