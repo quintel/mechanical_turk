@@ -60,10 +60,13 @@ private
     request_params = {
       gqueries: scenario.queries,
       source: "Mechanical Turk",
-      reset: true,
-      scenario: {
-      }
+      scenario: {}
     }
+
+    if @settings.fetch(:reset, true)
+      request_params[:reset] = true
+    end
+
     request_params[:autobalance] = true if @autobalance
     request_params[:scenario][:user_values] = inputs if inputs
     self.class.put(url, query: request_params)
