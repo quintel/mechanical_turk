@@ -142,7 +142,7 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
       end
 
       it "Industry CO2 emissions should be within 0.05 of 22.1" do
-        @scenario.turk_rli_primary_co2_of_industry.value.should be_within(0.05).of(22.1)
+        @scenario.turk_rli_primary_co2_of_industry.value.should be_within(0.05).of(22.0)
       end
 
       it "Energy sector CO2 emissions should be within 0.05 of 0.1" do
