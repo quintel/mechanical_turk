@@ -122,9 +122,9 @@ describe "ETFlex Scoring mechanism" do
         @s.households_space_heater_heatpump_add_on_electricity_share = 10 #%
         expect(@s.etflex_score_co2).to increase
       end
-      it "should raise cost score" do
+      it "should lower cost score" do
         @s.households_space_heater_heatpump_add_on_electricity_share = 10 #%
-        expect(@s.etflex_score_cost).to increase
+        expect(@s.etflex_score_cost).to decrease
       end
       it "should lower heatpump score (penalty)" do
         @s.households_space_heater_heatpump_add_on_electricity_share = 10 #%
