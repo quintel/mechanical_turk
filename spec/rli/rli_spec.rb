@@ -13,8 +13,8 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
 
     describe "Dashboard items:" do
 
-      it "Energy use dashboard item should be within 0.00005 of -0.0680" do
-        #@scenario.dashboard_total_costs.value.should be_within(0.05).of(67.5)
+      it "Energy use dashboard item should be within 0.0005 of -0.068" do
+        @scenario.turk_energy_use.value.should be_within(0.0005).of(-0.068)
       end
 
       it "CO2 emissions dashboard item should be within 0.0005 of -0.090" do
@@ -58,11 +58,11 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
       end
 
       it "Industry CO2 emissions should be within 0.05 of 61.1" do
-        @scenario.primary_co2_of_industry.present.should be_within(0.05).of(61.1)
+        @scenario.turk_rli_primary_co2_of_industry.present.should be_within(0.05).of(61.1)
       end
 
       it "Energy sector CO2 emissions should be within 0.05 of 2.4" do
-        @scenario.primary_co2_of_energy.present.should be_within(0.05).of(2.4)
+        @scenario.turk_rli_primary_co2_of_energy.present.should be_within(0.05).of(2.4)
       end
 
       it "Other CO2 emissions should be within 0.05 of 0.0" do
@@ -89,8 +89,8 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
 
     describe "Dashboard items:" do
 
-      it "Energy use dashboard item should be within 0.00005 of -0.2920" do
-        #@scenario.dashboard_total_costs.value.should be_within(0.05).of(67.5)
+      it "Energy use dashboard item should be within 0.0005 of -0.2920" do
+        @scenario.turk_energy_use.value.should be_within(0.0005).of(-0.292)
       end
 
       it "CO2 emissions dashboard item should be within 0.0005 of -0.800" do
@@ -134,11 +134,11 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
       end
 
       it "Industry CO2 emissions should be within 0.05 of 22.1" do
-        @scenario.primary_co2_of_industry.value.should be_within(0.05).of(22.1)
+        @scenario.turk_rli_primary_co2_of_industry.value.should be_within(0.05).of(22.1)
       end
 
       it "Energy sector CO2 emissions should be within 0.05 of 0.1" do
-        @scenario.primary_co2_of_energy.value.should be_within(0.05).of(0.1)
+        @scenario.turk_rli_primary_co2_of_energy.value.should be_within(0.05).of(0.1)
       end
 
       it "Other CO2 emissions should be within 0.05 of 0.0" do
@@ -165,8 +165,8 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
 
     describe "Dashboard items:" do
 
-      it "Energy use dashboard item should be within 0.00005 of -0.2990" do
-        #@scenario.dashboard_total_costs.value.should be_within(0.05).of(67.5)
+      it "Energy use dashboard item should be within 0.0005 of -0.299" do
+        @scenario.turk_energy_use.value.should be_within(0.0005).of(-0.299)
       end
 
       it "CO2 emissions dashboard item should be within 0.0005 of -0.950" do
@@ -210,11 +210,11 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
       end
 
       it "Industry CO2 emissions should be within 0.05 of 5.6" do
-        @scenario.primary_co2_of_industry.value.should be_within(0.05).of(5.6)
+        @scenario.turk_rli_primary_co2_of_industry.value.should be_within(0.05).of(5.6)
       end
 
       it "Energy sector CO2 emissions should be within 0.05 of 0.0" do
-        @scenario.primary_co2_of_energy.value.should be_within(0.05).of(0.0)
+        @scenario.turk_rli_primary_co2_of_energy.value.should be_within(0.05).of(0.0)
       end
 
       it "Other CO2 emissions should be within 0.05 of 0.0" do
