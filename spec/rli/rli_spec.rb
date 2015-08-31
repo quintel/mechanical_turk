@@ -71,6 +71,14 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
 
     end
 
+    describe "Primary demand (present):" do
+
+      it "Primary demand of final demand should be within 500000000 of 3330600000000" do
+        @scenario.primary_demand_caused_by_final_demand.present.should be_within(500000000).of(3330600000000)
+      end
+
+    end
+
     describe "Investment costs:" do
 
       it "Total investment costs should be within 0.05 of 98.0" do
@@ -147,6 +155,14 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
 
     end
 
+    describe "Primary demand:" do
+
+      it "Primary demand of final demand should be within 500000000 of 2352000000000" do
+        @scenario.primary_demand_caused_by_final_demand.value.should be_within(500000000).of(2352000000000)
+      end
+
+    end
+
     describe "Investment costs:" do
 
       it "Total investment costs should be within 0.05 of 98.0" do
@@ -219,6 +235,14 @@ describe "Verifying the outcomes of the three RLI scenarios:" do
 
       it "Other CO2 emissions should be within 0.05 of 0.0" do
         @scenario.primary_co2_of_other.value.should be_within(0.05).of(0.0)
+      end
+
+    end
+
+    describe "Primary demand:" do
+
+      it "Primary demand of final demand should be within 500000000 of 2317900000000" do
+        @scenario.primary_demand_caused_by_final_demand.value.should be_within(500000000).of(2317900000000)
       end
 
     end
