@@ -1,34 +1,13 @@
 require 'spec_helper'
 
-describe "network infrastructure investments" do
+describe "Network costs" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2040, inputs: {
-      households_space_heater_combined_network_gas_share: 0.0,
-      households_space_heater_heatpump_ground_water_electricity_share: 0.0,
-      households_space_heater_district_heating_steam_hot_water_share: 0.0,
-      households_space_heater_wood_pellets_share: 0.0,
-      households_space_heater_electricity_share: 100.0,
-      households_space_heater_network_gas_share: 0.0,
-      households_space_heater_crude_oil_share: 0.0,
-      households_space_heater_coal_share: 0.0,
-      households_space_heater_micro_chp_network_gas_share: 0.0
-    })
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
-
-  context "start scenario" do
-    it "no infrastructure investments needed" do
-      @scenario.households_space_heater_combined_network_gas_share = 82.1
-      @scenario.households_space_heater_heatpump_ground_water_electricity_share = 0.1
-      @scenario.households_space_heater_district_heating_steam_hot_water_share = 3.0
-      @scenario.households_space_heater_wood_pellets_share = 2.6
-      @scenario.households_space_heater_electricity_share = 1.8
-      @scenario.households_space_heater_network_gas_share = 9.1
-      @scenario.households_space_heater_crude_oil_share = 1.2
-      @scenario.households_space_heater_coal_share = 0.1
-      @scenario.households_space_heater_micro_chp_network_gas_share = 0.0
-
+  context "In a start scenario" do
+    it "no infrastructure investments should be needed" do
       expect(@scenario.lv_net_in_additional_infrastructure_investments.value).to be == 0.0
       expect(@scenario.lv_mv_transformer_in_additional_infrastructure_investments.value).to be == 0.0
       expect(@scenario.mv_distribution_in_additional_infrastructure_investments.value).to be == 0.0
@@ -38,8 +17,18 @@ describe "network infrastructure investments" do
     end
   end
 
+end
 
-  context "when households heating got to electric heating" do
+describe "Starting with a scenario where all household space heating is electric" do
+
+  before(:each) do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      households_space_heater_electricity_share: 100
+    })
+  end
+
+
+  context "when households heating stay on electric heating" do
     it "should increase all network total cost" do
       expect(@scenario.network_total_costs).to increase
     end
@@ -132,6 +121,5 @@ describe "network infrastructure investments" do
         expect(@scenario.network_total_costs).to decrease
       end
     end
-
 
 end
