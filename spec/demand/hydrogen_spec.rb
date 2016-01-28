@@ -81,16 +81,16 @@ describe "Hydrogen" do
 
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      transport_car_using_hydrogen_share: 30.0,
+      transport_car_using_hydrogen_share: 80.0,
       energy_steam_methane_reformer_hydrogen_share: 75.0
     })
   end
 
-  describe "Making electricity greener in a scenario with electrolysis" do
+  describe "Making the gas grid composition greener in a scenario with SMR" do
 
     it "should decrease CO2 emissions" do
       
-      @scenario.green_gas_total_share = 50
+      @scenario.natural_gas_total_share = 50.0
 
       expect(@scenario.co2).to decrease
     end
