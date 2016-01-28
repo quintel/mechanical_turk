@@ -61,9 +61,9 @@ describe "Sliders #639 and #640: number of old and new residences" do
     
     it "should halve the heat demand for old residences" do
       # move slider 1 (number of old houses in millions)
-      @scenario.households_number_of_old_houses = 2.8
+      @scenario.households_number_of_old_houses = 2.9
       
-      expect(@scenario.households_old_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(116483580197.522)
+      expect(@scenario.households_old_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(145530009214.27292)
   
     end
   
@@ -75,7 +75,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
       # move slider 2 (number of new houses in millions)
       @scenario.households_number_of_new_houses = 0.8
       
-      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(9244728507.652328)
+      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000000.0).of(11151724446.577408)
   
     end
   
@@ -85,9 +85,9 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
     it "should double the residential roof surface available for pv" do
       # move slider 1 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 8.3
+      @scenario.households_number_of_new_houses = 8.4
     
-      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 276.16220684677944
+      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 276.74172571026156
     
     end
 
