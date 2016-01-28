@@ -12,7 +12,7 @@ describe "Hydrogen" do
 
   describe "If the hydrogen demand in transport increases" do
 
-    it "the production technologies number_of_units scale correctly" do
+    it "the production technologies number_of_units increase" do
       
       #if we increase the share of hydrogen cars
       @scenario.transport_car_using_hydrogen_share = 40.0
