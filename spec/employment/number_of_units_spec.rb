@@ -140,7 +140,7 @@ describe "Demand > Households > Space Heating" do
 
     it " number_of_units of households_space_heater_micro_chp_network_gas should be within 10.0 of 7449298.0" do
       @scenario.households_space_heater_micro_chp_network_gas_share = 50 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_micro_chp_network_gas.value).to be_within(10.0).of(3693371.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_micro_chp_network_gas.value).to be_within(10.0).of(3724649.0)
     end
 
     it " number_of_units of households_space_heater_network_gas should be within 10.0 of 7449298.0" do
