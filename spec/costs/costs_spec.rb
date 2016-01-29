@@ -326,8 +326,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_flexibility_p2h_electricity.value.should be_within(0.735).of(14.7)
     end
 
-    it "total cost of households_water_heater_network_gas should be within 5.0% of 155.9649996" do
-      @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(7.7982499800000005).of(155.9649996)
+    it "total cost of households_water_heater_network_gas should be within 5.0% of 147.02236226063758" do
+      @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(7.3511181130318795).of(147.02236226063758)
     end
 
     it "total cost of households_water_heater_heatpump_ground_water_electricity should be within 5.0% of 1226.666667" do
@@ -358,28 +358,28 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_space_heater_heatpump_air_water_electricity.value.should be_within(46.16666666500001).of(923.3333333)
     end
 
-    it "total cost of households_space_heater_wood_pellets should be within 5.0% of 750.7033071" do
-      @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(37.535165355).of(750.7033071)
+    it "total cost of households_space_heater_wood_pellets should be within 5.0% of 818.1568208193078" do
+      @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(40.907841040965394).of(818.1568208193078)
     end
 
     it "total cost of households_space_heater_electricity should be within 5.0% of 26.0" do
       @scenario.total_cost_of_households_space_heater_electricity.value.should be_within(1.3).of(26.0)
     end
 
-    it "total cost of households_space_heater_network_gas should be within 5.0% of 444.9804097" do
-      @scenario.total_cost_of_households_space_heater_network_gas.value.should be_within(22.249020485000003).of(444.9804097)
+    it "total cost of households_space_heater_network_gas should be within 5.0% of 496.83760777530875" do
+      @scenario.total_cost_of_households_space_heater_network_gas.value.should be_within(24.84188038876544).of(496.83760777530875)
     end
 
     it "total cost of households_space_heater_heatpump_ground_water_electricity should be within 5.0% of 1226.666667" do
       @scenario.total_cost_of_households_space_heater_heatpump_ground_water_electricity.value.should be_within(61.333333350000004).of(1226.666667)
     end
 
-    it "total cost of households_space_heater_coal should be within 5.0% of 315.445981" do
-      @scenario.total_cost_of_households_space_heater_coal.value.should be_within(15.77229905).of(315.445981)
+    it "total cost of households_space_heater_coal should be within 5.0% of 332.89198546972943" do
+      @scenario.total_cost_of_households_space_heater_coal.value.should be_within(16.644599273486474).of(332.89198546972943)
     end
 
-    it "total cost of households_space_heater_combined_network_gas should be within 5.0% of 413.4273613" do
-      @scenario.total_cost_of_households_space_heater_combined_network_gas.value.should be_within(20.671368065).of(413.4273613)
+    it "total cost of households_space_heater_combined_network_gas should be within 5.0% of 452.3081095472481" do
+      @scenario.total_cost_of_households_space_heater_combined_network_gas.value.should be_within(22.615405477362405).of(452.3081095472481)
     end
 
     it "total cost of households_space_heater_district_heating_steam_hot_water should be within 5.0% of 594.3333333" do
@@ -390,8 +390,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
 
-    it "total cost of households_space_heater_crude_oil should be within 5.0% of 586.6611441" do
-      @scenario.total_cost_of_households_space_heater_crude_oil.value.should be_within(29.333057205000003).of(586.6611441)
+    it "total cost of households_space_heater_crude_oil should be within 5.0% of 657.2461707984517" do
+      @scenario.total_cost_of_households_space_heater_crude_oil.value.should be_within(32.86230853992259).of(657.2461707984517)
     end
 
     it "total cost of households_heat_network_connection_steam_hot_water should be within 5.0% of 633.3333333" do
