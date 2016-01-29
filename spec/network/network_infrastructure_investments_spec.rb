@@ -108,7 +108,7 @@ describe "Starting with a scenario where all household space heating is electric
 
     context "when industry gas chp increases" do
       it "should decrease all network total cost" do
-        @scenario.number_of_industry_chp_combined_cycle_gas_power_fuelmix = 50.0
+        @scenario.number_of_industry_chp_combined_cycle_gas_power_fuelmix = 49.0
 
         expect(@scenario.network_total_costs).to decrease
       end
