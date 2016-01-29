@@ -132,7 +132,7 @@ describe "Merit Order" do
         @scenario.costs_coal = 1000
 
         # does descrease the demand of coal plants to zero
-        @scenario.energy_power_ultra_supercritical_coal_demand.future.should == 0
+        @scenario.energy_power_supercritical_coal_demand.future.should == 0
       end
 
       it "merit_order disabled leaves demands of coal plants as they are" do
