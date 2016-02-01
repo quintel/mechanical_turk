@@ -22,7 +22,7 @@ describe "LNG" do
        @scenario.gas_from_norway_share = 100.0
       
        # shouldn't change anything if no LNG is imported at all
-       expect(@scenario.co2.increase).to be 0.0
+       expect(@scenario.co2.increase).to be == 0
      end
   
    end
@@ -59,7 +59,7 @@ describe "LNG" do
        @scenario.lng_from_algeria_share = 100.0
       
        # shouldn't change the co2 emissions (since bio LNG shouldn't be affected either)
-       expect(@scenario.co2.increase).to be 0.0
+       expect(@scenario.co2.increase).to be == 0
      end
   
    end

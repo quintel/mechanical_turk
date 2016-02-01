@@ -122,9 +122,9 @@ describe "ETFlex Scoring mechanism" do
         @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
         expect(@s.etflex_score_co2).to increase
       end
-      it "should lower cost score" do
+      it "should increase cost score" do
         @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
-        expect(@s.etflex_score_cost).to decrease
+        expect(@s.etflex_score_cost).to increase
       end
       it "should lower heatpump score (penalty)" do
         @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
@@ -132,17 +132,11 @@ describe "ETFlex Scoring mechanism" do
       end
       it "penalty of heatpump should be lower than co2 + costs + renewability when at 1%" do
         @s.households_space_heater_heatpump_air_water_electricity_share = 1 #%
-        expect(@s.etflex_score_co2.increase +
-         @s.etflex_score_cost.increase +
-         @s.etflex_score_renewability.increase +
-         @s.etflex_score_heatpump.increase).to be > 0
+        expect(@s.etflex_score.increase).to be > 0
       end
       it "penalty of heatpump should be higher than co2 + costs + renewability when at 100%" do
         @s.households_space_heater_heatpump_air_water_electricity_share = 100 #%
-        expect(@s.etflex_score_co2.increase +
-         @s.etflex_score_cost.increase +
-         @s.etflex_score_renewability.increase +
-         @s.etflex_score_heatpump.increase).to be < 1
+        expect(@s.etflex_score.increase).to be < 1
       end
     end
   end
