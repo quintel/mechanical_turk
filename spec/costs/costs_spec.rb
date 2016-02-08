@@ -22,8 +22,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(84557.53510000001).of(1691150.702)
     end
 
-    it "total cost of buildings_solar_pv_solar_radiation should be within 5.0% of 1716.42" do
-      @scenario.total_cost_of_buildings_solar_pv_solar_radiation.value.should be_within(85.82100000000001).of(1716.42)
+    it "total cost of buildings_solar_pv_solar_radiation should be within 5.0% of 1735.488" do
+      @scenario.total_cost_of_buildings_solar_pv_solar_radiation.value.should be_within(86.77440000000001).of(1735.488)
     end
 
     it "total cost of households_water_heater_micro_chp_network_gas should be within 5.0% of 933.3333333" do
@@ -50,8 +50,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_collective_chp_network_gas.value.should be_within(31199.185706513894).of(623983.7141302779)
     end
 
-    it "total cost of households_solar_pv_solar_radiation should be within 5.0% of 193.448" do
-      @scenario.total_cost_of_households_solar_pv_solar_radiation.value.should be_within(9.672400000000001).of(193.448)
+    it "total cost of households_solar_pv_solar_radiation should be within 5.0% of 152.4992" do
+      @scenario.total_cost_of_households_solar_pv_solar_radiation.value.should be_within(7.624960000000001).of(152.4992)
     end
 
     it "total cost of agriculture_chp_engine_network_gas should be within 5.0% of 522910.8575" do
@@ -90,8 +90,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_energy_power_combined_cycle_ccs_network_gas.value.should be_within(6183032.15).of(123660643.0)
     end
 
-    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 2549275.0" do
-      @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(127463.75).of(2549275.0)
+    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 1605000.0" do
+      @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(80250.0).of(1605000.0)
     end
 
     it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15172516.67" do
@@ -322,8 +322,8 @@ describe "Testing costs" do
       @scenario.total_cost_of_households_cooling_heatpump_air_water_electricity.value.should be_within(46.16666666500001).of(923.3333333)
     end
 
-    it "total cost of households_flexibility_p2h_electricity should be within 5.0% of 14.7" do
-      @scenario.total_cost_of_households_flexibility_p2h_electricity.value.should be_within(0.735).of(14.7)
+    it "total cost of households_flexibility_p2h_electricity should be within 5.0% of 21.588666666666665" do
+      @scenario.total_cost_of_households_flexibility_p2h_electricity.value.should be_within(1.0794333333333332).of(21.588666666666665)
     end
 
     it "total cost of households_water_heater_network_gas should be within 5.0% of 147.02236226063758" do
