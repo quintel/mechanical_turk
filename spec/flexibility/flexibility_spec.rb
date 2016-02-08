@@ -10,7 +10,7 @@ describe "Flexibility" do
     })
   end
 
-  context "P2P" do
+  context "P2P (batteries)" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
@@ -21,10 +21,8 @@ describe "Flexibility" do
    describe "In a scenario increasing the number of P2P units" do
     
      it "should decrease the electricity curtailed" do
-       # Increasing the number of P2P units
        @scenario.households_flexibility_p2p_electricity_market_penetration = 20.0
       
-       # should decrease the electricity curtailed
        expect(@scenario.electricity_curtailed).to decrease
      end
   
@@ -33,10 +31,8 @@ describe "Flexibility" do
     describe "In a scenario increasing the number of P2P units" do
     
      it "should decrease the electricity exported" do
-       # Increasing the number of P2P units
        @scenario.households_flexibility_p2p_electricity_market_penetration = 20.0
       
-       # should decrease the electricity exported
        expect(@scenario.electricity_exported).to decrease
      end
   
@@ -45,16 +41,135 @@ describe "Flexibility" do
     describe "In a scenario increasing the number of P2P units" do
     
      it "should decrease CO2 emissions" do
-       # Increasing the number of P2P units
-       @scenario.households_flexibility_p2p_electricity_market_penetration = 20.0
+       @scenario.households_flexibility_p2p_electricity_market_penetration = 70.0
       
-       # should decrease the CO2 emissions
        expect(@scenario.co2).to decrease
      end
   
     end
 
   end
+
+  context "P2P (electric cars)" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1,
+      number_of_energy_power_wind_turbine_inland: 10000
+    })
+  end
+
+   describe "In a scenario increasing the availability of electric cars" do
+    
+     it "should decrease the electricity curtailed" do
+       @scenario.transport_car_using_electricity_availability = 20.0
+      
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+  
+   end
+
+    describe "In a scenario increasing the availability of electric cars" do
+    
+     it "should decrease the electricity exported" do
+       @scenario.transport_car_using_electricity_availability = 20.0
+      
+       expect(@scenario.electricity_exported).to decrease
+     end
+  
+   end
+
+    describe "In a scenario increasing the availability of electric cars" do
+    
+     it "should decrease CO2 emissions" do
+       @scenario.transport_car_using_electricity_availability = 20.0
+      
+       expect(@scenario.co2).to decrease
+     end
+  
+    end
+
+  end
+
+  #context "P2H" do
+  #before do
+  #  @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+  #    settings_enable_merit_order: 1,
+  #    number_of_energy_power_wind_turbine_inland: 10000
+  #  })
+  #end
+
+  # describe "In a scenario increasing the number of P2H units" do
+    
+  #   it "should decrease the electricity curtailed" do
+  #     @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
+      
+  #     expect(@scenario.electricity_curtailed).to decrease
+  #   end
+  
+  # end
+
+  #  describe "In a scenario increasing the number of P2H units" do
+    
+  #   it "should decrease the electricity exported" do
+  #     @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
+      
+  #     expect(@scenario.electricity_exported).to decrease
+  #   end
+  
+  # end
+
+  #  describe "In a scenario increasing the number of P2H units" do
+    
+  #   it "should decrease CO2 emissions" do
+  #     @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
+      
+  #     expect(@scenario.co2).to decrease
+  #   end
+  
+  #  end
+
+  #end
+
+  context "P2G" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1,
+      number_of_energy_power_wind_turbine_inland: 10000
+    })
+  end
+
+   describe "In a scenario increasing the number of P2G units" do
+    
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_energy_flexibility_p2g_electricity = 20.0
+      
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+  
+   end
+
+    describe "In a scenario increasing the number of P2G units" do
+    
+     it "should decrease the electricity exported" do
+       @scenario.number_of_energy_flexibility_p2g_electricity = 20.0
+      
+       expect(@scenario.electricity_exported).to decrease
+     end
+  
+   end
+
+  #  describe "In a scenario increasing the number of P2G units" do
+    
+  #   it "should decrease CO2 emissions" do
+  #     @scenario.number_of_energy_flexibility_p2g_electricity = 20.0
+      
+  #     expect(@scenario.co2).to decrease
+  #   end
+  
+  #  end
+
+  end
+
 
 
 # Below is WIP for the flexibility order 
