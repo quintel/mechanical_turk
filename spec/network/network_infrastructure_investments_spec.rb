@@ -23,7 +23,8 @@ describe "Starting with a scenario where all household space heating is electric
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      households_space_heater_electricity_share: 100
+      households_space_heater_electricity_share: 100,
+      settings_enable_merit_order: 0
     })
   end
 

@@ -5,7 +5,9 @@ describe "Merit Order" do
 
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+        settings_enable_merit_order: 0
+      })
   end
 
   context "Without using the merit order" do

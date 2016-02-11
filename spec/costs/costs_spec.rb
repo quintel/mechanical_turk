@@ -4,7 +4,9 @@ require 'spec_helper'
 describe "Testing costs" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true)
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
+        settings_enable_merit_order: 0
+      })
   end
 
   #Checking for change
