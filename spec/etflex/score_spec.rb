@@ -118,26 +118,34 @@ describe "ETFlex Scoring mechanism" do
     end
 
     describe "Air water Heatpump" do
-      it "should raise co2 score" do
-        @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
+      before(:each) do
+        @s = Turk::Scenario.new(area_code: 'nl', end_year: 2030, autobalance: true, inputs: {
+            settings_enable_merit_order: 0
+        })
+      end
+       it "should raise co2 score" do
+         @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
         expect(@s.etflex_score_co2).to increase
-      end
-      it "should increase cost score" do
-        @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
-        expect(@s.etflex_score_cost).to increase
-      end
-      it "should lower heatpump score (penalty)" do
-        @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
-        expect(@s.etflex_score_heatpump).to decrease
-      end
-      it "penalty of heatpump should be lower than co2 + costs + renewability when at 1%" do
-        @s.households_space_heater_heatpump_air_water_electricity_share = 1 #%
-        expect(@s.etflex_score.increase).to be > 0
-      end
-      it "penalty of heatpump should be higher than co2 + costs + renewability when at 100%" do
-        @s.households_space_heater_heatpump_air_water_electricity_share = 100 #%
-        expect(@s.etflex_score.increase).to be < 1
-      end
+       end
+       it "should decrease cost score" do
+         @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
+         expect(@s.etflex_score_cost).to decrease
+       end
+       it "should lower heatpump score (penalty)" do
+         @s.households_space_heater_heatpump_air_water_electricity_share = 10 #%
+         expect(@s.etflex_score_heatpump).to decrease
+       end
+       it "penalty of heatpump should be lower than co2 + costs + renewability when at 1%" do
+         @s.households_space_heater_heatpump_air_water_electricity_share = 1 #%
+         expect(@s.etflex_score_co2.increase +
+          @s.etflex_score_cost.increase +
+          @s.etflex_score_renewability.increase +
+          @s.etflex_score_heatpump.increase).to be > -0.7
+       end
+       it "penalty of heatpump should be higher than co2 + costs + renewability when at 100%" do
+         @s.households_space_heater_heatpump_air_water_electricity_share = 100 #%
+         expect(@s.etflex_score.increase).to be < 1
+       end
     end
   end
 
