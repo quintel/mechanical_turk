@@ -11,29 +11,29 @@ describe "Standard scenario: Metal production" do
 
   describe "Production volume:" do
 
-    it "Should increase energy demand, import, CO2 emission and costs when steel production is increased" do 
-      @scenario.industry_steel_production = 5 #%
+    it "Should increase energy demand, import, CO2 emission and costs when steel production is increased" do
+      @scenario.industry_steel_production = 105 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
       expect(@scenario.dashboard_energy_import_netto).to increase
       expect(@scenario.total_costs).to increase
-    end   
+    end
 
-    it "Should increase energy demand, import, CO2 emission and costs when aluminium production is increased" do 
-      @scenario.industry_aluminium_production = 5 #%
+    it "Should increase energy demand, import, CO2 emission and costs when aluminium production is increased" do
+      @scenario.industry_aluminium_production = 105 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
       expect(@scenario.dashboard_energy_import_netto).to increase
       expect(@scenario.total_costs).to increase
-    end   
+    end
 
-    it "Should increase energy demand, import, CO2 emission and costs when production of other metals is increased" do 
-      @scenario.industry_other_metals_production = 5 #%
+    it "Should increase energy demand, import, CO2 emission and costs when production of other metals is increased" do
+      @scenario.industry_other_metals_production = 105 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
       expect(@scenario.dashboard_energy_import_netto).to increase
       expect(@scenario.total_costs).to increase
-    end   
+    end
   end
 
   describe "Aluminium share group:" do
