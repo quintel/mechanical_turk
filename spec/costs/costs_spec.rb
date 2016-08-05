@@ -263,24 +263,52 @@ describe "Testing costs" do
         @scenario.total_cost_of_buildings_cooling_airconditioning_electricity.value.should be_within(9.950000000000001).of(199.0)
       end
 
-      it "total cost of industry_burner_coal should be within 5.0% of 3764495.877318696" do
-        @scenario.total_cost_of_industry_burner_coal.value.should be_within(188224.79386593483).of(3764495.877318696)
+      it "total cost of industry_chemicals_fertilizers_burner_coal should be within 5.0% of 3764495.877318696" do
+        @scenario.total_cost_of_industry_chemicals_fertilizers_burner_coal.value.should be_within(188224.79386593483).of(3764495.877318696)
       end
 
-      it "total cost of industry_burner_network_gas should be within 5.0% of 4169974.9324314347" do
-        @scenario.total_cost_of_industry_burner_network_gas.value.should be_within(208498.74662157174).of(4169974.9324314347)
+      it "total cost of industry_chemicals_fertilizers_burner_crude_oil should be within 5.0% of 5660830.166405634" do
+        @scenario.total_cost_of_industry_chemicals_fertilizers_burner_crude_oil.value.should be_within(283041.5083202817).of(5660830.166405634)
       end
 
-      it "total cost of industry_burner_crude_oil should be within 5.0% of 5660830.166405634" do
-        @scenario.total_cost_of_industry_burner_crude_oil.value.should be_within(283041.5083202817).of(5660830.166405634)
+      it "total cost of industry_chemicals_fertilizers_burner_network_gas should be within 5.0% of 4169974.9324314347" do
+        @scenario.total_cost_of_industry_chemicals_fertilizers_burner_network_gas.value.should be_within(208498.74662157174).of(4169974.9324314347)
       end
 
-      it "total cost of industry_chemicals_burner_wood_pellets should be within 5.0% of 10014215.81" do
-        @scenario.total_cost_of_industry_chemicals_burner_wood_pellets.value.should be_within(500710.79050000006).of(10014215.81)
+      it "total cost of industry_chemicals_fertilizers_burner_wood_pellets should be within 5.0% of 10014215.81" do
+        @scenario.total_cost_of_industry_chemicals_fertilizers_burner_wood_pellets.value.should be_within(500710.79050000006).of(10014215.81)
       end
 
-      it "total cost of industry_chemicals_burner_network_gas should be within 5.0% of 4169974.9324314347" do
-        @scenario.total_cost_of_industry_chemicals_burner_network_gas.value.should be_within(208498.74662157174).of(4169974.9324314347)
+      it "total cost of industry_chemicals_other_burner_coal should be within 5.0% of 3764495.877318696" do
+        @scenario.total_cost_of_industry_chemicals_refineries_burner_coal.value.should be_within(188224.79386593483).of(3764495.877318696)
+      end
+
+      it "total cost of industry_chemicals_other_burner_crude_oil should be within 5.0% of 5660830.166405634" do
+        @scenario.total_cost_of_industry_chemicals_refineries_burner_crude_oil.value.should be_within(283041.5083202817).of(5660830.166405634)
+      end
+
+      it "total cost of industry_chemicals_other_burner_network_gas should be within 5.0% of 4169974.9324314347" do
+        @scenario.total_cost_of_industry_chemicals_refineries_burner_network_gas.value.should be_within(208498.74662157174).of(4169974.9324314347)
+      end
+
+      it "total cost of industry_chemicals_other_burner_wood_pellets should be within 5.0% of 10014215.81" do
+        @scenario.total_cost_of_industry_chemicals_refineries_burner_wood_pellets.value.should be_within(500710.79050000006).of(10014215.81)
+      end
+
+      it "total cost of industry_chemicals_refineries_burner_coal should be within 5.0% of 3764495.877318696" do
+        @scenario.total_cost_of_industry_chemicals_refineries_burner_coal.value.should be_within(188224.79386593483).of(3764495.877318696)
+      end
+
+      it "total cost of industry_chemicals_refineries_burner_crude_oil should be within 5.0% of 5660830.166405634" do
+        @scenario.total_cost_of_industry_chemicals_other_burner_crude_oil.value.should be_within(283041.5083202817).of(5660830.166405634)
+      end
+
+      it "total cost of industry_chemicals_refineries_burner_network_gas should be within 5.0% of 4169974.9324314347" do
+        @scenario.total_cost_of_industry_chemicals_other_burner_network_gas.value.should be_within(208498.74662157174).of(4169974.9324314347)
+      end
+
+      it "total cost of industry_chemicals_refineries_burner_wood_pellets should be within 5.0% of 10014215.81" do
+        @scenario.total_cost_of_industry_chemicals_other_burner_wood_pellets.value.should be_within(500710.79050000006).of(10014215.81)
       end
 
       it "total cost of industry_other_metals_burner_network_gas should be within 5.0% of 3063217.291906533" do
@@ -289,18 +317,6 @@ describe "Testing costs" do
 
       it "total cost of industry_steel_electricfurnace_burner_network_gas should be within 5.0% of 4169974.9324314347" do
         @scenario.total_cost_of_industry_steel_electricfurnace_burner_network_gas.value.should be_within(208498.74662157174).of(4169974.9324314347)
-      end
-
-      it "total cost of industry_chemicals_burner_coal should be within 5.0% of 3764495.877318696" do
-        @scenario.total_cost_of_industry_chemicals_burner_coal.value.should be_within(188224.79386593483).of(3764495.877318696)
-      end
-
-      it "total cost of industry_burner_wood_pellets should be within 5.0% of 10014215.81" do
-        @scenario.total_cost_of_industry_burner_wood_pellets.value.should be_within(500710.79050000006).of(10014215.81)
-      end
-
-      it "total cost of industry_chemicals_burner_crude_oil should be within 5.0% of 5660830.166405634" do
-        @scenario.total_cost_of_industry_chemicals_burner_crude_oil.value.should be_within(283041.5083202817).of(5660830.166405634)
       end
 
       it "total cost of industry_aluminium_burner_network_gas should be within 5.0% of 4169974.9324314347" do
