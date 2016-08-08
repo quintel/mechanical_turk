@@ -11,27 +11,12 @@ describe "Standard scenario: Chemical industry" do
 
   describe "Demand growth:" do
 
-    it "Should increase energy demand, import, CO2 emission and costs when electricity demand growth is increased" do
-      @scenario.industry_useful_demand_for_chemical_electricity = 5 #%
+    it "Should increase energy demand, import, CO2 emission and costs when demand growth is increased" do
+      @scenario.industry_useful_demand_for_chemical_fertilizers = 105 #%
+      @scenario.industry_useful_demand_for_chemical_other = 105 #%
+      @scenario.industry_useful_demand_for_chemical_refineries = 105 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
-      expect(@scenario.dashboard_energy_import_netto).to increase
-      expect(@scenario.total_costs).to increase
-    end
-
-    it "Should increase energy demand, import, CO2 emission and costs when useable heat demand growth is increased" do
-      @scenario.industry_useful_demand_for_chemical_useable_heat = 5 #%
-      expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
-      expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
-      expect(@scenario.dashboard_energy_import_netto).to increase
-      expect(@scenario.total_costs).to increase
-    end
-
-    it "Should increase energy demand, import and costs when non-energetic demand growth is increased" do
-      @scenario.industry_useful_demand_for_chemical_crude_oil_non_energetic = 5 #%
-      @scenario.industry_useful_demand_for_chemical_network_gas_non_energetic = 5 #%
-      @scenario.industry_useful_demand_for_chemical_other_non_energetic = 5 #%
-      expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_energy_import_netto).to increase
       expect(@scenario.total_costs).to increase
     end
@@ -40,15 +25,19 @@ describe "Standard scenario: Chemical industry" do
   describe "Efficiency improvement:" do
 
     it "Improving efficiency of electric processes should decrease demand, import, CO2 emission and cost" do
-      @scenario.industry_useful_demand_for_chemical_electricity_efficiency = 2 #%
+      @scenario.industry_useful_demand_for_chemical_fertilizers_electricity_efficiency = 2 #%
+      @scenario.industry_useful_demand_for_chemical_other_electricity_efficiency = 2 #%
+      @scenario.industry_useful_demand_for_chemical_refineries_electricity_efficiency = 2 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
       expect(@scenario.dashboard_energy_import_netto).to decrease
       expect(@scenario.total_costs).to decrease
     end
 
-    it "Improving efficiency of heat processes should decrease demand, import, CO2 emission and cost" do
-      @scenario.industry_useful_demand_for_chemical_useable_heat_efficiency = 2 #%
+    it "Improving efficiency of heating processes should decrease demand, import, CO2 emission and cost" do
+      @scenario.industry_useful_demand_for_chemical_fertilizers_useable_heat_efficiency = 2 #%
+      @scenario.industry_useful_demand_for_chemical_other_useable_heat_efficiency = 2 #%
+      @scenario.industry_useful_demand_for_chemical_refineries_useable_heat_efficiency = 2 #%
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
       expect(@scenario.dashboard_energy_import_netto).to decrease
@@ -58,21 +47,21 @@ describe "Standard scenario: Chemical industry" do
 
   describe "Heating:" do
 
-    it "Using coal-fired heaters instead of gas-fired should increase demand and CO2 emission, but decrease cost and bio-footprint" do
+    it "Using coal-fired heaters instead of gas-fired in refineries should increase demand and CO2 emission, but decrease cost and bio-footprint" do
 
       # Initialize to 100 % gas
-      @scenario.industry_chemicals_burner_network_gas_share = 100 #%
-      @scenario.industry_chemicals_burner_crude_oil_share = 0 #%
-      @scenario.industry_chemicals_burner_coal_share = 0 #%
-      @scenario.industry_chemicals_burner_wood_pellets_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_network_gas_share = 100 #%
+      @scenario.industry_chemicals_refineries_burner_crude_oil_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_coal_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_wood_pellets_share = 0 #%
 
       @scenario.refresh!
 
       # Now put coal to 100 %
-      @scenario.industry_chemicals_burner_network_gas_share = 0 #%
-      @scenario.industry_chemicals_burner_crude_oil_share = 0 #%
-      @scenario.industry_chemicals_burner_coal_share = 100 #%
-      @scenario.industry_chemicals_burner_wood_pellets_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_network_gas_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_crude_oil_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_coal_share = 100 #%
+      @scenario.industry_chemicals_refineries_burner_wood_pellets_share = 0 #%
 
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
@@ -80,21 +69,21 @@ describe "Standard scenario: Chemical industry" do
       expect(@scenario.dashboard_bio_footprint).to decrease
     end
 
-    it "Using biomass-fired heaters instead of gas-fired should increase demand, costs and bio-footprint, but decrease CO2 emission" do
+    it "Using biomass-fired heaters instead of gas-fired in refineries should increase demand, costs and bio-footprint, but decrease CO2 emission" do
 
       # Initialize to 100 % gas
-      @scenario.industry_chemicals_burner_network_gas_share = 100 #%
-      @scenario.industry_chemicals_burner_crude_oil_share = 0 #%
-      @scenario.industry_chemicals_burner_coal_share = 0 #%
-      @scenario.industry_chemicals_burner_wood_pellets_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_network_gas_share = 100 #%
+      @scenario.industry_chemicals_refineries_burner_crude_oil_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_coal_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_wood_pellets_share = 0 #%
 
       @scenario.refresh!
 
       # Now put biomass to 100 %
-      @scenario.industry_chemicals_burner_network_gas_share = 0 #%
-      @scenario.industry_chemicals_burner_crude_oil_share = 0 #%
-      @scenario.industry_chemicals_burner_coal_share = 0 #%
-      @scenario.industry_chemicals_burner_wood_pellets_share = 100 #%
+      @scenario.industry_chemicals_refineries_burner_network_gas_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_crude_oil_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_coal_share = 0 #%
+      @scenario.industry_chemicals_refineries_burner_wood_pellets_share = 100 #%
 
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
