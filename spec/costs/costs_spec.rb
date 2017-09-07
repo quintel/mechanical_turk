@@ -387,8 +387,8 @@ describe "Testing costs" do
         @scenario.total_cost_of_households_space_heater_network_gas.value.should be_within(19.88238030159358).of(397.6476060318716)
       end
 
-      it "total cost of households_space_heater_heatpump_ground_water_electricity should be within 5.0% of 1226.666667" do
-        @scenario.total_cost_of_households_space_heater_heatpump_ground_water_electricity.value.should be_within(61.333333350000004).of(1226.666667)
+      it "total cost of households_space_heater_heatpump_ground_water_electricity should be within 5.0% of 1356.666667" do
+        @scenario.total_cost_of_households_space_heater_heatpump_ground_water_electricity.value.should be_within(67.83333335).of(1356.666667)
       end
 
       it "total cost of households_space_heater_coal should be within 5.0% of 297.91174735657466" do
