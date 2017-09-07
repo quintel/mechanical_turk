@@ -351,8 +351,8 @@ describe "Testing costs" do
         @scenario.total_cost_of_households_water_heater_heatpump_ground_water_electricity.value.should be_within(67.83333335.of(1356.666667)
       end
 
-      it "total cost of households_water_heater_heatpump_air_water_electricity should be within 5.0% of 923.3333333" do
-        @scenario.total_cost_of_households_water_heater_heatpump_air_water_electricity.value.should be_within(46.16666666500001).of(923.3333333)
+      it "total cost of households_water_heater_heatpump_air_water_electricity should be within 5.0% of 1053.330625" do
+        @scenario.total_cost_of_households_water_heater_heatpump_air_water_electricity.value.should be_within(52.66653125).of(1053.330625)
       end
 
       it "total cost of households_water_heater_combined_network_gas should be within 5.0% of 265.35948272670953" do
