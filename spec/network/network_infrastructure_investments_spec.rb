@@ -7,7 +7,7 @@ describe "Network costs" do
   end
 
   context "In a start scenario" do
-    it "no infrastructure investments should be needed" do
+    xit "no infrastructure investments should be needed" do
       expect(@scenario.lv_net_in_additional_infrastructure_investments.value).to be == 0.0
       expect(@scenario.lv_mv_transformer_in_additional_infrastructure_investments.value).to be == 0.0
       expect(@scenario.mv_distribution_in_additional_infrastructure_investments.value).to be == 0.0

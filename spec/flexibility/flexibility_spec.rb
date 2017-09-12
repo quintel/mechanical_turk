@@ -120,7 +120,7 @@ describe "Flexibility" do
 
     describe "In a scenario increasing the number of P2H units" do
     
-     it "should decrease CO2 emissions" do
+     xit "should decrease CO2 emissions" do
        @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
       
        expect(@scenario.co2).to decrease
