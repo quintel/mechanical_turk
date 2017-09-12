@@ -191,7 +191,41 @@ describe "Flexibility" do
 
   end
 
+  context "Demand response heat pumps, buffer size" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
+      settings_enable_merit_order: 1,
+      households_useful_demand_heat_per_person: 5.0, # excess electricity
+      households_useful_demand_hot_water_share: 5.0, #making sure there are hydrogen cars
+      households_space_heater_heatpump_air_water_electricity_share: 100.0,
+      households_water_heater_heatpump_air_water_electricity_share: 100.0
+    })
+  end
 
+   describe "In a scenario with deficits and 100"%" heat pump air increasing the space heating buffer size" do
+    
+     it "should decrease the deficits" do
+      @scenario.households_flexibility_space_heating_buffer_size_heatpump_air_water_electricity = 250.0
+
+      
+      expect(@scenario.households_space_heater_heatpump_air_water_electricity_deficit).to decrease
+     end
+  
+   end
+
+
+   describe "In a scenario with deficits and 100"%" heat pump air increasing the water heating buffer size" do
+    
+     it "should decrease the deficits" do
+      @scenario.households_flexibility_water_heating_buffer_size_heatpump_air_water_electricity = 250.0
+
+      
+      expect(@scenario.households_water_heater_heatpump_air_water_electricity_deficit).to decrease
+     end
+  
+   end
+
+  end
 
 
 # Below is WIP for the flexibility order 
