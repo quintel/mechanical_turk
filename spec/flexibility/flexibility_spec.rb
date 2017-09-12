@@ -130,6 +130,166 @@ describe "Flexibility" do
 
   end
 
+
+
+context "P2H for industry" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1,
+      number_of_energy_power_wind_turbine_inland: 10000 # excess electricity
+    })
+  end
+
+   describe "In a scenario with excess electricity increasing the number of P2H units in the chemical sector" do
+    
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_industry_chemicals_other_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the chemical sector" do
+    
+     it "should decrease the electricity exported" do
+       @scenario.number_of_industry_chemicals_other_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.electricity_exported).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the chemical sector" do
+    
+     it "should decrease CO2 emissions" do
+       @scenario.number_of_industry_chemicals_other_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.co2).to decrease
+     end
+    end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the chemical sector" do
+    
+     it "should decrease the gas use of that sector" do
+       @scenario.number_of_industry_chemicals_other_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic).to decrease
+     end
+    end
+
+   describe "In a scenario with excess electricity increasing the number of P2H units in the refineries sector" do
+    
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_industry_chemicals_refineries_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the refineries sector" do
+    
+     it "should decrease the electricity exported" do
+       @scenario.number_of_industry_chemicals_refineries_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.electricity_exported).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the refineries sector" do
+    
+     it "should decrease CO2 emissions" do
+       @scenario.number_of_industry_chemicals_refineries_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.co2).to decrease
+     end
+    end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the refineries sector" do
+    
+     it "should decrease the gas use of that sector" do
+       @scenario.number_of_industry_chemicals_refineries_flexibility_p2h_electricity = 50.0
+      
+       expect(@scenario.final_demand_of_natural_gas_and_derivatives_in_refineries_industry_energetic).to decrease
+     end
+    end
+
+     describe "In a scenario with excess electricity increasing the number of P2H units in the food sector" do
+    
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_industry_other_food_flexibility_p2h_electricity = 20.0
+      
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the food sector" do
+    
+     it "should decrease the electricity exported" do
+       @scenario.number_of_industry_other_food_flexibility_p2h_electricity = 20.0
+      
+       expect(@scenario.electricity_exported).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the food sector" do
+    
+     it "should decrease CO2 emissions" do
+       @scenario.number_of_industry_other_food_flexibility_p2h_electricity = 20.0
+      
+       expect(@scenario.co2).to decrease
+     end
+    end
+
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the food sector" do
+    
+     it "should decrease the gas use of that sector" do
+       @scenario.number_of_industry_other_food_flexibility_p2h_electricity = 20.0
+      
+       expect(@scenario.final_demand_of_natural_gas_and_derivatives_in_food_industry_energetic).to decrease
+     end
+    end
+
+
+       describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
+    
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+      
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
+    
+     it "should decrease the electricity exported" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+      
+       expect(@scenario.electricity_exported).to decrease
+     end
+   end
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
+    
+     it "should decrease CO2 emissions" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+      
+       expect(@scenario.co2).to decrease
+     end
+    end
+  
+
+    describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
+    
+     it "should decrease the gas use of that sector" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+      
+       expect(@scenario.final_demand_of_natural_gas_and_derivatives_in_paper_industry_energetic).to decrease
+     end
+    end
+
+  end
+  
+
   context "P2G" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
@@ -191,7 +351,41 @@ describe "Flexibility" do
 
   end
 
+  context "Demand response heat pumps, buffer size" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
+      settings_enable_merit_order: 1,
+      households_useful_demand_heat_per_person: 5.0, # excess electricity
+      households_useful_demand_hot_water_share: 5.0, #making sure there are hydrogen cars
+      households_space_heater_heatpump_air_water_electricity_share: 100.0,
+      households_water_heater_heatpump_air_water_electricity_share: 100.0
+    })
+  end
 
+   describe "In a scenario with deficits and 100"%" heat pump air increasing the space heating buffer size" do
+    
+     it "should decrease the deficits" do
+      @scenario.households_flexibility_space_heating_buffer_size_heatpump_air_water_electricity = 250.0
+
+      
+      expect(@scenario.households_space_heater_heatpump_air_water_electricity_deficit).to decrease
+     end
+  
+   end
+
+
+   describe "In a scenario with deficits and 100"%" heat pump air increasing the water heating buffer size" do
+    
+     it "should decrease the deficits" do
+      @scenario.households_flexibility_water_heating_buffer_size_heatpump_air_water_electricity = 250.0
+
+      
+      expect(@scenario.households_water_heater_heatpump_air_water_electricity_deficit).to decrease
+     end
+  
+   end
+
+  end
 
 
 # Below is WIP for the flexibility order 
