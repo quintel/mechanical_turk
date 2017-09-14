@@ -120,7 +120,7 @@ describe "Flexibility" do
 
     describe "In a scenario increasing the number of P2H units" do
     
-     xit "should decrease CO2 emissions" do
+     it "should decrease CO2 emissions" do
        @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
       
        expect(@scenario.co2).to decrease
@@ -344,7 +344,7 @@ context "P2H for industry" do
     
      xit "between excess production and storage" do
       
-      expect(@scenario.turk_excess_electricity_storage_sum.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
+      expect(@scenario.©.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
      end
   
    end
