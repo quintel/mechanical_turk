@@ -342,9 +342,9 @@ context "P2H for industry" do
 
    describe "Electricity should be conserved" do
     
-     xit "between excess production and storage" do
+     it "between excess production and storage" do
       
-      expect(@scenario.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
+      expect(@scenario.turk_excess_electricity_storage_sum.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
      end
   
    end
