@@ -336,15 +336,14 @@ context "P2H for industry" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
       number_of_energy_power_wind_turbine_inland: 10000, # excess electricity
-      transport_car_using_hydrogen_share: 20.0 #making sure there are hydrogen cars
     })
   end
 
-   describe "Electricity should be conserved" do
+   describe "Electricity should be conserved, in a scenario with excess electricity and no flexibility options" do
     
-     it "between excess production and storage" do
+     it "excess electricity should equal the sum of export and curtailment" do
       
-      expect(@scenario.turk_excess_electricity_storage_sum.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
+      expect(@scenario.turk_curtailment_and_export_sum.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
      end
   
    end
