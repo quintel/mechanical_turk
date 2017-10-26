@@ -29,7 +29,7 @@ describe "LNG" do
 
    describe "In a scenario in which all natural gas is regasified LNG" do
     
-     xit "importing all LNG from Qatar should increase CO2 emissions" do
+     it "importing all LNG from Qatar should increase CO2 emissions" do
        # Importing all LNG from Qatar (highest co2_per_mj attributes)
        @scenario.lng_from_qatar_share = 100.0
       
