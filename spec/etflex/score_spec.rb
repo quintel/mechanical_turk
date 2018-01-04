@@ -46,15 +46,15 @@ describe "ETFlex Scoring mechanism" do
 
   describe "Demand" do
 
-    context "Insulation level to R = 1.1" do
+    context "Insulation level to R = 0.9" do
 
       it "should raise your CO2 score" do
-        @s.households_insulation_level_old_houses = 1.0 #R value
+        @s.households_insulation_level_old_houses = 0.9 #R value
         expect(@s.etflex_score_co2).to increase
       end
 
       it "should raise your cost score" do
-        @s.households_insulation_level_old_houses = 1.0 #R value
+        @s.households_insulation_level_old_houses = 0.9 #R value
         expect(@s.etflex_score_cost).to increase
       end
 

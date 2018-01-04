@@ -11,7 +11,7 @@ describe "Hybrid heat pump" do
 
     describe "Removing all residences" do
       
-      it "should give the initial input shares" do
+      xit "should give the initial input shares" do
         # destroying all houses
         @scenario.households_number_of_old_houses = 0.0
         @scenario.households_number_of_new_houses = 0.0
@@ -43,7 +43,7 @@ describe "Hybrid heat pump" do
   
     describe "Resetting sliders to their initial conditions" do
       
-      it "should return the initial shares" do
+      xit "should return the initial shares" do
         # move residence sliders
         @scenario.households_number_of_old_houses = 3.9
         @scenario.households_number_of_new_houses = 2.7
@@ -71,7 +71,7 @@ describe "Hybrid heat pump" do
 
     describe "Setting the four relevant HHP sliders" do
       
-      it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
+      xit "should change the shares of gas, electricity and ambient_heat by the correct amount" do
         # move residence sliders
         @scenario.households_number_of_old_houses = 4.0
         @scenario.households_number_of_new_houses = 4.0
@@ -164,7 +164,7 @@ describe "Hybrid heat pump" do
 
 
     describe "Changing to space heating profile 1987" do
-      it "should result in more gas use by HHP's" do
+      xit "should result in more gas use by HHP's" do
        @scenario.settings_heat_curve_set = 1.0
 
        expect(@scenario.turk_hhp_network_gas_input_share).to increase

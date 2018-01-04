@@ -252,7 +252,7 @@ context "P2H for industry" do
 
        describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
     
-     it "should decrease the electricity curtailed" do
+     xit "should decrease the electricity curtailed" do
        @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
       
        expect(@scenario.electricity_curtailed).to decrease
@@ -261,7 +261,7 @@ context "P2H for industry" do
 
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
     
-     it "should decrease the electricity exported" do
+     xit "should decrease the electricity exported" do
        @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
       
        expect(@scenario.electricity_exported).to decrease
@@ -270,7 +270,7 @@ context "P2H for industry" do
 
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
     
-     it "should decrease CO2 emissions" do
+     xit "should decrease CO2 emissions" do
        @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
       
        expect(@scenario.co2).to decrease
@@ -280,7 +280,7 @@ context "P2H for industry" do
 
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
     
-     it "should decrease the gas use of that sector" do
+     xit "should decrease the gas use of that sector" do
        @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
       
        expect(@scenario.final_demand_of_natural_gas_and_derivatives_in_paper_industry_energetic).to decrease
@@ -376,7 +376,7 @@ context "P2H for industry" do
 
    describe "In a scenario with deficits and 100"%" heat pump air increasing the water heating buffer size" do
     
-     it "should decrease the deficits" do
+     xit "should decrease the deficits" do
       @scenario.households_flexibility_water_heating_buffer_size_heatpump_air_water_electricity = 250.0
 
       
