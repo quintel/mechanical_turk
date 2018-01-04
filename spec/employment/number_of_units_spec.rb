@@ -101,96 +101,96 @@ describe "Demand > Households > Space Heating" do
     end
   end
 
-  context "Testing if number_of_units == 7449298.0 (#households)" do
+  context "Testing if number_of_units == 7587964.0 (#households)" do
 
-    it " number_of_units of households_space_heater_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_electricity.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_heatpump_ground_water_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_heatpump_ground_water_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_heatpump_ground_water_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_heatpump_ground_water_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_heatpump_ground_water_electricity.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_wood_pellets should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_wood_pellets should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_wood_pellets_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_wood_pellets.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_wood_pellets.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_coal should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_coal should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_coal_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_coal.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_coal.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_crude_oil should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_crude_oil should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_crude_oil_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_crude_oil.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_crude_oil.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_heatpump_air_water_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_heatpump_air_water_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_heatpump_air_water_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_heatpump_air_water_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_heatpump_air_water_electricity.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_hybrid_heatpump_air_water_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_hybrid_heatpump_air_water_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_hybrid_heatpump_air_water_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_hybrid_heatpump_air_water_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_hybrid_heatpump_air_water_electricity.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_space_heater_micro_chp_network_gas should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_micro_chp_network_gas should be within 10.0 of 3724649.0" do
       @scenario.households_space_heater_micro_chp_network_gas_share = 50 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_micro_chp_network_gas.value).to be_within(10.0).of(3724649.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_micro_chp_network_gas.value).to be_within(10.0).of(3793982.0)
     end
 
-    it " number_of_units of households_space_heater_network_gas should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_space_heater_network_gas should be within 10.0 of 7587964.0" do
       @scenario.households_space_heater_network_gas_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_space_heater_network_gas.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_space_heater_network_gas.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_resistive_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_resistive_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_resistive_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_resistive_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_resistive_electricity.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_wood_pellets should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_wood_pellets should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_wood_pellets_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_wood_pellets.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_wood_pellets.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_coal should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_coal should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_coal_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_coal.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_coal.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_crude_oil should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_crude_oil should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_crude_oil_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_crude_oil.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_crude_oil.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_network_gas should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_network_gas should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_network_gas_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_network_gas.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_network_gas.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_micro_chp_network_gas should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_micro_chp_network_gas should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_micro_chp_network_gas_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_micro_chp_network_gas.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_micro_chp_network_gas.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_fuel_cell_chp_network_gas should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_fuel_cell_chp_network_gas should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_fuel_cell_chp_network_gas_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_fuel_cell_chp_network_gas.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_fuel_cell_chp_network_gas.value).to be_within(10.0).of(7587964.0)
     end
 
-    it " number_of_units of households_water_heater_heatpump_air_water_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_heatpump_air_water_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_heatpump_air_water_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_heatpump_air_water_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_heatpump_air_water_electricity.value).to be_within(10.0).of(7587964.0)
 
     end
-    it " number_of_units of households_water_heater_hybrid_heatpump_air_water_electricity should be within 10.0 of 7449298.0" do
+    it " number_of_units of households_water_heater_hybrid_heatpump_air_water_electricity should be within 10.0 of 7587964.0" do
       @scenario.households_water_heater_hybrid_heatpump_air_water_electricity_share = 100 #%
-      expect(@scenario.turk_number_of_units_of_households_water_heater_hybrid_heatpump_air_water_electricity.value).to be_within(10.0).of(7449298.0)
+      expect(@scenario.turk_number_of_units_of_households_water_heater_hybrid_heatpump_air_water_electricity.value).to be_within(10.0).of(7587964.0)
     end
 
   end
