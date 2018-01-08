@@ -5,7 +5,7 @@ describe "Standard scenario: Metal production" do
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: 'nl', end_year: 2050,  autobalance: true, inputs: {
-        settings_enable_merit_order: 0
+        settings_enable_merit_order: 1
     })
   end
 
