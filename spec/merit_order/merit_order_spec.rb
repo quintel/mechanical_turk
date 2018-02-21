@@ -47,7 +47,7 @@ describe "Merit Order" do
       # turning it on
       @scenario.settings_enable_merit_order = 1
 
-      # Attention: total_electricity_produced changes because FLH calculated by MO 
+      # Attention: total_electricity_produced changes because FLH calculated by MO
       # are different than those from research
       @scenario.total_electricity_produced.should change
     end
@@ -79,7 +79,7 @@ describe "Merit Order" do
       expect(@scenario.primary_demand_of_exported_electricity.value).to be_within(100.0).of(0.0)
     end
   end
-  
+
   describe 'Advanced behavior: second-order checks' do
 
     # With the settings_enable_merit_order enabled
@@ -97,7 +97,7 @@ describe "Merit Order" do
         expect(@scenario.merit_order_nuclear_ii_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
-   
+
       it "increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
         @scenario.number_of_energy_power_wind_turbine_inland = 477
 
@@ -120,18 +120,18 @@ describe "Merit Order" do
     context "Changing fuel costs" do
 
       it "decreasing gas price should increase full load hours of gas power plants" do
-        @scenario.costs_gas = -50
+        @scenario.costs_gas = 10
         expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to increase
       end
 
       it "increasing the coal price should decrease full load hours of coal power plants" do
-          @scenario.costs_coal = 300
+          @scenario.costs_coal = 200
           expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
- 
+
       it "increasing the cost of coal to 1000% should decrease the FLHs of coal plants to 0" do
         # Increasing coal cost by a lot...
-        @scenario.costs_coal = 1000
+        @scenario.costs_coal = 500
 
         # does descrease the demand of coal plants to zero
         @scenario.energy_power_supercritical_coal_demand.future.should == 0
@@ -140,7 +140,7 @@ describe "Merit Order" do
       it "merit_order disabled leaves demands of coal plants as they are" do
         @scenario.settings_enable_merit_order = 0
 
-        @scenario.costs_coal = 1000
+        @scenario.costs_coal = 500
         @scenario.energy_power_ultra_supercritical_coal_demand.future_increase.should == 0
 
       end
