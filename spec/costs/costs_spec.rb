@@ -48,6 +48,9 @@ describe "Testing costs" do
     it "total cost of buildings_collective_geothermal should be within 5.0% of 287417.4843" do
         @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
+    it "total cost of buildings_collective_heatpump_water_water_electricity should be within 5.0% of 0.0" do
+        @scenario.total_cost_of_buildings_collective_heatpump_water_water_electricity.value.should be_within(0.0).of(0.0)
+    end
     it "total cost of buildings_cooling_airconditioning_electricity should be within 5.0% of 199.0" do
         @scenario.total_cost_of_buildings_cooling_airconditioning_electricity.value.should be_within(9.950000000000001).of(199.0)
     end
@@ -246,6 +249,10 @@ describe "Testing costs" do
     it "total cost of households_collective_geothermal should be within 5.0% of 287417.4843" do
         @scenario.total_cost_of_households_collective_geothermal.value.should be_within(14370.874215000002).of(287417.4843)
     end
+    it "total cost of households_collective_heatpump_water_water_electricity should be within 5.0% of 0.0" do
+        @scenario.total_cost_of_households_collective_heatpump_water_water_electricity.value.should be_within(0.0).of(0.0)
+    end
+
     it "total cost of households_cooling_airconditioning_electricity should be within 5.0% of 181.0" do
         @scenario.total_cost_of_households_cooling_airconditioning_electricity.value.should be_within(9.05).of(181.0)
     end
