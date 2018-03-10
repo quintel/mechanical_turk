@@ -6,14 +6,14 @@ describe "Hydrogen" do
 
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      energy_steam_methane_reformer_hydrogen_share: 100.0 #making sure there are SMRs
+      number_of_energy_hydrogen_steam_methane_reformer: 40.0 #making sure there are SMRs
     })
   end
 
   describe "If the hydrogen demand in transport increases" do
 
-    it "the production technologies number_of_units increase" do
-      
+    it "the hydrogen export decreases" do
+
       #if we increase the share of hydrogen cars
       @scenario.transport_car_using_hydrogen_share = 40.0
 
@@ -22,7 +22,7 @@ describe "Hydrogen" do
       expect(@scenario.turk_steam_methane_reformer_hydrogen_number).to increase
       expect(@scenario.turk_hydrogen_compressor_number).to increase
     end
-  
+
   end
 
 
