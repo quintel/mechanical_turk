@@ -189,8 +189,8 @@ describe "Testing costs" do
     it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15172516.67" do
         @scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value.should be_within(758625.8335000001).of(15172516.67)
     end
-    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 1605000.0" do
-        @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(80250.0).of(1605000.0)
+    it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 1459010.0" do
+        @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(72950.5).of(1459010.0)
     end
     it "total cost of energy_power_supercritical_coal should be within 5.0% of 266680225.3" do
         @scenario.total_cost_of_energy_power_supercritical_coal.value.should be_within(13334011.265).of(266680225.3)
