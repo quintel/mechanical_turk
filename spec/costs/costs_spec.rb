@@ -114,9 +114,6 @@ describe "Testing costs" do
     it "total cost of energy_chp_ultra_supercritical_lignite should be within 5.0% of 129225833.3" do
         @scenario.total_cost_of_energy_chp_ultra_supercritical_lignite.value.should be_within(6461291.665).of(129225833.3)
     end
-    it "total cost of energy_flexibility_p2g_electricity should be within 5.0% of 49491.7807" do
-        @scenario.total_cost_of_energy_flexibility_p2g_electricity.value.should be_within(2474.5890350000004).of(49491.7807)
-    end
     it "total cost of energy_heat_network_backup_heater_network_gas should be within 5.0% of 5339511.866" do
         @scenario.total_cost_of_energy_heat_network_backup_heater_network_gas.value.should be_within(266975.5933).of(5339511.866)
     end
@@ -188,6 +185,9 @@ describe "Testing costs" do
     end
     it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15172516.67" do
         @scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value.should be_within(758625.8335000001).of(15172516.67)
+    end
+    it "total cost of bunkers_flexibility_p2g_electricity should be within 5.0% of 246255.0" do
+        @scenario.total_cost_of_bunkers_flexibility_p2g_electricity.value.should be_within(12312.75).of(246255.0)
     end
     it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 1459010.0" do
         @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(72950.5).of(1459010.0)
@@ -402,9 +402,6 @@ describe "Testing costs" do
     end
     it "total cost of industry_chp_ultra_supercritical_coal should be within 5.0% of 5300353.212" do
         @scenario.total_cost_of_industry_chp_ultra_supercritical_coal.value.should be_within(265017.6606).of(5300353.212)
-    end
-    it "total cost of industry_flexibility_p2g_electricity should be within 5.0% of 246255.0" do
-        @scenario.total_cost_of_industry_flexibility_p2g_electricity.value.should be_within(12312.75).of(246255.0)
     end
     it "total cost of industry_other_food_burner_coal should be within 5.0% of 5197731.961" do
         @scenario.total_cost_of_industry_other_food_burner_coal.value.should be_within(259886.59805000003).of(5197731.961)

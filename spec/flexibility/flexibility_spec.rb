@@ -342,7 +342,7 @@ context "P2H for industry" do
    describe "In a scenario increasing the number of P2G units" do
 
      it "should decrease the electricity curtailed" do
-       @scenario.number_of_energy_flexibility_p2g_electricity = 20.0
+       @scenario.number_of_energy_hydrogen_flexibility_p2g_electricity = 20.0
 
        expect(@scenario.electricity_curtailed).to decrease
      end
@@ -352,7 +352,7 @@ context "P2H for industry" do
     describe "In a scenario increasing the number of P2G units" do
 
      it "should decrease the electricity exported" do
-       @scenario.number_of_energy_flexibility_p2g_electricity = 20.0
+       @scenario.number_of_energy_hydrogen_flexibility_p2g_electricity = 20.0
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -362,7 +362,7 @@ context "P2H for industry" do
     describe "In a scenario increasing the number of P2G units" do
 
      it "should decrease CO2 emissions" do
-       @scenario.number_of_energy_flexibility_p2g_electricity = 200.0
+       @scenario.number_of_energy_hydrogen_flexibility_p2g_electricity = 200.0
 
        expect(@scenario.co2).to decrease
      end
