@@ -93,11 +93,11 @@ describe "Testing costs" do
     it "total cost of buildings_space_heater_wood_pellets should be within 5.0% of 9541.083287" do
         @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(477.05416435).of(9541.083287)
     end
-    it "total cost of bunkers_flexibility_p2g_electricity should be within 5.0% of 251749.1832" do
-        @scenario.total_cost_of_bunkers_flexibility_p2g_electricity.value.should be_within(12587.45916).of(251749.1832)
+    it "total cost of bunkers_flexibility_p2g_electricity should be within 5.0% of 967475.1538" do
+        @scenario.total_cost_of_bunkers_flexibility_p2g_electricity.value.should be_within(12587.45916).of(967475.1538)
     end
     it "total cost of bunkers_p2l_burner_network_gas should be within 5.0% of 5339511.866" do
-        @scenario.total_cost_of_bunkers_p2l_burner_network_gas.value.should be_within(266975.5933).of(5339511.866)
+        @scenario.total_cost_of_bunkers_p2l_burner_network_gas.value.should be_within(48373.75769).of(5339511.866)
     end
     it "total cost of energy_chp_combined_cycle_network_gas should be within 5.0% of 12463963.63" do
         @scenario.total_cost_of_energy_chp_combined_cycle_network_gas.value.should be_within(623198.1815000001).of(12463963.63)
@@ -185,9 +185,6 @@ describe "Testing costs" do
     end
     it "total cost of energy_power_solar_csp_solar_radiation should be within 5.0% of 15172516.67" do
         @scenario.total_cost_of_energy_power_solar_csp_solar_radiation.value.should be_within(758625.8335000001).of(15172516.67)
-    end
-    it "total cost of bunkers_flexibility_p2g_electricity should be within 5.0% of 246255.0" do
-        @scenario.total_cost_of_bunkers_flexibility_p2g_electricity.value.should be_within(12312.75).of(246255.0)
     end
     it "total cost of energy_power_solar_pv_solar_radiation should be within 5.0% of 1459010.0" do
         @scenario.total_cost_of_energy_power_solar_pv_solar_radiation.value.should be_within(72950.5).of(1459010.0)
