@@ -31,7 +31,7 @@ describe "Starting with a scenario where all household space heating is electric
 
   context "when households heating stay on electric heating" do
     it "should increase all network total cost" do
-      expect(@scenario.network_total_costs).to increase
+      expect(@scenario.network_calculation_total_costs_future).to increase
     end
   end
 
@@ -44,7 +44,7 @@ describe "Starting with a scenario where all household space heating is electric
       @scenario.transport_car_using_lpg_share = 0.0
       @scenario.transport_car_using_compressed_natural_gas_share = 0.0
 
-      expect(@scenario.network_total_costs).to increase
+      expect(@scenario.network_calculation_total_costs_future).to increase
     end
   end
 
@@ -53,7 +53,7 @@ describe "Starting with a scenario where all household space heating is electric
       @scenario.households_space_heater_electricity_share = 75.0
       @scenario.households_space_heater_micro_chp_network_gas_share = 25.0
 
-      expect(@scenario.network_total_costs).to decrease
+      expect(@scenario.network_calculation_total_costs_future).to decrease
     end
   end
 
@@ -65,7 +65,7 @@ describe "Starting with a scenario where all household space heating is electric
       @scenario.households_water_heater_resistive_electricity_share = 0.0
       @scenario.households_water_heater_network_gas_share = 0.0
 
-      expect(@scenario.network_total_costs).to decrease
+      expect(@scenario.network_calculation_total_costs_future).to decrease
     end
   end
 
@@ -80,7 +80,7 @@ describe "Starting with a scenario where all household space heating is electric
        @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
        @scenario.buildings_space_heater_solar_thermal_share = 0.0
 
-       expect(@scenario.network_total_costs).to increase
+       expect(@scenario.network_calculation_total_costs_future).to increase
      end
    end
 
@@ -95,7 +95,7 @@ describe "Starting with a scenario where all household space heating is electric
         @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
         @scenario.buildings_space_heater_solar_thermal_share = 0.0
 
-        expect(@scenario.network_total_costs).to increase
+        expect(@scenario.network_calculation_total_costs_future).to increase
       end
     end
 
@@ -103,7 +103,7 @@ describe "Starting with a scenario where all household space heating is electric
       it "should decrease all network total cost" do
         @scenario.number_of_agriculture_chp_engine_network_gas = 2000
 
-        expect(@scenario.network_total_costs).to decrease
+        expect(@scenario.network_calculation_total_costs_future).to decrease
       end
     end
 
@@ -111,7 +111,7 @@ describe "Starting with a scenario where all household space heating is electric
       it "should decrease all network total cost" do
         @scenario.number_of_industry_chp_ultra_supercritical_coal = 50.0
 
-        expect(@scenario.network_total_costs).to decrease
+        expect(@scenario.network_calculation_total_costs_future).to decrease
       end
     end
 
@@ -119,7 +119,7 @@ describe "Starting with a scenario where all household space heating is electric
       it "should decrease all network total cost" do
         @scenario.number_of_energy_power_wind_turbine_coastal = 1000
 
-        expect(@scenario.network_total_costs).to decrease
+        expect(@scenario.network_calculation_total_costs_future).to decrease
       end
     end
 
