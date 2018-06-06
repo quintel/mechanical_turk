@@ -115,9 +115,9 @@ describe "Starting with a scenario where all household space heating is electric
       end
     end
 
-    context "when wind onshore increases" do
+    context "when local production with solar PV increases" do
       it "should decrease all network total cost" do
-        @scenario.number_of_energy_power_wind_turbine_coastal = 1000
+        @scenario.households_solar_pv_solar_radiation_market_penetration = 100.0
 
         expect(@scenario.network_calculation_total_costs_future).to decrease
       end
