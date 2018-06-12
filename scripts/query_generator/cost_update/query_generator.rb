@@ -31,7 +31,7 @@ end
 attributes = ["total_cost"]
 
 # Fraction of expected values
-allowed_fraction = 0.05 # 5%
+allowed_fraction = 0.01 # 1%
 
 specFile = File.new("cost_specs.rb", "w")
 
