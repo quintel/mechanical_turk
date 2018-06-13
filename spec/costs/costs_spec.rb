@@ -12,8 +12,8 @@ describe "Testing costs" do
   #Checking for change
   context "Testing all converters with total cost" do
     #The three transport queries do not exist. Also the costs of these technologies it presently 0
-    it "total cost of ﻿agriculture_burner_crude_oil should be within 1.0% of 392026.1973" do
-        @scenario.total_cost_of_﻿agriculture_burner_crude_oil.value.should be_within(3920.261973).of(392026.1973)
+    it "total cost of agriculture_burner_crude_oil should be within 1.0% of 392026.1973" do
+        @scenario.total_cost_of_agriculture_burner_crude_oil.value.should be_within(3920.261973).of(392026.1973)
     end
     it "total cost of agriculture_burner_hydrogen should be within 1.0% of 771983.3224" do
         @scenario.total_cost_of_agriculture_burner_hydrogen.value.should be_within(7719.833224).of(771983.3224)
