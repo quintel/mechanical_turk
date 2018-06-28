@@ -65,7 +65,8 @@ describe "Merit Order" do
 
     # Import is possible alone if total installed capacity of dispatchables is too small
     # This is not the case in the start scenarion though.
-    it "merit_order enabled should bring import back to zero" do
+    it "merit_order enabled and a high import electricity price should bring import back to zero" do
+      @scenario.costs_imported_electricity = 500.0
       @scenario.settings_enable_merit_order = 1
 
       # Turning on merit order should reduce import to zero
@@ -85,7 +86,8 @@ describe "Merit Order" do
     # With the settings_enable_merit_order enabled
     before(:each) do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-        settings_enable_merit_order: 1
+        settings_enable_merit_order: 1,
+        costs_imported_electricity: 500.0
       })
     end
 
