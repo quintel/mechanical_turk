@@ -121,5 +121,4 @@ describe "Starting with a scenario where all household space heating is electric
         expect(@scenario.network_calculation_total_costs_future).to decrease
       end
     end
-
 end
