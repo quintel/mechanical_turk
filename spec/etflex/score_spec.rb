@@ -198,7 +198,7 @@ describe "ETFlex Scoring mechanism" do
     end
 
     describe "Green gas" do
-      it "should raise your score on CO2" do
+      xit "should raise your score on CO2" do
         @s.green_gas_total_share = 10 #%
         expect(@s.etflex_score_co2).to increase
       end

@@ -1,4 +1,4 @@
-﻿agriculture_burner_crude_oil,392026.1973
+agriculture_burner_crude_oil,392026.1973
 agriculture_burner_hydrogen,771983.3224
 agriculture_burner_network_gas,264152.4336
 agriculture_burner_wood_pellets,510287.1814
@@ -27,7 +27,7 @@ buildings_space_heater_network_gas,1808.262988
 buildings_space_heater_solar_thermal,13387.5
 buildings_space_heater_wood_pellets,9541.083287
 bunkers_p2l_burner_network_gas,5339511.866
-energy_chp_combined_cycle_network_gas,12901853.97
+energy_chp_combined_cycle_network_gas,12381000
 energy_chp_supercritical_waste_mix,19420910.15
 energy_chp_ultra_supercritical_coal,276268783.3
 energy_chp_ultra_supercritical_cofiring_coal,135592935.3
@@ -65,7 +65,7 @@ energy_power_turbine_hydrogen,6634766.741
 energy_power_turbine_network_gas,6634766.741
 energy_power_ultra_supercritical_ccs_coal,137557916.7
 energy_power_ultra_supercritical_coal,253870375.2
-energy_power_ultra_supercritical_cofiring_coal,133533353.7
+energy_power_ultra_supercritical_cofiring_coal,117461956.6
 energy_power_ultra_supercritical_crude_oil,49359622.37
 energy_power_ultra_supercritical_lignite,112037800
 energy_power_ultra_supercritical_network_gas,29085600
@@ -150,3 +150,5 @@ other_burner_coal,5197731.961
 other_burner_crude_oil,392026.1973
 other_burner_network_gas,264152.4336
 other_burner_wood_pellets,510287.1814
+transport_car_using_electricity,0
+transport_car_using_hydrogen,0
