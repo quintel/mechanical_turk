@@ -427,6 +427,46 @@ context "P2H for industry" do
 
   end
 
+  context "Pumped storage" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "de", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1,
+      number_of_energy_power_wind_turbine_inland: 10000 # excess electricity
+    })
+  end
+
+   describe "In a scenario increasing the number of pumped storage units" do
+
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_energy_flexibility_pumped_storage_electricity = 2.0
+
+       expect(@scenario.electricity_curtailed).to decrease
+     end
+
+   end
+
+    describe "In a scenario increasing the number of pumped storage units" do
+
+     it "should decrease the electricity exported" do
+       @scenario.number_of_energy_flexibility_pumped_storage_electricity = 2.0
+
+       expect(@scenario.electricity_exported).to decrease
+     end
+
+   end
+
+    describe "In a scenario increasing the number of pumped storage units" do
+
+     it "should decrease CO2 emissions" do
+       @scenario.number_of_energy_flexibility_pumped_storage_electricity = 7.0
+
+       expect(@scenario.co2).to decrease
+     end
+
+    end
+
+  end
+
 
 # Below is WIP for the flexibility order
 # which requires an extension of the ETE ConverterApi
