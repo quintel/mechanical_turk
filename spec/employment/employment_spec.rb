@@ -317,58 +317,58 @@ describe "Testing employment module" do
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_coal is pulled to max" do
-      @scenario.households_water_heater_coal_share = 100 #%
+    it "it should change total employment when the households_heater_coal is pulled to max" do
+      @scenario.households_heater_coal_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_combined_network_gas is pulled to max" do
-      @scenario.households_water_heater_combined_network_gas_share = 100 #%
+    it "it should change total employment when the households_heater_combined_network_gas is pulled to max" do
+      @scenario.households_heater_combined_network_gas_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_crude_oil is pulled to max" do
-      @scenario.households_water_heater_crude_oil_share = 100 #%
+    it "it should change total employment when the households_heater_crude_oil is pulled to max" do
+      @scenario.households_heater_crude_oil_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_district_heating_steam_hot_water is pulled to max" do
-      @scenario.households_water_heater_district_heating_steam_hot_water_share = 100 #%
+    it "it should change total employment when the households_heater_district_heating_steam_hot_water is pulled to max" do
+      @scenario.households_heater_district_heating_steam_hot_water_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_fuel_cell_chp_network_gas is pulled to max" do
-      @scenario.households_water_heater_fuel_cell_chp_network_gas_share = 100 #%
+    it "it should change total employment when the households_heater_fuel_cell_chp_network_gas is pulled to max" do
+      @scenario.households_heater_fuel_cell_chp_network_gas_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_heatpump_air_water_electricity is pulled to max" do
-      @scenario.households_water_heater_heatpump_air_water_electricity_share = 100 #%
+    it "it should change total employment when the households_heater_heatpump_air_water_electricity is pulled to max" do
+      @scenario.households_heater_heatpump_air_water_electricity_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_heatpump_ground_water_electricity is pulled to max" do
-      @scenario.households_water_heater_heatpump_ground_water_electricity_share = 100 #%
+    it "it should change total employment when the households_heater_heatpump_ground_water_electricity is pulled to max" do
+      @scenario.households_heater_heatpump_ground_water_electricity_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_micro_chp_network_gas is pulled to max" do
-      @scenario.households_water_heater_micro_chp_network_gas_share = 100 #%
+    it "it should change total employment when the households_heater_micro_chp_network_gas is pulled to max" do
+      @scenario.households_heater_micro_chp_network_gas_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_resistive_electricity is pulled to max" do
-      @scenario.households_water_heater_resistive_electricity_share = 100 #%
+    it "it should change total employment when the households_heater_resistive_electricity is pulled to max" do
+      @scenario.households_heater_resistive_electricity_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_solar_thermal is pulled to max" do
+    it "it should change total employment when the households_heater_solar_thermal is pulled to max" do
       @scenario.households_water_heater_solar_thermal_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
 
-    it "it should change total employment when the households_water_heater_wood_pellets is pulled to max" do
-      @scenario.households_water_heater_wood_pellets_share = 100 #%
+    it "it should change total employment when the households_heater_wood_pellets is pulled to max" do
+      @scenario.households_heater_wood_pellets_share = 100 #%
       expect(@scenario.dashboard_employment).to change
     end
   end

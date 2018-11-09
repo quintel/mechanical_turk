@@ -94,8 +94,8 @@ describe "Hybrid heat pump" do
   context "Hybrid heat pump COP" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
-      households_space_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for space heating to 100%,
-      households_water_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for hot water to 100%
+      households_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for space heating to 100%,
+      households_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for hot water to 100%
       households_flexibility_space_heating_cop_cutoff: 6.0,#setting the cut-off COP to 6.0
       households_flexibility_water_heating_cop_cutoff: 6.0#setting the cut-off COP to 6.0
       })
@@ -104,8 +104,8 @@ describe "Hybrid heat pump" do
     describe "HHP for hot water with cut-off COP of 6.0" do
       it "should behave in the same way as combi-boilers" do
 
-       @scenario.households_water_heater_combined_network_gas_share = 100.0
-       @scenario.households_water_heater_hybrid_heatpump_air_water_electricity_share = 0.0
+       @scenario.households_heater_combined_network_gas_share = 100.0
+       @scenario.households_heater_hybrid_heatpump_air_water_electricity_share = 0.0
 
        expect(@scenario.natural_gas_and_derivatives_used_for_heating_in_households).to not_change
       end
@@ -113,8 +113,8 @@ describe "Hybrid heat pump" do
 
     describe "HHP for space heating with cut-off COP of 6.0" do
       it "should behave in the same way as combi-boilers" do
-       @scenario.households_space_heater_combined_network_gas_share = 100.0
-       @scenario.households_space_heater_hybrid_heatpump_air_water_electricity_share = 0.0
+       @scenario.households_heater_combined_network_gas_share = 100.0
+       @scenario.households_heater_hybrid_heatpump_air_water_electricity_share = 0.0
 
        expect(@scenario.natural_gas_and_derivatives_used_for_hot_water_in_households).to not_change
       end
