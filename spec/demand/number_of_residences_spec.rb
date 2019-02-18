@@ -1,9 +1,7 @@
-# Relevant slider #639 and #640
-# Chart 57
-
 require 'spec_helper'
 
-describe "Numbers of housing types" do
+
+describe "Sliders: number of apartments, terraced houses, etc. " do
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
