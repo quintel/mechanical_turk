@@ -10,7 +10,6 @@ describe "Sliders: number of apartments, terraced houses, etc. " do
   context "The sum of the number of all housing types" do
 
     it "should be equal to the total number of residences" do
-
       # move slider 1
       @scenario.households_number_of_apartments = 2.7E6
       # move slider 2
