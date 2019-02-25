@@ -396,9 +396,8 @@ context "P2H for industry" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
       settings_enable_merit_order: 1,
       households_useful_demand_heat_per_person: 5.0, # excess electricity
-      households_useful_demand_hot_water_share: 5.0, #making sure there are hydrogen cars
-      households_space_heater_heatpump_air_water_electricity_share: 100.0,
-      households_water_heater_heatpump_air_water_electricity_share: 100.0
+      households_useful_demand_hot_water_share: 5.0, # making sure there are hydrogen cars
+      households_heater_heatpump_air_water_electricity_share: 100.0
     })
   end
 

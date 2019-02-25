@@ -9,9 +9,10 @@ describe "Sliders #639 and #640: number of old and new residences" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
-  context "The sum of the number of old and new residences" do
+  context "The sum of the number of all housing types" do
 
     it "should be equal to the total number of residences" do
+<<<<<<< HEAD
       # move slider 1 (number of old houses in millions)
       @scenario.households_number_of_old_houses = 2.9
       # move slider 2 (number of new houses in millions)
@@ -19,76 +20,182 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
       expect(@scenario.households_number_of_residences.value).to be == 7600001.0
   
+=======
+      # move slider 1
+      @scenario.households_number_of_apartments = 2.7E6
+      # move slider 2
+      @scenario.households_number_of_corner_houses = 1.0E6
+      # move slider 3
+      @scenario.households_number_of_detached_houses = 1.0E6
+      # move slider 4
+      @scenario.households_number_of_semi_detached_houses = 0.7E6
+      # move slider 5
+      @scenario.households_number_of_terraced_houses = 2.2E6
+
+      expect(@scenario.households_number_of_residences.value).to be == 7.6E6
+
+>>>>>>> c8f39a9... Fix tests for hhp (partly), climate, number of residences, flexibility and remove tests for cost fte
     end
 
   end
 
-  context "Removing all old residences and insulating them" do
-    
+  context "Removing all apartments and insulating them" do
+
     it "should leave the cost unchanged" do
       # move slider 1 (number of old houses in millions)
-      @scenario.households_number_of_old_houses = 0.0
+      @scenario.households_number_of_apartments = 0.0
 
       @scenario.refresh!
 
       # move slider 2 (insulation of old houses)
-      @scenario.households_insulation_level_old_houses = 2.5
+      @scenario.households_insulation_level_apartments = 65.0
 
       @scenario.costs.increase.should == 0
-  
+
     end
-  
+
   end
 
-  context "Removing all new residences and insulating them" do
-    
+  context "Removing all corner houses and insulating them" do
+
     it "should leave the cost unchanged" do
       # move slider 1 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 0.0
+      @scenario.households_number_of_corner_houses = 0.0
 
       @scenario.refresh!
 
       # move slider 2 (insulation of new houses)
-      @scenario.households_insulation_level_new_houses = 2.5
+      @scenario.households_insulation_level_corner_houses = 65.0
 
       @scenario.costs.increase.should == 0
-  
+
     end
-  
+
   end
 
-  context "Halving the number of old residences" do
-    
-    it "should halve the heat demand for old residences" do
+  context "Removing all detached houses and insulating them" do
+
+    it "should leave the cost unchanged" do
       # move slider 1 (number of old houses in millions)
-      @scenario.households_number_of_old_houses = 2.8
-      
-      expect(@scenario.households_old_houses_useful_demand_for_heating.value).to be_within(1000.0).of(122863085761.54306)
-  
+      @scenario.households_number_of_detached_houses = 0.0
+
+      @scenario.refresh!
+
+      # move slider 2 (insulation of old houses)
+      @scenario.households_insulation_level_detached_houses = 65.0
+
+      @scenario.costs.increase.should == 0
+
     end
-  
+
   end
 
-  context "Halving the number of new residences" do
-    
-    it "should halve the heat demand for new residences" do
-      # move slider 2 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 0.9
-      
-      expect(@scenario.households_new_houses_useful_demand_for_heating.value).to be_within(1000.0).of(10969918371.5663)
-  
+  context "Removing all semi-detached houses and insulating them" do
+
+    it "should leave the cost unchanged" do
+      # move slider 1 (number of old houses in millions)
+      @scenario.households_number_of_semi_detached_houses = 0.0
+
+      @scenario.refresh!
+
+      # move slider 2 (insulation of old houses)
+      @scenario.households_insulation_level_semi_detached_houses = 65.0
+
+      @scenario.costs.increase.should == 0
+
     end
-  
+
+  end
+
+  context "Removing all terraced houses and insulating them" do
+
+    it "should leave the cost unchanged" do
+      # move slider 1 (number of old houses in millions)
+      @scenario.households_number_of_terraced_houses = 0.0
+
+      @scenario.refresh!
+
+      # move slider 2 (insulation of old houses)
+      @scenario.households_insulation_level_terraced_houses = 65.0
+
+      @scenario.costs.increase.should == 0
+
+    end
+
+  end
+
+  context "Halving the number of apartments" do
+
+    it "should halve the heat demand for apartments" do
+      # move slider
+      @scenario.households_number_of_apartments = 1338137.45
+
+      expect(@scenario.households_apartments_useful_demand_for_space_heating.value).to be_within(1000.0).of(31605972206.0626)
+
+    end
+
+  end
+
+  context "Halving the number of corner houses" do
+
+    it "should halve the heat demand for corner houses" do
+      # move slider
+      @scenario.households_number_of_corner_houses = 490182.4744
+
+      expect(@scenario.households_corner_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(19706344274.6407)
+
+    end
+
+  end
+
+  context "Halving the number of detached houses" do
+
+    it "should halve the heat demand for detached houses" do
+      # move slider
+      @scenario.households_number_of_detached_houses = 508393.588
+
+      expect(@scenario.households_detached_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(31588698092.612)
+
+    end
+
+  end
+
+  context "Halving the number of semi-detached houses" do
+
+    it "should halve the heat demand for semi-detached houses" do
+      # move slider
+      @scenario.households_number_of_semi_detached_houses = 333491.0178
+
+      expect(@scenario.households_semi_detached_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(15657553786.2478)
+
+    end
+
+  end
+
+  context "Halving the number of terraced houses" do
+
+    it "should halve the heat demand for terraced houses" do
+      # move slider
+      @scenario.households_number_of_terraced_houses = 1123777.4684
+
+      expect(@scenario.households_terraced_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(37594474676.3359)
+
+    end
+
   end
 
   context "Doubling the number of residences" do
 
     it "should double the residential roof surface available for pv" do
-      # move slider 1 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 8.4
-    
-      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 269.7732
-    
+      # move sliders to the doubled number of houses
+      @scenario.households_number_of_apartments = 5352549.8056
+      @scenario.households_number_of_corner_houses = 1960729.8976
+      @scenario.households_number_of_detached_houses = 2033574.352
+      @scenario.households_number_of_semi_detached_houses = 1333964.0712
+      @scenario.households_number_of_terraced_houses = 4495109.8736
+
+      expect(@scenario.turk_roof_surface_available_pv.value).to be_within(1.0).of 290.6
+
     end
 
   end

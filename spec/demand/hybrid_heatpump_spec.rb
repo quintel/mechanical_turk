@@ -13,8 +13,11 @@ describe "Hybrid heat pump" do
 
       it "should give the initial input shares" do
         # destroying all houses
-        @scenario.households_number_of_old_houses = 0.0
-        @scenario.households_number_of_new_houses = 0.0
+        @scenario.households_number_of_apartments = 0.0
+        @scenario.households_number_of_corner_houses = 0.0
+        @scenario.households_number_of_detached_houses = 0.0
+        @scenario.households_number_of_semi_detached_houses = 0.0
+        @scenario.households_number_of_terraced_houses = 0.0
 
         # should give us the initial input shares
         expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == 0.0
@@ -29,12 +32,18 @@ describe "Hybrid heat pump" do
 
       it "should not change the HHP's COP" do
         # move residence sliders
-        @scenario.households_number_of_old_houses = 4.6
-        @scenario.households_number_of_new_houses = 2.3
+        @scenario.households_number_of_apartments = 1.7E6
+        @scenario.households_number_of_corner_houses = 6.8E6
+        @scenario.households_number_of_detached_houses = 3.0E6
+        @scenario.households_number_of_semi_detached_houses = 5.7E6
+        @scenario.households_number_of_terraced_houses = 3.2E6
 
         # move insulation sliders
-        @scenario.households_insulation_level_old_houses = 1.2
-        @scenario.households_insulation_level_new_houses = 1.9
+        @scenario.households_insulation_level_apartments = 10
+        @scenario.households_insulation_level_corner_houses = 12
+        @scenario.households_insulation_level_detached_houses = 15
+        @scenario.households_insulation_level_semi_detached_houses = 7
+        @scenario.households_insulation_level_terraced_houses = 16
 
         # then we expect the COP to stay constant (but we have a very small change, see line 21-22)
         expect(@scenario.turk_hhp_cop_constant.increase).to be < 1.0E-12
@@ -45,20 +54,32 @@ describe "Hybrid heat pump" do
 
       it "should return the initial shares" do
         # move residence sliders
-        @scenario.households_number_of_old_houses = 3.9
-        @scenario.households_number_of_new_houses = 2.7
+        @scenario.households_number_of_apartments = 1.9E6
+        @scenario.households_number_of_corner_houses = 7.6E6
+        @scenario.households_number_of_detached_houses = 2.1E6
+        @scenario.households_number_of_semi_detached_houses = 7.8E6
+        @scenario.households_number_of_terraced_houses = 3.1E6
 
         # move insulation sliders
-        @scenario.households_insulation_level_old_houses = 2.1
-        @scenario.households_insulation_level_new_houses = 2.7
+        @scenario.households_insulation_level_apartments = 9
+        @scenario.households_insulation_level_corner_houses = 11
+        @scenario.households_insulation_level_detached_houses = 12
+        @scenario.households_insulation_level_semi_detached_houses = 19
+        @scenario.households_insulation_level_terraced_houses = 15
 
         # setting residence sliders back to their original values
-        @scenario.households_number_of_old_houses = 5.6
-        @scenario.households_number_of_new_houses = 1.7
+        @scenario.households_number_of_apartments = 2676274.9028
+        @scenario.households_number_of_corner_houses = 980364.9488
+        @scenario.households_number_of_detached_houses = 1016787.176
+        @scenario.households_number_of_semi_detached_houses = 666982.0356
+        @scenario.households_number_of_terraced_houses = 2247554.9368
 
         # setting insulation sliders back to their original values
-        @scenario.households_insulation_level_old_houses = 0.5
-        @scenario.households_insulation_level_new_houses = 1.8
+        @scenario.households_insulation_level_apartments = 13
+        @scenario.households_insulation_level_corner_houses = 9
+        @scenario.households_insulation_level_detached_houses = 11
+        @scenario.households_insulation_level_semi_detached_houses = 13
+        @scenario.households_insulation_level_terraced_houses = 13
 
         # should then also give us their initial values
         expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == 0.0
@@ -74,12 +95,18 @@ describe "Hybrid heat pump" do
 
     it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
         # move residence sliders
-        @scenario.households_number_of_old_houses = 4.0
-        @scenario.households_number_of_new_houses = 4.0
+        @scenario.households_number_of_apartments = 1.7E6
+        @scenario.households_number_of_corner_houses = 6.8E6
+        @scenario.households_number_of_detached_houses = 3.0E6
+        @scenario.households_number_of_semi_detached_houses = 5.7E6
+        @scenario.households_number_of_terraced_houses = 3.2E6
 
         # move insulation sliders
-        @scenario.households_insulation_level_old_houses = 1.5
-        @scenario.households_insulation_level_new_houses = 2.5
+        @scenario.households_insulation_level_apartments = 9
+        @scenario.households_insulation_level_corner_houses = 11
+        @scenario.households_insulation_level_detached_houses = 12
+        @scenario.households_insulation_level_semi_detached_houses = 19
+        @scenario.households_insulation_level_terraced_houses = 15
 
         # we expect the gas share to be 0.25 times of the initial value (see input statement)
         expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == - 0.14058106841612025
@@ -104,8 +131,8 @@ describe "Hybrid heat pump" do
     describe "HHP for hot water with cut-off COP of 6.0" do
       it "should behave in the same way as combi-boilers" do
 
-       @scenario.households_water_heater_combined_network_gas_share = 100.0
-       @scenario.households_water_heater_hybrid_heatpump_air_water_electricity_share = 0.0
+       @scenario.households_heater_combined_network_gas_share = 100.0
+       @scenario.households_heater_hybrid_heatpump_air_water_electricity_share = 0.0
 
        expect(@scenario.natural_gas_and_derivatives_used_for_heating_in_households).to not_change
       end
@@ -113,8 +140,8 @@ describe "Hybrid heat pump" do
 
     describe "HHP for space heating with cut-off COP of 6.0" do
       it "should behave in the same way as combi-boilers" do
-       @scenario.households_space_heater_combined_network_gas_share = 100.0
-       @scenario.households_space_heater_hybrid_heatpump_air_water_electricity_share = 0.0
+       @scenario.households_heater_combined_network_gas_share = 100.0
+       @scenario.households_heater_hybrid_heatpump_air_water_electricity_share = 0.0
 
        expect(@scenario.natural_gas_and_derivatives_used_for_hot_water_in_households).to not_change
       end
