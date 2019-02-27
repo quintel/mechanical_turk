@@ -90,8 +90,8 @@ describe "Hybrid heat pump" do
       end
     end
 
-    describe "Setting the four relevant HHP sliders" do
-
+    # Merit order (values below are in case merit order is enabled)
+    describe "Setting the relevant HHP sliders" do
 
     it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
         # move residence sliders
@@ -109,11 +109,11 @@ describe "Hybrid heat pump" do
         @scenario.households_insulation_level_terraced_houses = 15
 
         # we expect the gas share to be 0.25 times of the initial value (see input statement)
-        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == - 0.14058106841612025
+        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == -0.02884313425
         # then the ambient_heat and electricity share grow by this value, distributed in agreement with the COP
         # the small window of 1.0E-12 is there because of the COP calculation, see line 21-22
-        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.0312402374258045
-        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of 0.10934083099031575
+        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.04005057106
+        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of -0.01120746492
       end
     end
   end
@@ -121,10 +121,9 @@ describe "Hybrid heat pump" do
   context "Hybrid heat pump COP" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
-      households_space_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for space heating to 100%,
-      households_water_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for hot water to 100%
-      households_flexibility_space_heating_cop_cutoff: 6.0,#setting the cut-off COP to 6.0
-      households_flexibility_water_heating_cop_cutoff: 6.0#setting the cut-off COP to 6.0
+      households_heater_hybrid_heatpump_air_water_electricity_share: 100.0, #setting HHP's for space heating and hot water to 100%,
+      households_flexibility_space_heating_cop_cutoff: 6.0, # setting the cut-off COP to 6.0
+      households_flexibility_water_heating_cop_cutoff: 6.0 # setting the cut-off COP to 6.0
       })
     end
 
@@ -167,10 +166,9 @@ describe "Hybrid heat pump" do
  context "Hybrid heat gas usage" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
-      households_space_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for space heating to 100%,
-      households_water_heater_hybrid_heatpump_air_water_electricity_share: 100.0,#setting HHP's  for hot water to 100%
-      households_flexibility_space_heating_cop_cutoff: 1.0,#setting the cut-off COP to 1.0
-      households_flexibility_water_heating_cop_cutoff: 1.0#setting the cut-off COP to 1.0
+      households_heater_hybrid_heatpump_air_water_electricity_share: 100.0, #setting HHP's for space heating and hot water to 100%,
+      households_flexibility_space_heating_cop_cutoff: 1.0, # setting the cut-off COP to 1.0
+      households_flexibility_water_heating_cop_cutoff: 1.0 # setting the cut-off COP to 1.0
       })
     end
 
