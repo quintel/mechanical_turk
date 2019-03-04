@@ -3,7 +3,7 @@
 
 require 'spec_helper'
 
-describe "Sliders #639 and #640: number of old and new residences" do
+describe "Numbers of housing types" do
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
@@ -12,15 +12,7 @@ describe "Sliders #639 and #640: number of old and new residences" do
   context "The sum of the number of all housing types" do
 
     it "should be equal to the total number of residences" do
-<<<<<<< HEAD
-      # move slider 1 (number of old houses in millions)
-      @scenario.households_number_of_old_houses = 2.9
-      # move slider 2 (number of new houses in millions)
-      @scenario.households_number_of_new_houses = 4.7
 
-      expect(@scenario.households_number_of_residences.value).to be == 7600001.0
-  
-=======
       # move slider 1
       @scenario.households_number_of_apartments = 2.7E6
       # move slider 2
@@ -34,7 +26,6 @@ describe "Sliders #639 and #640: number of old and new residences" do
 
       expect(@scenario.households_number_of_residences.value).to be == 7.6E6
 
->>>>>>> c8f39a9... Fix tests for hhp (partly), climate, number of residences, flexibility and remove tests for cost fte
     end
 
   end

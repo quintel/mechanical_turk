@@ -303,24 +303,6 @@ describe "Testing costs" do
     it "total cost of households_space_heater_wood_pellets should be within 1.0% of 752.126982" do
         @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(7.5212698200000005).of(752.126982)
     end
-    it "total cost of households_water_heater_combined_network_gas should be within 1.0% of 262.8824003" do
-        @scenario.total_cost_of_households_water_heater_combined_network_gas.value.should be_within(2.6288240029999996).of(262.8824003)
-    end
-    it "total cost of households_water_heater_fuel_cell_chp_network_gas should be within 1.0% of 2453.333333" do
-        @scenario.total_cost_of_households_water_heater_fuel_cell_chp_network_gas.value.should be_within(24.53333333).of(2453.333333)
-    end
-    it "total cost of households_water_heater_heatpump_air_water_electricity should be within 1.0% of 1053.330625" do
-        @scenario.total_cost_of_households_water_heater_heatpump_air_water_electricity.value.should be_within(10.53330625).of(1053.330625)
-    end
-    it "total cost of households_water_heater_heatpump_ground_water_electricity should be within 1.0% of 1356.629292" do
-        @scenario.total_cost_of_households_water_heater_heatpump_ground_water_electricity.value.should be_within(13.56629292).of(1356.629292)
-    end
-    it "total cost of households_water_heater_hybrid_heatpump_air_water_electricity should be within 1.0% of 679.9157336" do
-        @scenario.total_cost_of_households_water_heater_hybrid_heatpump_air_water_electricity.value.should be_within(6.7991573359999995).of(679.9157336)
-    end
-    it "total cost of households_water_heater_micro_chp_network_gas should be within 1.0% of 933.3333333" do
-        @scenario.total_cost_of_households_water_heater_micro_chp_network_gas.value.should be_within(9.333333333).of(933.3333333)
-    end
     it "total cost of households_water_heater_network_gas should be within 1.0% of 118.8036223" do
         @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(1.1880362230000001).of(118.8036223)
     end
