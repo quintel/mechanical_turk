@@ -89,6 +89,12 @@ describe "Hybrid heat pump" do
 
       end
     end
+  end
+
+  context "Hybrid heat pump" do
+    before do
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true)
+    end
 
     # Merit order (values below are in case merit order is enabled)
     describe "Setting the relevant HHP sliders" do
@@ -113,7 +119,7 @@ describe "Hybrid heat pump" do
         # then the ambient_heat and electricity share grow by this value, distributed in agreement with the COP
         # the small window of 1.0E-12 is there because of the COP calculation, see line 21-22
         expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.04005057106
-        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of -0.01120746492
+        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of -0.01120743681
       end
     end
   end
