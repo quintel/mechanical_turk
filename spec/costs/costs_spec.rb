@@ -39,11 +39,16 @@ describe "Testing costs" do
     it "total cost of agriculture_heatpump_water_water_ts_electricity should be within 1.0% of 404644.3224" do
         @scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value.should be_within(4046.443224).of(404644.3224)
     end
+<<<<<<< HEAD
     it "total cost of buildings_chp_engine_biogas should be within 1.0% of 1691150.702" do
         @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(16911.50702).of(1691150.702)
     end
     it "total cost of buildings_collective_burner_hydrogen should be within 1.0% of 1139220.897" do
         @scenario.total_cost_of_buildings_collective_burner_hydrogen.value.should be_within(11392.208970000002).of(1139220.897)
+=======
+    it "total cost of households_space_heater_coal should be within 1.0% of 351.612452" do
+        @scenario.total_cost_of_households_space_heater_coal.value.should be_within(3.5161245200000004).of(351.612452)
+>>>>>>> 910c7fc... Update cost tests after cost correction fix
     end
     it "total cost of buildings_collective_burner_network_gas should be within 1.0% of 409626.5337" do
         @scenario.total_cost_of_buildings_collective_burner_network_gas.value.should be_within(4096.265337000001).of(409626.5337)
@@ -57,36 +62,54 @@ describe "Testing costs" do
     it "total cost of buildings_collective_geothermal should be within 1.0% of 287417.4843" do
         @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(2874.1748430000002).of(287417.4843)
     end
+<<<<<<< HEAD
     it "total cost of buildings_collective_heatpump_water_water_electricity should be within 1.0% of 63333.33333" do
         @scenario.total_cost_of_buildings_collective_heatpump_water_water_electricity.value.should be_within(633.3333333).of(63333.33333)
     end
     it "total cost of buildings_cooling_airconditioning_electricity should be within 1.0% of 199.0" do
         @scenario.total_cost_of_buildings_cooling_airconditioning_electricity.value.should be_within(1.99).of(199.0)
+=======
+    it "total cost of households_space_heater_wood_pellets should be within 1.0% of 752.126982" do
+        @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(7.5212698200000005).of(752.126982)
+>>>>>>> 910c7fc... Update cost tests after cost correction fix
     end
     it "total cost of buildings_cooling_collective_heatpump_water_water_ts_electricity should be within 1.0% of 1314033.788" do
         @scenario.total_cost_of_buildings_cooling_collective_heatpump_water_water_ts_electricity.value.should be_within(13140.33788).of(1314033.788)
     end
+<<<<<<< HEAD
     it "total cost of buildings_cooling_heatpump_air_water_network_gas should be within 1.0% of 766900.4525" do
         @scenario.total_cost_of_buildings_cooling_heatpump_air_water_network_gas.value.should be_within(7669.004525).of(766900.4525)
     end
     it "total cost of buildings_solar_pv_solar_radiation should be within 1.0% of 25.92098448" do
         @scenario.total_cost_of_buildings_solar_pv_solar_radiation.value.should be_within(0.25920984480000003).of(25.92098448)
+=======
+    it "total cost of households_cooling_heatpump_air_water_electricity should be within 1.0% of 923.3333333" do
+        @scenario.total_cost_of_households_cooling_heatpump_air_water_electricity.value.should be_within(9.233333333000001).of(923.3333333)
+>>>>>>> 910c7fc... Update cost tests after cost correction fix
     end
     it "total cost of buildings_space_heater_coal should be within 1.0% of 5046.84392" do
         @scenario.total_cost_of_buildings_space_heater_coal.value.should be_within(50.468439200000006).of(5046.84392)
     end
+<<<<<<< HEAD
     it "total cost of buildings_space_heater_collective_heatpump_water_water_ts_electricity should be within 1.0% of 365365.4375" do
         @scenario.total_cost_of_buildings_space_heater_collective_heatpump_water_water_ts_electricity.value.should be_within(3653.654375).of(365365.4375)
     end
     it "total cost of buildings_space_heater_crude_oil should be within 1.0% of 6437.146813" do
         @scenario.total_cost_of_buildings_space_heater_crude_oil.value.should be_within(64.37146813000001).of(6437.146813)
+=======
+    it "total cost of households_cooling_heatpump_ground_water_electricity should be within 1.0% of 1226.666667" do
+        @scenario.total_cost_of_households_cooling_heatpump_ground_water_electricity.value.should be_within(12.26666667).of(1226.666667)
+>>>>>>> 910c7fc... Update cost tests after cost correction fix
     end
     it "total cost of buildings_space_heater_electricity should be within 1.0% of 195.75" do
         @scenario.total_cost_of_buildings_space_heater_electricity.value.should be_within(1.9575).of(195.75)
     end
+<<<<<<< HEAD
     it "total cost of buildings_space_heater_heatpump_air_water_network_gas should be within 1.0% of 575245.5685" do
         @scenario.total_cost_of_buildings_space_heater_heatpump_air_water_network_gas.value.should be_within(5752.455685000001).of(575245.5685)
     end
+=======
+>>>>>>> 910c7fc... Update cost tests after cost correction fix
     it "total cost of buildings_space_heater_network_gas should be within 1.0% of 1808.262988" do
         @scenario.total_cost_of_buildings_space_heater_network_gas.value.should be_within(18.08262988).of(1808.262988)
     end
