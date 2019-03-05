@@ -39,6 +39,9 @@ describe "Testing costs" do
     it "total cost of agriculture_heatpump_water_water_ts_electricity should be within 1.0% of 404644.3224" do
         @scenario.total_cost_of_agriculture_heatpump_water_water_ts_electricity.value.should be_within(4046.443224).of(404644.3224)
     end
+    it "total cost of buildings_cooling_airconditioning_electricity should be within 1.0% of 199.0" do
+        @scenario.total_cost_of_buildings_cooling_airconditioning_electricity.value.should be_within(1.99).of(199.0)
+    end
     it "total cost of buildings_chp_engine_biogas should be within 1.0% of 1691150.702" do
         @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(16911.50702).of(1691150.702)
     end
@@ -56,6 +59,12 @@ describe "Testing costs" do
     end
     it "total cost of buildings_collective_geothermal should be within 1.0% of 287417.4843" do
         @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(2874.1748430000002).of(287417.4843)
+    end
+    it "total cost of households_space_heater_hybrid_heatpump_air_water_electricity should be within 1.0% of 666.2779617" do
+        @scenario.total_cost_of_households_space_heater_hybrid_heatpump_air_water_electricity.value.should be_within(6.662779617).of(666.2779617)
+    end
+    it "total cost of households_space_heater_hybrid_hydrogen_heatpump_air_water_electricity should be within 1.0% of 763.3333333" do
+        @scenario.total_cost_of_households_space_heater_hybrid_hydrogen_heatpump_air_water_electricity.value.should be_within(7.633333333).of(763.3333333)
     end
     it "total cost of buildings_collective_heatpump_water_water_electricity should be within 1.0% of 63333.33333" do
         @scenario.total_cost_of_buildings_collective_heatpump_water_water_electricity.value.should be_within(633.3333333).of(63333.33333)
@@ -90,8 +99,8 @@ describe "Testing costs" do
     it "total cost of buildings_space_heater_network_gas should be within 1.0% of 1808.262988" do
         @scenario.total_cost_of_buildings_space_heater_network_gas.value.should be_within(18.08262988).of(1808.262988)
     end
-    it "total cost of buildings_space_heater_solar_thermal should be within 1.0% of 13387.5" do
-        @scenario.total_cost_of_buildings_space_heater_solar_thermal.value.should be_within(133.875).of(13387.5)
+    it "total cost of buildings_space_heater_solar_thermal should be within 1.0% of 11943.75" do
+        @scenario.total_cost_of_buildings_space_heater_solar_thermal.value.should be_within(119.4375).of(11943.75)
     end
     it "total cost of buildings_space_heater_wood_pellets should be within 1.0% of 9541.083287" do
         @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(95.41083287).of(9541.083287)
@@ -290,12 +299,6 @@ describe "Testing costs" do
     end
     it "total cost of households_space_heater_heatpump_ground_water_electricity should be within 1.0% of 1334.688" do
         @scenario.total_cost_of_households_space_heater_heatpump_ground_water_electricity.value.should be_within(13.34688).of(1334.688)
-    end
-    it "total cost of households_space_heater_hybrid_heatpump_air_water_electricity should be within 1.0% of 664.0203632" do
-        @scenario.total_cost_of_households_space_heater_hybrid_heatpump_air_water_electricity.value.should be_within(6.640203632).of(664.0203632)
-    end
-    it "total cost of households_space_heater_micro_chp_network_gas should be within 1.0% of 933.3333333" do
-        @scenario.total_cost_of_households_space_heater_micro_chp_network_gas.value.should be_within(9.333333333).of(933.3333333)
     end
     it "total cost of households_space_heater_network_gas should be within 1.0% of 427.2347177" do
         @scenario.total_cost_of_households_space_heater_network_gas.value.should be_within(4.272347176999999).of(427.2347177)

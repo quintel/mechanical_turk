@@ -1,9 +1,7 @@
-# Relevant slider #639 and #640
-# Chart 57
-
 require 'spec_helper'
 
-describe "Numbers of housing types" do
+
+describe "Sliders: number of apartments, terraced houses, etc. " do
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
@@ -12,7 +10,6 @@ describe "Numbers of housing types" do
   context "The sum of the number of all housing types" do
 
     it "should be equal to the total number of residences" do
-
       # move slider 1
       @scenario.households_number_of_apartments = 2.7E6
       # move slider 2

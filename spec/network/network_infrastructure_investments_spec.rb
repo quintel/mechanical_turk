@@ -22,7 +22,7 @@ describe "Starting with a scenario where all household space heating is electric
 
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      households_space_heater_electricity_share: 100,
+      households_heater_electricity_share: 100,
       settings_enable_merit_order: 0
     })
   end
@@ -49,20 +49,7 @@ describe "Starting with a scenario where all household space heating is electric
 
   context "when building heat micro chp 25 %" do
     it "should decrease all network total cost" do
-      @scenario.households_space_heater_electricity_share = 75.0
-      @scenario.households_space_heater_micro_chp_network_gas_share = 25.0
-
-      expect(@scenario.network_calculation_total_costs_future).to decrease
-    end
-  end
-
-  context "when households hot water fuel cell 100%" do
-    it "should decrease all network total cost" do
-      @scenario.households_water_heater_combined_network_gas_share = 0.0
-      @scenario.households_water_heater_district_heating_steam_hot_water_share = 0.0
-      @scenario.households_water_heater_fuel_cell_chp_network_gas_share = 100.0
-      @scenario.households_water_heater_resistive_electricity_share = 0.0
-      @scenario.households_water_heater_network_gas_share = 0.0
+      @scenario.households_heater_electricity_share = 75.0
 
       expect(@scenario.network_calculation_total_costs_future).to decrease
     end
@@ -74,7 +61,6 @@ describe "Starting with a scenario where all household space heating is electric
        @scenario.buildings_space_heater_collective_heatpump_water_water_ts_electricity_share = 100.0
        @scenario.buildings_space_heater_heatpump_air_water_network_gas_share = 0.0
        @scenario.buildings_space_heater_electricity_share = 0.0
-       @scenario.buildings_space_heater_crude_oil_share = 0.0
        @scenario.buildings_space_heater_wood_pellets_share = 0.0
        @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
        @scenario.buildings_space_heater_solar_thermal_share = 0.0
@@ -89,7 +75,6 @@ describe "Starting with a scenario where all household space heating is electric
         @scenario.buildings_space_heater_collective_heatpump_water_water_ts_electricity_share = 0.0
         @scenario.buildings_space_heater_heatpump_air_water_network_gas_share = 0.0
         @scenario.buildings_space_heater_electricity_share = 100.0
-        @scenario.buildings_space_heater_crude_oil_share = 0.0
         @scenario.buildings_space_heater_wood_pellets_share = 0.0
         @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
         @scenario.buildings_space_heater_solar_thermal_share = 0.0
