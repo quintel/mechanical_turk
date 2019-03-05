@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe "Hybrid heat pump" do
 
-  context "Hybrid heat pummp general fever/merit order disabled" do
+  context "Hybrid heat pump general fever/merit order disabled" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {settings_enable_merit_order: 0})
     end
@@ -89,30 +89,36 @@ describe "Hybrid heat pump" do
 
       end
     end
+  end
+
+  context "Hybrid heat pump general fever/merit order enabled" do
+    before do
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
+    end
 
     describe "Setting the relevant HHP sliders" do
 
     it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
         # move residence sliders
-        @scenario.households_number_of_apartments = 1.7E6
-        @scenario.households_number_of_corner_houses = 6.8E6
-        @scenario.households_number_of_detached_houses = 3.0E6
-        @scenario.households_number_of_semi_detached_houses = 5.7E6
+        @scenario.households_number_of_apartments = 3.2E6
+        @scenario.households_number_of_corner_houses = 1.2E6
+        @scenario.households_number_of_detached_houses = 1.6E6
+        @scenario.households_number_of_semi_detached_houses = 0.9E6
         @scenario.households_number_of_terraced_houses = 3.2E6
 
         # move insulation sliders
-        @scenario.households_insulation_level_apartments = 9
+        @scenario.households_insulation_level_apartments = 15
         @scenario.households_insulation_level_corner_houses = 11
-        @scenario.households_insulation_level_detached_houses = 12
-        @scenario.households_insulation_level_semi_detached_houses = 19
+        @scenario.households_insulation_level_detached_houses = 13
+        @scenario.households_insulation_level_semi_detached_houses = 15
         @scenario.households_insulation_level_terraced_houses = 15
 
-        # we expect the gas share to be 0.25 times of the initial value (see input statement)
-        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == -0.02884313425
+        # we expect the gas share to decrease due to insulation
+        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of 0.003633223286
         # then the ambient_heat and electricity share grow by this value, distributed in agreement with the COP
-        # the small window of 1.0E-12 is there because of the COP calculation, see line 21-22
-        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.04005057106
-        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of -0.01120743681
+        # the small window of 1.0E-12 is there because of the COP calculation
+        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of -0.001053679662
+        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of -0.002579543624
       end
     end
   end
