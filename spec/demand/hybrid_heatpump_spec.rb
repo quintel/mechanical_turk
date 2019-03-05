@@ -89,14 +89,7 @@ describe "Hybrid heat pump" do
 
       end
     end
-  end
 
-  context "Hybrid heat pump" do
-    before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true)
-    end
-
-    # Merit order (values below are in case merit order is enabled)
     describe "Setting the relevant HHP sliders" do
 
     it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
