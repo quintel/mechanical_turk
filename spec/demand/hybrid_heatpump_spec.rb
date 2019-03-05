@@ -99,26 +99,27 @@ describe "Hybrid heat pump" do
     describe "Setting the relevant HHP sliders" do
 
     it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
-        # move residence sliders
-        @scenario.households_number_of_apartments = 3.2E6
-        @scenario.households_number_of_corner_houses = 1.2E6
-        @scenario.households_number_of_detached_houses = 1.6E6
-        @scenario.households_number_of_semi_detached_houses = 0.9E6
-        @scenario.households_number_of_terraced_houses = 3.2E6
+        # decrease numbers of residences
+        @scenario.households_number_of_apartments = 1.8E6
+        @scenario.households_number_of_corner_houses = 0.5E6
+        @scenario.households_number_of_detached_houses = 0.6E6
+        @scenario.households_number_of_semi_detached_houses = 0.3E6
+        @scenario.households_number_of_terraced_houses = 1.2E6
 
-        # move insulation sliders
+        # increase insulation levels
         @scenario.households_insulation_level_apartments = 15
         @scenario.households_insulation_level_corner_houses = 11
         @scenario.households_insulation_level_detached_houses = 13
         @scenario.households_insulation_level_semi_detached_houses = 15
         @scenario.households_insulation_level_terraced_houses = 15
 
-        # we expect the gas share to decrease due to insulation
-        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of 0.003633223286
+        # we expect the gas share to decrease due to insulation and
+        # the decrease in number of houses (and hence, a decrease in network gas demand)
+        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of -0.005274387719
         # then the ambient_heat and electricity share grow by this value, distributed in agreement with the COP
         # the small window of 1.0E-12 is there because of the COP calculation
-        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of -0.001053679662
-        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of -0.002579543624
+        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.001460621306
+        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of 0.003813766413
       end
     end
   end
