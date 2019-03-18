@@ -453,12 +453,6 @@ describe "Testing costs" do
     it "total cost of other_burner_wood_pellets should be within 1.0% of 510287.1814" do
         @scenario.total_cost_of_other_burner_wood_pellets.value.should be_within(5102.871814).of(510287.1814)
     end
-    xit "total cost of transport_car_using_electricity should be within 1.0% of 0.0" do
-        @scenario.total_cost_of_transport_car_using_electricity.value.should be_within(0.0).of(0.0)
-    end
-    xit "total cost of transport_car_using_hydrogen should be within 1.0% of 0.0" do
-        @scenario.total_cost_of_transport_car_using_hydrogen.value.should be_within(0.0).of(0.0)
-    end
 
   end
 end

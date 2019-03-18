@@ -290,10 +290,10 @@ context "P2H for industry" do
     end
 
 
-       describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
+    describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
 
-     xit "should decrease the electricity curtailed" do
-       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+     it "should decrease the electricity curtailed" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 8.0
 
        expect(@scenario.electricity_curtailed).to decrease
      end
@@ -301,8 +301,8 @@ context "P2H for industry" do
 
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
 
-     xit "should decrease the electricity exported" do
-       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+     it "should decrease the electricity exported" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 8.0
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -310,8 +310,8 @@ context "P2H for industry" do
 
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
 
-     xit "should decrease CO2 emissions" do
-       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+     it "should decrease CO2 emissions" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 8.0
 
        expect(@scenario.co2).to decrease
      end
@@ -320,8 +320,8 @@ context "P2H for industry" do
 
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
 
-     xit "should decrease the gas use of that sector" do
-       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 10.0
+     it "should decrease the gas use of that sector" do
+       @scenario.number_of_industry_other_paper_flexibility_p2h_electricity = 8.0
 
        expect(@scenario.final_demand_of_natural_gas_and_derivatives_in_paper_industry_energetic).to decrease
      end
@@ -395,8 +395,10 @@ context "P2H for industry" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
       settings_enable_merit_order: 1,
-      households_useful_demand_heat_per_person: 5.0, # excess electricity
-      households_useful_demand_hot_water_share: 5.0, # making sure there are hydrogen cars
+      households_useful_demand_heat_per_person: 5.0, # excess heat demand
+      households_useful_demand_hot_water_share: 5.0, # excess hot water demand
+      households_flexibility_water_heating_buffer_size_heatpump_air_water_electricity: 0.0, # remove buffer
+      households_flexibility_water_heating_buffer_size_heatpump_ground_water_electricity: 0.0, # remove buffer
       households_heater_heatpump_air_water_electricity_share: 100.0
     })
   end
@@ -406,18 +408,16 @@ context "P2H for industry" do
      it "should decrease the deficits" do
       @scenario.households_flexibility_space_heating_buffer_size_heatpump_air_water_electricity = 250.0
 
-
       expect(@scenario.households_space_heater_heatpump_air_water_electricity_deficit).to decrease
      end
 
-   end
+    end
 
 
    describe "In a scenario with deficits and 100"%" heat pump air increasing the water heating buffer size" do
 
-     xit "should decrease the deficits" do
+     it "should decrease the deficits" do
       @scenario.households_flexibility_water_heating_buffer_size_heatpump_air_water_electricity = 250.0
-
 
       expect(@scenario.households_water_heater_heatpump_air_water_electricity_deficit).to decrease
      end
