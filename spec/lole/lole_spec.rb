@@ -23,10 +23,10 @@ describe "Starting with a scenario with nonzero LOLE," do
     end
   end
 
-  context "increasing the number of solar PV plants" do
+  context "increasing the installed capacity of solar PV plants" do
 
     it "should not increase the LOLE" do
-      @scenario.number_of_energy_power_solar_pv_solar_radiation = 1000.0
+      @scenario.capacity_of_energy_power_solar_pv_solar_radiation = 20000.0
       expect(@scenario.loss_of_load_expectation).to not_increase
     end
   end
@@ -47,5 +47,5 @@ describe "Starting with a scenario with nonzero LOLE," do
       expect(@scenario.loss_of_load_expectation).to decrease
     end
   end
-  
+
 end
