@@ -9,16 +9,16 @@ describe "Starting with a scenario with nonzero LOLE," do
   before(:each) do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
       # removing all the Gas CCGT to create a nonzero LOLP
-      number_of_energy_power_combined_cycle_network_gas: 0.0,
+      capacity_of_energy_power_combined_cycle_network_gas: 0.0,
       # removing all Gas CHP to increase LOLP
-      number_of_energy_chp_combined_cycle_network_gas: 0.0
+      capacity_of_energy_chp_combined_cycle_network_gas: 0.0
     })
   end
 
   context "decreasing the number of nuclear plants" do
 
     it "should increase the LOLE" do
-      @scenario.number_of_energy_power_nuclear_gen2_uranium_oxide = 0.0
+      @scenario.capacity_of_energy_power_nuclear_gen2_uranium_oxide = 0.0
       expect(@scenario.loss_of_load_expectation).to increase
     end
   end
@@ -34,7 +34,7 @@ describe "Starting with a scenario with nonzero LOLE," do
   context "increasing the number of wind turbines" do
 
     it "should not increase the LOLE" do
-      @scenario.number_of_energy_power_wind_turbine_inland = 56000.0
+      @scenario.capacity_of_energy_power_wind_turbine_inland = 168000.0
       expect(@scenario.loss_of_load_expectation).to not_increase
     end
   end

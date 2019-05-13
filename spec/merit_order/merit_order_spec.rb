@@ -56,10 +56,10 @@ describe "Merit Order" do
       # turning it on
       @scenario.settings_enable_merit_order = 1
 
-      @scenario.number_of_energy_power_ultra_supercritical_coal = 0
+      @scenario.capacity_of_energy_power_ultra_supercritical_coal = 0
       @scenario.energy_power_ultra_supercritical_coal_demand.value.should == 0
 
-      @scenario.number_of_energy_power_ultra_supercritical_coal = 14
+      @scenario.capacity_of_energy_power_ultra_supercritical_coal = 11200.0
       @scenario.energy_power_ultra_supercritical_coal_demand.should increase
     end
 
@@ -94,14 +94,14 @@ describe "Merit Order" do
     context "With merit order enabled" do
 
       it "adding a lot of energy_power_wind_turbine_offshore should lower full load hours of central production power plants" do
-        @scenario.number_of_energy_power_wind_turbine_offshore = 50000
+        @scenario.capacity_of_energy_power_wind_turbine_offshore = 150000.0
         expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_nuclear_ii_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
 
       it "increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        @scenario.number_of_energy_power_wind_turbine_inland = 477
+        @scenario.capacity_of_energy_power_wind_turbine_inland = 1431.0
 
         # ONLY true if some dispatchables still have FLH > 0
         @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
@@ -111,7 +111,7 @@ describe "Merit Order" do
       end
 
       it "decreasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        @scenario.number_of_energy_power_wind_turbine_inland = 475
+        @scenario.capacity_of_energy_power_wind_turbine_inland = 1425.0
         @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
 
         # should not give export
