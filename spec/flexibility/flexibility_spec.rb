@@ -14,7 +14,7 @@ describe "Flexibility" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
         settings_enable_merit_order: 1,
-        capacity_of_energy_power_wind_turbine_inland: 30000, # excess electricity
+        capacity_of_energy_power_wind_turbine_inland: 50000, # excess electricity
         bunkers_allocated_percentage_aviation: 100 # take all co2 of international aviation into account
       })
     end
