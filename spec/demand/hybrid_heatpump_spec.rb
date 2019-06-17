@@ -39,10 +39,10 @@ describe "Hybrid heat pump" do
         @scenario.households_number_of_terraced_houses = 3.2E6
 
         # move insulation sliders
-        @scenario.households_insulation_level_apartments = 10
+        @scenario.households_insulation_level_apartments = 14
         @scenario.households_insulation_level_corner_houses = 12
         @scenario.households_insulation_level_detached_houses = 15
-        @scenario.households_insulation_level_semi_detached_houses = 7
+        @scenario.households_insulation_level_semi_detached_houses = 17
         @scenario.households_insulation_level_terraced_houses = 16
 
         # then we expect the COP to stay constant (but we have a very small change, see line 21-22)
@@ -61,11 +61,11 @@ describe "Hybrid heat pump" do
         @scenario.households_number_of_terraced_houses = 3.1E6
 
         # move insulation sliders
-        @scenario.households_insulation_level_apartments = 9
-        @scenario.households_insulation_level_corner_houses = 11
-        @scenario.households_insulation_level_detached_houses = 12
-        @scenario.households_insulation_level_semi_detached_houses = 19
-        @scenario.households_insulation_level_terraced_houses = 15
+        @scenario.households_insulation_level_apartments = 14
+        @scenario.households_insulation_level_corner_houses = 12
+        @scenario.households_insulation_level_detached_houses = 15
+        @scenario.households_insulation_level_semi_detached_houses = 17
+        @scenario.households_insulation_level_terraced_houses = 16
 
         # setting residence sliders back to their original values
         @scenario.households_number_of_apartments = 2676274.9028
