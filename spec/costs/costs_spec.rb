@@ -156,8 +156,8 @@ describe "Testing costs" do
     it "total cost of energy_power_combined_cycle_coal should be within 1.0% of 157393563.7" do
         @scenario.total_cost_of_energy_power_combined_cycle_coal.value.should be_within(1573935.6369999999).of(157393563.7)
     end
-    it "total cost of energy_power_combined_cycle_network_gas should be within 1.0% of 180803216.4" do
-        @scenario.total_cost_of_energy_power_combined_cycle_network_gas.value.should be_within(1808032.164).of(180803216.4)
+    it "total cost of energy_power_combined_cycle_network_gas should be within 1.0% of 176668228.2" do
+        @scenario.total_cost_of_energy_power_combined_cycle_network_gas.value.should be_within(1766682.282).of(176668228.2)
     end
     it "total cost of energy_power_engine_diesel should be within 1.0% of 34000.0" do
         @scenario.total_cost_of_energy_power_engine_diesel.value.should be_within(340.0).of(34000.0)

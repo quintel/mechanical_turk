@@ -413,10 +413,10 @@ context "P2H for industry" do
 
     end
 
-
+   # 2019-06: After the curves update, there are no households water heater deficits anymore, which makes this spec redundant at the moment 
    describe "In a scenario with deficits and 100"%" heat pump air increasing the water heating buffer size" do
 
-     it "should decrease the deficits" do
+     xit "should decrease the deficits" do
       @scenario.households_flexibility_water_heating_buffer_size_heatpump_air_water_electricity = 250.0
 
       expect(@scenario.households_water_heater_heatpump_air_water_electricity_deficit).to decrease
