@@ -115,11 +115,11 @@ describe "Hybrid heat pump" do
 
         # we expect the gas share to decrease due to insulation and
         # the decrease in number of houses (and hence, a decrease in network gas demand)
-        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of -0.005555479398
+        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of -0.005555479429
         # then the ambient_heat and electricity share grow by this value, distributed in agreement with the COP
         # the small window of 1.0E-12 is there because of the COP calculation
-        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.001556406394
-        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of 0.003999073003
+        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.001556406419
+        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of 0.00399907301
       end
     end
   end
