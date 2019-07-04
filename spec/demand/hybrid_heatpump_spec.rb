@@ -13,11 +13,7 @@ describe "Hybrid heat pump" do
 
       it "should give the initial input shares" do
         # destroying all houses
-        @scenario.households_number_of_apartments = 0.0
-        @scenario.households_number_of_corner_houses = 0.0
-        @scenario.households_number_of_detached_houses = 0.0
-        @scenario.households_number_of_semi_detached_houses = 0.0
-        @scenario.households_number_of_terraced_houses = 0.0
+        @scenario.households_number_of_residences = 0.0
 
         # should give us the initial input shares
         expect(@scenario.turk_hhp_network_gas_input_share.increase).to be == 0.0
@@ -28,15 +24,11 @@ describe "Hybrid heat pump" do
       end
     end
 
-    describe "Changing the insulation or number_of_houses sliders" do
+    describe "Changing the insulation or number_of_residences sliders" do
 
       it "should not change the HHP's COP" do
         # move residence sliders
-        @scenario.households_number_of_apartments = 1.7E6
-        @scenario.households_number_of_corner_houses = 6.8E6
-        @scenario.households_number_of_detached_houses = 3.0E6
-        @scenario.households_number_of_semi_detached_houses = 5.7E6
-        @scenario.households_number_of_terraced_houses = 3.2E6
+        @scenario.households_number_of_residences = 9.2E6
 
         # move insulation sliders
         @scenario.households_insulation_level_apartments = 14
@@ -54,11 +46,7 @@ describe "Hybrid heat pump" do
 
       it "should return the initial shares" do
         # move residence sliders
-        @scenario.households_number_of_apartments = 1.9E6
-        @scenario.households_number_of_corner_houses = 7.6E6
-        @scenario.households_number_of_detached_houses = 2.1E6
-        @scenario.households_number_of_semi_detached_houses = 7.8E6
-        @scenario.households_number_of_terraced_houses = 3.1E6
+        @scenario.households_number_of_residences = 9.2E6
 
         # move insulation sliders
         @scenario.households_insulation_level_apartments = 14
@@ -67,12 +55,8 @@ describe "Hybrid heat pump" do
         @scenario.households_insulation_level_semi_detached_houses = 17
         @scenario.households_insulation_level_terraced_houses = 16
 
-        # setting residence sliders back to their original values
-        @scenario.households_number_of_apartments = 2676274.9028
-        @scenario.households_number_of_corner_houses = 980364.9488
-        @scenario.households_number_of_detached_houses = 1016787.176
-        @scenario.households_number_of_semi_detached_houses = 666982.0356
-        @scenario.households_number_of_terraced_houses = 2247554.9368
+        # setting residence slider back to their original values
+        @scenario.households_number_of_residences = 7587964
 
         # setting insulation sliders back to their original values
         @scenario.households_insulation_level_apartments = 13
@@ -99,13 +83,6 @@ describe "Hybrid heat pump" do
     describe "Setting the relevant HHP sliders" do
 
     it "should change the shares of gas, electricity and ambient_heat by the correct amount" do
-        # decrease numbers of residences
-        @scenario.households_number_of_apartments = 1.8E6
-        @scenario.households_number_of_corner_houses = 0.5E6
-        @scenario.households_number_of_detached_houses = 0.6E6
-        @scenario.households_number_of_semi_detached_houses = 0.3E6
-        @scenario.households_number_of_terraced_houses = 1.2E6
-
         # increase insulation levels
         @scenario.households_insulation_level_apartments = 15
         @scenario.households_insulation_level_corner_houses = 11
@@ -115,11 +92,11 @@ describe "Hybrid heat pump" do
 
         # we expect the gas share to decrease due to insulation and
         # the decrease in number of houses (and hence, a decrease in network gas demand)
-        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of -0.005555479429
+        expect(@scenario.turk_hhp_network_gas_input_share.increase).to be_within(1.0E-12).of -0.001044957129
         # then the ambient_heat and electricity share grow by this value, distributed in agreement with the COP
         # the small window of 1.0E-12 is there because of the COP calculation
-        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.001556406419
-        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of 0.00399907301
+        expect(@scenario.turk_hhp_electricity_input_share.increase).to be_within(1.0E-12).of 0.0002738631885
+        expect(@scenario.turk_hhp_ambient_heat_input_share.increase).to be_within(1.0E-12).of 0.0007710939404
       end
     end
   end

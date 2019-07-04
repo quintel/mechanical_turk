@@ -93,7 +93,7 @@ describe "Starting with a scenario where all household space heating is electric
 
     context "when industry coal chp increases" do
       it "should decrease all network total cost" do
-        @scenario.capacity_of_industry_chp_ultra_supercritical_coal = 167.0
+        @scenario.capacity_of_industry_chp_ultra_supercritical_coal = 1000.0
 
         expect(@scenario.network_calculation_total_costs_future).to decrease
       end
