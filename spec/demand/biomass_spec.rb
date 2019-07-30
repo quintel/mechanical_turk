@@ -1,33 +1,122 @@
-# Sliders ......
+# Sliders ...
 
 require 'spec_helper'
 
 describe "Biomass" do
 
-  context "Biomass general fever/merit order enabled" do
+  context "general fever/merit order enabled" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
         settings_enable_merit_order: 1,
-        natural_gas_total_share: 80.0, # increasing the greengas share
-        green_gas_total_share: 20.0 # increasing the greengas share
-        })
+        natural_gas_total_share: 50.0,
+        green_gas_total_share: 50.0
+      })
     end
 
     describe "Increasing the share of greengas in the gas network" do
       it "should result in an increase in the distribution of greengas" do
+        expect(@scenario.turk_distribution_greengas).to increase
+      end
 
-        # should result in an increase in the distribution of greengas
-        expect(@scenario.share_of_greengas_in_gas_network). to increase
+      it "should result in the total demand of the dry biomass resources to be equal to the distribution demand" do
+        # with an error margin of 1.0E-4
+        margin = 1.0E-4
 
-        # should result in the demand of the distribution nodes to be equal to the demand in all conversion nodes
-        dry_biomass_distribution = @scenario.turk_dry_biomass_distribution
-        dry_biomass_demand = @scenario.chp_heat_and_electricity_from_dry_biomass + @scenario.electricity_from_dry_biomass + @scenario.export_of_dry_biomass + @scenario.greengas_from_dry_biomass + @scenario.heat_from_dry_biomass + @scenario.hydrogen_from_dry_biomass + @scenario.wood_from_dry_biomass
+        @scenario.turk_distribution_dry_biomass.value.should be_within(margin * @scenario.turk_demand_dry_biomass.value).of(@scenario.turk_demand_dry_biomass.value)
+      end
 
-        expect(dry_biomass_distribution).to be dry_biomass_demand
+      it "should result in the total demand of the wet biomass resources to be equal to the distribution demand" do
+        # with an error margin of 1.0E-4
+        margin = 1.0E-4
 
-        
+        @scenario.turk_distribution_wet_biomass.value.should be_within(margin * @scenario.turk_demand_wet_biomass.value).of(@scenario.turk_demand_wet_biomass.value)
+      end
+
+      it "should result in the total demand of the oily biomass resources to be equal to the distribution demand" do
+        # with an error margin of 1.0E-4
+        margin = 1.0E-12
+
+        @scenario.turk_distribution_oily_biomass.value.should be_within(margin * @scenario.turk_demand_oily_biomass.value).of(@scenario.turk_demand_oily_biomass.value)
+      end
+
+      it "should result in the total demand of the biogenic waste resources to be equal to the distribution demand" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_distribution_biogenic_waste.value.should be_within(margin * @scenario.turk_demand_biogenic_waste.value).of(@scenario.turk_demand_biogenic_waste.value)
+      end
+
+      it "should result in all input and output flows of the biomass sankey nodes to be equal" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_total_input_in_biomass_sankey.value.should be_within(margin * @scenario.turk_total_output_in_biomass_sankey.value).of(@scenario.turk_total_output_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the biogenic_waste node in the biomass sankey" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_biogenic_waste_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_biogenic_waste_in_biomass_sankey.value).of(@scenario.turk_output_of_biogenic_waste_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the wet node in the biomass sankey" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_wet_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_wet_in_biomass_sankey.value).of(@scenario.turk_output_of_wet_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the oily node in the biomass sankey" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_oily_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_oily_in_biomass_sankey.value).of(@scenario.turk_output_of_oily_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the dry node in the biomass sankey" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_dry_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_dry_in_biomass_sankey.value).of(@scenario.turk_output_of_dry_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the biogas node in the biomass sankey" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_biogas_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_biogas_in_biomass_sankey.value).of(@scenario.turk_output_of_biogas_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the greengas node in the biomass sankey" do
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_greengas_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_greengas_in_biomass_sankey.value).of(@scenario.turk_output_of_greengas_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the biofuels node in the biomass sankey" do
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_biofuels_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_biofuels_in_biomass_sankey.value).of(@scenario.turk_output_of_biofuels_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the electricity_prod node in the biomass sankey" do
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_electricity_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_electricity_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_electricity_prod_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the central_heat_prod node in the biomass sankey" do
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_central_heat_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value)
+      end
+
+      it "should result in equal input and output flows of the hydrogen_prod node in the biomass sankey" do
+        margin = 1.0E-12
+
+        @scenario.turk_input_of_hydrogen_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_hydrogen_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_hydrogen_prod_in_biomass_sankey.value)
       end
     end
   end
-
 end
