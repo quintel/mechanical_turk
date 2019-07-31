@@ -19,15 +19,15 @@ describe "Biomass" do
       end
 
       it "should result in the total demand of the dry biomass resources to be equal to the distribution demand" do
-        # with an error margin of 1.0E-4
-        margin = 1.0E-4
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
 
         @scenario.turk_distribution_dry_biomass.value.should be_within(margin * @scenario.turk_demand_dry_biomass.value).of(@scenario.turk_demand_dry_biomass.value)
       end
 
       it "should result in the total demand of the wet biomass resources to be equal to the distribution demand" do
-        # with an error margin of 1.0E-4
-        margin = 1.0E-4
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
 
         @scenario.turk_distribution_wet_biomass.value.should be_within(margin * @scenario.turk_demand_wet_biomass.value).of(@scenario.turk_demand_wet_biomass.value)
       end
