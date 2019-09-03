@@ -21,17 +21,17 @@ describe "Testing costs" do
     it "total cost of agriculture_burner_network_gas should be within 1.0% of 264152.4336" do
         @scenario.total_cost_of_agriculture_burner_network_gas.value.should be_within(2641.524336).of(264152.4336)
     end
-    it "total cost of agriculture_burner_wood_pellets should be within 1.0% of 510287.1814" do
-        @scenario.total_cost_of_agriculture_burner_wood_pellets.value.should be_within(5102.871814).of(510287.1814)
+    it "total cost of agriculture_burner_wood_pellets should be within 1.0% of 553190.5823" do
+        @scenario.total_cost_of_agriculture_burner_wood_pellets.value.should be_within(5531.905823).of(553190.5823)
     end
-    it "total cost of agriculture_chp_engine_biogas should be within 1.0% of 1691150.702" do
-        @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(16911.50702).of(1691150.702)
+    it "total cost of agriculture_chp_engine_biogas should be within 1.0% of 1625014.285" do
+        @scenario.total_cost_of_agriculture_chp_engine_biogas.value.should be_within(16250.142854857142).of(1625014.2854857142)
     end
     it "total cost of agriculture_chp_engine_network_gas should be within 1.0% of 448410.0494" do
         @scenario.total_cost_of_agriculture_chp_engine_network_gas.value.should be_within(4484.100494).of(448410.0494)
     end
-    it "total cost of agriculture_chp_supercritical_wood_pellets should be within 1.0% of 2584874.904" do
-        @scenario.total_cost_of_agriculture_chp_supercritical_wood_pellets.value.should be_within(25848.749040000002).of(2584874.904)
+    it "total cost of agriculture_chp_supercritical_wood_pellets should be within 1.0% of 2719019.982" do
+        @scenario.total_cost_of_agriculture_chp_supercritical_wood_pellets.value.should be_within(27190.19982).of(2719019.982)
     end
     it "total cost of agriculture_geothermal should be within 1.0% of 793333.3333" do
         @scenario.total_cost_of_agriculture_geothermal.value.should be_within(7933.3333330000005).of(793333.3333)
@@ -42,8 +42,8 @@ describe "Testing costs" do
     it "total cost of buildings_cooling_airconditioning_electricity should be within 1.0% of 199.0" do
         @scenario.total_cost_of_buildings_cooling_airconditioning_electricity.value.should be_within(1.99).of(199.0)
     end
-    it "total cost of buildings_chp_engine_biogas should be within 1.0% of 1691150.702" do
-        @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(16911.50702).of(1691150.702)
+    it "total cost of buildings_chp_engine_biogas should be within 1.0% of 1625014.285" do
+        @scenario.total_cost_of_buildings_chp_engine_biogas.value.should be_within(16250.142854857142).of(1625014.2854857142)
     end
     it "total cost of buildings_collective_burner_hydrogen should be within 1.0% of 1139220.897" do
         @scenario.total_cost_of_buildings_collective_burner_hydrogen.value.should be_within(11392.208970000002).of(1139220.897)
@@ -54,8 +54,8 @@ describe "Testing costs" do
     it "total cost of buildings_collective_chp_network_gas should be within 1.0% of 580607.882" do
         @scenario.total_cost_of_buildings_collective_chp_network_gas.value.should be_within(5806.07882).of(580607.882)
     end
-    it "total cost of buildings_collective_chp_wood_pellets should be within 1.0% of 2692574.904" do
-        @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(26925.749040000002).of(2692574.904)
+    it "total cost of buildings_collective_chp_wood_pellets should be within 1.0% of 2826719.982" do
+        @scenario.total_cost_of_buildings_collective_chp_wood_pellets.value.should be_within(28267.19982).of(2826719.982)
     end
     it "total cost of buildings_collective_geothermal should be within 1.0% of 287417.4843" do
         @scenario.total_cost_of_buildings_collective_geothermal.value.should be_within(2874.1748430000002).of(287417.4843)
@@ -102,8 +102,8 @@ describe "Testing costs" do
     it "total cost of buildings_space_heater_solar_thermal should be within 1.0% of 11943.75" do
         @scenario.total_cost_of_buildings_space_heater_solar_thermal.value.should be_within(119.4375).of(11943.75)
     end
-    it "total cost of buildings_space_heater_wood_pellets should be within 1.0% of 9541.083287" do
-        @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(95.41083287).of(9541.083287)
+    it "total cost of buildings_space_heater_wood_pellets should be within 1.0% of 10047.1771" do
+        @scenario.total_cost_of_buildings_space_heater_wood_pellets.value.should be_within(100.471771).of(10047.1771)
     end
     it "total cost of bunkers_p2l_burner_network_gas should be within 1.0% of 5339511.866" do
         @scenario.total_cost_of_bunkers_p2l_burner_network_gas.value.should be_within(53395.11866000001).of(5339511.866)
@@ -144,8 +144,8 @@ describe "Testing costs" do
     it "total cost of energy_heater_for_heat_network_waste_mix should be within 1.0% of 40000.0" do
         @scenario.total_cost_of_energy_heater_for_heat_network_waste_mix.value.should be_within(400.0).of(40000.0)
     end
-    it "total cost of energy_heater_for_heat_network_wood_pellets should be within 1.0% of 9716387.629" do
-        @scenario.total_cost_of_energy_heater_for_heat_network_wood_pellets.value.should be_within(97163.87629000001).of(9716387.629)
+    it "total cost of energy_heater_for_heat_network_wood_pellets should be within 1.0% of 10520377.013" do
+        @scenario.total_cost_of_energy_heater_for_heat_network_wood_pellets.value.should be_within(105203.7701308156).of(10520377.01308156)
     end
     it "total cost of energy_power_combined_cycle_ccs_coal should be within 1.0% of 178999174.0" do
         @scenario.total_cost_of_energy_power_combined_cycle_ccs_coal.value.should be_within(1789991.74).of(178999174.0)
@@ -252,14 +252,14 @@ describe "Testing costs" do
     it "total cost of households_collective_burner_network_gas should be within 1.0% of 409626.5337" do
         @scenario.total_cost_of_households_collective_burner_network_gas.value.should be_within(4096.265337000001).of(409626.5337)
     end
-    it "total cost of households_collective_chp_biogas should be within 1.0% of 1691150.702" do
-        @scenario.total_cost_of_households_collective_chp_biogas.value.should be_within(16911.50702).of(1691150.702)
+    it "total cost of households_collective_chp_biogas should be within 1.0% of 1625014.285" do
+        @scenario.total_cost_of_households_collective_chp_biogas.value.should be_within(16250.142854857142).of(1625014.2854857142)
     end
     it "total cost of households_collective_chp_network_gas should be within 1.0% of 580607.882" do
         @scenario.total_cost_of_households_collective_chp_network_gas.value.should be_within(5806.07882).of(580607.882)
     end
-    it "total cost of households_collective_chp_wood_pellets should be within 1.0% of 2692574.904" do
-        @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(26925.749040000002).of(2692574.904)
+    it "total cost of households_collective_chp_wood_pellets should be within 1.0% of 2826719.982" do
+        @scenario.total_cost_of_households_collective_chp_wood_pellets.value.should be_within(28267.19982).of(2826719.982)
     end
     it "total cost of households_collective_geothermal should be within 1.0% of 287417.4843" do
         @scenario.total_cost_of_households_collective_geothermal.value.should be_within(2874.1748430000002).of(287417.4843)
@@ -303,8 +303,8 @@ describe "Testing costs" do
     it "total cost of households_space_heater_network_gas should be within 1.0% of 427.2347177" do
         @scenario.total_cost_of_households_space_heater_network_gas.value.should be_within(4.272347176999999).of(427.2347177)
     end
-    it "total cost of households_space_heater_wood_pellets should be within 1.0% of 752.126982" do
-        @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(7.5212698200000005).of(752.126982)
+    it "total cost of households_space_heater_wood_pellets should be within 1.0% of 788.366" do
+        @scenario.total_cost_of_households_space_heater_wood_pellets.value.should be_within(7.883661285410694).of(788.3661285410694)
     end
     it "total cost of households_water_heater_network_gas should be within 1.0% of 118.8036223" do
         @scenario.total_cost_of_households_water_heater_network_gas.value.should be_within(1.1880362230000001).of(118.8036223)
@@ -330,8 +330,8 @@ describe "Testing costs" do
     it "total cost of industry_chemicals_fertilizers_burner_network_gas should be within 1.0% of 5339511.866" do
         @scenario.total_cost_of_industry_chemicals_fertilizers_burner_network_gas.value.should be_within(53395.11866000001).of(5339511.866)
     end
-    it "total cost of industry_chemicals_fertilizers_burner_wood_pellets should be within 1.0% of 9825516.777" do
-        @scenario.total_cost_of_industry_chemicals_fertilizers_burner_wood_pellets.value.should be_within(98255.16777000001).of(9825516.777)
+    it "total cost of industry_chemicals_fertilizers_burner_wood_pellets should be within 1.0% of 10641566.0016" do
+        @scenario.total_cost_of_industry_chemicals_fertilizers_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
     it "total cost of industry_chemicals_other_burner_coal should be within 1.0% of 5197731.961" do
         @scenario.total_cost_of_industry_chemicals_other_burner_coal.value.should be_within(51977.319610000006).of(5197731.961)
@@ -345,8 +345,8 @@ describe "Testing costs" do
     it "total cost of industry_chemicals_other_burner_network_gas should be within 1.0% of 5339511.866" do
         @scenario.total_cost_of_industry_chemicals_other_burner_network_gas.value.should be_within(53395.11866000001).of(5339511.866)
     end
-    it "total cost of industry_chemicals_other_burner_wood_pellets should be within 1.0% of 9825516.777" do
-        @scenario.total_cost_of_industry_chemicals_other_burner_wood_pellets.value.should be_within(98255.16777000001).of(9825516.777)
+    it "total cost of industry_chemicals_other_burner_wood_pellets should be within 1.0% of 10641566.0016" do
+        @scenario.total_cost_of_industry_chemicals_other_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
     it "total cost of industry_chemicals_other_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
         @scenario.total_cost_of_industry_chemicals_other_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
@@ -372,8 +372,8 @@ describe "Testing costs" do
     it "total cost of industry_chemicals_refineries_burner_network_gas should be within 1.0% of 5339511.866" do
         @scenario.total_cost_of_industry_chemicals_refineries_burner_network_gas.value.should be_within(53395.11866000001).of(5339511.866)
     end
-    it "total cost of industry_chemicals_refineries_burner_wood_pellets should be within 1.0% of 9825516.777" do
-        @scenario.total_cost_of_industry_chemicals_refineries_burner_wood_pellets.value.should be_within(98255.16777000001).of(9825516.777)
+    it "total cost of industry_chemicals_refineries_burner_wood_pellets should be within 1.0% of 10641566.0016" do
+        @scenario.total_cost_of_industry_chemicals_refineries_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
     it "total cost of industry_chemicals_refineries_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
         @scenario.total_cost_of_industry_chemicals_refineries_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
@@ -402,8 +402,8 @@ describe "Testing costs" do
     it "total cost of industry_other_food_burner_network_gas should be within 1.0% of 5339511.866" do
         @scenario.total_cost_of_industry_other_food_burner_network_gas.value.should be_within(53395.11866000001).of(5339511.866)
     end
-    it "total cost of industry_other_food_burner_wood_pellets should be within 1.0% of 9825516.777" do
-        @scenario.total_cost_of_industry_other_food_burner_wood_pellets.value.should be_within(98255.16777000001).of(9825516.777)
+    it "total cost of industry_other_food_burner_wood_pellets should be within 1.0% of 10641566.0016" do
+        @scenario.total_cost_of_industry_other_food_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
     it "total cost of industry_other_food_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
         @scenario.total_cost_of_industry_other_food_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
@@ -426,8 +426,8 @@ describe "Testing costs" do
     it "total cost of industry_other_paper_burner_network_gas should be within 1.0% of 5339511.866" do
         @scenario.total_cost_of_industry_other_paper_burner_network_gas.value.should be_within(53395.11866000001).of(5339511.866)
     end
-    it "total cost of industry_other_paper_burner_wood_pellets should be within 1.0% of 9825516.777" do
-        @scenario.total_cost_of_industry_other_paper_burner_wood_pellets.value.should be_within(98255.16777000001).of(9825516.777)
+    it "total cost of industry_other_paper_burner_wood_pellets should be within 1.0% of 10641566.0016" do
+        @scenario.total_cost_of_industry_other_paper_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
     it "total cost of industry_other_paper_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
         @scenario.total_cost_of_industry_other_paper_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
@@ -450,8 +450,8 @@ describe "Testing costs" do
     it "total cost of other_burner_network_gas should be within 1.0% of 264152.4336" do
         @scenario.total_cost_of_other_burner_network_gas.value.should be_within(2641.524336).of(264152.4336)
     end
-    it "total cost of other_burner_wood_pellets should be within 1.0% of 510287.1814" do
-        @scenario.total_cost_of_other_burner_wood_pellets.value.should be_within(5102.871814).of(510287.1814)
+    it "total cost of other_burner_wood_pellets should be within 1.0% of 553190.582" do
+        @scenario.total_cost_of_other_burner_wood_pellets.value.should be_within(5531.9058231897).of(553190.58231897)
     end
 
   end
