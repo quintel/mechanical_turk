@@ -13,7 +13,7 @@ describe "Testing climate slider" do
       demand_before_update = @scenario.households_apartments_useful_demand_for_space_heating.future
       #pp demand_before_update
 
-      @scenario.households_climate_influence = 5.0 # degrees centigrade
+      @scenario.flexibility_outdoor_temperature = 5.0 # degrees centigrade
 
       demand_after_update = @scenario.households_apartments_useful_demand_for_space_heating.future
       #pp demand_after_update
@@ -27,7 +27,7 @@ describe "Testing climate slider" do
       demand_before_update = @scenario.households_apartments_useful_demand_for_space_heating.future
       #pp demand_before_update
 
-      @scenario.households_climate_influence = -5.0 # degrees centigrade
+      @scenario.flexibility_outdoor_temperature = -5.0 # degrees centigrade
 
       demand_after_update = @scenario.households_apartments_useful_demand_for_space_heating.future
       #pp demand_after_update
@@ -41,7 +41,7 @@ describe "Testing climate slider" do
       demand_before_update = @scenario.households_useful_demand_for_cooling.future
       #pp demand_before_update
 
-      @scenario.households_climate_influence = 5.0 # degrees centigrade
+      @scenario.flexibility_outdoor_temperature = 5.0 # degrees centigrade
 
       demand_after_update = @scenario.households_useful_demand_for_cooling.future
       #pp demand_after_update
@@ -55,7 +55,7 @@ describe "Testing climate slider" do
       demand_before_update =  @scenario.households_useful_demand_for_cooling.future
       #pp demand_before_update
 
-      @scenario.households_climate_influence = -5.0 # degrees centigrade
+      @scenario.flexibility_outdoor_temperature = -5.0 # degrees centigrade
 
       demand_after_update = @scenario.households_useful_demand_for_cooling.future
       #pp demand_after_update
