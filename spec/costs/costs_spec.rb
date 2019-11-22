@@ -348,8 +348,11 @@ describe "Testing costs" do
     it "total cost of industry_chemicals_other_burner_wood_pellets should be within 1.0% of 10641566.0016" do
         @scenario.total_cost_of_industry_chemicals_other_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
-    it "total cost of industry_chemicals_other_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
-        @scenario.total_cost_of_industry_chemicals_other_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
+    it "total cost of industry_chemicals_other_flexibility_p2h_network_gas_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_chemicals_other_flexibility_p2h_network_gas_electricity.value.should be_within(4000.0).of(400000.0)
+    end
+    it "total cost of industry_chemicals_other_flexibility_p2h_hydrogen_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_chemicals_other_flexibility_p2h_hydrogen_electricity.value.should be_within(4000.0).of(400000.0)
     end
     it "total cost of industry_chemicals_other_heater_electricity should be within 1.0% of 454750.0" do
         @scenario.total_cost_of_industry_chemicals_other_heater_electricity.value.should be_within(4547.5).of(454750.0)
@@ -375,8 +378,11 @@ describe "Testing costs" do
     it "total cost of industry_chemicals_refineries_burner_wood_pellets should be within 1.0% of 10641566.0016" do
         @scenario.total_cost_of_industry_chemicals_refineries_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
-    it "total cost of industry_chemicals_refineries_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
-        @scenario.total_cost_of_industry_chemicals_refineries_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
+    it "total cost of industry_chemicals_refineries_flexibility_p2h_network_gas_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_chemicals_refineries_flexibility_p2h_network_gas_electricity.value.should be_within(4000.0).of(400000.0)
+    end
+    it "total cost of industry_chemicals_refineries_flexibility_p2h_hydrogen_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_chemicals_refineries_flexibility_p2h_hydrogen_electricity.value.should be_within(4000.0).of(400000.0)
     end
     it "total cost of industry_chp_combined_cycle_gas_power_fuelmix should be within 1.0% of 19071729.92" do
         @scenario.total_cost_of_industry_chp_combined_cycle_gas_power_fuelmix.value.should be_within(190717.2992).of(19071729.92)
@@ -405,8 +411,11 @@ describe "Testing costs" do
     it "total cost of industry_other_food_burner_wood_pellets should be within 1.0% of 10641566.0016" do
         @scenario.total_cost_of_industry_other_food_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
-    it "total cost of industry_other_food_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
-        @scenario.total_cost_of_industry_other_food_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
+    it "total cost of industry_other_food_flexibility_p2h_network_gas_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_other_food_flexibility_p2h_network_gas_electricity.value.should be_within(4000.0).of(400000.0)
+    end
+    it "total cost of industry_other_food_flexibility_p2h_hydrogen_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_other_food_flexibility_p2h_hydrogen_electricity.value.should be_within(4000.0).of(400000.0)
     end
     it "total cost of industry_other_food_heater_electricity should be within 1.0% of 454750.0" do
         @scenario.total_cost_of_industry_other_food_heater_electricity.value.should be_within(4547.5).of(454750.0)
@@ -429,8 +438,11 @@ describe "Testing costs" do
     it "total cost of industry_other_paper_burner_wood_pellets should be within 1.0% of 10641566.0016" do
         @scenario.total_cost_of_industry_other_paper_burner_wood_pellets.value.should be_within(106415.66001611115).of(10641566.001611115)
     end
-    it "total cost of industry_other_paper_flexibility_p2h_electricity should be within 1.0% of 400000.0" do
-        @scenario.total_cost_of_industry_other_paper_flexibility_p2h_electricity.value.should be_within(4000.0).of(400000.0)
+    it "total cost of industry_other_paper_flexibility_p2h_network_gas_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_other_paper_flexibility_p2h_network_gas_electricity.value.should be_within(4000.0).of(400000.0)
+    end
+    it "total cost of industry_other_paper_flexibility_p2h_hydrogen_electricity should be within 1.0% of 400000.0" do
+        @scenario.total_cost_of_industry_other_paper_flexibility_p2h_hydrogen_electricity.value.should be_within(4000.0).of(400000.0)
     end
     it "total cost of industry_other_paper_heater_electricity should be within 1.0% of 454750.0" do
         @scenario.total_cost_of_industry_other_paper_heater_electricity.value.should be_within(4547.5).of(454750.0)
