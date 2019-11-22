@@ -173,8 +173,7 @@ describe "Hybrid heat pump" do
 
     describe "Changing to space heating profile 1987 and adjusting outdoor termperature accordingly" do
       it "should result in more gas use by HHP's" do
-       @scenario.settings_heat_curve_set = 1.0
-       @scenario.households_climate_influence = -2.0
+       @scenario.settings_weather_curve_set = 1987
 
        expect(@scenario.turk_hhp_network_gas_input_share).to increase
       end
