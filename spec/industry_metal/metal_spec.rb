@@ -156,7 +156,7 @@ describe "Standard scenario: Metal production" do
        expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
      end
 
-     it "Should decrease the load of the backup burner when putting the hisarna to 1%" do
+     xit "Should decrease the load of the backup burner when putting the hisarna to 1%" do
 
        # Put hisarna to 1%
        @scenario.industry_steel_blastfurnace_current_consumption_useable_heat_share = 0 #%
