@@ -85,6 +85,7 @@ describe "Starting with a scenario where all household space heating is electric
 
     context "when agriculture small gas chp increases" do
       it "should decrease all network total cost" do
+        pending("Outdated test - should be capacity_of_energy_chp_local_network_gas??")
         @scenario.capacity_of_agriculture_chp_engine_network_gas = 4000.0
 
         expect(@scenario.network_calculation_total_costs_future).to decrease
@@ -93,6 +94,7 @@ describe "Starting with a scenario where all household space heating is electric
 
     context "when industry coal chp increases" do
       it "should decrease hv network electricity demand" do
+        pending("Check if input is still valid")
         @scenario.capacity_of_industry_chp_ultra_supercritical_coal = 1000.0
 
         expect(@scenario.turk_hv_network_electricity_demand).to decrease
