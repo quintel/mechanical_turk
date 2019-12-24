@@ -134,7 +134,7 @@ context "P2H for industry" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
-      capacity_of_energy_power_wind_turbine_inland: 30000 # excess electricity
+      capacity_of_energy_power_wind_turbine_inland: 50000 # excess electricity
     })
   end
 
@@ -195,7 +195,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the refineries sector" do
 
      it "should decrease CO2 emissions" do
-       pending("Large increase instead of decrease - something to do with flexorder?")
+       # pending("Large increase instead of decrease - something to do with flexorder?")
        @scenario.capacity_of_industry_chemicals_refineries_flexibility_p2h_electricity = 2500.0
 
        expect(@scenario.co2).to decrease
@@ -232,7 +232,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the food sector" do
 
      it "should decrease CO2 emissions" do
-       pending("Large increase instead of decrease - something to do with flexorder?")
+       # pending("Large increase instead of decrease - something to do with flexorder?")
        @scenario.capacity_of_industry_other_food_flexibility_p2h_electricity = 1000.0
 
        expect(@scenario.co2).to decrease
@@ -271,7 +271,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
 
      it "should decrease CO2 emissions" do
-      pending("Large increase instead of decrease - something to do with flexorder?")
+      # pending("Large increase instead of decrease - something to do with flexorder?")
        @scenario.capacity_of_industry_other_paper_flexibility_p2h_electricity = 400.0
 
        expect(@scenario.co2).to decrease
@@ -344,7 +344,7 @@ context "P2H for industry" do
    describe "Electricity should be conserved" do
 
      it "between excess production and storage" do
-      pending("Fixed on etsource/meachanical_turk_queries: part of query missing")
+      pending("Fixed on etsource/mechanical_turk_queries: part of query missing")
       expect(@scenario.turk_excess_electricity_storage_sum.value).to be_within(0.000001).of(@scenario.turk_excess_electricity_from_production.value)
      end
 
