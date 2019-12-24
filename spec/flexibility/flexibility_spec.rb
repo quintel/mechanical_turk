@@ -130,51 +130,6 @@ describe "Flexibility" do
 
   end
 
-  context "P2H" do
-  before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      settings_enable_merit_order: 1,
-      capacity_of_energy_power_wind_turbine_inland: 30000 # excess electricity
-    })
-  end
-
-   describe "In a scenario increasing the number of P2H units" do
-
-     it "should decrease the electricity curtailed" do
-      pending("Something to do with households_flexibility_p2h_electricity_market_penetration?")
-       @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
-
-       expect(@scenario.electricity_curtailed).to decrease
-     end
-
-   end
-
-    describe "In a scenario increasing the number of P2H units" do
-
-     it "should decrease the electricity exported" do
-      pending("Something to do with households_flexibility_p2h_electricity_market_penetration?")
-       @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
-
-       expect(@scenario.electricity_exported).to decrease
-     end
-
-   end
-
-    describe "In a scenario increasing the number of P2H units" do
-
-     it "should decrease CO2 emissions" do
-      pending("Something to do with households_flexibility_p2h_electricity_market_penetration?")
-       @scenario.households_flexibility_p2h_electricity_market_penetration = 20.0
-
-       expect(@scenario.co2).to decrease
-     end
-
-    end
-
-  end
-
-
-
 context "P2H for industry" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
