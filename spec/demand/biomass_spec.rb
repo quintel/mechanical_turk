@@ -40,7 +40,7 @@ describe "Biomass" do
       end
 
       it "should result in all input and output flows of the biomass sankey nodes to be equal" do
-        pending("Wet biomass query: wet_biomass_to_losses_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
+        pending("Tiny error")
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -55,7 +55,6 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the wet node in the biomass sankey" do
-        pending("Wet biomass query: wet_biomass_to_losses_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -77,7 +76,6 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the biogas node in the biomass sankey" do
-        pending("Biogas query: biogas_to_greengas_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -85,7 +83,6 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the greengas node in the biomass sankey" do
-        pending("Biogas query: biogas_to_greengas_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
         margin = 1.0E-12
 
         @scenario.turk_input_of_greengas_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_greengas_in_biomass_sankey.value).of(@scenario.turk_output_of_greengas_in_biomass_sankey.value)
@@ -162,7 +159,7 @@ describe "Biomass" do
       end
 
       it "should result in all input and output flows of the biomass sankey nodes to be equal" do
-        pending("Wet biomass query: wet_biomass_to_losses_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
+        pending("Tiny error")
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -177,7 +174,6 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the wet node in the biomass sankey" do
-        pending("Wet biomass query: wet_biomass_to_losses_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -199,7 +195,6 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the biogas node in the biomass sankey" do
-        pending("Biogas query: biogas_to_greengas_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -207,7 +202,6 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the greengas node in the biomass sankey" do
-        pending("Biogas query: biogas_to_greengas_in_biomass_sankey missing in output_elements/output_series_biomass_sankey")
         margin = 1.0E-12
 
         @scenario.turk_input_of_greengas_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_greengas_in_biomass_sankey.value).of(@scenario.turk_output_of_greengas_in_biomass_sankey.value)
