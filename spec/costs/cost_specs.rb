@@ -20,12 +20,10 @@ describe "Testing costs" do
 
 
     it "total cost of transport_car_using_electricity should be within 1.0% of 0.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query bestaat niet")
         @scenario.total_cost_of_transport_car_using_electricity.value.should be_within(0.0).of(0.0)
     end
 
     it "total cost of transport_car_using_hydrogen should be within 1.0% of 0.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query bestaat niet")
         @scenario.total_cost_of_transport_car_using_hydrogen.value.should be_within(0.0).of(0.0)
     end
     it "total cost of industry_other_food_burner_wood_pellets should be within 1.0% of 10039566.001611115" do
@@ -67,9 +65,7 @@ describe "Testing costs" do
     it "total cost of buildings_cooling_collective_heatpump_water_water_ts_electricity should be within 1.0% of 1195212.600691887" do
         @scenario.total_cost_of_buildings_cooling_collective_heatpump_water_water_ts_electricity.value.should be_within(11952.12600691887).of(1195212.600691887)
     end
-    #deze hoort stuk
     it "total cost of energy_heat_solar_thermal should be within 1.0% of 1260084.83128" do
-        pending("Fixed in etsource/mechanical_turk_queries : query does not exist")
         @scenario.total_cost_of_energy_heat_solar_thermal.value.should be_within(12600.8483128).of(1260084.83128)
     end
     it "total cost of energy_power_wind_turbine_offshore should be within 1.0% of 1265969.135600175" do
@@ -86,7 +82,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_burner_wood_pellets should be within 1.0% of 1373038.983673347" do
-        pending("Fixed in etsource/mechanical_turk_queries : query does not exist")
         @scenario.total_cost_of_energy_heat_burner_wood_pellets.value.should be_within(13730.38983673347).of(1373038.983673347)
     end
     it "total cost of energy_chp_supercritical_waste_mix should be within 1.0% of 14167352.622264752" do
@@ -130,12 +125,10 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_burner_coal should be within 1.0% of 1839111.111111114" do
-        pending("Fixed in etsource/mechanical_turk_queries : query does not exist")
         @scenario.total_cost_of_energy_heat_burner_coal.value.should be_within(18391.111111111142).of(1839111.111111114)
     end
 
     it "total cost of energy_chp_local_wood_pellets should be within 1.0% of 1847070.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : query does not exist")
         @scenario.total_cost_of_energy_chp_local_wood_pellets.value.should be_within(18470.7).of(1847070.0)
     end
     it "total cost of energy_power_hydro_river should be within 1.0% of 1872000.0" do
@@ -179,7 +172,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_chp_local_engine_biogas should be within 1.0% of 2334130.2321116286" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_chp_local_engine_biogas.value.should be_within(23341.302321116287).of(2334130.2321116286)
     end
     it "total cost of energy_chp_ultra_supercritical_coal should be within 1.0% of 237807148.47097385" do
@@ -199,7 +191,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_burner_hydrogen should be within 1.0% of 28120.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_heat_burner_hydrogen.value.should be_within(281.2).of(28120.0)
     end
     it "total cost of agriculture_geothermal should be within 1.0% of 2998986.6666666665" do
@@ -207,7 +198,6 @@ describe "Testing costs" do
     end
 
     it "total cost of industry_chp_wood_pellets should be within 1.0% of 3004875.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_industry_chp_wood_pellets.value.should be_within(30048.75).of(3004875.0)
     end
     it "total cost of industry_chp_turbine_gas_power_fuelmix should be within 1.0% of 3004875.0" do
@@ -218,7 +208,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_well_geothermal should be within 1.0% of 3034621.333333333" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_heat_well_geothermal.value.should be_within(30346.21333333333).of(3034621.333333333)
     end
     it "total cost of agriculture_heatpump_water_water_ts_electricity should be within 1.0% of 305215.75092497125" do
@@ -271,7 +260,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_backup_burner_network_gas should be within 1.0% of 36200.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query doe snot exist")
         @scenario.total_cost_of_energy_heat_backup_burner_network_gas.value.should be_within(362.0).of(36200.0)
     end
     it "total cost of industry_chemicals_other_heater_electricity should be within 1.0% of 364750.0" do
@@ -312,7 +300,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_burner_network_gas should be within 1.0% of 408142.65007717087" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_heat_burner_network_gas.value.should be_within(4081.4265007717086).of(408142.65007717087)
     end
     it "total cost of households_space_heater_network_gas should be within 1.0% of 414.01520895019974" do
@@ -347,12 +334,10 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_heatpump_water_water_electricity should be within 1.0% of 48333.333333333336" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_heat_heatpump_water_water_electricity.value.should be_within(483.33333333333337).of(48333.333333333336)
     end
 
     it "total cost of industry_heat_burner_coal should be within 1.0% of 4904358.48639947" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_industry_heat_burner_coal.value.should be_within(49043.5848639947).of(4904358.48639947)
     end
     it "total cost of bunkers_p2l_burner_network_gas should be within 1.0% of 5156470.879087016" do
@@ -381,12 +366,10 @@ describe "Testing costs" do
     end
 
     it "total cost of industry_heat_backup_burner_network_gas should be within 1.0% of 5156470.879087016" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_industry_heat_backup_burner_network_gas.value.should be_within(51564.70879087016).of(5156470.879087016)
     end
 
     it "total cost of energy_power_combined_cycle_hydrogen should be within 1.0% of 51783891.66666667" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_power_combined_cycle_hydrogen.value.should be_within(517838.91666666674).of(51783891.66666667)
     end
     it "total cost of industry_chp_engine_gas_power_fuelmix should be within 1.0% of 52000.0" do
@@ -412,7 +395,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_burner_crude_oil should be within 1.0% of 620000.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_heat_burner_crude_oil.value.should be_within(6200.0).of(620000.0)
     end
     it "total cost of buildings_space_heater_crude_oil should be within 1.0% of 6252.546813425862" do
@@ -426,7 +408,6 @@ describe "Testing costs" do
     end
 
     it "total cost of energy_heat_burner_waste_mix should be within 1.0% of 7214921.4" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_heat_burner_waste_mix.value.should be_within(72149.214).of(7214921.4)
     end
     it "total cost of industry_chemicals_other_steam_recompression_electricity should be within 1.0% of 722626.6666666667" do
@@ -482,12 +463,10 @@ describe "Testing costs" do
     end
 
     it "total cost of industry_heat_burner_crude_oil should be within 1.0% of 8425822.411524922" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_industry_heat_burner_crude_oil.value.should be_within(84258.22411524922).of(8425822.411524922)
     end
 
     it "total cost of energy_chp_local_engine_network_gas should be within 1.0% of 85200.0" do
-         pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_energy_chp_local_engine_network_gas.value.should be_within(852.0).of(85200.0)
     end
     it "total cost of energy_power_mv_transport_network_electricity should be within 1.0% of 86884.46792" do
@@ -495,12 +474,10 @@ describe "Testing costs" do
     end
 
     it "total cost of industry_heat_well_geothermal should be within 1.0% of 8920760.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_industry_heat_well_geothermal.value.should be_within(89207.6).of(8920760.0)
     end
 
     it "total cost of industry_heat_burner_lignite should be within 1.0% of 91225.0" do
-        pending("Fixed in etsource/mechanical_turk_queries : Query does not exist")
         @scenario.total_cost_of_industry_heat_burner_lignite.value.should be_within(912.25).of(91225.0)
     end
     it "total cost of households_space_heater_heatpump_air_water_electricity should be within 1.0% of 923.8906666666667" do
