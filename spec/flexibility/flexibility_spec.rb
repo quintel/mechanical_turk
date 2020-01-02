@@ -134,7 +134,7 @@ context "P2H for industry" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
-      capacity_of_energy_power_wind_turbine_inland: 50000 # excess electricity
+      capacity_of_energy_power_wind_turbine_inland: 30000 # excess electricity
     })
   end
 
@@ -159,6 +159,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the chemical sector" do
 
      it "should decrease CO2 emissions" do
+       pending("ETSource #2172")
        @scenario.capacity_of_industry_chemicals_other_flexibility_p2h_electricity = 2500.0
 
        expect(@scenario.co2).to decrease
@@ -195,6 +196,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the refineries sector" do
 
      it "should decrease CO2 emissions" do
+       pending("ETSource #2172")
        @scenario.capacity_of_industry_chemicals_refineries_flexibility_p2h_electricity = 2500.0
 
        expect(@scenario.co2).to decrease
@@ -231,6 +233,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the food sector" do
 
      it "should decrease CO2 emissions" do
+       pending("ETSource #2172")
        @scenario.capacity_of_industry_other_food_flexibility_p2h_electricity = 1000.0
 
        expect(@scenario.co2).to decrease
@@ -269,6 +272,7 @@ context "P2H for industry" do
     describe "In a scenario with excess electricity increasing the number of P2H units in the paper sector" do
 
      it "should decrease CO2 emissions" do
+       pending("ETSource #2172")
        @scenario.capacity_of_industry_other_paper_flexibility_p2h_electricity = 400.0
 
        expect(@scenario.co2).to decrease

@@ -39,10 +39,12 @@ describe "Biomass" do
         @scenario.turk_distribution_biogenic_waste.value.should be_within(margin * @scenario.turk_demand_biogenic_waste.value).of(@scenario.turk_demand_biogenic_waste.value)
       end
 
+
       it "should result in all input and output flows of the biomass sankey nodes to be equal" do
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
+        pending("imbalance between input and output flows (ETModel #2173))")
         @scenario.turk_total_input_in_biomass_sankey.value.should be_within(margin * @scenario.turk_total_output_in_biomass_sankey.value).of(@scenario.turk_total_output_in_biomass_sankey.value)
       end
 
@@ -102,6 +104,7 @@ describe "Biomass" do
       it "should result in equal input and output flows of the central_heat_prod node in the biomass sankey" do
         margin = 1.0E-12
 
+        pending("imbalance between input and output flows (ETModel #2173))")
         @scenario.turk_input_of_central_heat_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value)
       end
 
@@ -159,6 +162,7 @@ describe "Biomass" do
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
+        pending("imbalance between input and output flows (ETModel #2173))")
         @scenario.turk_total_input_in_biomass_sankey.value.should be_within(margin * @scenario.turk_total_output_in_biomass_sankey.value).of(@scenario.turk_total_output_in_biomass_sankey.value)
       end
 
@@ -218,6 +222,7 @@ describe "Biomass" do
       it "should result in equal input and output flows of the central_heat_prod node in the biomass sankey" do
         margin = 1.0E-12
 
+        pending("imbalance between input and output flows (ETSource #2173))")
         @scenario.turk_input_of_central_heat_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value)
       end
 
