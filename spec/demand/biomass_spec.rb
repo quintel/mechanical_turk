@@ -96,6 +96,7 @@ describe "Biomass" do
       end
 
       it "should result in equal input and output flows of the electricity_prod node in the biomass sankey" do
+        pending("imbalance between input and output flows (ETSource #2173))")
         margin = 1.0E-12
 
         @scenario.turk_input_of_electricity_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_electricity_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_electricity_prod_in_biomass_sankey.value)
@@ -104,7 +105,7 @@ describe "Biomass" do
       it "should result in equal input and output flows of the central_heat_prod node in the biomass sankey" do
         margin = 1.0E-12
 
-        pending("imbalance between input and output flows (ETModel #2173))")
+        pending("imbalance between input and output flows (ETSource #2173))")
         @scenario.turk_input_of_central_heat_prod_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value).of(@scenario.turk_output_of_central_heat_prod_in_biomass_sankey.value)
       end
 
