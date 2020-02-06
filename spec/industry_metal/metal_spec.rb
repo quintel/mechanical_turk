@@ -155,17 +155,6 @@ describe "Standard scenario: Metal production" do
        # The Cyclone furnace is more efficient, so we would expect the total energy to decrease
        expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
      end
-
-     it "Should decrease the load of the backup burner when putting the hisarna to 1%" do
-
-       # Put hisarna to 1%
-       @scenario.industry_steel_blastfurnace_current_consumption_useable_heat_share = 0 #%
-       @scenario.industry_steel_blastfurnace_bat_consumption_useable_heat_share = 99 #%
-       @scenario.industry_steel_hisarna_consumption_useable_heat_share = 1 #%
-
-       expect(@scenario.industry_heat_backup_burner_network_gas_in_industrial_heat_network_mekko).to decrease
-       expect(@scenario.industry_unused_local_production_steam_hot_water_in_industrial_heat_network_mekko).to_not change
-     end
   end
 
   describe "Bio Feedstock" do
