@@ -66,7 +66,7 @@ describe "Merit Order" do
     # Import is possible alone if total installed capacity of dispatchables is too small
     # This is not the case in the start scenarion though.
     it "merit_order enabled and an import price of 500 euro/MWh, which makes import the most expensive based on marginal costs, should bring import back to zero" do
-      @scenario.costs_imported_electricity = 500.0
+      @scenario.electricity_interconnector_1_marginal_costs = 500.0
       @scenario.settings_enable_merit_order = 1
 
       # Turning on merit order should reduce import to zero
@@ -87,7 +87,7 @@ describe "Merit Order" do
     before(:each) do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
         settings_enable_merit_order: 1,
-        costs_imported_electricity: 500.0
+        electricity_interconnector_1_marginal_costs: 500.0
       })
     end
 
