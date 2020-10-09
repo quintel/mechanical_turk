@@ -37,4 +37,52 @@ describe "CCUS" do
       end
     end
   end
+
+  context "Default scenario" do
+    before do
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+        settings_enable_merit_order: 0
+      })
+    end
+
+    describe "Capture rate in Energy Graph and Molecules Graph" do
+
+      it "should be equal for energy_power_ultra_supercritical_oxyfuel_ccs_lignite" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_energy_power_ultra_supercritical_oxyfuel_ccs_lignite_capture_share.value.should be_within(margin * @scenario.turk_energy_power_ultra_supercritical_oxyfuel_ccs_lignite_capture_rate.value).of(@scenario.turk_energy_power_ultra_supercritical_oxyfuel_ccs_lignite_capture_rate.value)
+      end
+      it "should be equal for energy_hydrogen_biomass_gasification_ccs" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_energy_hydrogen_biomass_gasification_ccs_capture_share.value.should be_within(margin * @scenario.turk_energy_hydrogen_biomass_gasification_ccs_capture_rate.value).of(@scenario.turk_energy_hydrogen_biomass_gasification_ccs_capture_rate.value)
+      end
+      it "should be equal for turk_energy_hydrogen_steam_methane_reformer_ccs" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_energy_hydrogen_steam_methane_reformer_ccs_capture_share.value.should be_within(margin * @scenario.turk_energy_hydrogen_steam_methane_reformer_ccs_capture_rate.value).of(@scenario.turk_energy_hydrogen_steam_methane_reformer_ccs_capture_rate.value)
+      end
+      it "should be equal for turk_energy_power_combined_cycle_ccs_coal" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_energy_power_combined_cycle_ccs_coal_capture_share.value.should be_within(margin * @scenario.turk_energy_power_combined_cycle_ccs_coal_capture_rate.value).of(@scenario.turk_energy_power_combined_cycle_ccs_coal_capture_rate.value)
+      end
+      it "should be equal for turk_energy_power_combined_cycle_ccs_network_gas" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_energy_power_combined_cycle_ccs_network_gas_capture_share.value.should be_within(margin * @scenario.turk_energy_power_combined_cycle_ccs_network_gas_capture_rate.value).of(@scenario.turk_energy_power_combined_cycle_ccs_network_gas_capture_rate.value)
+      end
+      it "should be equal for turk_energy_power_ultra_supercritical_ccs_coal" do
+        # with an error margin of 1.0E-12
+        margin = 1.0E-12
+
+        @scenario.turk_energy_power_ultra_supercritical_ccs_coal_capture_share.value.should be_within(margin * @scenario.turk_energy_power_ultra_supercritical_ccs_coal_capture_rate.value).of(@scenario.turk_energy_power_ultra_supercritical_ccs_coal_capture_rate.value)
+      end
+    end
+  end
 end
