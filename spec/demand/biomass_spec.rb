@@ -6,7 +6,7 @@ describe "Biomass" do
 
   context "Net voor de Toekomst - Nationaal" do
     before do
-      @scenario = Turk::Preset.new(1129988)
+      @scenario = Turk::Preset.new(1129990)
     end
 
     describe "The slider settings of NvdT Nationaal" do

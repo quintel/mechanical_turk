@@ -10,46 +10,6 @@ describe "Flexibility" do
     })
   end
 
-    context "P2L (kerosene)" do
-    before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-        settings_enable_merit_order: 1,
-        capacity_of_energy_power_wind_turbine_inland: 50000, # excess electricity
-        bunkers_allocated_percentage_aviation: 100 # take all co2 of international aviation into account
-      })
-    end
-
-     describe "In a scenario increasing the number of P2L (kerosene) units" do
-
-       it "should decrease the electricity curtailed" do
-         @scenario.capacity_of_flexibility_p2l_electricity = 100000
-
-         expect(@scenario.electricity_curtailed).to decrease
-       end
-
-     end
-
-      describe "In a scenario increasing the number of P2L (kerosene) units" do
-
-       it "should decrease the electricity exported" do
-         @scenario.capacity_of_flexibility_p2l_electricity = 100000
-
-         expect(@scenario.electricity_exported).to decrease
-       end
-
-     end
-
-     describe "In a scenario increasing the number of P2L (kerosene) units" do
-
-      it "should decrease CO2 emissions" do
-        @scenario.capacity_of_flexibility_p2l_electricity = 100000
-
-        expect(@scenario.co2).to decrease
-      end
-
-     end
-  end
-
   context "P2P (batteries)" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
