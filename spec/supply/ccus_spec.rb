@@ -23,7 +23,7 @@ describe "CCUS" do
       demand_of_molecules_direct_air_capture_co2: 6.0,
       demand_of_molecules_offshore_sequestration_co2: 10.0,
       output_of_energy_production_synthetic_kerosene: 24.0,
-      output_of_energy_production_synthetic_methanol: 150
+      output_of_energy_production_synthetic_methanol: 45.0
     })
     end
 
