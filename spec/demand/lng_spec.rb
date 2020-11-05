@@ -8,40 +8,6 @@ describe "LNG" do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
   end
 
-  context "Scenarios which start with 100% LNG regasification" do
-  before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      energy_regasification_lng_share: 100.0
-    })
-  end
-
-   describe "In a scenario in which all natural gas is regasified LNG" do
-
-     it "changing the pipeline natural gas FCE shouldn't change CO2 emissions" do
-       # Importing all LNG from Norway
-       @scenario.gas_from_norway_share = 100.0
-
-       # shouldn't change anything if no LNG is imported at all
-       expect(@scenario.co2.increase).to be == 0
-     end
-
-   end
-
-   describe "In a scenario in which all natural gas is regasified LNG" do
-
-     it "importing all LNG from Qatar should increase CO2 emissions" do
-       # Importing all LNG from Qatar (highest co2_per_mj attributes)
-       @scenario.lng_from_qatar_share = 100.0
-
-       # should increase CO2 emissions in transport and in total
-       expect(@scenario.co2).to increase
-       expect(@scenario.primary_co2_of_natural_gas_and_derivatives_in_transport).to increase
-     end
-
-   end
-
-  end
-
   context "Scenarios which start with 0% LNG regasification" do
   before do
     @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
@@ -51,18 +17,6 @@ describe "LNG" do
       transport_road_mixer_lng_bio_lng_share: 100.0
     })
   end
-
-   describe "In a scenario without an LNG energy flow" do
-
-     it "changing the LNG FCEs shouldn't change CO2 emissions" do
-       #if there is no LNG flow but there is bio LNG in transport, changing the FCEs
-       @scenario.lng_from_algeria_share = 100.0
-
-       # shouldn't change the co2 emissions (since bio LNG shouldn't be affected either)
-       expect(@scenario.co2.increase).to be == 0
-     end
-
-   end
 
    describe "In a scenario in which more LNG is regasified" do
 
