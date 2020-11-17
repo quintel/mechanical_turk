@@ -327,6 +327,7 @@ context "P2H for industry" do
    describe "In a scenario with deficits and 100"%" heat pump air increasing the space heating buffer size" do
 
      it "should decrease the deficits" do
+       pending("ETModel #3325")
       @scenario.households_flexibility_space_heating_buffer_size_heatpump_air_water_electricity = 250.0
 
       expect(@scenario.households_space_heater_heatpump_air_water_electricity_deficit).to decrease
