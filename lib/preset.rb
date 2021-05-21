@@ -12,7 +12,10 @@ module Turk
   # that ETE doesn't reset to the original preset values, Turk::Preset is
   # immutable and may not modify inputs.
   class Preset < Scenario
+    attr_reader :original_scenario_id
+
     def initialize(id)
+      @original_scenario_id = id
       super(scenario_id: id, reset: false)
     end
 
