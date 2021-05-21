@@ -16,11 +16,10 @@ module Turk
     attr_reader :presets
 
     PRESET_SCENARIOS = {
-      nvdt: [112_999_0, 112_999_0],
-      basic: [472_389, 428_904, 929_277],
-      high_hydrogen: [123_456, 243_568],
-      regional: [345_689, 801_831]
-    }.freeze
+      nvdt: [1329317, 1329318, 1329319, 1329320],
+      ii3050: [1370826, 1370828, 1370830, 1370832],
+      high_hydrogen: [123_456, 243_568]
+    }
 
     def initialize(presets)
       @presets = presets
