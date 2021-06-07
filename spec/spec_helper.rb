@@ -50,11 +50,11 @@ end
 RSpec::Matchers.define :softly_equal do |query_two|
   match do |query_one|
     margin = 1.0E-12 * query_two.value
-    query_two.value - margin <= query_one.value and query_one.value <= query_two.value + margin
+    (query_two.value - query_one.value).abs < margin.abs
   end
 
   failure_message_for_should do |query_one|
-    "expected #{format_float(query_one.value)} to be within #{1.0E-12 * query_two.value} of \
+    "expected #{format_float(query_one.value)} to be within #{(1.0E-12 * query_two.value).abs} of \
 #{format_float(query_two.value)} (difference of #{format_float((query_one.value - query_two.value).abs)})"
   end
 end
@@ -63,12 +63,12 @@ RSpec::Matchers.define :sum_to_softly_equal do |query_two|
   match do |queries|
     actual = queries.inject(0) { |sum, q| sum + q.value }
     margin = 1.0E-12 * query_two.value
-    query_two.value - margin <= actual and actual <= query_two.value + margin
+    (query_two.value - actual).abs < margin.abs
   end
 
   failure_message_for_should do |queries|
     actual = queries.inject(0) { |sum, q| sum + q.value }
-    "actual #{format_float(actual)} to be within #{1.0E-12 * query_two.value} of \
+    "actual #{format_float(actual)} to be within #{(1.0E-12 * query_two.value).abs} of \
 #{format_float(query_two.value)} (difference of #{format_float((actual - query_two.value).abs)})"
   end
 end
