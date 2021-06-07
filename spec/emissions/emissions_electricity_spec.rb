@@ -13,7 +13,8 @@ describe 'Electricity emissions' do
               scenario.oil_in_co2_of_electricity_production,
               scenario.lignite_in_co2_of_electricity_production,
               scenario.coal_in_co2_of_electricity_production,
-              scenario.waste_in_co2_of_electricity_production
+              scenario.waste_in_co2_of_electricity_production,
+              scenario.hydrogen_in_co2_of_electricity_production
         	  ]
           ).to sum_to_softly_equal(
           	scenario.turk_co2_emissions_of_produced_electricity
