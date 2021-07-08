@@ -19,7 +19,8 @@ module Turk
     PRESET_SCENARIOS = {
       nvdt: [1329317, 1329318, 1329319, 1329320],
       ii3050: [1370826, 1370828, 1370830, 1370832],
-      high_hydrogen: [123_456, 243_568]
+      scenario_collection: [1438014, 1438773, 1438780, 1438836],
+      merit_off: [1438775, 1438838]
     }
 
     def initialize(presets)
