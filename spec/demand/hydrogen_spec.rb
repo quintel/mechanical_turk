@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'Hydrogen' do
-  Turk::PresetCollection.from_keys(:ii3050, :nvdt).each do |scenario|
+  Turk::PresetCollection.from_keys(:ii3050, :nvdt, :scenario_collection, :merit_off).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       it 'Annual demand and supply of hydrogen should match' do
         expect(
