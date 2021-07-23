@@ -47,7 +47,7 @@ describe "Standard scenario: Chemical industry" do
 
   describe "Heating:" do
 
-    it "Using coal-fired heaters instead of gas-fired in refineries should increase demand and CO2 emission, but decrease cost and bio-footprint" do
+    it "Using coal-fired heaters instead of gas-fired in refineries should increase demand and CO2 emission." do
 
       # Initialize to 100 % gas
       @scenario.industry_chemicals_refineries_burner_network_gas_share = 100 #%
@@ -65,8 +65,6 @@ describe "Standard scenario: Chemical industry" do
 
       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to increase
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to increase
-      expect(@scenario.total_costs).to decrease
-      expect(@scenario.dashboard_bio_footprint).to decrease
     end
 
     it "Using biomass-fired heaters instead of gas-fired in refineries should increase demand, costs and bio-footprint, but decrease CO2 emission" do
