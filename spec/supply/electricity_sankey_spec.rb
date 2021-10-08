@@ -16,7 +16,8 @@ describe 'Electricity Sankey' do
       end
 
       # Test whether all electricity supply is included in the electricity Sankey
-      it 'Supply of electricity in the electricity Sankey should match the total supply of electricity' do
+      it 'Supply of electricity in the electricity Sankey should match the total supply 
+        of electricity' do
         expect(
           scenario.turk_electricity_sankey_supply
         ).to softly_equal(
@@ -25,7 +26,8 @@ describe 'Electricity Sankey' do
       end
 
       # Test whether all electricity demand is included in the electricity Sankey
-      it 'Demand of electricity in the electricity Sankey should match the total demand for electricity' do
+      it 'Demand of electricity in the electricity Sankey should match the total demand 
+        for electricity' do
         expect(
           scenario.turk_electricity_sankey_demand
         ).to softly_equal(
