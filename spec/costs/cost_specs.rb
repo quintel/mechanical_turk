@@ -255,9 +255,6 @@ describe "Testing costs" do
     it "total cost of households_water_heater_combined_network_gas should be within 1.0% of 34.874782260013795" do
         @scenario.total_cost_of_households_water_heater_combined_network_gas.value.should be_within(0.348747822600138).of(34.874782260013795)
     end
-    it "total cost of industry_steel_blastfurnace_burner_coal_gas should be within 1.0% of 3596216.8985102726" do
-        @scenario.total_cost_of_industry_steel_blastfurnace_burner_coal_gas.value.should be_within(35962.168985102726).of(3596216.8985102726)
-    end
 
     it "total cost of energy_heat_backup_burner_network_gas should be within 1.0% of 36200.0" do
         @scenario.total_cost_of_energy_heat_backup_burner_network_gas.value.should be_within(362.0).of(36200.0)
@@ -345,9 +342,6 @@ describe "Testing costs" do
     end
     it "total cost of industry_chemicals_refineries_burner_network_gas should be within 1.0% of 5156470.879087016" do
         @scenario.total_cost_of_industry_chemicals_refineries_burner_network_gas.value.should be_within(51564.70879087016).of(5156470.879087016)
-    end
-    it "total cost of industry_steel_electricfurnace_burner_network_gas should be within 1.0% of 5156470.879087016" do
-        @scenario.total_cost_of_industry_steel_electricfurnace_burner_network_gas.value.should be_within(51564.70879087016).of(5156470.879087016)
     end
     it "total cost of industry_chemicals_other_burner_network_gas should be within 1.0% of 5156470.879087016" do
         @scenario.total_cost_of_industry_chemicals_other_burner_network_gas.value.should be_within(51564.70879087016).of(5156470.879087016)
