@@ -120,54 +120,64 @@ describe "Standard scenario: Metal production" do
      @scenario = Turk::Scenario.new(area_code: 'nl', end_year: 2050,  autobalance: true)
     end
 
-     it "Using BAT instead of current should decrease primary demand, import, CO2 emission and cost" do
+     it "Using DRI hydrogen instead of Blastfurnace should decrease primary demand, import, CO2 emission and increase cost" do
 
        # Put bat to 100 %
-       @scenario.industry_steel_blastfurnace_current_consumption_useable_heat_share = 0 #%
-       @scenario.industry_steel_blastfurnace_bat_consumption_useable_heat_share = 100 #%
-       @scenario.industry_steel_hisarna_consumption_useable_heat_share = 0 #%
+       @scenario.industry_steel_blastfurnace_bof_share = 0 #%
+       @scenario.industry_steel_dri_hydrogen_share = 100 #%
+       @scenario.industry_steel_dri_network_gas_share = 0 #%
+       @scenario.industry_steel_cyclonefurnace_bof_share = 0 #%
+       @scenario.industry_steel_scrap_hbi_eaf_share = 0 #%
 
        expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
        expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
        expect(@scenario.dashboard_energy_import_netto).to decrease
+       expect(@scenario.total_costs).to increase
+     end
+
+     it "When putting DRI Network gas to 10 % should decrease total energy demand, import, CO2 emission and increase cost" do
+
+       # Put Cyclonefurnace to 1%
+       @scenario.industry_steel_dri_hydrogen_share = 0 #%
+       @scenario.industry_steel_dri_network_gas_share = 10 #%
+       @scenario.industry_steel_blastfurnace_bof_share = 90 #%
+       @scenario.industry_steel_cyclonefurnace_bof_share = 0 #%
+       @scenario.industry_steel_scrap_hbi_eaf_share = 0 #%
+
+       # The DRI is more efficient, so we would expect the total energy to decrease
+       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
+       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
        expect(@scenario.total_costs).to decrease
      end
 
-     it "When putting industry_steel_hisarna to 1 % should decrease total energy demand, import, CO2 emission and cost" do
-
-       # Put hisarna to 1%
-       @scenario.industry_steel_blastfurnace_current_consumption_useable_heat_share = 0 #%
-       @scenario.industry_steel_blastfurnace_bat_consumption_useable_heat_share = 99 #%
-       @scenario.industry_steel_hisarna_consumption_useable_heat_share = 1 #%
-
-       # The Cyclone furnace is more efficient, so we would expect the total energy to decrease
-       expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
-     end
-
-     it "Using Electric furnace (recycling) should decrease total energy demand, import, CO2 emission and cost" do
+     it "Using Recycling should decrease total energy demand, CO2 emission and cost" do
 
        # Put the electric furnace to 100%
-       @scenario.industry_steel_blastfurnace_current_consumption_useable_heat_share = 0 #%
-       @scenario.industry_steel_blastfurnace_bat_consumption_useable_heat_share = 0 #%
-       @scenario.industry_steel_hisarna_consumption_useable_heat_share = 0 #%
-       @scenario.industry_steel_electricfurnace_electricity_share = 100 #%
+      @scenario.industry_steel_dri_hydrogen_share = 0 #%
+       @scenario.industry_steel_dri_network_gas_share = 0 #%
+       @scenario.industry_steel_blastfurnace_bof_share = 0 #%
+       @scenario.industry_steel_cyclonefurnace_bof_share = 0 #%
+       @scenario.industry_steel_scrap_hbi_eaf_share = 100 #%
 
        # The Cyclone furnace is more efficient, so we would expect the total energy to decrease
        expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
+       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
+       expect(@scenario.total_costs).to decrease
      end
   end
 
   describe "Bio Feedstock" do
 
-    it "Using Bio Feedstock in Hisarna furnace should, CO2 and cost but increase bio-footprint" do
-      @scenario.industry_steel_blastfurnace_current_consumption_useable_heat_share = 0 #%
-      @scenario.industry_steel_blastfurnace_bat_consumption_useable_heat_share = 0 #%
-      @scenario.industry_steel_hisarna_consumption_useable_heat_share = 100 #%
-      @scenario.energy_steel_hisarna_transformation_coal_woodpellets_share = 100 #%
+    it "Using Bio Feedstock in Cyclone furnace should, CO2 but increase bio-footprint" do
+      @scenario.industry_steel_blastfurnace_bof_share = 0 #%
+      @scenario.industry_steel_dri_network_gas_share = 0 #%
+      @scenario.industry_steel_dri_hydrogen_share = 0 #%
+      @scenario.industry_steel_scrap_hbi_eaf_share = 0 #%
+      @scenario.industry_steel_cyclonefurnace_bof_share = 100 #%
+      @scenario.industry_steel_cyclonefurnace_bof_wood_pellets_share = 40 #%
 
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
       expect(@scenario.dashboard_bio_footprint).to increase
-      expect(@scenario.total_costs).to decrease
     end
   end
 end
