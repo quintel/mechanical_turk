@@ -142,7 +142,7 @@ describe "Biomass" do
         @scenario.turk_distribution_wet_biomass.value.should be_within(margin * @scenario.turk_demand_wet_biomass.value).of(@scenario.turk_demand_wet_biomass.value)
       end
 
-      xit "should result in the total demand of the oily biomass resources to be equal to the distribution demand" do
+      it "should result in the total demand of the oily biomass resources to be equal to the distribution demand" do
         # with an error margin of 1.0E-4
         margin = 1.0E-12
 
@@ -156,7 +156,7 @@ describe "Biomass" do
         @scenario.turk_distribution_biogenic_waste.value.should be_within(margin * @scenario.turk_demand_biogenic_waste.value).of(@scenario.turk_demand_biogenic_waste.value)
       end
 
-      xit "should result in all input and output flows of the biomass sankey nodes to be equal" do
+      it "should result in all input and output flows of the biomass sankey nodes to be equal" do
         # with an error margin of 1.0E-12
         margin = 1.0E-12
 
@@ -204,7 +204,7 @@ describe "Biomass" do
         @scenario.turk_input_of_greengas_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_greengas_in_biomass_sankey.value).of(@scenario.turk_output_of_greengas_in_biomass_sankey.value)
       end
 
-      xit "should result in equal input and output flows of the biofuels node in the biomass sankey" do
+      it "should result in equal input and output flows of the biofuels node in the biomass sankey" do
         margin = 1.0E-12
 
         @scenario.turk_input_of_biofuels_in_biomass_sankey.value.should be_within(margin * @scenario.turk_output_of_biofuels_in_biomass_sankey.value).of(@scenario.turk_output_of_biofuels_in_biomass_sankey.value)
