@@ -1,0 +1,21 @@
+version: v1.0
+name: Run Mechanical Turk
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: RSpec
+    task:
+      jobs:
+        - name: Test
+          commands:
+            - checkout
+            - cache restore
+            - gem install bundler
+            - bundle install --deployment --path vendor/bundle
+            - cache store
+            - bundle exec rspec
+      env_vars:
+        - name: SERVER
+          value: 'https://beta-engine.energytransitionmodel.com'
