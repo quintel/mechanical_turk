@@ -72,13 +72,6 @@ describe "Merit Order" do
       # Turning on merit order should reduce import to zero
       expect(@scenario.costs_of_imported_electricity.value).to be_within(100.0).of(0.0)
     end
-
-    it "merit_order enabled should bring export back to zero" do
-      @scenario.settings_enable_merit_order = 1
-
-      # Turning on merit order should reduce export to zero
-      expect(@scenario.primary_demand_of_exported_electricity.value).to be_within(100.0).of(0.0)
-    end
   end
 
   describe 'Advanced behavior: second-order checks' do
@@ -87,12 +80,11 @@ describe "Merit Order" do
     before(:each) do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
         settings_enable_merit_order: 1,
-        electricity_interconnector_1_marginal_costs: 500.0
+        electricity_interconnector_1_capacity: 0.0
       })
     end
 
     context "With merit order enabled" do
-
       it "adding a lot of energy_power_wind_turbine_offshore should lower full load hours of central production power plants" do
         @scenario.capacity_of_energy_power_wind_turbine_offshore = 150000.0
         expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to decrease
@@ -101,7 +93,7 @@ describe "Merit Order" do
       end
 
       it "increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        @scenario.capacity_of_energy_power_wind_turbine_inland = 1431.0
+        @scenario.capacity_of_energy_power_wind_turbine_inland = 2081.0
 
         # ONLY true if some dispatchables still have FLH > 0
         @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
@@ -111,7 +103,7 @@ describe "Merit Order" do
       end
 
       it "decreasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        @scenario.capacity_of_energy_power_wind_turbine_inland = 1425.0
+        @scenario.capacity_of_energy_power_wind_turbine_inland = 2079.0
         @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
 
         # should not give export

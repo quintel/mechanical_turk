@@ -33,6 +33,9 @@ describe "Flexibility" do
      it "should decrease the electricity exported" do
        @scenario.households_flexibility_p2p_electricity_market_penetration = 20.0
 
+       # Increase the price of P2P so that is is given preference over export.
+       @scenario.wtp_of_households_flexibility_p2p_electricity = 45.0
+
        expect(@scenario.electricity_exported).to decrease
      end
 
@@ -59,9 +62,9 @@ describe "Flexibility" do
   end
 
    describe "In a scenario increasing the availability of electric cars" do
-
      it "should decrease the electricity curtailed" do
        @scenario.transport_car_using_electricity_availability = 20.0
+       @scenario.wtp_of_transport_car_flexibility_p2p_electricity = 45.0
 
        expect(@scenario.electricity_curtailed).to decrease
      end
@@ -82,6 +85,7 @@ describe "Flexibility" do
 
      it "should decrease CO2 emissions" do
        @scenario.transport_car_using_electricity_availability = 20.0
+       @scenario.wtp_of_transport_car_flexibility_p2p_electricity = 45.0
 
        expect(@scenario.co2).to decrease
      end
@@ -111,6 +115,7 @@ context "P2H for industry" do
 
      it "should decrease the electricity exported" do
        @scenario.capacity_of_industry_chemicals_other_flexibility_p2h_electricity = 2500.0
+       @scenario.wtp_of_industry_chemicals_other_flexibility_p2h_electricity = 45.0
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -185,6 +190,7 @@ context "P2H for industry" do
 
      it "should decrease the electricity exported" do
        @scenario.capacity_of_industry_other_food_flexibility_p2h_electricity = 1000.0
+       @scenario.wtp_of_industry_other_food_flexibility_p2h_electricity = 45.0
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -224,6 +230,7 @@ context "P2H for industry" do
 
      it "should decrease the electricity exported" do
        @scenario.capacity_of_industry_other_paper_flexibility_p2h_electricity = 400.0
+       @scenario.wtp_of_industry_other_paper_flexibility_p2h_electricity = 45.0
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -275,6 +282,7 @@ context "P2H for industry" do
 
      it "should decrease the electricity exported" do
        @scenario.capacity_of_energy_hydrogen_flexibility_p2g_electricity = 200.0
+       @scenario.wtp_of_energy_hydrogen_flexibility_p2g_electricity = 45.0
 
        expect(@scenario.electricity_exported).to decrease
      end
