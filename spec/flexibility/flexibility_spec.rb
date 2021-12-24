@@ -33,8 +33,9 @@ describe "Flexibility" do
      it "should decrease the electricity exported" do
        @scenario.households_flexibility_p2p_electricity_market_penetration = 20.0
 
-       # Increase the price of P2P so that is is given preference over export.
-       # @scenario.wtp_of_households_flexibility_p2p_electricity = 45.0
+       # Increase the prices of P2P so that is is given preference over export.
+       @scenario.wtp_of_households_flexibility_p2p_electricity = 45.0
+       @scenario.wta_of_households_flexibility_p2p_electricity = 45.5
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -76,7 +77,8 @@ describe "Flexibility" do
        @scenario.transport_car_using_electricity_availability = 20.0
 
        # Increase the price of P2P so that is is given preference over export.
-       # @scenario.wtp_of_transport_car_flexibility_p2p_electricity = 45.0
+       @scenario.wtp_of_transport_car_flexibility_p2p_electricity = 45.0
+       @scenario.wta_of_transport_car_flexibility_p2p_electricity = 45.5
 
        expect(@scenario.electricity_exported).to decrease
      end
@@ -87,8 +89,6 @@ describe "Flexibility" do
 
      it "should decrease CO2 emissions" do
        @scenario.transport_car_using_electricity_availability = 20.0
-       
-       # @scenario.wtp_of_transport_car_flexibility_p2p_electricity = 45.0
 
        expect(@scenario.co2).to decrease
      end
