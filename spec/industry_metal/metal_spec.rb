@@ -135,7 +135,7 @@ describe "Standard scenario: Metal production" do
        expect(@scenario.total_costs).to increase
      end
 
-     it "When putting DRI Network gas to 10 % should decrease total energy demand, import, CO2 emission and cost" do
+     it "When putting DRI Network gas to 10 % should decrease total energy demand, import, CO2 emission and increase cost" do
 
        # Put Cyclonefurnace to 1%
        @scenario.industry_steel_dri_hydrogen_share = 0 #%
@@ -147,7 +147,7 @@ describe "Standard scenario: Metal production" do
        # The DRI is more efficient, so we would expect the total energy to decrease
        expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
        expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
-       expect(@scenario.total_costs).to decrease
+       expect(@scenario.total_costs).to increase
      end
 
      it "Using Recycling should decrease total energy demand, CO2 emission and cost" do
@@ -162,7 +162,7 @@ describe "Standard scenario: Metal production" do
        # The Cyclone furnace is more efficient, so we would expect the total energy to decrease
        expect(@scenario.dashboard_energy_demand_primary_of_final_plus_export_losses).to decrease
        expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
-       expect(@scenario.total_costs).to increase
+       expect(@scenario.total_costs).to decrease
      end
   end
 
