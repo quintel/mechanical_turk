@@ -20,6 +20,15 @@ describe 'Electricity emissions' do
           	scenario.turk_co2_emissions_of_produced_electricity
           )
       end
+
+      it 'Emissions of total electricity production based on group should equal the total emisisons
+          based on domestic merit producers.' do
+          expect(
+            scenario.turk_co2_emissions_of_merit_producers
+          ).to softly_equal(
+            scenario.turk_co2_emissions_of_produced_electricity
+          )
+      end
     end
   end
 end
