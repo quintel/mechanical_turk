@@ -50,7 +50,7 @@ end
 RSpec::Matchers.define :softly_equal do |query_two|
   match do |query_one|
     margin = 1.0E-12 * query_two.value
-    (query_two.value - query_one.value).abs < margin.abs
+    (query_two.value - query_one.value).abs <= margin.abs
   end
 
   failure_message_for_should do |query_one|
@@ -63,7 +63,7 @@ RSpec::Matchers.define :sum_to_softly_equal do |query_two|
   match do |queries|
     actual = queries.inject(0) { |sum, q| sum + q.value }
     margin = 1.0E-12 * query_two.value
-    (query_two.value - actual).abs < margin.abs
+    (query_two.value - actual).abs <= margin.abs
   end
 
   failure_message_for_should do |queries|
