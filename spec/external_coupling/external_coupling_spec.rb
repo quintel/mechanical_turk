@@ -1,115 +1,231 @@
 # Testing the external coupling input statements for the steel, fertilizer, refinery and other chemical sector.
 
+# external_coupling_industry_chemical_refineries_total_non_energetic: 
+# external_coupling_industry_chemical_fertilizers_total_energetic_share:
+# external_coupling_industry_chemical_other_electricity:
+# external_coupling_industry_chemical_other_total_non_energetic:
+
+
+
 require 'spec_helper'
 
-describe "External Coupling" do
+describe "External coupling" do
 
-  context "Custom scenario" do
-    before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
-      external_coupling_industry_metal_steel_blastfurnace_bof_share: 10.0,
-      external_coupling_industry_metal_steel_cyclonefurnace_bof_share: 10.0,
-      external_coupling_industry_metal_steel_dri_network_gas_share: 10.0,
-      external_coupling_industry_metal_steel_dri_hydrogen_share: 10.0,
-      external_coupling_industry_metal_steel_scrap_hbi_eaf_share: 10.0,
-      external_coupling_industry_metal_steel_external_coupling_share: 50.0,
-      external_coupling_industry_metal_steel_energetic_electricity_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_coal_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_coal_gas_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_cokes_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_network_gas_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_wood_pellets_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_crude_oil_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_hydrogen_share: 10.0,
-      external_coupling_industry_metal_steel_energetic_steam_hot_water_share: 20.0,
-      external_coupling_industry_metal_steel_efficiency: 80.0,
-      external_coupling_industry_metal_steel_total_demand: 150.0,
-      external_coupling_industry_metal_steel_wacc: 0.1,
-      external_coupling_industry_metal_steel_fixed_om_costs: 5000000000,
-      external_coupling_industry_metal_steel_investment_costs: 50000000000,
-      external_coupling_industry_metal_steel_technical_lifetime: 20.0,
-      external_coupling_industry_metal_steel_ccus_capture_potential: 80.0,
-      external_coupling_industry_metal_steel_ccus_electricity_use: 3.0,
-
-      external_coupling_industry_chemical_fertilizers_energetic_coal_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_energetic_crude_oil_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_energetic_electricity_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_energetic_hydrogen_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_energetic_network_gas_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_energetic_steam_hot_water_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_energetic_wood_pellets_share: 40.0,
-      external_coupling_industry_chemical_fertilizers_non_energetic_coal_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_non_energetic_crude_oil_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_non_energetic_hydrogen_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_non_energetic_network_gas_share: 10.0,
-      external_coupling_industry_chemical_fertilizers_non_energetic_wood_pellets_share: 60.0,
-      external_coupling_industry_chemical_fertilizers_total_energetic_share: 80.0,
-      external_coupling_industry_chemical_fertilizers_total_demand: 120.0,
-      external_coupling_industry_chemical_fertilizers_wacc: 10.0,
-      external_coupling_industry_chemical_fertilizers_fixed_om_costs: 50000000,
-      external_coupling_industry_chemical_fertilizers_investment_costs: 40000000000,
-      external_coupling_industry_chemical_fertilizers_technical_lifetime: 15.0,
-      external_coupling_industry_chemical_fertilizers_combustion_ccus_capture_potential: 90,
-      external_coupling_industry_chemical_fertilizers_combustion_ccus_electricity_use: 4,
-      external_coupling_industry_chemical_fertilizers_processes_ccus_capture_potential: 95,
-      external_coupling_industry_chemical_fertilizers_processes_ccus_electricity_use: 4.5,
-      external_coupling_industry_chemical_fertilizers_residual_heat_processes_share: 60.0,
-      external_coupling_industry_chemical_fertilizers_residual_heat_flue_gasses_share: 40.0,
-
-      external_coupling_industry_chemical_refineries_useable_heat: 10.0,
-      external_coupling_industry_chemical_refineries_burner_coal_share: 10.0,
-      external_coupling_industry_chemical_refineries_burner_crude_oil_share: 10.0,
-      external_coupling_industry_chemical_refineries_burner_hydrogen_share: 10.0,
-      external_coupling_industry_chemical_refineries_burner_network_gas_share: 10.0,
-      external_coupling_industry_chemical_refineries_burner_wood_pellets_share: 10.0,
-      external_coupling_industry_chemical_refineries_steam_hot_water_share: 10.0,
-      external_coupling_industry_chemical_refineries_electricity: 30.0,
-      external_coupling_industry_chemical_refineries_total_non_energetic: 130.0,
-      external_coupling_industry_chemical_refineries_transformation_crude_oil_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_diesel_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_gasoline_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_heavy_fuel_oil_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_kerosene_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_loss_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_lpg_output_share: 10.0,
-      external_coupling_industry_chemical_refineries_transformation_refinery_gas_output_share: 30.0,
-      external_coupling_industry_chemical_refineries_cccus_capture_potential: 85,
-      external_coupling_industry_chemical_refineries_ccus_electricity_use: 3.5,
-      external_coupling_industry_chemical_refineries_residual_heat_processes_share: 40.0,
-      external_coupling_industry_chemical_refineries_residual_heat_flue_gasses_share: 60.0,
-
-      external_coupling_industry_chemical_other_useable_heat: 180.0,
-      external_coupling_industry_chemical_other_burner_coal_share: 10.0,
-      external_coupling_industry_chemical_other_burner_crude_oil_share: 10.0,
-      external_coupling_industry_chemical_other_burner_hydrogen_share: 10.0,
-      external_coupling_industry_chemical_other_burner_network_gas_share: 10.0,
-      external_coupling_industry_chemical_other_burner_wood_pellets_share: 10.0,
-      external_coupling_industry_chemical_other_steam_hot_water_share: 10.0,
-      external_coupling_industry_chemical_other_heater_electricity_share: 10.0,
-      external_coupling_industry_chemical_other_heatpump_water_water_electricity_share: 10.0,
-      external_coupling_industry_chemical_other_steam_recompression_electricity_share: 20.0,
-      external_coupling_industry_chemical_other_electricity: 300.0,
-      external_coupling_industry_chemical_other_total_non_energetic: 160.0,
-      external_coupling_industry_chemical_other_non_energetic_coal_share: 10.0,
-      external_coupling_industry_chemical_other_non_energetic_crude_oil_share: 10.0,
-      external_coupling_industry_chemical_other_non_energetic_hydrogen_share: 10.0,
-      external_coupling_industry_chemical_other_non_energetic_network_gas_share: 10.0,
-      external_coupling_industry_chemical_other_non_energetic_wood_pellets_share: 60.0,
-      external_coupling_industry_chemical_other_ccus_capture_potential: 60.0,
-      external_coupling_industry_chemical_other_ccus_electricity_use: 2.0,
-      external_coupling_industry_chemical_other_residual_heat_processes_share: 30.0,
-      external_coupling_industry_chemical_other_residual_heat_flue_gasses_share: 70.0,
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1
     })
-    end
+  end
 
-    describe "External coupling input should be equeal to value used in scenario" do
+  # Testing the external inputs and effects on the energy graph for the refinery sector
 
-      it "External coupling input" do
-        # with an error margin of 1.0E-12
-        margin = 1.0E-12
+  context "External coupling steel sector" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1,
+      external_coupling_industry_metal_steel_external_coupling_share: 100.0 # steel sectore modelled using external input
+    })
+  end
 
-        @scenario.turk_industry_metal_steel_production_shares.value.should be_within(margin * 100).of(100)
-      end
+   describe "In a scenario with 100% external input in the steel sector" do
+
+     it "all steel demand should be modelled by the external coupling node" do
+       # with an error margin of 1.0E-12
+       margin = 1.0E-12
+
+       @scenario.industry_steel_external_coupling_node_production_demand.value.should be_within(margin * @scenario.industry_steel_production_demand.value).of(@scenario.industry_steel_production_demand.value)
+     end
+   end
+
+    describe "In a scenario with 100% external input in the steel sector increasing demand" do
+
+     it "should increase demand compared to preset demand" do
+       @scenario.external_coupling_industry_metal_steel_total_demand = 150.0
+
+       expect(@scenario.industry_steel_external_coupling_node_production_demand).to increase
+     end
+   end
+
+    describe "In a scenario increasing the availability of CCUS" do
+
+     it "should increase the captured CO2 emmissions" do
+       @scenario.share_of_industry_steel_captured_co2 = 100.0
+
+       expect(@scenario.industry_steel_external_coupling_node_captured_co2_demand).to increase
+     end
+   end
+
+    describe "In a scenario increasing the availability of CCUS" do
+
+     it "should increase the energy use for CCUS" do
+       @scenario.share_of_industry_steel_captured_co2 = 100.0
+
+       expect(@scenario.industry_steel_external_coupling_node_captured_co2_electricity_demand).to increase
+     end
     end
   end
+
+# Testing the external inputs and effects on the energy graph for the refinery sector
+
+  context "External coupling refinery sector" do
+  before do
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      settings_enable_merit_order: 1,
+      external_coupling_industry_chemical_refineries_useable_heat: 100.0, # refinery sector modelled using external input
+      share_of_industry_chemicals_refineries_captured_co2: 100.0 # 100% of CCUS capacity chosen in refinery sector
+    })
+  end
+
+   describe "In a scenario with 100% external input in the refinery sector" do
+     it "demand should be equal to preset demand" do
+       # with an error margin of 1.0E-12
+       margin = 1.0E-12
+
+       @scenario.industry_useful_demand_for_chemical_refineries_useable_heat_demand.value.should be_within(margin * @scenario.industry_useful_demand_for_chemical_refineries_useable_heat_preset_demand.value).of(@scenario.industry_useful_demand_for_chemical_refineries_useable_heat_preset_demand.value)
+     end
+   end
+
+    describe "In a scenario with 100% external input in the refinery sector increasing demand" do
+
+     it "should increase demand compared to preset demand" do
+       @scenario.external_coupling_industry_chemical_refineries_useable_heat = 150.0
+
+       expect(@scenario.industry_useful_demand_for_chemical_refineries_useable_heat_demand).to increase
+     end
+   end
+
+    describe "In a scenario with 100% external input in the refinery sector increasing demand" do
+
+     it "should increase captured CO2 emissions" do
+       @scenario.external_coupling_industry_chemical_refineries_useable_heat = 150.0
+
+       expect(@scenario.industry_chemicals_refineries_captured_co2_demand).to increase
+     end
+    end
+
+     describe "In a scenario with 100% external input in the refinery sector increasing demand" do
+
+      it "should increase electricity use for CCUS" do
+        @scenario.external_coupling_industry_chemical_refineries_useable_heat = 150.0
+
+        expect(@scenario.industry_chemicals_refineries_captured_co2_electricit_demand).to increase
+     end
+    end
+  end
+
+  # Testing the external inputs and effects on the energy graph for the fertilizer sector
+
+    context "External coupling fertilizer sector" do
+    before do
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+        settings_enable_merit_order: 1,
+        external_coupling_industry_chemical_fertilizers_total_demand: 100.0, # fertilizer sector modelled using external input
+        share_of_industry_chemicals_fertilizers_captured_combustion_co2: 100.0, # 100% of CCUS combustion capacity chosen in fertilizer sector
+        share_of_industry_chemicals_fertilizers_captured_processes_co2: 100.0 # 100% of CCUS processes capacity chosen in fertilizer sector
+      })
+    end
+
+     describe "In a scenario with 100% external input in the fertilizer sector" do
+       it "demand should be equal to preset demand" do
+         # with an error margin of 1.0E-12
+         margin = 1.0E-12
+
+         @scenario.industry_chemicals_fertilizers_external_coupling_nodes_demand.value.should be_within(margin * @scenario.industry_chemicals_fertilizers_haber_bosch_process_hydrogen_demand.value).of(@scenario.industry_chemicals_fertilizers_haber_bosch_process_hydrogen_demand.value)
+       end
+     end
+
+      describe "In a scenario with 100% external input in the fertilizer sector increasing demand" do
+
+       it "should increase demand compared to preset demand" do
+         @scenario.external_coupling_industry_chemical_fertilizers_total_demand = 150.0
+
+         expect(@scenario.industry_useful_demand_for_chemical_refineries_useable_heat_demand).to increase
+       end
+     end
+
+      describe "In a scenario with 100% external input in the fertilizer sector increasing demand" do
+
+       it "should increase captured CO2 emissions" do
+         @scenario.external_coupling_industry_chemical_fertilizers_total_demand = 150.0
+
+         expect(@scenario.industry_chemicals_fertilizers_captured_combustion_co2_demand).to increase
+       end
+      end
+
+       describe "In a scenario with 100% external input in the fertilizer sector increasing demand" do
+
+        it "should increase electricity use for CCUS" do
+          @scenario.external_coupling_industry_chemical_fertilizers_total_demand = 150.0
+
+          expect(@scenario.industry_chemicals_fertilizers_captured_combustion_co2_electricity_demand).to increase
+       end
+      end
+
+       describe "In a scenario with 100% external input in the fertilizer sector increasing demand" do
+
+        it "should increase captured CO2 emissions" do
+          @scenario.external_coupling_industry_chemical_fertilizers_total_demand = 150.0
+
+          expect(@scenario.industry_chemicals_fertilizers_captured_processes_co2_demand).to increase
+       end
+      end
+
+        describe "In a scenario with 100% external input in the fertilizer sector increasing demand" do
+
+         it "should increase electricity use for CCUS" do
+           @scenario.external_coupling_industry_chemical_fertilizers_total_demand = 150.0
+
+           expect(@scenario.industry_chemicals_fertilizers_captured_processes_co2_electricity_demand).to increase
+       end
+      end
+    end
+
+  # Testing the external inputs and effects on the energy graph for the chemical other sector
+
+    context "External coupling chemical other sector" do
+    before do
+      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+        settings_enable_merit_order: 1,
+        external_coupling_industry_chemical_other_useable_heat: 100.0, # chemical other sector modelled using external input
+        share_of_industry_chemical_other_captured_co2: 100.0 # 100% of CCUS capacity chosen in chemical other sector
+      })
+    end
+
+     describe "In a scenario with 100% external input in the chemical other" do
+       it "demand should be equal to preset demand" do
+         # with an error margin of 1.0E-12
+         margin = 1.0E-12
+
+         @scenario.industry_useful_demand_for_chemical_other_useable_heat_demand.value.should be_within(margin * @scenario.industry_useful_demand_for_chemical_other_useable_heat_preset_demand.value).of(@scenario.industry_useful_demand_for_chemical_other_useable_heat_preset_demand.value)
+       end
+     end
+
+      describe "In a scenario with 100% external input in the chemical other sector increasing demand" do
+
+       it "should increase demand compared to preset demand" do
+         @scenario.external_coupling_industry_chemical_other_useable_heat = 150.0
+
+         expect(@scenario.industry_useful_demand_for_chemical_other_useable_heat_demand).to increase
+       end
+     end
+
+      describe "In a scenario with 100% external input in the chemical other sector increasing demand" do
+
+       it "should increase captured CO2 emissions" do
+         @scenario.external_coupling_industry_chemical_other_useable_heat = 150.0
+
+         expect(@scenario.industry_chemical_other_captured_co2_demand).to increase
+       end
+      end
+
+       describe "In a scenario with 100% external input in the chemical other sector increasing demand" do
+
+        it "should increase electricity use for CCUS" do
+          @scenario.external_coupling_industry_chemical_other_useable_heat = 150.0
+
+          expect(@scenario.industry_chemical_other_captured_co2_electricity_demand).to increase
+       end
+      end
+    end
+
 end
