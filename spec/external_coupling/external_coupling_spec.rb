@@ -43,6 +43,7 @@ describe "External coupling" do
 
      it "should increase the captured CO2 emmissions" do
        @scenario.share_of_industry_steel_captured_co2 = 100.0
+       @scenario.external_coupling_industry_metal_steel_ccus_capture_potential = 80.0
 
        expect(@scenario.industry_steel_external_coupling_node_captured_co2_demand).to increase
      end
@@ -52,6 +53,7 @@ describe "External coupling" do
 
      it "should increase the energy use for CCUS" do
        @scenario.share_of_industry_steel_captured_co2 = 100.0
+       @scenario.external_coupling_industry_metal_steel_ccus_capture_potential = 80.0
 
        expect(@scenario.industry_steel_external_coupling_node_captured_co2_electricity_demand).to increase
      end
