@@ -26,7 +26,7 @@ describe 'Electricity Sankey' do
       end
 
       # Test whether all electricity demand is included in the electricity Sankey
-      it 'Demand of electricity in the electricity Sankey should match the total demand 
+      xit 'Demand of electricity in the electricity Sankey should match the total demand 
         for electricity' do
         expect(
           scenario.turk_electricity_sankey_demand
