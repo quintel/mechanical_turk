@@ -24,16 +24,6 @@ describe 'Electricity Sankey' do
           scenario.turk_electricity_total_supply
         )
       end
-
-      # Test whether all electricity demand is included in the electricity Sankey
-      xit 'Demand of electricity in the electricity Sankey should match the total demand 
-        for electricity' do
-        expect(
-          scenario.turk_electricity_sankey_demand
-        ).to softly_equal(
-          scenario.demand_and_export_in_source_of_electricity_production
-        )
-      end
     end
   end
 end
