@@ -168,7 +168,7 @@ describe "Standard scenario: Metal production" do
 
   describe "Bio Feedstock" do
 
-    it "Using Bio Feedstock in Cyclone furnace should, CO2 but increase bio-footprint" do
+    it "Using Bio Feedstock in Cyclone furnace should increase CO2 but increase bio-footprint" do
       @scenario.industry_steel_blastfurnace_bof_share = 0 #%
       @scenario.industry_steel_dri_network_gas_share = 0 #%
       @scenario.industry_steel_dri_hydrogen_share = 0 #%
