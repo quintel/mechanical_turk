@@ -105,8 +105,8 @@ describe "Hybrid heat pump" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
       households_heater_hybrid_heatpump_air_water_electricity_share: 100.0, #setting HHP's for space heating and hot water to 100%,
-      households_flexibility_space_heating_cop_cutoff: 6.0, # setting the cut-off COP to 6.0
-      households_flexibility_water_heating_cop_cutoff: 6.0 # setting the cut-off COP to 6.0
+      flexibility_heat_pump_space_heating_cop_cutoff: 6.0, # setting the cut-off COP to 6.0
+      flexibility_heat_pump_water_heating_cop_cutoff: 6.0 # setting the cut-off COP to 6.0
       })
     end
 
@@ -132,7 +132,7 @@ describe "Hybrid heat pump" do
     describe "Lowering the cut-off COP for hot water to 1.0" do
       it "should result in less gas use for hot water" do
         pending("natural_gas_and_derivatives_used_for_hot_water_in_households is always 0 - outdated?")
-        @scenario.households_flexibility_water_heating_cop_cutoff = 1.0
+        @scenario.flexibility_heat_pump_water_heating_cop_cutoff = 1.0
 
         expect(@scenario.natural_gas_and_derivatives_used_for_hot_water_in_households). to decrease
       end
@@ -140,7 +140,7 @@ describe "Hybrid heat pump" do
 
     describe "Lowering the cut-off COP for space heating to 1.0" do
       it "should result in less gas use for space heating" do
-        @scenario.households_flexibility_space_heating_cop_cutoff = 1.0
+        @scenario.flexibility_heat_pump_space_heating_cop_cutoff = 1.0
 
         expect(@scenario.natural_gas_and_derivatives_used_for_heating_in_households). to decrease
       end
@@ -151,8 +151,8 @@ describe "Hybrid heat pump" do
     before do
       @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
       households_heater_hybrid_heatpump_air_water_electricity_share: 100.0, #setting HHP's for space heating and hot water to 100%,
-      households_flexibility_space_heating_cop_cutoff: 1.0, # setting the cut-off COP to 1.0
-      households_flexibility_water_heating_cop_cutoff: 1.0 # setting the cut-off COP to 1.0
+      flexibility_heat_pump_space_heating_cop_cutoff: 1.0, # setting the cut-off COP to 1.0
+      flexibility_heat_pump_water_heating_cop_cutoff: 1.0 # setting the cut-off COP to 1.0
       })
     end
 
