@@ -98,11 +98,11 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
       # move slider
       @scenario.households_number_of_residences = 7587964 * 0.5
 
-      expect(@scenario.households_apartments_useful_demand_for_space_heating.value).to be_within(1000.0).of(31686387766.16003)
-      expect(@scenario.households_corner_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(19756483428.784985)
-      expect(@scenario.households_detached_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(31669069701.917522)
-      expect(@scenario.households_semi_detached_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(15697391540.621239)
-      expect(@scenario.households_terraced_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(37690126875.165794)
+      expect(@scenario.households_apartments_useful_demand_for_space_heating.value).to be_within(1000.0).of(31685528434.883976)
+      expect(@scenario.households_corner_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(19755947635.17416)
+      expect(@scenario.households_detached_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(31668210840.305424)
+      expect(@scenario.households_semi_detached_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(15696965829.126356)
+      expect(@scenario.households_terraced_houses_useful_demand_for_space_heating.value).to be_within(1000.0).of(37689104723.15965)
 
     end
 
