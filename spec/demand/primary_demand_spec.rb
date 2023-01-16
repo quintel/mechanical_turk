@@ -8,7 +8,7 @@ describe 'Primary Demand' do
       # Test whether application group covers all final demand and exports
       it 'primary demand of the application group nodes should always equal primary demand of the
         nodes in the final_demand_group and energy_export group' do
-        pending("ETSource #2493 and MT #148")
+        skip("ETSource #2493 and MT #148")
         expect(
           scenario.primary_demand_of_application_group
         ).to softly_equal(
@@ -20,7 +20,7 @@ describe 'Primary Demand' do
       # Refinery gas is also added to this list due to this issue: https://github.com/quintel/etsource/issues/1156.
       it 'total primary demand in the graph should always equal primary demand of the nodes in the
         final_demand_group, energy_export group and curtailment.' do
-        pending("ETSource #2493 and MT #148")
+        skip("ETSource #2493 and MT #148")
         expect(
           scenario.total_primary_demand
         ).to softly_equal(
