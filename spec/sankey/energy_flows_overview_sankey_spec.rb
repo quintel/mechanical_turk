@@ -7,6 +7,9 @@ describe 'Energy flows (overview) data-export' do
   Turk::PresetCollection.from_keys(:ii3050).each do |scenario|
     
     context "with scenario #{scenario.original_scenario_id}" do
+      
+      # Test primary demand flows in the Sankey with nodes in the graph
+
       it 'Primary demand of electricity should match the sum of electricity primary demand flows in the data-export' do
         skip ('Excess electricity node seems to cause the difference, TODO investigate further')
         expect(
@@ -54,6 +57,30 @@ describe 'Energy flows (overview) data-export' do
           scenario.turk_sankey_primary_demand_of_oil_flows
         ).to softly_equal(
           scenario.turk_sankey_primary_demand_of_oil_nodes
+        )
+      end
+
+      it 'Primary demand of natural gas should match the sum of natural gas primary demand flows in the data-export' do
+        expect(
+          scenario.turk_sankey_primary_demand_of_natural_gas_flows
+        ).to softly_equal(
+          scenario.turk_sankey_primary_demand_of_natural_gas_nodes
+        )
+      end
+
+      it 'Primary demand of biomass should match the sum of biomass primary demand flows in the data-export' do
+        expect(
+          scenario.turk_sankey_primary_demand_of_biomass_flows
+        ).to softly_equal(
+          scenario.turk_sankey_primary_demand_of_biomass_nodes
+        )
+      end
+
+      it 'Primary demand of ammonia should match the sum of ammonia primary demand flows in the data-export' do
+        expect(
+          scenario.turk_sankey_primary_demand_of_ammonia_flows
+        ).to softly_equal(
+          scenario.turk_sankey_primary_demand_of_ammonia_nodes
         )
       end
 
