@@ -1,6 +1,6 @@
 # Mechanical Turk
 
-Inspiration of the Mechanical Turk is drawn from [The Turk](http://en.wikipedia.org/wiki/The_Turk).
+Inspiration of the Mechanical Turk is drawn from the [Mechanical Turk](https://en.wikipedia.org/wiki/Mechanical_Turk).
 
 ## Build Status
 
