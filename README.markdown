@@ -5,7 +5,7 @@ Inspiration of the Mechanical Turk is drawn from the [Mechanical Turk](https://e
 ## Build Status
 
 ### Master
-![Master branch](https://semaphoreapp.com/api/v1/projects/a66422bf78c61fdcff71af305d38503f2779f5b6/16711/badge.png)
+[![Build Status](https://quintel.semaphoreci.com/badges/mechanical_turk/branches/master.svg)](https://quintel.semaphoreci.com/projects/mechanical_turk)
 
 ## The Idea
 
