@@ -36,7 +36,6 @@ describe 'Energy flows (overview) data-export' do
       end
 
       it 'Primary demand of steam hot water should match the sum of steam hot water primary demand flows in the data-export' do
-        skip ('Steam hot water primary should not include geothermal and solar TODO solve')
         expect(
           scenario.turk_sankey_primary_demand_of_steam_hot_water_flows
         ).to softly_equal(
