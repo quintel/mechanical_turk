@@ -125,7 +125,7 @@ describe 'Energy flows (overview) data-export' do
       end
 
       it 'Final demand of oil should match the sum of oil final demand flows in the data-export' do
-        skip ('Likely caused by difference between final demand edges approach and nodes approach, see quintel/etsource#2781')
+       skip ('Caused by difference between final demand edges approach and nodes approach, see quintel/etsource#2781')
         expect(
           scenario.turk_sankey_final_demand_of_oil_flows
         ).to softly_equal(
@@ -137,15 +137,16 @@ describe 'Energy flows (overview) data-export' do
         expect(
           scenario.turk_sankey_final_demand_of_natural_gas_flows
         ).to softly_equal(
-          scenario.final_demand_of_natural_gas_and_derivatives
+          scenario.turk_sankey_final_demand_of_natural_gas_and_derivatives_nodes
         )
       end
 
       it 'Final demand of biomass should match the sum of biomass final demand flows in the data-export' do
+       skip ('Caused by difference between final demand edges approach and nodes approach, see quintel/etsource#2781')
         expect(
           scenario.turk_sankey_final_demand_of_biomass_flows
         ).to softly_equal(
-          scenario.final_demand_of_biomass_products
+          scenario.turk_sankey_final_demand_of_biomass_products_nodes
         )
       end
 
@@ -154,6 +155,16 @@ describe 'Energy flows (overview) data-export' do
           scenario.turk_sankey_final_demand_of_ammonia_flows
         ).to softly_equal(
           scenario.final_demand_of_ammonia
+        )
+      end
+
+      # While awaiting fix for quintel/etsource#2781 biomass and oil are tested together
+
+      it 'Final demand of biomass and oil should match the sum of biomass and oil final demand flows in the data-export' do
+        expect(
+          scenario.turk_sankey_final_demand_of_oil_and_biomass_flows
+        ).to softly_equal(
+          scenario.turk_sankey_final_demand_of_oil_and_biomass_products_nodes
         )
       end
 
