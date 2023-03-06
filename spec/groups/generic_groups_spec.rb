@@ -26,12 +26,30 @@ describe 'Generic groups tests' do
         )
       end
 
+      # Test whether total final demand in buildings edge groups equals total final demand in buildings node group
+      it 'Sum of final demand edge groups should match sum of final demand node group in buildings' do
+        expect(
+          scenario.turk_final_demand_in_buildings_edge_groups
+        ).to softly_equal(
+          scenario.turk_final_demand_in_buildings_node_groups
+        )
+      end
+
       # Test whether total final demand in households edge groups per carrier equals total final demand in households node group
       it 'Sum of final demand edge groups queries per carrier should match sum of final demand node group in households' do
         expect(
           scenario.turk_final_demand_in_households_edge_groups_per_carrier
         ).to softly_equal(
           scenario.turk_final_demand_in_households_node_groups
+        )
+      end
+
+      # Test whether total final demand in buildings edge groups per carrier equals total final demand in buildings node group
+      it 'Sum of final demand edge groups queries per carrier should match sum of final demand node group in buildings' do
+        expect(
+          scenario.turk_final_demand_in_buildings_edge_groups_per_carrier
+        ).to softly_equal(
+          scenario.turk_final_demand_in_buildings_node_groups
         )
       end
 
