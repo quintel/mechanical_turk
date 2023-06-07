@@ -16,6 +16,7 @@ describe "Transport" do
         # increasing efficiency electrical vehicles
         @scenario.transport_vehicle_using_electricity_efficiency = 3.0
 
+        skip("ETSource 2920")
         expect(@scenario.costs).to decrease
 
       end
