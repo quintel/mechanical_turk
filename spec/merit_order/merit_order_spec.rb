@@ -16,7 +16,7 @@ describe "Merit Order" do
       expect(@scenario.merit_order_nuclear_iii_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
       expect(@scenario.merit_order_coal_igcc_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
       expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
-      expect(@scenario.merit_order_coal_chp_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
+      expect(@scenario.merit_order_coal_chp_pwd_ht_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
       expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
     end
   end

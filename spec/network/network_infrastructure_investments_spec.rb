@@ -58,13 +58,7 @@ describe "Starting with a scenario where all household space heating is electric
 
   context "when building heat pump with ts 100%" do
      it "should increase all network total cost" do
-       @scenario.buildings_space_heater_network_gas_share = 0.0
        @scenario.buildings_space_heater_collective_heatpump_water_water_ts_electricity_share = 100.0
-       @scenario.buildings_space_heater_heatpump_air_water_network_gas_share = 0.0
-       @scenario.buildings_space_heater_electricity_share = 0.0
-       @scenario.buildings_space_heater_wood_pellets_share = 0.0
-       @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
-       @scenario.buildings_space_heater_solar_thermal_share = 0.0
 
        expect(@scenario.network_calculation_total_costs_future).to increase
      end
@@ -72,13 +66,7 @@ describe "Starting with a scenario where all household space heating is electric
 
    context "when building electric heater 100%" do
       it "should increase all network total cost" do
-        @scenario.buildings_space_heater_network_gas_share = 0.0
-        @scenario.buildings_space_heater_collective_heatpump_water_water_ts_electricity_share = 0.0
-        @scenario.buildings_space_heater_heatpump_air_water_network_gas_share = 0.0
         @scenario.buildings_space_heater_electricity_share = 100.0
-        @scenario.buildings_space_heater_wood_pellets_share = 0.0
-        @scenario.buildings_space_heater_district_heating_steam_hot_water_share = 0.0
-        @scenario.buildings_space_heater_solar_thermal_share = 0.0
 
         expect(@scenario.network_calculation_total_costs_future).to increase
       end
