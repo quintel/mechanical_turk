@@ -22,19 +22,19 @@ describe "Population" do
   end
 
   it "should not increase the heat demand for old and new houses" do
-    expect(@scenario.heat_demand_in_households).to not_change
+    expect(@scenario.turk_heat_demand_in_households).to not_change
   end
 
   it "should not increase the cooling demand for old and new houses" do
-    expect(@scenario.cooling_demand_in_households.increase).to be == 0
+    expect(@scenario.turk_cooling_demand_in_households.increase).to be == 0
   end
 
   it "should increase the electricity demand in hh" do
-    expect(@scenario.appliances_demand_in_households).to increase
+    expect(@scenario.turk_appliances_demand_in_households).to increase
   end
 
   it "should increase the hot water demand in hh" do
-    expect(@scenario.hot_water_demand_in_households).to increase
+    expect(@scenario.turk_hot_water_demand_in_households).to increase
   end
 
 
