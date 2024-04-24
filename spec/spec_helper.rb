@@ -6,7 +6,7 @@ puts "INFO: Using Server #{Turk::Connection::SERVER_ADDRESS}...."
 
 RSpec::Matchers.define :increase do
   match{ |actual| actual.increase > 0 }
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     if actual.increase == 0
       "expected an increase, but actually it stayed the same: #{actual.future}"
     else
@@ -17,7 +17,7 @@ end
 
 RSpec::Matchers.define :decrease do
   match { |actual| actual.decrease > 0 }
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     if actual.decrease == 0
       "expected a decrease, but actually it stayed the same: #{actual.future}"
     else
@@ -28,21 +28,21 @@ end
 
 RSpec::Matchers.define :not_increase do
   match { |actual| actual.increase <= 0 }
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     "I expected the value not to increase, but actually it increased with #{actual.increase}"
   end
 end
 
 RSpec::Matchers.define :not_change do
   match { |actual| actual.decrease == 0 }
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     "I expected the value not to change, but actually it changed with #{actual.increase}"
   end
 end
 
 RSpec::Matchers.define :change do
   match { |actual| actual.decrease != 0 }
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     "I expected the value to change, but it didn't"
   end
 end
@@ -53,7 +53,7 @@ RSpec::Matchers.define :softly_equal do |query_two|
     (query_two.value - query_one.value).abs <= margin.abs
   end
 
-  failure_message_for_should do |query_one|
+  failure_message do |query_one|
     "expected #{format_float(query_one.value)} to be within #{(1.0E-12 * query_two.value).abs} of \
 #{format_float(query_two.value)} (difference of #{format_float((query_one.value - query_two.value).abs)})"
   end
@@ -66,7 +66,7 @@ RSpec::Matchers.define :sum_to_softly_equal do |query_two|
     (query_two.value - actual).abs <= margin.abs
   end
 
-  failure_message_for_should do |queries|
+  failure_message do |queries|
     actual = queries.inject(0) { |sum, q| sum + q.value }
     "actual #{format_float(actual)} to be within #{(1.0E-12 * query_two.value).abs} of \
 #{format_float(query_two.value)} (difference of #{format_float((actual - query_two.value).abs)})"
