@@ -59,6 +59,34 @@ RSpec::Matchers.define :softly_equal do |query_two|
   end
 end
 
+RSpec::Matchers.define :sankey_equal do |expected|
+  margin = 10.0 
+
+  match do |actual|
+    actual_value = actual.value # Extract the value from the Result object
+    (actual_value - expected).abs <= margin
+  end
+
+  failure_message do |actual|
+    actual_value = actual.value # Ensure we're working with the numeric value
+    "expected #{format_float(actual_value)} to be within #{margin} PJ of #{format_float(expected)}"
+  end
+end
+
+RSpec::Matchers.define :sankey_softly_equal do |expected|
+  margin = 1.0E-12 
+
+  match do |actual|
+    actual_value = actual.value # Extract the value from the Result object
+    (actual_value - expected).abs <= margin
+  end
+
+  failure_message do |actual|
+    actual_value = actual.value # Ensure we're working with the numeric value
+    "expected #{format_float(actual_value)} to be within #{margin} PJ of #{format_float(expected)}"
+  end
+end
+
 RSpec::Matchers.define :sum_to_softly_equal do |query_two|
   match do |queries|
     actual = queries.inject(0) { |sum, q| sum + q.value }
