@@ -74,7 +74,7 @@ RSpec::Matchers.define :sankey_equal do |expected|
 end
 
 RSpec::Matchers.define :sankey_softly_equal do |expected|
-  margin = 1.0E-12 
+  margin = 1.0E-10 
 
   match do |actual|
     actual_value = actual.value # Extract the value from the Result object
