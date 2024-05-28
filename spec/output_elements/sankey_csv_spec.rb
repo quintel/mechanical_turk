@@ -65,7 +65,7 @@ describe 'Primary Demand' do
         #actual_result = scenario.turk_sankey_steam_hot_water
         #ctual_value = actual_result.value # Get the actual numeric value
       
-        #puts "Actual value: #{actual_value}, Expected range: #{expected_value - 1.0*10E-12} to #{expected_value + 1.0*10E-12}"
+        #puts "Actual value: #{actual_value}, Expected range: #{expected_value - 1.0*10E-10} to #{expected_value + 1.0*10E-10}"
       
         #expect(actual_result).to sankey_softly_equal(expected_value) # Pass the entire object if the matcher handles the extraction
       #end
@@ -76,7 +76,7 @@ describe 'Primary Demand' do
         #actual_result = scenario.turk_sankey_oil
         #actual_value = actual_result.value # Get the actual numeric value
       
-        #puts "Actual value: #{actual_value}, Expected range: #{expected_value - 1.0E-12} to #{expected_value + 1.0E-12}"
+        #puts "Actual value: #{actual_value}, Expected range: #{expected_value - 1.0E-10} to #{expected_value + 1.0E-10}"
       
         #expect(actual_result).to sankey_softly_equal(expected_value) # Pass the entire object if the matcher handles the extraction
       #end 
