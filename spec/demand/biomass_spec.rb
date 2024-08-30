@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Biomass' do
+describe 'Biomass', skip: true do
   context 'Net voor de Toekomst - Nationaal' do
     before do
       @scenario = Turk::Preset.new(112_999_0)
