@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050)
   end
 
   context "Removing all apartments and insulating them" do
