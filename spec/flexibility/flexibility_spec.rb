@@ -5,14 +5,14 @@ require 'spec_helper'
 describe "Flexibility" do
 
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       settings_enable_merit_order: 1
     })
   end
 
   context "P2P (batteries)" do
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
       capacity_of_energy_power_wind_turbine_inland: 30000 # excess electricity
     })
@@ -56,7 +56,7 @@ describe "Flexibility" do
 
   context "P2P (electric cars)" do
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
       capacity_of_energy_power_wind_turbine_inland: 30000, # excess electricity
       transport_car_using_electricity_share: 20.0 #making sure there are electric cars
@@ -100,7 +100,7 @@ describe "Flexibility" do
 
 context "P2H for industry" do
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
       capacity_of_energy_power_wind_turbine_inland: 30000 # excess electricity
     })
@@ -274,7 +274,7 @@ context "P2H for industry" do
 
   context "P2G" do
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
       capacity_of_energy_power_wind_turbine_inland: 30000, # excess electricity
       transport_car_using_hydrogen_share: 20.0 #making sure there are hydrogen cars
@@ -318,7 +318,7 @@ context "P2H for industry" do
 
   context "Electricity Conservation" do
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       settings_enable_merit_order: 1,
       capacity_of_energy_power_wind_turbine_inland: 10000, # excess electricity
       transport_car_using_hydrogen_share: 20.0 #making sure there are hydrogen cars
@@ -337,7 +337,7 @@ context "P2H for industry" do
 
   context "Demand response heat pumps, buffer size" do
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, autobalance: true, inputs: {
       settings_enable_merit_order: 1,
       households_useful_demand_heat_per_person: 5.0, # excess heat demand
       households_useful_demand_hot_water_share: 5.0, # excess hot water demand
@@ -380,7 +380,7 @@ context "P2H for industry" do
 
   #context "Flexibility order" do
   #before do
-  #  @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+  #  @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
   #    settings_enable_merit_order: 1,
   #    households_flexibility_p2h_electricity_market_penetration: 20.0
   #  })

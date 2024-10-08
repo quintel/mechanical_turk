@@ -7,7 +7,7 @@ require 'spec_helper'
 describe "Starting with a scenario with nonzero LOLE," do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       # removing all the Gas CCGT and Pulverized coal to create a nonzero LOLP
       capacity_of_energy_power_combined_cycle_network_gas: 0.0,
       capacity_of_energy_power_ultra_supercritical_coal: 0.0

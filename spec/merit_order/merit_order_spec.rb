@@ -5,7 +5,7 @@ describe "Merit Order" do
 
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
         settings_enable_merit_order: 0
       })
   end
@@ -78,7 +78,7 @@ describe "Merit Order" do
 
     # With the settings_enable_merit_order enabled
     before(:each) do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
         settings_enable_merit_order: 1,
         electricity_interconnector_1_capacity: 0.0
       })

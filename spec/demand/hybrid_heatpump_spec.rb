@@ -6,7 +6,7 @@ describe "Hybrid heat pump" do
 
   context "Hybrid heat pump general fever/merit order disabled" do
     before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {settings_enable_merit_order: 0})
+      @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {settings_enable_merit_order: 0})
     end
 
     describe "Removing all residences" do
@@ -202,7 +202,7 @@ describe "Hybrid heat pump" do
 
   context "Hybrid heat pump general fever/merit order enabled" do
     before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
+      @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050)
     end
 
     describe "Setting the relevant HHP sliders" do
@@ -256,7 +256,7 @@ describe "Hybrid heat pump" do
 
   context "Hybrid heat pump COP" do
     before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
+      @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, autobalance: true, inputs: {
       households_heater_hybrid_heatpump_air_water_electricity_share: 100.0, #setting HHP's for space heating and hot water to 100%,
       flexibility_heat_pump_space_heating_cop_cutoff_gas: 6.0, # setting the cut-off COP to 6.0
       flexibility_heat_pump_water_heating_cop_cutoff: 6.0 # setting the cut-off COP to 6.0
@@ -301,7 +301,7 @@ describe "Hybrid heat pump" do
 
  context "Hybrid heat gas usage" do
     before do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: true, inputs: {
+      @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, autobalance: true, inputs: {
       households_heater_hybrid_heatpump_air_water_electricity_share: 100.0, #setting HHP's for space heating and hot water to 100%,
       flexibility_heat_pump_space_heating_cop_cutoff_gas: 1.0, # setting the cut-off COP to 1.0
       flexibility_heat_pump_water_heating_cop_cutoff: 1.0 # setting the cut-off COP to 1.0
