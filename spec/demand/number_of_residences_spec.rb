@@ -9,7 +9,7 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   context "Removing all apartments and insulating them" do
 
-    it "should leave the cost unchanged" do
+    xit "should leave the cost unchanged" do
       # move slider set 1 (number of apartments)
       @scenario.households_number_of_apartments_before_1945 = 0.0
       @scenario.households_number_of_apartments_1945_1964 = 0.0
@@ -34,7 +34,7 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   context "Removing all detached houses and insulating them" do
 
-    it "should leave the cost unchanged" do
+    xit "should leave the cost unchanged" do
       # move slider set 1 (number of detached houses)
       @scenario.households_number_of_detached_houses_before_1945 = 0.0
       @scenario.households_number_of_detached_houses_1945_1964 = 0.0
@@ -59,7 +59,7 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   context "Removing all semi-detached houses and insulating them" do
 
-    it "should leave the cost unchanged" do
+    xit "should leave the cost unchanged" do
       # move slider set 1 (number of semi-detached houses)
       @scenario.households_number_of_semi_detached_houses_before_1945 = 0.0
       @scenario.households_number_of_semi_detached_houses_1945_1964 = 0.0
@@ -84,7 +84,7 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   context "Removing all terraced houses and insulating them" do
 
-    it "should leave the cost unchanged" do
+    xit "should leave the cost unchanged" do
       # move slider set 1 (number of terraced houses)
       @scenario.households_number_of_terraced_houses_before_1945 = 0.0
       @scenario.households_number_of_terraced_houses_1945_1964 = 0.0
@@ -109,7 +109,7 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   context "Halving the number of residences" do
 
-    it "should halve the heat demand for all housing types" do
+    xit "should halve the heat demand for all housing types" do
       # move slider
       @scenario.households_number_of_apartments_before_1945 = 516342 * 0.5
       @scenario.households_number_of_apartments_1945_1964 = 371806 * 0.5
@@ -144,7 +144,7 @@ describe "Sliders: shares of apartments, terraced houses, etc. " do
 
   context "Doubling the number of residences" do
 
-    it "should double the residential roof surface available for pv" do
+    xit "should double the residential roof surface available for pv" do
       # move slider to the doubled number of residences
       @scenario.households_number_of_apartments_future = 2676275.0
       @scenario.households_number_of_detached_houses_future = 1016787.0

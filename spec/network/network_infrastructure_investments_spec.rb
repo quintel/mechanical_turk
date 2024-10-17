@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Network costs" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050)
   end
 
   context "In a start scenario" do
@@ -21,7 +21,7 @@ end
 describe "Starting with a scenario where all household space heating is electric" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050, inputs: {
       households_heater_electricity_share: 100,
       settings_enable_merit_order: 1
     })

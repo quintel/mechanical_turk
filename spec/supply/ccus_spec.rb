@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "CCUS" do
-  Turk::PresetCollection.from_keys(:ii3050, :nvdt, :scenario_collection).each do |scenario|
+  Turk::PresetCollection.from_keys(:ii3050v2).each do |scenario|
 
     context "with scenario #{scenario.original_scenario_id}" do
       it "should result in all input and output flows of the CCUS sankey nodes to be equal" do

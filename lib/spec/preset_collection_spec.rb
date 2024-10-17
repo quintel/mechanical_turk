@@ -7,10 +7,10 @@ describe Turk::PresetCollection do
     load 'webmock_stubs_v3.rb'
   end
 
-  let(:valid_key) { :ii3050 }
+  let(:valid_key) { :ii3050v2 }
 
   describe '.from_key' do
-    context 'with existing key :ii3050' do
+    context 'with existing key :ii3050v2' do
       subject { described_class.from_key(valid_key) }
 
       it 'is a collection' do
@@ -34,7 +34,7 @@ describe Turk::PresetCollection do
   end
 
   describe '.from_keys' do
-    context 'with existing keys :ii3050 and :ii3050' do
+    context 'with existing keys :ii3050v2 and :ii3050v2' do
       subject { described_class.from_keys(valid_key, valid_key) }
 
       it 'is a collection' do
