@@ -81,7 +81,12 @@ RSpec.describe 'Mekko balancing' do
       it "should result in all input and output flows of agriculure_local_heat to be balanced" do
         expect(scenario.turk_agriculture_local_heat_mekko_demand).to softly_equal(scenario.turk_agriculture_local_heat_mekko_supply)
       end
-    end    
+    end
+    context "with scenario #{scenario.original_scenario_id}" do
+      it "should result in all input and output flows of industry_local_heat to be balanced" do
+        expect(scenario.turk_industrial_heat_mekko_demand).to softly_equal(scenario.turk_industrial_heat_mekko_supply)
+      end
+    end            
   end
 end
 
