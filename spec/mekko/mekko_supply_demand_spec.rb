@@ -113,7 +113,12 @@ RSpec.describe 'Mekko balancing' do
       it "should result in all the supply of mekko_of_hydrogen_network to match the total hydrogen supply" do
         expect(scenario.turk_mekko_of_hydrogen_network_supply).to softly_equal(scenario.turk_mekko_of_hydrogen_network_total_supply)
       end
-    end                      
+    end  
+    context "with scenario #{scenario.original_scenario_id}" do
+      it "should result in all input and output flows of mekko_of_kerosene_demand_supply to be balanced" do
+        expect(scenario.turk_mekko_of_kerosene_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_kerosene_demand_supply_supply)
+      end
+    end                         
   end
 end
 
