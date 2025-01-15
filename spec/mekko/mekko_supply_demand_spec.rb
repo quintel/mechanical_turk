@@ -5,7 +5,7 @@ RSpec.describe 'Mekko balancing' do
     context "with scenario #{scenario.original_scenario_id}" do
       # Test whether supply equals demand in mekko
       it "should result in all supply and demand flows of mekko_of_collective_heat_ht to be balanced" do
-        skip("ETSource 3165")
+        skip("ETEngine #1486")
         expect(scenario.turk_mekko_of_collective_heat_ht_demand).to softly_equal(scenario.turk_mekko_of_collective_heat_ht_supply)
       end
     end
