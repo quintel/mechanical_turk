@@ -35,7 +35,7 @@ RSpec.describe 'Mekko balancing' do
         skip("Mechanical turk #186")
         expect(scenario.turk_mekko_of_collective_heat_mt_supply).to softly_equal(scenario.turk_mekko_of_collective_heat_mt_network_total_supply)
       end
-    end  
+    end
     context "with scenario #{scenario.original_scenario_id}" do
       it "should result in all input and output flows of mekko_of_collective_heat_lt to be balanced" do
         skip("Mechanical turk #186")
@@ -59,24 +59,24 @@ RSpec.describe 'Mekko balancing' do
         skip("ETSource 2930")
         expect(scenario.turk_mekko_of_electricity_network_demand).to softly_equal(scenario.turk_mekko_of_electricity_network_supply)
       end
-    end 
+    end
     context "with scenario #{scenario.original_scenario_id}" do
       it "should result in all input and output flows of mekko_of_network_gas_network to be balanced" do
         expect(scenario.turk_mekko_of_network_gas_network_demand).to softly_equal(scenario.turk_mekko_of_network_gas_network_supply)
       end
     end
     context "with scenario #{scenario.original_scenario_id}" do
-      it "should result in all the demand of mekko_of_collective_heat_lt to match the total lt heat demand" do
-        skip("ETSource #3177")
+      it "should result in all the demand of mekko_of_network_gas_network to match the total network gas demand" do
+        skip("ETEngine #1484")
         expect(scenario.turk_mekko_of_network_gas_network_demand).to softly_equal(scenario.turk_mekko_of_network_gas_network_total_demand)
       end
     end
     context "with scenario #{scenario.original_scenario_id}" do
-      it "should result in all the supply of mekko_of_collective_heat_lt to be match the total lt heat supply" do
-        skip("ETSource #3177")
+      it "should result in all the supply of mekko_of_network_gas_network to match the total network gas supply" do
+        skip("ETEngine #1484")
         expect(scenario.turk_mekko_of_network_gas_network_supply).to softly_equal(scenario.turk_mekko_of_network_gas_network_total_supply)
-      end     
-    end    
+      end
+    end
   end
 end
 
