@@ -9,7 +9,7 @@ Inspiration of the Mechanical Turk is drawn from the [Mechanical Turk](https://e
 
 ## The Idea
 
-In stead of pulling an input as a person to test the **correctness** of the ET Engine, we can let Rspec do that. We define
+Instead of pulling an input as a person to test the **correctness** of the ET Engine, we can let Rspec do that. We define
 what we expect from ETengine. E.g., when we expect a clean sheet scenario to
 have *exactly* 160 MegaTons of CO<sub>2</sub>-emissions, we can write:
 
