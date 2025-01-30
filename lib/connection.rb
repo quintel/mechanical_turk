@@ -6,7 +6,7 @@ module Turk
 
 class Connection
 
-  SERVER_ADDRESS = ENV['SERVER'] || YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] rescue "https://beta-engine.energytransitionmodel.com"
+  SERVER_ADDRESS = ENV['SERVER'] || YAML.load_file(File.expand_path('../../config.yml', __FILE__))['server_addr'] rescue "https://beta.engine.energytransitionmodel.com"
 
   include HTTParty
   base_uri SERVER_ADDRESS + '/api/v3/scenarios'

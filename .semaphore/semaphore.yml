@@ -20,4 +20,4 @@ blocks:
             - bundle exec rspec
       env_vars:
         - name: SERVER
-          value: 'https://beta-engine.energytransitionmodel.com'
+          value: 'https://beta.engine.energytransitionmodel.com'
