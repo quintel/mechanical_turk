@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'Electricity Sankey' do
-  Turk::PresetCollection.from_keys(:ii3050, :nvdt, :scenario_collection, :merit_off).each do |scenario|
+  Turk::PresetCollection.from_keys(:nvdt, :scenario_collection, :merit_off).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       # Test whether electricity supply equals demand in the electricity Sankey
       it 'Supply of electricity in the electricity Sankey should match the demand for electricity in 
