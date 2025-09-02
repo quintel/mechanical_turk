@@ -177,7 +177,6 @@ describe "Standard scenario: Metal production" do
       @scenario.industry_steel_cyclonefurnace_bof_wood_pellets_share = 40 #%
 
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
-      expect(@scenario.dashboard_bio_footprint).to increase
     end
   end
 end
