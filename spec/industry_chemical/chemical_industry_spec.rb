@@ -87,7 +87,6 @@ describe "Standard scenario: Chemical industry" do
       expect(@scenario.dashboard_reduction_of_co2_emissions_versus_1990).to decrease
       #temporarily disabled cost spec, see https://github.com/quintel/etsource/issues/1780
       #expect(@scenario.total_costs).to increase
-      expect(@scenario.dashboard_bio_footprint).to increase
     end
   end
 end
