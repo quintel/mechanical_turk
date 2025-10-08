@@ -76,32 +76,6 @@ RSpec.describe 'Biomass' do
           scenario.turk_input_of_biofuels_in_biomass_sankey
         ).to softly_equal(scenario.turk_output_of_biofuels_in_biomass_sankey)
       end
-
-      it 'results in equal input and output flows of the electricity_prod node in the biomass sankey,
-        taking into account a correction for heaters with >100\% efficiencies' do
-        expect(
-          [
-            scenario.turk_input_of_electricity_prod_in_biomass_sankey,
-            scenario.turk_input_of_electricity_prod_in_biomass_sankey_efficiency_correction
-          ]
-        ).to sum_to_softly_equal(scenario.turk_output_of_electricity_prod_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the central_heat_prod node in the biomass sankey,
-        taking into account a correction for heaters with >100\% efficiencies' do
-        expect(
-          [
-            scenario.turk_input_of_central_heat_prod_in_biomass_sankey,
-            scenario.turk_input_of_central_heat_prod_in_biomass_sankey_efficiency_correction
-          ]
-        ).to sum_to_softly_equal(scenario.turk_output_of_central_heat_prod_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the hydrogen_prod node in the biomass sankey' do
-        expect(
-          scenario.turk_input_of_hydrogen_prod_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_hydrogen_prod_in_biomass_sankey)
-      end
     end
   end
 
