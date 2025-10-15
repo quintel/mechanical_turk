@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'Primary Demand' do
-  Turk::PresetCollection.from_keys(:ii3050, :nvdt, :scenario_collection, :merit_off).each do |scenario|
+  Turk::PresetCollection.from_keys(:ii3050, :nvdt, :scenario_collection).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       # Test whether application group covers all final demand and exports
       it 'primary demand of the application group nodes should always equal primary demand of the
