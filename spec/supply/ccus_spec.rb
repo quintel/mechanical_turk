@@ -12,7 +12,6 @@ describe "CCUS" do
         )
       end
 
-
       describe "Capture rate in Energy Graph and Molecules Graph" do
 
         it "should be equal for energy_power_ultra_supercritical_oxyfuel_ccs_lignite" do
@@ -60,7 +59,55 @@ describe "CCUS" do
           expect(
             scenario.turk_energy_power_ultra_supercritical_ccs_coal_capture_share
           ).to softly_equal(
-            scenario.turk_energy_power_ultra_supercritical_ccs_coal_capture_rate)
+            scenario.turk_energy_power_ultra_supercritical_ccs_coal_capture_rate
+          )
+        end
+
+        it "should be equal for energy_production_fischer_tropsch_biogenic_waste_ccs" do
+          expect(
+            scenario.turk_energy_production_fischer_tropsch_biogenic_waste_ccs_capture_share
+          ).to softly_equal(
+            scenario.turk_energy_production_fischer_tropsch_biogenic_waste_ccs_capture_rate
+          )
+        end
+
+        it "should be equal for energy_production_fischer_tropsch_dry_biomass_ccs" do
+          expect(
+            scenario.turk_energy_production_fischer_tropsch_dry_biomass_ccs_capture_share
+          ).to softly_equal(
+            scenario.turk_energy_production_fischer_tropsch_dry_biomass_ccs_capture_rate
+          )
+        end
+        it "should be equal for energy_production_fischer_tropsch_biogenic_waste_ccs" do
+          expect(
+            scenario.turk_energy_production_fischer_tropsch_biogenic_waste_ccs_capture_share
+          ).to softly_equal(
+            scenario.turk_energy_production_fischer_tropsch_biogenic_waste_ccs_capture_rate
+          )
+        end
+
+        it "should be equal for energy_production_methanol_synthesis_biogenic_waste_ccs" do
+          expect(
+            scenario.turk_energy_production_methanol_synthesis_biogenic_waste_ccs_capture_share
+          ).to softly_equal(
+            scenario.turk_energy_production_methanol_synthesis_biogenic_waste_ccs_capture_rate
+          )
+        end
+
+        it "should be equal for energy_production_methanol_synthesis_dry_biomass_ccs" do
+          expect(
+            scenario.turk_energy_production_methanol_synthesis_dry_biomass_ccs_capture_share
+          ).to softly_equal(
+            scenario.turk_energy_production_methanol_synthesis_dry_biomass_ccs_capture_rate
+          )
+        end
+
+        it "should be equal for energy_production_methanol_synthesis_non_biogenic_waste_ccs" do
+          expect(
+            scenario.turk_energy_production_methanol_synthesis_non_biogenic_waste_ccs_capture_share
+          ).to softly_equal(
+            scenario.turk_energy_production_methanol_synthesis_non_biogenic_waste_ccs_capture_rate
+          )
         end
       end
     end
