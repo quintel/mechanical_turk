@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Solar PV do" do
 
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl2019", end_year: 2050)
+    @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050)
   end
 
   describe "Increasing efficiency" do
@@ -25,7 +25,7 @@ describe "Solar PV do" do
   describe "Increasing total output capacity" do
     it "should increase total output capacity, number of units and total production" do
       # increasing total electricity output capacity
-      @scenario.capacity_of_energy_power_solar_pv_solar_radiation = 800.0 #MW
+      @scenario.capacity_of_energy_power_solar_pv_solar_radiation = 5000.0 #MW
 
       # electricity output capacity, number_of_units, total production should increase
       expect(@scenario.turk_energy_power_solar_pv_solar_radiation_total_electricity_output_capacity).to increase
@@ -41,7 +41,7 @@ describe "Solar PV do" do
   describe "Increasing full load hours" do
     it "should increase full load hours and total production" do
       # increasing full load hours
-      @scenario.flh_of_energy_power_solar_pv_solar_radiation = 900.0 #hours
+      @scenario.flh_of_energy_power_solar_pv_solar_radiation = 1000.0 #hours
 
       # full load hours and total production should increase
       expect(@scenario.turk_energy_power_solar_pv_solar_radiation_full_load_hours).to increase
