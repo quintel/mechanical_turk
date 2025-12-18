@@ -17,7 +17,7 @@ blocks:
             - gem install bundler
             - bundle install --deployment --path vendor/bundle
             - cache store
-            - bundle exec rspec spec/demand/population_spec.rb
+            - bundle exec rspec spec/demand/biomass_spec.rb
       env_vars:
         - name: SERVER
           value: 'https://beta.engine.energytransitionmodel.com'
