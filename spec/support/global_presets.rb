@@ -1,12 +1,10 @@
 # Initialize collections IMMEDIATELY when file is loaded
-$preset_collection_ii3050v2 = Turk::PresetCollection.from_keys(:ii3050v2)
-
-#... other collections can be initialized here
+$preset_collections = Turk::PresetCollection.all
 
 RSpec.configure do |config|
   # Runs once before the whole test suite
   config.before(:suite) do
-    $preset_collection_ii3050v2.each do |scenario|
+    $preset_collections.each do |scenario|
       scenario.track(%w[
         turk_distribution_dry_biomass
         turk_demand_dry_biomass
