@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Biomass' do
-  $preset_collection_ii3050v2.each do |scenario|
+  $preset_collections.each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       it 'results in the total demand of the dry biomass resources to be equal to the distribution demand' do
         expect(
