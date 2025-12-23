@@ -26,7 +26,3 @@ scenario_collection:
   - { id: 1438773, title: "" }
   - { id: 1438780, title: "" }
   - { id: 1438836, title: "" }
-
-merit_off:
-  - { id: 1438775, title: "" }
-  - { id: 1438838, title: "" }
