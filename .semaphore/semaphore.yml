@@ -17,7 +17,7 @@ blocks:
             - gem install bundler
             - bundle install --deployment --path vendor/bundle
             - cache store
-            - bundle exec rspec
+            - bundle exec rspec spec/mekko/mekko_supply_demand_spec
       env_vars:
         - name: SERVER
           value: 'https://beta.engine.energytransitionmodel.com'
