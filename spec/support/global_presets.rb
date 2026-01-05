@@ -6,30 +6,20 @@ RSpec.configure do |config|
   config.before(:suite) do
     $preset_collections.each do |scenario|
       scenario.track(%w[
-        turk_distribution_dry_biomass
-        turk_demand_dry_biomass
-        turk_distribution_wet_biomass
-        turk_demand_wet_biomass
-        turk_distribution_oily_biomass
-        turk_demand_oily_biomass
-        turk_distribution_biogenic_waste
-        turk_demand_biogenic_waste
         turk_total_input_in_biomass_sankey
         turk_total_output_in_biomass_sankey
-        turk_input_of_biogenic_waste_in_biomass_sankey
-        turk_output_of_biogenic_waste_in_biomass_sankey
-        turk_input_of_wet_in_biomass_sankey
-        turk_output_of_wet_in_biomass_sankey
-        turk_input_of_oily_in_biomass_sankey
-        turk_output_of_oily_in_biomass_sankey
-        turk_input_of_dry_in_biomass_sankey
-        turk_output_of_dry_in_biomass_sankey
-        turk_input_of_biogas_in_biomass_sankey
-        turk_output_of_biogas_in_biomass_sankey
-        turk_input_of_greengas_in_biomass_sankey
-        turk_output_of_greengas_in_biomass_sankey
-        turk_input_of_biofuels_in_biomass_sankey
-        turk_output_of_biofuels_in_biomass_sankey
+        turk_input_of_biomethanol_secondary_in_biomass_sankey
+        turk_output_of_biomethanol_secondary_in_biomass_sankey
+        turk_input_of_bio_pyrolysis_oil_secondary_in_biomass_sankey
+        turk_output_of_bio_pyrolysis_oil_secondary_in_biomass_sankey
+        turk_input_of_greengas_secondary_in_biomass_sankey
+        turk_output_of_greengas_secondary_in_biomass_sankey
+        turk_input_of_bio_kerosene_secondary_in_biomass_sankey
+        turk_output_of_bio_kerosene_secondary_in_biomass_sankey
+        turk_input_of_biodiesel_secondary_in_biomass_sankey
+        turk_output_of_biodiesel_secondary_in_biomass_sankey
+        turk_input_of_bionaphtha_secondary_in_biomass_sankey
+        turk_output_of_bionaphtha_secondary_in_biomass_sankey
         turk_mekko_of_collective_heat_ht_demand
         turk_mekko_of_collective_heat_ht_supply
         turk_mekko_of_collective_heat_ht_network_total_demand
