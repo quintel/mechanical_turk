@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Biomass' do
-  Turk::PresetCollection.from_keys(:ii3050v2).each do |scenario|
+  Turk::PresetCollection.all.each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       it 'results in the total demand of the dry biomass resources to be equal to the distribution demand' do
         expect(
@@ -80,7 +80,7 @@ RSpec.describe 'Biomass' do
   end
 
   context 'general fever/merit order enabled' do
-    before do
+    before(:all) do
       @scenario = Turk::Scenario.new(
         area_code: 'nl',
         end_year: 2050,
@@ -91,6 +91,9 @@ RSpec.describe 'Biomass' do
           green_gas_total_share: 50.0
         }
       )
+
+      queries = Turk::QueryExtractor.for_files(['spec/demand/biomass_spec.rb'])
+      @scenario.track(queries)
     end
 
     describe 'Increasing the share of greengas in the gas network' do
