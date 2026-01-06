@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Mekko balancing' do
-  $preset_collections.each do |scenario|
+  Turk::PresetCollection.all.each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       it "should result in all input and output flows of mekko_of_collective_heat_ht to be balanced" do
         skip("ETEngine #1486")

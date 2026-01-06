@@ -1,16 +1,23 @@
 require_relative 'spec_helper'
 
 describe Turk::Preset do
-
-  let(:preset) { Turk::Scenario.new(1) }
-
   before(:each) do
-    load 'webmock_stubs_v3.rb'
+    load File.expand_path('webmock_stubs_v3.rb', __dir__)
   end
 
-  describe "#set key" do
-    it "should remember the key in @inputs" do
-      preset.number_of_energy_power_ultra_supercritical_coal = 10
+  describe 'with a Scenario' do
+    let(:scenario) { Turk::Scenario.new(scenario_id: 1) }
+
+    it 'allows setting inputs' do
+      scenario.number_of_energy_power_ultra_supercritical_coal = 10
+    end
+  end
+
+  describe 'with a Preset' do
+    let(:preset) { Turk::Preset.new(1) }
+
+    it 'raises error when trying to set an input' do
+      expect { preset.number_of_energy_power_ultra_supercritical_coal = 10 }.to raise_error(Turk::ImmutableScenarioError)
     end
   end
 end
