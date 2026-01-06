@@ -4,10 +4,10 @@ require_relative 'spec_helper'
 
 describe Turk::PresetCollection do
   before(:each) do
-    load 'webmock_stubs_v3.rb'
+    load File.expand_path('webmock_stubs_v3.rb', __dir__)
   end
 
-  let(:valid_key) { :ii3050 }
+  let(:valid_key) { :ii3050v2 }
 
   describe '.from_key' do
     context 'with existing key :ii3050' do

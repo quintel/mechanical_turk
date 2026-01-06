@@ -37,8 +37,8 @@ module Turk
     end
 
     class << self
-      # Public: Creates and returns a new collection of Presets based on the
-      # scenarios specified by the given key in preset_scenarios.yml.
+      # Public: Returns a collection of Presets based on the scenarios
+      # specified by the given key in preset_scenarios.yml.
       #
       # key,      A key for a scenario test-groups, this key should be present in
       #           preset_scenarios.yml.
@@ -47,11 +47,11 @@ module Turk
       def from_key(key)
         ensure_valid_key(key)
 
-        PresetCollection.new(preset_scenarios[key].map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(preset_scenarios[key].map { |id| Turk::Preset.for(id) })
       end
 
-      # Public: Creates and returns a new collection of Presets based on the
-      # scenarios specified by the given keys in preset_scenarios.yml.
+      # Public: Returns a collection of Presets based on the scenarios
+      # specified by the given keys in preset_scenarios.yml.
       #
       # *keys,    One or multiple keys for scenario test-groups, these keys should
       #           be present in preset_scenarios.yml.
@@ -63,15 +63,15 @@ module Turk
           preset_scenarios[key]
         end
 
-        PresetCollection.new(scenarios.map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(scenarios.map { |id| Turk::Preset.for(id) })
       end
 
-      # Public: Creates and returns a new collection of Presets containing all
-      # scenarios specified in preset_scenarios.yml.
+      # Public: Returns the collection of all Presets specified in
+      # preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def all
-        PresetCollection.new(unique_preset_scenarios.map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(unique_preset_scenarios.map { |id| Turk::Preset.for(id) })
       end
 
       private
