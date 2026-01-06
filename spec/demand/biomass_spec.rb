@@ -13,9 +13,9 @@
 require 'spec_helper'
 
 RSpec.describe 'Biomass' do
-  Turk::PresetCollection.from_keys(:ii3050v2, :kev,:scenario_collection).each do |scenario|
+  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
-        skip("Imbalance due to network gas burner efficiencies of 103")
+      it 'results in equal total input and output flows in the biomass sankey' do
         expect(
           scenario.turk_total_input_in_biomass_sankey
         ).to softly_equal(scenario.turk_total_output_in_biomass_sankey)
