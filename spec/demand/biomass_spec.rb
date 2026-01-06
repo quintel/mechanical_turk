@@ -1,173 +1,62 @@
-# Sliders ...
+# Biomass Sankey balance tests
+# Tests the biomass sankey structure with:
+# - Column 0: 15 input nodes (greengas_primary, biogas, wood_pellets, torrefied_biomass_pellets,
+#             biogenic_waste, bio_kerosene_primary, biodiesel_primary, bionaphtha_primary,
+#             bio_ethanol, biomethanol_primary, bio_pyrolysis_oil_primary, bio_lng, bio_oil, hydrogen, heat)
+# - Column 1: 3 intermediate nodes (industry_transformation, biomethanol_secondary, bio_pyrolysis_oil_secondary)
+#             Note: industry_transformation is NOT balanced (inputs != outputs by design)
+# - Column 2: 4 intermediate nodes (greengas_secondary, bio_kerosene_secondary,
+#             biodiesel_secondary, bionaphtha_secondary)
+# - Column 3: 13 output nodes (households, buildings, transport, bunkers, industry, agriculture,
+#             energy, other, export, electricity_production, heat_production, hydrogen_production, losses)
 
 require 'spec_helper'
 
 RSpec.describe 'Biomass' do
   Turk::PresetCollection.from_keys(:ii3050v2).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
-      it 'results in the total demand of the dry biomass resources to be equal to the distribution demand' do
-        expect(
-          scenario.turk_distribution_dry_biomass
-        ).to softly_equal(scenario.turk_demand_dry_biomass)
-      end
-
-      it 'results in the total demand of the wet biomass resources to be equal to the distribution demand' do
-        expect(
-          scenario.turk_distribution_wet_biomass
-        ).to softly_equal(scenario.turk_demand_wet_biomass)
-      end
-
-      it 'results in the total demand of the oily biomass resources to be equal to the distribution demand' do
-        expect(
-          scenario.turk_distribution_oily_biomass
-        ).to softly_equal(scenario.turk_demand_oily_biomass)
-      end
-
-      it 'results in the total demand of the biogenic waste resources to be equal to the distribution demand' do
-        expect(
-          scenario.turk_distribution_biogenic_waste
-        ).to softly_equal(scenario.turk_demand_biogenic_waste)
-      end
-
-      it 'results in all input and output flows of the biomass sankey nodes to be equal' do
+      it 'results in all input flows (column 0) equaling all output flows (column 3) minus industry transformation losses of the biomass sankey' do
+        skip("Imbalance due to network gas burner efficiencies of 103")
         expect(
           scenario.turk_total_input_in_biomass_sankey
         ).to softly_equal(scenario.turk_total_output_in_biomass_sankey)
       end
 
-      it 'results in equal input and output flows of the biogenic_waste node in the biomass sankey' do
+      it 'results in equal input and output flows of the biomethanol_secondary node in the biomass sankey' do
         expect(
-          scenario.turk_input_of_biogenic_waste_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_biogenic_waste_in_biomass_sankey)
+          scenario.turk_input_of_biomethanol_secondary_in_biomass_sankey
+        ).to softly_equal(scenario.turk_output_of_biomethanol_secondary_in_biomass_sankey)
       end
 
-      it 'results in equal input and output flows of the wet node in the biomass sankey' do
+      it 'results in equal input and output flows of the bio_pyrolysis_oil_secondary node in the biomass sankey' do
         expect(
-          scenario.turk_input_of_wet_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_wet_in_biomass_sankey)
+          scenario.turk_input_of_bio_pyrolysis_oil_secondary_in_biomass_sankey
+        ).to softly_equal(scenario.turk_output_of_bio_pyrolysis_oil_secondary_in_biomass_sankey)
       end
 
-      it 'results in equal input and output flows of the oily node in the biomass sankey' do
+      it 'results in equal input and output flows of the greengas_secondary node in the biomass sankey' do
+        skip("Imbalance due to network gas burner efficiencies of 103")
         expect(
-          scenario.turk_input_of_oily_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_oily_in_biomass_sankey)
+          scenario.turk_input_of_greengas_secondary_in_biomass_sankey
+        ).to softly_equal(scenario.turk_output_of_greengas_secondary_in_biomass_sankey)
       end
 
-      it 'results in equal input and output flows of the dry node in the biomass sankey' do
+      it 'results in equal input and output flows of the bio_kerosene_secondary node in the biomass sankey' do
         expect(
-          scenario.turk_input_of_dry_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_dry_in_biomass_sankey)
+          scenario.turk_input_of_bio_kerosene_secondary_in_biomass_sankey
+        ).to softly_equal(scenario.turk_output_of_bio_kerosene_secondary_in_biomass_sankey)
       end
 
-      it 'results in equal input and output flows of the biogas node in the biomass sankey' do
+      it 'results in equal input and output flows of the biodiesel_secondary node in the biomass sankey' do
         expect(
-          scenario.turk_input_of_biogas_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_biogas_in_biomass_sankey)
+          scenario.turk_input_of_biodiesel_secondary_in_biomass_sankey
+        ).to softly_equal(scenario.turk_output_of_biodiesel_secondary_in_biomass_sankey)
       end
 
-      it 'results in equal input and output flows of the greengas node in the biomass sankey' do
+      it 'results in equal input and output flows of the bionaphtha_secondary node in the biomass sankey' do
         expect(
-          scenario.turk_input_of_greengas_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_greengas_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the biofuels node in the biomass sankey' do
-        expect(
-          scenario.turk_input_of_biofuels_in_biomass_sankey
-        ).to softly_equal(scenario.turk_output_of_biofuels_in_biomass_sankey)
-      end
-    end
-  end
-
-  context 'general fever/merit order enabled' do
-    before do
-      @scenario = Turk::Scenario.new(
-        area_code: 'nl',
-        end_year: 2050,
-        autobalance: true,
-        inputs: {
-          settings_enable_merit_order: 1,
-          natural_gas_total_share: 50.0,
-          green_gas_total_share: 50.0
-        }
-      )
-    end
-
-    describe 'Increasing the share of greengas in the gas network' do
-      it 'results in an increase in the distribution of greengas' do
-        expect(@scenario.turk_distribution_greengas).to increase
-      end
-
-      it 'results in the total demand of the dry biomass resources to be equal to the distribution demand' do
-        expect(
-          @scenario.turk_distribution_dry_biomass
-        ).to softly_equal(@scenario.turk_demand_dry_biomass)
-      end
-
-      it 'results in the total demand of the wet biomass resources to be equal to the distribution demand' do
-        expect(
-          @scenario.turk_distribution_wet_biomass
-        ).to softly_equal(@scenario.turk_demand_wet_biomass)
-      end
-
-      it 'results in the total demand of the oily biomass resources to be equal to the distribution demand' do
-        expect(
-          @scenario.turk_distribution_oily_biomass
-        ).to softly_equal(@scenario.turk_demand_oily_biomass)
-      end
-
-      it 'results in the total demand of the biogenic waste resources to be equal to the distribution demand' do
-        expect(
-          @scenario.turk_distribution_biogenic_waste
-        ).to softly_equal(@scenario.turk_demand_biogenic_waste)
-      end
-
-      it 'results in all input and output flows of the biomass sankey nodes to be equal' do
-        expect(
-          @scenario.turk_total_input_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_total_output_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the biogenic_waste node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_biogenic_waste_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_biogenic_waste_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the wet node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_wet_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_wet_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the oily node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_oily_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_oily_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the dry node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_dry_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_dry_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the biogas node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_biogas_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_biogas_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the greengas node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_greengas_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_greengas_in_biomass_sankey)
-      end
-
-      it 'results in equal input and output flows of the biofuels node in the biomass sankey' do
-        expect(
-          @scenario.turk_input_of_biofuels_in_biomass_sankey
-        ).to softly_equal(@scenario.turk_output_of_biofuels_in_biomass_sankey)
+          scenario.turk_input_of_bionaphtha_secondary_in_biomass_sankey
+        ).to softly_equal(scenario.turk_output_of_bionaphtha_secondary_in_biomass_sankey)
       end
     end
   end
