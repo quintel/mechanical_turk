@@ -8,7 +8,7 @@ require 'spec_helper'
 describe "Population" do
 
   before(:all) do
-    @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
       households_number_of_inhabitants: 30 # million
     })
   end

@@ -1,10 +1,6 @@
 require 'pry'
 
-# Load application code
 Dir[File.expand_path("../../lib/*.rb", __FILE__)].each {|f| require f}
-
-# Load spec support files
-Dir[File.expand_path("../support/**/*.rb", __FILE__)].sort.each { |f| require f }
 
 puts "INFO: Using Server #{Turk::Connection::SERVER_ADDRESS}...."
 
