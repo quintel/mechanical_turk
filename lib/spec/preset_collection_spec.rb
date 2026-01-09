@@ -4,10 +4,10 @@ require_relative 'spec_helper'
 
 describe Turk::PresetCollection do
   before(:each) do
-    load File.expand_path('webmock_stubs_v3.rb', __dir__)
+    load 'webmock_stubs_v3.rb'
   end
 
-  let(:valid_key) { :ii3050v2 }
+  let(:valid_key) { :ii3050 }
 
   describe '.from_key' do
     context 'with existing key :ii3050' do
@@ -22,7 +22,7 @@ describe Turk::PresetCollection do
       end
 
       it 'has three scenarios in its collection' do
-        expect(subject.presets.length).to eq described_class.preset_scenarios[valid_key].length
+        expect(subject.presets.length).to eq described_class::PRESET_SCENARIOS[valid_key].length
       end
     end
 
@@ -47,7 +47,7 @@ describe Turk::PresetCollection do
 
       it 'has three scenarios in its collection' do
         expect(subject.presets.length).to eq(
-          2 * described_class.preset_scenarios[valid_key].length
+          2 * described_class::PRESET_SCENARIOS[valid_key].length
         )
       end
     end
@@ -64,7 +64,7 @@ describe Turk::PresetCollection do
   describe '.all' do
     it 'contains all scenarios' do
       expect(described_class.all.presets.length).to eq(
-        described_class.preset_scenarios.values.flatten.uniq.length
+        described_class::PRESET_SCENARIOS.values.flatten.uniq.length
       )
     end
   end
@@ -77,7 +77,7 @@ describe Turk::PresetCollection do
       collection.each do |_|
         counter += 1
       end
-      expect(counter).to eq described_class.preset_scenarios[valid_key].length
+      expect(counter).to eq described_class::PRESET_SCENARIOS[valid_key].length
     end
 
     it 'loops through all the scenarios' do
