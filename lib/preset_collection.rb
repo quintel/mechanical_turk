@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'yaml'
 require_relative 'preset'
 
 module Turk
@@ -10,20 +11,22 @@ module Turk
   end
 
   # A collection of Presets to be looping tests over. Specific test-groups of
-  # scenarios can be added to PRESET_SCENARIOS.
+  # scenarios can be added to preset_scenarios.yml.
   class PresetCollection
     include Enumerable
 
     attr_reader :presets
 
-    PRESET_SCENARIOS = {
-      nvdt: [1329317, 1329318, 1329319, 1329320],
-      ii3050: [1370826, 1370828, 1370830, 1370832],
-      ii3050v2: [2402168, 2402170, 2402171, 2402166],
-      kev: [2651987, 2563905, 1661972],
-      scenario_collection: [1438014, 1438773, 1438780, 1438836],
-      merit_off: [1438775, 1438838]
-    }
+    PRESET_SCENARIOS_PATH = File.expand_path('../../preset_scenarios.yml', __FILE__)
+
+    def self.preset_scenarios
+      @preset_scenarios ||= begin
+        yaml = YAML.load_file(PRESET_SCENARIOS_PATH)
+        yaml.transform_keys(&:to_sym).transform_values do |scenarios|
+          scenarios.map { |s| s['id'] }
+        end
+      end
+    end
 
     def initialize(presets)
       @presets = presets
@@ -34,51 +37,51 @@ module Turk
     end
 
     class << self
-      # Public: Creates and returns a new collection of Presets based on the
-      # scenarios specified by the given key in PRESET_SCENARIOS.
+      # Public: Returns a collection of Presets based on the scenarios
+      # specified by the given key in preset_scenarios.yml.
       #
       # key,      A key for a scenario test-groups, this key should be present in
-      #           PRESET_SCENARIOS.
+      #           preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def from_key(key)
         ensure_valid_key(key)
 
-        PresetCollection.new(PRESET_SCENARIOS[key].map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(preset_scenarios[key].map { |id| Turk::Preset.for(id) })
       end
 
-      # Public: Creates and returns a new collection of Presets based on the
-      # scenarios specified by the given keys in PRESET_SCENARIOS.
+      # Public: Returns a collection of Presets based on the scenarios
+      # specified by the given keys in preset_scenarios.yml.
       #
       # *keys,    One or multiple keys for scenario test-groups, these keys should
-      #           be present in PRESET_SCENARIOS.
+      #           be present in preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def from_keys(*keys)
         scenarios = keys.flat_map do |key|
           ensure_valid_key(key)
-          PRESET_SCENARIOS[key]
+          preset_scenarios[key]
         end
 
-        PresetCollection.new(scenarios.map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(scenarios.map { |id| Turk::Preset.for(id) })
       end
 
-      # Public: Creates and returns a new collection of Presets containing all
-      # scenarios specified in PRESET_SCENARIOS.
+      # Public: Returns the collection of all Presets specified in
+      # preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def all
-        PresetCollection.new(unique_preset_scenarios.map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(unique_preset_scenarios.map { |id| Turk::Preset.for(id) })
       end
 
       private
 
       def ensure_valid_key(key)
-        raise UnknownPresetError.new(key) unless PRESET_SCENARIOS.key? key
+        raise UnknownPresetError.new(key) unless preset_scenarios.key? key
       end
 
       def unique_preset_scenarios
-        PRESET_SCENARIOS.flat_map { |_, scenarios| scenarios }.uniq
+        preset_scenarios.flat_map { |_, scenarios| scenarios }.uniq
       end
     end
   end
