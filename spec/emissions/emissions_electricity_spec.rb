@@ -2,10 +2,10 @@
 require 'spec_helper'
 
 describe 'Electricity emissions' do
-  Turk::PresetCollection.from_keys(:ii3050, :nvdt).each do |scenario|
+  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
-      # Motivation for spec described in issue https://github.com/quintel/mechanical_turk/issues/152 
-      it 'Emissions of total electricity production should match sum of emissions queries used 
+      # Motivation for spec described in issue https://github.com/quintel/mechanical_turk/issues/152
+      it 'Emissions of total electricity production should match sum of emissions queries used
           in co2_of_electricity_production chart.' do
           expect(
             [
