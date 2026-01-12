@@ -1,0 +1,28 @@
+# nvdt:
+#   - { id: 1329317, title: "" }
+#   - { id: 1329318, title: "" }
+#   - { id: 1329319, title: "" }
+#   - { id: 1329320, title: "" }
+
+# ii3050:
+#   - { id: 1370826, title: "" }
+#   - { id: 1370828, title: "" }
+#   - { id: 1370830, title: "" }
+#   - { id: 1370832, title: "" }
+
+ii3050v2:
+  - { id: 2402168, title: "National Leadership" }
+  - { id: 2402170, title: "European Integration" }
+  - { id: 2402171, title: "International Trade" }
+  - { id: 2402166, title: "Decentral Initiatives" }
+
+kev:
+  - { id: 2651987, title: "KEV 2024" }
+  - { id: 2563905, title: "KEV 2022" }
+  - { id: 1661972, title: "KEV 2021" }
+
+scenario_collection:
+  - { id: 1438014, title: "" }
+  - { id: 1438773, title: "Maximum slider settings" }
+  - { id: 1438780, title: "" }
+  - { id: 1438836, title: "" }
