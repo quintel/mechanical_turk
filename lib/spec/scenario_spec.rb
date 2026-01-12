@@ -5,20 +5,20 @@ describe Turk::Scenario do
   let(:scenario){ Turk::Scenario.new(area_code: "nl", end_year: 2040) }
 
   before(:each) do
-    load 'webmock_stubs_v3.rb'
+    load File.expand_path('webmock_stubs_v3.rb', __dir__)
   end
 
   describe "#settings" do
 
     it "should return area and end_year as attributes" do
-      scenario.settings[:area_code].should == "nl"
-      scenario.settings[:end_year].should == 2040
+      expect(scenario.settings[:area_code]).to eq "nl"
+      expect(scenario.settings[:end_year]).to eq 2040
     end
 
     it "should return area and end_year as attributes" do
       scenario = Turk::Scenario.new(area_code: "de", end_year: 2037)
-      scenario.settings[:area_code].should == "de"
-      scenario.settings[:end_year].should == 2037
+      expect(scenario.settings[:area_code]).to eq "de"
+      expect(scenario.settings[:end_year]).to eq 2037
     end
 
   end
@@ -26,27 +26,27 @@ describe Turk::Scenario do
   describe "#inputs" do
 
     it "should contain an empty list when nothing has been set" do
-      scenario.inputs.should have(1).list
-      scenario.inputs.last.should have(0).inputs
+      expect(scenario.inputs.length).to eq 1
+      expect(scenario.inputs.last.length).to eq 0
     end
 
   end
 
   describe "#current_inputs" do
     it "should return the latest from the inputs stack" do
-      scenario.stub(:inputs).and_return([{},
-                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}, 
+      allow(scenario).to receive(:inputs).and_return([{},
+                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11},
                                          {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}])
-      scenario.current_inputs.should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}
+      expect(scenario.current_inputs).to eq({"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12})
     end
   end
 
   describe "#previous_inputs" do
     it "should return the previous from the inputs stack" do
-      scenario.stub(:inputs).and_return([{},
-                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}, 
+      allow(scenario).to receive(:inputs).and_return([{},
+                                         {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11},
                                          {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}])
-      scenario.previous_inputs.should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}
+      expect(scenario.previous_inputs).to eq({"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11})
     end
   end
 
@@ -54,13 +54,13 @@ describe Turk::Scenario do
 
     it "should remember the key in @inputs" do
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.inputs.should == [{},{"number_of_energy_power_ultra_supercritical_coal" => 10}]
+      expect(scenario.inputs).to eq([{},{"number_of_energy_power_ultra_supercritical_coal" => 10}])
     end
 
     it "should remember multiple key in @inputs" do
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.number_of_energy_power_ultra_supercritical_ccs_coal = 11
-      scenario.inputs.should == [{},{"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}]
+      expect(scenario.inputs).to eq([{},{"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}])
     end
 
     it "should remember former other inputs after being 'touched'" do
@@ -68,7 +68,7 @@ describe Turk::Scenario do
       scenario.number_of_energy_power_ultra_supercritical_ccs_coal = 11
       scenario.instance_variable_set(:@touched, false)
       scenario.number_of_energy_power_combined_cycle_coal = 12
-      scenario.inputs.last.should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}
+      expect(scenario.inputs.last).to eq({"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12})
     end
 
     it "should have a history of inputs" do
@@ -76,9 +76,9 @@ describe Turk::Scenario do
       scenario.number_of_energy_power_ultra_supercritical_ccs_coal = 11
       scenario.instance_variable_set(:@touched, false)
       scenario.number_of_energy_power_combined_cycle_coal = 12
-      scenario.inputs.should == [{},
-                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}, 
-                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}]
+      expect(scenario.inputs).to eq([{},
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11},
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}])
     end
 
     it "should have a history of inputs" do
@@ -86,9 +86,9 @@ describe Turk::Scenario do
       scenario.number_of_energy_power_ultra_supercritical_ccs_coal = 11
       scenario.result("foo").value
       scenario.number_of_energy_power_combined_cycle_coal = 12
-      scenario.inputs.should == [{},
-                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}, 
-                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}]
+      expect(scenario.inputs).to eq([{},
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11},
+                                 {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11, "number_of_energy_power_combined_cycle_coal" => 12}])
     end
 
     it "should be able to ask for the previous version of the inputs" do
@@ -96,7 +96,7 @@ describe Turk::Scenario do
       scenario.number_of_energy_power_ultra_supercritical_ccs_coal = 11
       scenario.instance_variable_set(:@touched, false)
       scenario.number_of_energy_power_combined_cycle_coal = 12
-      scenario.inputs[-2].should == {"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11}
+      expect(scenario.inputs[-2]).to eq({"number_of_energy_power_ultra_supercritical_coal" => 10, "number_of_energy_power_ultra_supercritical_ccs_coal" => 11})
     end
 
   end
@@ -106,15 +106,15 @@ describe Turk::Scenario do
     it "should update values for all results" do
       scenario.result("foo")
       scenario.refresh!
-      scenario.result("foo").present.should == 1.0
-      scenario.result("foo").value.should == 2.0
-      scenario.result("foo").future.should == 2.0
+      expect(scenario.result("foo").present).to eq 1.0
+      expect(scenario.result("foo").value).to eq 2.0
+      expect(scenario.result("foo").future).to eq 2.0
     end
 
     it "should update values for all results *a second time*" do
-      scenario.result("foo").future.should == 2.0
+      expect(scenario.result("foo").future).to eq 2.0
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.result("foo").future.should == 12.0
+      expect(scenario.result("foo").future).to eq 12.0
     end
 
   end
@@ -126,18 +126,18 @@ describe Turk::Scenario do
     end
 
     it "should return a value when asked for a query" do
-      scenario.result("foo").value.should == 2.0
+      expect(scenario.result("foo").value).to eq 2.0
     end
 
     it "should return a proper increase of the result after having updated the sliders" do
-      scenario.result("foo").value.should == 2
+      expect(scenario.result("foo").value).to eq 2
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.result("foo").increase.should == 10.0
+      expect(scenario.result("foo").increase).to eq 10.0
     end
 
     it "should return a proper increase of the result after having updated the sliders *without explicitly calling it before*" do
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.result("foo").increase.should == 10.0
+      expect(scenario.result("foo").increase).to eq 10.0
     end
 
   end
@@ -145,18 +145,18 @@ describe Turk::Scenario do
   describe "#touched?" do
 
     it "should return false when it is a new scenario" do
-      scenario.touched?.should be_false
+      expect(scenario.touched?).to be false
     end
 
     it "should return true when a input has been set" do
       scenario.result("foo")
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.touched?.should be_true
+      expect(scenario.touched?).to be true
     end
 
     it "should return false when a new query has been added (because that one should update itself)" do
       scenario.result("foo")
-      scenario.touched?.should be_false
+      expect(scenario.touched?).to be false
     end
 
     it "should return false when a input has not moved" do
@@ -164,7 +164,7 @@ describe Turk::Scenario do
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
       scenario.result("foo")
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.touched?.should be_false
+      expect(scenario.touched?).to be false
     end
 
   end
@@ -173,7 +173,7 @@ describe Turk::Scenario do
 
     it "should receive different results when a input has been moved" do
       scenario.number_of_energy_power_ultra_supercritical_coal = 10
-      scenario.result("foo").value.should == 12
+      expect(scenario.result("foo").value).to eq 12
     end
 
   end
@@ -181,12 +181,12 @@ describe Turk::Scenario do
   describe "#short-cuts for 'result'" do
 
     it "should be possible to use short cut results!" do
-      scenario.foo.value.should == 2
-      scenario.foo.should be scenario.result("foo")
+      expect(scenario.foo.value).to eq 2
+      expect(scenario.foo).to be scenario.result("foo")
     end
 
     it "should be possible to use abbreviated short cuts" do
-      scenario.should_receive(:result).with("total_co2_emissions")
+      expect(scenario).to receive(:result).with("total_co2_emissions")
       scenario.co2
     end
 
