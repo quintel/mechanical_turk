@@ -26,3 +26,4 @@ scenario_collection:
   - { id: 1438773, title: "Maximum slider settings" }
   - { id: 1438780, title: "" }
   - { id: 1438836, title: "" }
+  - { id: 2772981, title: "Blank nl2023 scenario" }
