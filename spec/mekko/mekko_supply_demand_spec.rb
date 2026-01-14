@@ -5,8 +5,10 @@
 require 'spec_helper'
 
 RSpec.describe 'Mekko balancing' do
-  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :merit_off, :scenario_collection).each do |scenario|
+  Turk::PresetCollection.all.each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
+
+      # Heat
       it "should result in all input and output flows of mekko_of_collective_heat_ht to be balanced" do
         skip("ETEngine #1486")
         expect(scenario.turk_mekko_of_collective_heat_ht_demand).to softly_equal(scenario.turk_mekko_of_collective_heat_ht_supply)
@@ -41,10 +43,27 @@ RSpec.describe 'Mekko balancing' do
         skip("Mechanical turk #186")
         expect(scenario.turk_mekko_of_collective_heat_lt_supply).to softly_equal(scenario.turk_mekko_of_collective_heat_lt_network_total_supply)
       end
+      it "should result in all input and output flows of agriculture_local_heat to be balanced" do
+        expect(scenario.turk_agriculture_local_heat_mekko_demand).to softly_equal(scenario.turk_agriculture_local_heat_mekko_supply)
+      end
+      it "should result in all the demand of agriculture_local_heat to match the total local agriculture heat demand and supply" do
+        expect(scenario.turk_agriculture_local_heat_mekko_demand).to softly_equal(scenario.turk_agriculture_local_heat_mekko_total_demand_and_supply)
+      end
+
+      it "should result in all input and output flows of industry_local_heat to be balanced" do
+        expect(scenario.turk_industrial_heat_mekko_demand).to softly_equal(scenario.turk_industrial_heat_mekko_supply)
+      end
+      it "should result in all the demand of industry_local_heat to match the total local industry heat demand and supply" do
+        expect(scenario.turk_industrial_heat_mekko_demand).to softly_equal(scenario.turk_industrial_heat_mekko_total_demand_and_supply)
+      end
+
+      # Electricity
       it "should result in all input and output flows of mekko_of_electricity_network to be balanced" do
         skip("ETSource #2930")
         expect(scenario.turk_mekko_of_electricity_network_demand).to softly_equal(scenario.turk_mekko_of_electricity_network_supply)
       end
+
+      # Gas
       it "should result in all input and output flows of mekko_of_network_gas_network to be balanced" do
         expect(scenario.turk_mekko_of_network_gas_network_demand).to softly_equal(scenario.turk_mekko_of_network_gas_network_supply)
       end
@@ -54,18 +73,8 @@ RSpec.describe 'Mekko balancing' do
       it "should result in all the supply of mekko_of_network_gas_network to be match the total network gas supply" do
         expect(scenario.turk_mekko_of_network_gas_network_supply).to softly_equal(scenario.turk_mekko_of_network_gas_network_total_supply)
       end
-      it "should result in all input and output flows of agriculture_local_heat to be balanced" do
-        expect(scenario.turk_agriculture_local_heat_mekko_demand).to softly_equal(scenario.turk_agriculture_local_heat_mekko_supply)
-      end
-      it "should result in all the demand of agriculture_local_heat to match the total local agriculture heat demand and supply" do
-        expect(scenario.turk_agriculture_local_heat_mekko_demand).to softly_equal(scenario.turk_agriculture_local_heat_mekko_total_demand_and_supply)
-      end
-      it "should result in all input and output flows of industry_local_heat to be balanced" do
-        expect(scenario.turk_industrial_heat_mekko_demand).to softly_equal(scenario.turk_industrial_heat_mekko_supply)
-      end
-      it "should result in all the demand of industry_local_heat to match the total local industry heat demand and supply" do
-        expect(scenario.turk_industrial_heat_mekko_demand).to softly_equal(scenario.turk_industrial_heat_mekko_total_demand_and_supply)
-      end
+
+      # Ammonia
       it "should result in all input and output flows of mekko_of_ammonia_demand_supply to be balanced" do
         skip("Mechanical turk #186")
         expect(scenario.turk_mekko_of_ammonia_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_ammonia_demand_supply_supply)
@@ -74,14 +83,18 @@ RSpec.describe 'Mekko balancing' do
         skip("Mechanical turk #186")
         expect(scenario.turk_mekko_of_ammonia_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_ammonia_demand_supply_total_demand_and_supply)
       end
+
+      # CO2
       it "should result in all input and output flows of mekko co2_of_demand_supply to be balanced" do
         expect(scenario.turk_mekko_of_co2_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_co2_demand_supply_supply)
       end
       it "should result in all the demand of co2_of_demand_supply to match the total CO2 demand and supply" do
         expect(scenario.turk_mekko_of_co2_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_co2_demand_supply_total_demand_and_supply)
       end
+
+      # Hydrogen
       it "should result in all input and output flows of mekko_of_hydrogen_network to be balanced" do
-        skip("Etengine #1486")
+        skip("ETEngine #1486")
         expect(scenario.turk_mekko_of_hydrogen_network_demand).to softly_equal(scenario.turk_mekko_of_hydrogen_network_supply)
       end
       it "should result in all the demand of mekko_of_hydrogen_network to match the total hydrogen demand" do
@@ -90,12 +103,15 @@ RSpec.describe 'Mekko balancing' do
       it "should result in all the supply of mekko_of_hydrogen_network to match the total hydrogen supply" do
         expect(scenario.turk_mekko_of_hydrogen_network_supply).to softly_equal(scenario.turk_mekko_of_hydrogen_network_total_supply)
       end
+
+      # Kerosene
       it "should result in all input and output flows of mekko_of_kerosene_demand_supply to be balanced" do
         expect(scenario.turk_mekko_of_kerosene_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_kerosene_demand_supply_supply)
       end
       it "should result in all the demand of mekko_of_kerosene_demand_supply to match the total kerosene demand and supply" do
         expect(scenario.turk_mekko_of_kerosene_demand_supply_demand).to softly_equal(scenario.turk_mekko_of_kerosene_demand_supply_total_demand_and_supply)
       end
+
     end
   end
 end
