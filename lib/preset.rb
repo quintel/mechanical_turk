@@ -14,6 +14,12 @@ module Turk
   class Preset < Scenario
     attr_reader :original_scenario_id
 
+    # Returns a cached Preset for the given id, creating one if it doesn't exist.
+    def self.for(id)
+      @cache ||= {}
+      @cache[id] ||= new(id)
+    end
+
     def initialize(id)
       @original_scenario_id = id
       super(scenario_id: id, reset: false)
