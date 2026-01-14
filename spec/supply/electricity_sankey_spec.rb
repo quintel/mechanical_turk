@@ -3,7 +3,11 @@
 require 'spec_helper'
 
 describe 'Electricity Sankey' do
-  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |scenario|
+
+  # Activation of ii3050v2 pending ETSource#3405
+  # Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |scenario|
+  # Instead, ii3050v2 is skipped for now:
+  Turk::PresetCollection.from_keys(:kev, :scenario_collection).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       # Test whether electricity supply equals demand in the electricity Sankey
       it 'Supply of electricity in the electricity Sankey should match the demand for electricity in
