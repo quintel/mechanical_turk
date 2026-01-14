@@ -141,7 +141,37 @@ are supported in the model
   merit_order: true
 ````
 
-### More on Rspec
+## Presets
+
+Presets are essentially immutable Scenarios. They are useful when we want to run tests against scenarios whose inputs do not change. Because Presets are immutable, we can cache both the scenarios and the queries they rely on, significantly reducing the number of requests and improving test performance.
+
+### Tracking
+
+Queries can be cached ahead of time by tracking them on the scenario:
+
+````ruby
+@scenario.track(queries)
+````
+
+A list of queries can be specified which allows them to be retrieved all in the next request reducing times considerably.
+
+### PresetCollections
+
+PresetCollections allows us to work with a large number of Presets easily, provides a convenient way to group and iterate over scenarios in bulk. Collections are defined in the [preset_scenarios.yml](./preset_scenarios.yml) file and can be used in tests like this:
+
+````ruby
+  Turk::PresetCollection.from_keys(:scenario_collection).each do |scenario|
+    # Any test structure (context, describe, it block)
+  end
+````
+
+This approach makes it easy to apply the same test structure to multiple predefined scenarios.
+
+### Auto-Tracking
+
+PresetCollections have an aditional advantage that speed up the creation of specs and reduces maintenance. The testing suit can atutomatically add queries to track at the start of the test suite. This can be configured in the [query_sources.yml](./query_sources.yml) file. We can specify there a pattern that would help extract the names of the queries being used on the specified files. The configuration file includes examples that demonstrate how these patterns can be defined.
+
+## More on Rspec
 
 Please check out the [RSpec documentation](https://www.relishapp.com/rspec)
 on the possibilities and best practices of using RSpec.
