@@ -1,0 +1,27 @@
+# Configuration for automatic gquery extraction
+#
+# Declare groups of specs that share the same query pattern:
+# - pattern: A regex matching the query names to extract
+# - files: List of specs relative to the spec/ directory
+#
+# The extractor will scan each file for calls like:
+# - scenario.<pattern>
+# - @scenario.<pattern>
+
+turk_queries:
+  pattern: 'turk_\w+'
+  files:
+    - spec/demand/biomass_spec.rb
+    - spec/emissions/emissions_electricity_spec.rb
+    - spec/flexibility/power_to_gas_spec.rb
+    - spec/mekko/mekko_supply_demand_spec.rb
+    - spec/supply/ccus_spec.rb
+    - spec/supply/electricity_sankey_spec.rb
+
+# NEW GROUP EXAMPLE
+# -----------------
+# my_group_queries:
+#   pattern: 'my_prefix_\w+'
+#   files:
+#     - path/to/my_spec.rb
+#     - path/to/another_spec.rb
