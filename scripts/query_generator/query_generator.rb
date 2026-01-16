@@ -1,13 +1,13 @@
 # This tiny script makes it easier to generate many similar gqueries.
 # The converters on which the queries work can be specified in an input file.
-# The attributes of the converters that you want to be queried 
+# The attributes of the converters that you want to be queried
 # are still hard coded.
 require 'fileutils'
 require 'CSV'
 
 # User IO
 if ARGV.length != 1 then
-  puts "Give as argument a file with one converter name 
+  puts "Give as argument a file with one converter name
   and one input key per line, separated by a comma."
   exit
 else
@@ -35,7 +35,7 @@ end
 attributes = ["full_load_hours", "number_of_units"]
 
 # Ranges of expected values
-# delta and value for full_load_hours and number_of_units variable 
+# delta and value for full_load_hours and number_of_units variable
 values = {"full_load_hours" => [4380.0, 4380.0], #(checks if 0 < FLH < 8760)
   "number_of_units" => [10.0,7349500.0]} # (checks if NOU == 7349500)
 
@@ -68,13 +68,6 @@ V(#{c[0]}, #{a})
     puts "  @scenario.#{fileName}.value.should be_within(#{range[0]}).of(#{range[1]})"
     puts "end"
     puts ""
-
-
-    # puts "it \"it should change total employment when the #{c[0]} is pulled to max\" do"
-    # puts "  @scenario.#{c[1]} = 100 #%"
-    # puts "  @scenario.dashboad_employment.should change"
-    # puts "end"
-    # puts ""
 
   end
 end
