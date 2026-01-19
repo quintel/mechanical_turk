@@ -11,6 +11,14 @@ describe "Population" do
     @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050, inputs: {
       households_number_of_inhabitants: 30 # million
     })
+
+    # Track all queries at once to reduce requests
+    @scenario.track(%w[
+      turk_heat_demand_in_households
+      turk_cooling_demand_in_households
+      turk_appliances_demand_in_households
+      turk_hot_water_demand_in_households
+    ])
   end
 
   it "should increase primary demand" do
@@ -36,6 +44,5 @@ describe "Population" do
   it "should increase the hot water demand in hh" do
     expect(@scenario.turk_hot_water_demand_in_households).to increase
   end
-
-
+  
 end
