@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'singleton'
+require 'yaml'
 require_relative 'preset'
 
 module Turk
@@ -9,21 +11,43 @@ module Turk
     end
   end
 
+  # Sets up the initial cache of presets for the yaml
+  # Scenarios are setup as Turk scenarios.
+  # Uses Singleton with eager initialization for thread-safety.
+  class PresetCache
+    include Singleton
+
+    PRESET_SCENARIOS_PATH = File.expand_path('../preset_scenarios.yml', __dir__)
+
+    def self.presets
+      instance.presets
+    end
+
+    def self.key?(key)
+      instance.presets.key?(key)
+    end
+
+    def initialize
+      @presets = raw_scenarios.transform_keys(&:to_sym).transform_values do |scenarios|
+        scenarios.map { |s| Turk::Preset.new(s['id']) }
+      end
+    end
+
+    attr_reader :presets
+
+    private
+
+    def raw_scenarios
+      YAML.load_file(PRESET_SCENARIOS_PATH)
+    end
+  end
+
   # A collection of Presets to be looping tests over. Specific test-groups of
-  # scenarios can be added to PRESET_SCENARIOS.
+  # scenarios can be added to preset_scenarios.yml.
   class PresetCollection
     include Enumerable
 
     attr_reader :presets
-
-    PRESET_SCENARIOS = {
-      nvdt: [1329317, 1329318, 1329319, 1329320],
-      ii3050: [1370826, 1370828, 1370830, 1370832],
-      ii3050v2: [2402168, 2402170, 2402171, 2402166],
-      kev: [2651987, 2563905, 1661972],
-      scenario_collection: [1438014, 1438773, 1438780, 1438836],
-      merit_off: [1438775, 1438838]
-    }
 
     def initialize(presets)
       @presets = presets
@@ -34,51 +58,51 @@ module Turk
     end
 
     class << self
-      # Public: Creates and returns a new collection of Presets based on the
-      # scenarios specified by the given key in PRESET_SCENARIOS.
+      # Public: Returns a collection of Presets based on the scenarios
+      # specified by the given key in preset_scenarios.yml.
       #
       # key,      A key for a scenario test-groups, this key should be present in
-      #           PRESET_SCENARIOS.
+      #           preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def from_key(key)
         ensure_valid_key(key)
 
-        PresetCollection.new(PRESET_SCENARIOS[key].map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(PresetCache.presets[key])
       end
 
-      # Public: Creates and returns a new collection of Presets based on the
-      # scenarios specified by the given keys in PRESET_SCENARIOS.
+      # Public: Returns a collection of Presets based on the scenarios
+      # specified by the given keys in preset_scenarios.yml.
       #
       # *keys,    One or multiple keys for scenario test-groups, these keys should
-      #           be present in PRESET_SCENARIOS.
+      #           be present in preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def from_keys(*keys)
-        scenarios = keys.flat_map do |key|
-          ensure_valid_key(key)
-          PRESET_SCENARIOS[key]
-        end
-
-        PresetCollection.new(scenarios.map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(
+          keys.flat_map do |key|
+            ensure_valid_key(key)
+            PresetCache.presets[key]
+          end
+        )
       end
 
-      # Public: Creates and returns a new collection of Presets containing all
-      # scenarios specified in PRESET_SCENARIOS.
+      # Public: Returns the collection of all Presets specified in
+      # preset_scenarios.yml.
       #
       # Returns a PresetCollection
       def all
-        PresetCollection.new(unique_preset_scenarios.map { |id| Turk::Preset.new(id) })
+        PresetCollection.new(unique_preset_scenarios)
       end
 
       private
 
       def ensure_valid_key(key)
-        raise UnknownPresetError.new(key) unless PRESET_SCENARIOS.key? key
+        raise UnknownPresetError.new(key) unless PresetCache.key? key
       end
 
       def unique_preset_scenarios
-        PRESET_SCENARIOS.flat_map { |_, scenarios| scenarios }.uniq
+        PresetCache.presets.flat_map { |_, scenarios| scenarios }.uniq
       end
     end
   end
