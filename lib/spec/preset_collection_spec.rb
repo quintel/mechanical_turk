@@ -9,6 +9,12 @@ describe Turk::PresetCollection do
 
   let(:valid_key) { :ii3050v2 }
 
+  describe 'PresetCache' do
+    it 'hold scenarios' do
+      expect(Turk::PresetCache.presets).to include(valid_key)
+    end
+  end
+
   describe '.from_key' do
     context 'with existing key :ii3050' do
       subject { described_class.from_key(valid_key) }
@@ -22,7 +28,7 @@ describe Turk::PresetCollection do
       end
 
       it 'has three scenarios in its collection' do
-        expect(subject.presets.length).to eq described_class.preset_scenarios[valid_key].length
+        expect(subject.presets.length).to eq Turk::PresetCache.presets[valid_key].length
       end
     end
 
@@ -47,7 +53,7 @@ describe Turk::PresetCollection do
 
       it 'has three scenarios in its collection' do
         expect(subject.presets.length).to eq(
-          2 * described_class.preset_scenarios[valid_key].length
+          2 * Turk::PresetCache.presets[valid_key].length
         )
       end
     end
@@ -64,7 +70,7 @@ describe Turk::PresetCollection do
   describe '.all' do
     it 'contains all scenarios' do
       expect(described_class.all.presets.length).to eq(
-        described_class.preset_scenarios.values.flatten.uniq.length
+        2 * Turk::PresetCache.presets.flatten.uniq.length
       )
     end
   end
@@ -77,7 +83,7 @@ describe Turk::PresetCollection do
       collection.each do |_|
         counter += 1
       end
-      expect(counter).to eq described_class.preset_scenarios[valid_key].length
+      expect(counter).to eq Turk::PresetCache.presets[valid_key].length
     end
 
     it 'loops through all the scenarios' do
