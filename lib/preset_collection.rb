@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'singleton'
 require 'yaml'
 require_relative 'preset'
 
@@ -12,6 +13,7 @@ module Turk
 
   # Sets up the initial cache of presets for the yaml
   # Scenarios are setup as Turk scenarios.
+  # Uses Singleton with eager initialization for thread-safety.
   class PresetCache
     include Singleton
 
@@ -25,11 +27,13 @@ module Turk
       instance.presets.key?(key)
     end
 
-    def presets
-      @presets ||= raw_scenarios.transform_keys(&:to_sym).transform_values do |scenarios|
+    def initialize
+      @presets = raw_scenarios.transform_keys(&:to_sym).transform_values do |scenarios|
         scenarios.map { |s| Turk::Preset.new(s['id']) }
       end
     end
+
+    attr_reader :presets
 
     private
 

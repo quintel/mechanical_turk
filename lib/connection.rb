@@ -25,7 +25,6 @@ class Connection
     request_params.merge!(@settings) if @settings
     response = self.class.post ".json", query: { scenario: request_params }
     begin
-      puts response["id"]
       if response["id"].is_a?(Integer)
         @api_session_id = response["id"]
       else

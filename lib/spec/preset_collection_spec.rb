@@ -70,7 +70,7 @@ describe Turk::PresetCollection do
   describe '.all' do
     it 'contains all scenarios' do
       expect(described_class.all.presets.length).to eq(
-        2 * Turk::PresetCache.presets.flatten.uniq.length
+        Turk::PresetCache.presets.values.flatten(1).uniq.length
       )
     end
   end
