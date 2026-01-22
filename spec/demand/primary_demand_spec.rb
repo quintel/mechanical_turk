@@ -10,9 +10,9 @@ describe 'Primary Demand' do
         nodes in the final_demand_group and energy_export group' do
         skip("ETSource #2493 and MT #148")
         expect(
-          scenario.primary_demand_of_application_group
+          scenario.turk_primary_demand_of_application_group
         ).to softly_equal(
-          scenario.primary_demand_of_final_demand_and_export
+          scenario.turk_primary_demand_of_final_demand_and_export
         )
       end
 
@@ -22,9 +22,9 @@ describe 'Primary Demand' do
         final_demand_group, energy_export group and curtailment.' do
         skip("ETSource #2493 and MT #148")
         expect(
-          scenario.total_primary_demand
+          scenario.turk_total_primary_demand
         ).to softly_equal(
-          scenario.primary_demand_of_final_demand_export_curtailment_and_refinery_gas
+          scenario.turk_primary_demand_of_final_demand_export_curtailment_and_refinery_gas
         )
       end
 
@@ -33,7 +33,7 @@ describe 'Primary Demand' do
         expect(
           scenario.turk_queries_primary_demand_per_sector
         ).to softly_equal(
-          scenario.primary_demand_of_final_demand_export_and_curtailment
+          scenario.turk_primary_demand_of_final_demand_export_and_curtailment
         )
       end
     end
