@@ -12,6 +12,7 @@ turk_queries:
   pattern: 'turk_\w+'
   files:
     - spec/demand/biomass_spec.rb
+    - spec/demand/primary_demand_spec.rb
     - spec/emissions/emissions_electricity_spec.rb
     - spec/flexibility/power_to_gas_spec.rb
     - spec/mekko/mekko_supply_demand_spec.rb
