@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    base64 (0.3.0)
     coderay (1.1.3)
     crack (0.4.5)
       rexml
@@ -41,6 +42,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  base64
   httparty
   pry
   rspec (~> 3.12)
