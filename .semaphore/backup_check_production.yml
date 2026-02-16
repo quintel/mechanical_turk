@@ -20,5 +20,3 @@ blocks:
             - 'ssh -i ~/.ssh/id_deploy "${SSH_USER}@${SSH_HOST}" -p $SSH_PORT "cd /home/qibackup/backup && ./health-check.sh"'
       secrets:
         - name: Production SSH settings
-    run:
-      when: branch = 'production'
