@@ -3,7 +3,7 @@ name: Run Mechanical Turk
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu2004
+    os_image: ubuntu2404
 execution_time_limit:
   hours: 3
 blocks:
@@ -13,7 +13,6 @@ blocks:
         - name: Test
           commands:
             - checkout
-            - cache restore
             - gem install bundler
             - bundle install --deployment --path vendor/bundle
             - cache store
