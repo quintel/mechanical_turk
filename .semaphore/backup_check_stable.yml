@@ -1,0 +1,24 @@
+version: v1.0
+name: Backup check for stable
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2404
+execution_time_limit:
+  minutes: 10
+blocks:
+  - name: Backup
+    task:
+      prologue:
+        commands:
+          - chmod 0600 ~/.ssh/id_deploy
+          - ssh-add ~/.ssh/id_deploy
+      jobs:
+        - name: Health check
+          commands:
+            - echo $SSH_FINGERPRINT >> ~/.ssh/known_hosts
+            - 'ssh -i ~/.ssh/id_deploy "${SSH_USER}@${SSH_HOST}" -p $SSH_PORT "cd /home/qibackup/backup && ./health-check.sh"'
+      secrets:
+        - name: Stable SSH settings
+    run:
+      when: branch = 'master'
