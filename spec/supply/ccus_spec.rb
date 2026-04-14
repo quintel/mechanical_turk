@@ -47,11 +47,11 @@ describe "CCUS" do
           )
         end
 
-        it "should be equal for energy_power_combined_cycle_ccs_network_gas" do
+        it "should be equal for energy_power_combined_cycle_ccs_network_gas_dispatchable" do
           expect(
-            scenario.turk_energy_power_combined_cycle_ccs_network_gas_capture_share
+            scenario.turk_energy_power_combined_cycle_ccs_network_gas_dispatchable_capture_share
           ).to softly_equal(
-            scenario.turk_energy_power_combined_cycle_ccs_network_gas_capture_rate
+            scenario.turk_energy_power_combined_cycle_ccs_network_gas_dispatchable_capture_rate
           )
         end
 

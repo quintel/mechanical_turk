@@ -17,7 +17,7 @@ describe "Merit Order" do
       expect(@scenario.merit_order_coal_igcc_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
       expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
       expect(@scenario.merit_order_coal_chp_pwd_ht_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
-      expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
+      expect(@scenario.merit_order_gas_ccgt_dispatchable_full_load_hours_in_merit_order_table.value).to be_within(4379).of(4380)
     end
   end
 
@@ -87,7 +87,7 @@ describe "Merit Order" do
     context "With merit order enabled" do
       it "adding a lot of energy_power_wind_turbine_offshore should lower full load hours of central production power plants" do
         @scenario.capacity_of_energy_power_wind_turbine_offshore = 150000.0
-        expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to decrease
+        expect(@scenario.merit_order_gas_ccgt_dispatchable_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_nuclear_ii_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
@@ -115,7 +115,7 @@ describe "Merit Order" do
 
       it "decreasing gas price should increase full load hours of gas power plants" do
         @scenario.costs_gas = 10
-        expect(@scenario.merit_order_gas_ccgt_full_load_hours_in_merit_order_table).to increase
+        expect(@scenario.merit_order_gas_ccgt_dispatchable_full_load_hours_in_merit_order_table).to increase
       end
 
       it "increasing the coal price should decrease full load hours of coal power plants" do
