@@ -18,6 +18,7 @@ turk_queries:
     - spec/mekko/mekko_supply_demand_spec.rb
     - spec/supply/ccus_spec.rb
     - spec/supply/electricity_sankey_spec.rb
+    - spec/emissions/direct_emissions.rb
 
 # NEW GROUP EXAMPLE
 # -----------------
