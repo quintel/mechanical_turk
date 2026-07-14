@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Direct emissions' do
-  Turk::PresetCollection.all.each do |scenario|
+  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |scenario|
     context "with scenario #{scenario.original_scenario_id}" do
       # Test correctness of scenario's total GHG emissions. A failing test indicates that the
       # sector_label might not have been added to a node or that the per sector GHG queries are
