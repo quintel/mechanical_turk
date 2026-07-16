@@ -17,6 +17,28 @@ RSpec.describe 'Direct emissions' do
         )
       end
 
+      # Test correctness of the sum of the total CO2 and total other GHG query match the total
+      # GHG query, incl. indirect emissions, LULUCF, bunkers.
+      it "sum of totals query for CO2 and other GHG (incl. indirect emissions, LULUCF, bunkers)
+        should equal the total GHG query" do
+        expect(
+          scenario.turk_direct_emissions_sum_co2_other_ghg_incl_indirect_emissions_lulucf_bunkers
+        ).to softly_equal(
+          scenario.turk_direct_emissions_total_ghg_incl_indirect_emissions_lulucf_bunkers
+        )
+      end
+
+      # Test correctness of the sum of the total CO2 and total other GHG query match the total
+      # GHG query, excl. indirect emissions, LULUCF, bunkers.
+      it "sum of totals query for CO2 and other GHG (excl. indirect emissions, LULUCF, bunkers)
+        should equal the total GHG query" do
+        expect(
+          scenario.turk_direct_emissions_sum_co2_other_ghg_excl_indirect_emissions_lulucf_bunkers
+        ).to softly_equal(
+          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers
+        )
+      end
+
       # The 1990 total GHG emissions excl indirect emissions, lulucf and bunkers query uses
       # summing of various other CO2 and other GHG queries. This test checks whether that query
       # matches the manual defined Mechanical Turk query. A failing test indicates that somewhere
@@ -24,9 +46,9 @@ RSpec.describe 'Direct emissions' do
       it "test if 1990 total GHG emissions excl indirect emissions, lulucf and bunkers query matches
         the manual query" do
         expect(
-          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990
+          scenario.direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990
         ).to softly_equal(
-          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990_manually
+          scenario.direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990_manual_sum
         )
       end
     end
