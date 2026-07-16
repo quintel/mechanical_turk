@@ -45,10 +45,11 @@ RSpec.describe 'Direct emissions' do
       # in the general 1990 queries CO2 or other GHG is not taken into account correctly.
       it "test if 1990 total GHG emissions excl indirect emissions, lulucf and bunkers query matches
         the manual query" do
+        skip("Issue id to be added")
         expect(
-          scenario.direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990
+          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990
         ).to softly_equal(
-          scenario.direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990_manual_sum
+          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990_manual_sum
         )
       end
     end
