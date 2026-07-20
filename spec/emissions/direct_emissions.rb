@@ -38,6 +38,37 @@ RSpec.describe 'Direct emissions' do
           scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers
         )
       end
+
+      # Totals of IPCC queries should match ETM sector totals
+      it "IPCC total emissions should match ETM sector total emissions (incl indirect emissions,
+        lulucf and bunkers)" do
+        expect(
+          scenario.turk_direct_emissions_ipcc_total_ghg_incl_indirect_emissions_lulucf_bunkers
+        ).to softly_equal(
+          scenario.turk_direct_emissions_total_ghg_incl_indirect_emissions_lulucf_bunkers
+        )
+      end
+
+      # Totals of IPCC queries should match ETM sector totals
+      it "IPCC total emissions should match ETM sector total emissions (excl indirect emissions,
+        lulucf and bunkers)" do
+        expect(
+          scenario.turk_direct_emissions_ipcc_total_ghg_excl_indirect_emissions_lulucf_bunkers
+        ).to softly_equal(
+          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers
+        )
+      end
+
+      # Test correctness of the sum of the total IPCC CO2 and total other GHG query match the total
+      # IPCC GHG query, incl. indirect emissions, LULUCF, bunkers.
+      it "sum of IPCC totals query for CO2 and other GHG (incl. indirect emissions, LULUCF, bunkers)
+        should equal the IPCC total GHG query" do
+        expect(
+          scenario.turk_direct_emissions_ipcc_co2_other_ghg_incl_indirect_emissions_lulucf_bunkers
+        ).to softly_equal(
+          scenario.turk_direct_emissions_ipcc_total_ghg_incl_indirect_emissions_lulucf_bunkers
+        )
+      end
     end
   end
 end
