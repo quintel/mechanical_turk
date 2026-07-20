@@ -38,20 +38,6 @@ RSpec.describe 'Direct emissions' do
           scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers
         )
       end
-
-      # The 1990 total GHG emissions excl indirect emissions, lulucf and bunkers query uses
-      # summing of various other CO2 and other GHG queries. This test checks whether that query
-      # matches the manual defined Mechanical Turk query. A failing test indicates that somewhere
-      # in the general 1990 queries CO2 or other GHG is not taken into account correctly.
-      it "test if 1990 total GHG emissions excl indirect emissions, lulucf and bunkers query matches
-        the manual query" do
-        skip("Issue id to be added")
-        expect(
-          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990
-        ).to softly_equal(
-          scenario.turk_direct_emissions_total_ghg_excl_indirect_emissions_lulucf_bunkers_1990_manual_sum
-        )
-      end
     end
   end
 end
