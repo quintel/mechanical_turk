@@ -2,6 +2,8 @@ require 'rubygems'
 require 'yaml'
 require 'httparty'
 
+require_relative 'api_response'
+
 module Turk
 
 class Connection
@@ -24,12 +26,12 @@ class Connection
     request_params = {source: "Mechanical Turk"}
     request_params.merge!(@settings) if @settings
     response = self.class.post ".json", query: { scenario: request_params }
-    begin
-      if response["id"].is_a?(Integer)
-        @api_session_id = response["id"]
-      else
-        raise(MissingID, "Error fetching api_session_id. Got response:\n\n #{response.inspect}")
-      end
+    body = Turk::ApiResponse.json!(response)
+
+    if body["id"].is_a?(Integer)
+      @api_session_id = body["id"]
+    else
+      raise(MissingID, "Error fetching api_session_id. Got response:\n\n #{body.inspect}")
     end
   end
 
@@ -47,9 +49,8 @@ private
 
   def execute!(inputs = nil)
     return [] if scenario.queries.nil? || scenario.queries.empty?
-    reponse = get_response(inputs)
-    gqueries = reponse["gqueries"]
-    raise(Turk::MissingReponse, reponse) unless gqueries
+    gqueries = Turk::ApiResponse.json!(get_response(inputs))["gqueries"]
+    raise(Turk::MissingReponse, gqueries.inspect) unless gqueries.is_a?(Hash)
     raise Turk::MissingQuery if gqueries.any?{|key, attr|key == "unknown"}
     gqueries
   end
