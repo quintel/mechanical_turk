@@ -19,6 +19,7 @@ turk_queries:
     - spec/supply/ccus_spec.rb
     - spec/supply/electricity_sankey_spec.rb
     - spec/emissions/direct_emissions.rb
+    - spec/demand/heat_built_environment_spec.rb
 
 # NEW GROUP EXAMPLE
 # -----------------
