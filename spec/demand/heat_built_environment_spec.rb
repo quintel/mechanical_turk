@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Households space-heating behaviour with new residences, weather and insulation' do
+describe 'Built environment space heating behaviour' do
   # Each `it` below builds on the input state left behind by the previous one, so
   # `increase` / `decrease` / `change` / `not_change` always compare against the
   # immediately preceding Set. Examples therefore rely on running in file order.
