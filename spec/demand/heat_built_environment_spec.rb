@@ -117,10 +117,9 @@ describe 'Built environment space heating behaviour' do
     @scenario.households_insulation_2005_present = 10
     @scenario.households_insulation_new_residences = 10
 
-    result = @scenario.result('turk_households_useful_demand_for_space_heating')
-    previous_value = result.future + result.decrease
-
-    expect(result.decrease / previous_value).to be_within(0.00001).of(0.10)
+    expect(
+      @scenario.result('turk_households_useful_demand_for_space_heating').relative_decrease
+    ).to be_within(0.00001).of(0.10)
 
     expect(
       @scenario.result('turk_households_insulation_costs')
@@ -131,14 +130,13 @@ describe 'Built environment space heating behaviour' do
     @scenario.households_space_heating_behaviour = -25
     @scenario.buildings_space_heating_behaviour = -25
 
-    result_h = @scenario.result('turk_households_useful_demand_for_space_heating')
-    previous_value_h = result_h.future + result_h.decrease
+    expect(
+      @scenario.result('turk_households_useful_demand_for_space_heating').relative_decrease
+    ).to be_within(0.00001).of(0.25)
 
-    result_b = @scenario.result('turk_buildings_useful_demand_for_space_heating')
-    previous_value_b = result_b.future + result_b.decrease
-
-    expect(result_h.decrease / previous_value_h).to be_within(0.00001).of(0.25)
-    expect(result_b.decrease / previous_value_b).to be_within(0.00001).of(0.25)
+    expect(
+      @scenario.result('turk_buildings_useful_demand_for_space_heating').relative_decrease
+    ).to be_within(0.00001).of(0.25)
 
     expect([
         @scenario.result('turk_households_insulation_costs'),
