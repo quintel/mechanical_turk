@@ -41,6 +41,16 @@ class Result
     -increase
   end
 
+  # Increase compared to *previous request*, as a fraction of the previous value
+  def relative_increase
+    increase / previous
+  end
+
+  # Decrease compared to *previous request*, as a fraction of the previous value
+  def relative_decrease
+    -relative_increase
+  end
+
 #######
 private
 #######
