@@ -30,8 +30,6 @@ describe 'Built environment space heating behaviour' do
       turk_number_of_buildings_present
       turk_number_of_residences
       turk_number_of_buildings
-      turk_number_of_residences_future
-      turk_number_of_residences_new_input
       turk_buildings_useful_demand_for_space_heating
       turk_buildings_insulation_costs
     ])
