@@ -17,6 +17,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     multi_xml (0.6.0)
+    ostruct (0.6.3)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -48,6 +49,7 @@ DEPENDENCIES
   bigdecimal
   csv
   httparty
+  ostruct
   pry
   rspec (~> 3.12)
   webmock
