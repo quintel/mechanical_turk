@@ -69,7 +69,7 @@ private
 
     request_params[:autobalance] = true if @autobalance
     request_params[:scenario][:user_values] = inputs if inputs
-    self.class.put(url, query: request_params)
+    self.class.put(url, body: request_params)
   end
 
 end
