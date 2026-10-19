@@ -88,20 +88,15 @@ RSpec.describe 'Final Energy Consumption' do
   queries.each { |query| query_pairs["turk_#{query}"] = query }
   query_pairs.freeze
 
-  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |preset|
-    context "with scenario #{preset.original_scenario_id}" do
-      # Queries are sent in the request URL, and all pairs at once exceed the
-      # server's URI length limit (414 Request-URI Too Large). Each batch is
-      # therefore fetched in one request on its own scenario, which also keeps
-      # these queries out of the shared preset used by other specs.
-      query_pairs.each_slice(40) do |batch|
-        scenario = Turk::Preset.new(preset.original_scenario_id)
-        scenario.track(batch.flatten.uniq)
+  Turk::PresetCollection.from_keys(:ii3050v2, :kev, :scenario_collection).each do |scenario|
+    # Tracked when the file loads, so these queries are fetched in the same
+    # before(:suite) request as the queries of the other specs.
+    scenario.track(query_pairs.to_a.flatten.uniq)
 
-        batch.each do |turk_query, query|
-          it "#{turk_query} should equal #{query}" do
-            expect(scenario.public_send(turk_query)).to softly_equal(scenario.public_send(query))
-          end
+    context "with scenario #{scenario.original_scenario_id}" do
+      query_pairs.each do |turk_query, query|
+        it "#{turk_query} should equal #{query}" do
+          expect(scenario.public_send(turk_query)).to softly_equal(scenario.public_send(query))
         end
       end
     end
