@@ -17,13 +17,15 @@ describe 'Primary Demand' do
       end
 
       # Test whether total primary demand is accounted for by final demand, exports and curtailment.
+      # Refinery gas that is not used in industry ends up in a node without outgoing edges
+      # (industry_refinery_gas_for_energy), so it is added to this list.
       it 'total primary demand in the graph should always equal primary demand of the nodes in the
         final_demand_group, energy_export group and curtailment.' do
         skip("ETSource #2493 and MT #148")
         expect(
           scenario.turk_total_primary_demand
         ).to softly_equal(
-          scenario.turk_primary_demand_of_final_demand_export_and_curtailment
+          scenario.turk_primary_demand_of_final_demand_export_curtailment_and_refinery_gas
         )
       end
 
