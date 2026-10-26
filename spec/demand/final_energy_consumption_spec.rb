@@ -6,7 +6,7 @@ require 'spec_helper'
 
 RSpec.describe 'Final Energy Consumption' do
   # Not listed:
-  # - network_gas: it is incorporated in the other carrier groups.
+  # - network_gas and waste_mix: it is incorporated in the other carrier groups.
   # - liquid_biofuels and oil_and_oil_products: because of the crude oil exception their general
   #   queries are already sums over the sectors, so a turk counterpart would be identical and
   #   test nothing.
