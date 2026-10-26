@@ -18,7 +18,7 @@ turk_queries:
     - spec/mekko/mekko_supply_demand_spec.rb
     - spec/supply/ccus_spec.rb
     - spec/supply/electricity_sankey_spec.rb
-    - spec/emissions/direct_emissions.rb
+    - spec/emissions/direct_emissions_spec.rb
     - spec/demand/heat_built_environment_number_of_residences_spec.rb
 
 # NEW GROUP EXAMPLE
