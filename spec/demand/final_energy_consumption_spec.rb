@@ -5,7 +5,11 @@
 require 'spec_helper'
 
 RSpec.describe 'Final Energy Consumption' do
-  # network_gas is not listed: it is incorporated in the other carrier groups.
+  # Not listed:
+  # - network_gas: it is incorporated in the other carrier groups.
+  # - liquid_biofuels and oil_and_oil_products: because of the crude oil exception their general
+  #   queries are already sums over the sectors, so a turk counterpart would be identical and
+  #   test nothing.
   carriers = %w[
     ammonia
     coal_and_coal_products
@@ -14,11 +18,9 @@ RSpec.describe 'Final Energy Consumption' do
     geothermal
     heat
     hydrogen
-    liquid_biofuels
     methanol
     natural_gas_and_gas_products
     non_renewable_waste
-    oil_and_oil_products
     renewable_waste
     solar_thermal
     solid_biofuels
@@ -86,20 +88,6 @@ RSpec.describe 'Final Energy Consumption' do
   end
 
   queries += non_energetic_sectors.map { |sector| "final_consumption_from_#{sector}_non_energetic" }
-
-  # The following queries are excluded because, due to the crude oil exception, the general queries
-  # for these carriers are already defined as sums over the sectors.
-  # Their turk counterparts would be identical, so comparing the two would not test anything.
-  excluded_queries = %w[
-    final_consumption_of_liquid_biofuels_energetic
-    final_consumption_of_liquid_biofuels_non_energetic
-    final_consumption_of_liquid_biofuels_total
-    final_consumption_of_oil_and_oil_products_energetic
-    final_consumption_of_oil_and_oil_products_non_energetic
-    final_consumption_of_oil_and_oil_products_total
-  ].freeze
-
-  queries -= excluded_queries
 
   queries.each { |query| query_pairs["turk_#{query}"] = query }
   query_pairs.freeze
