@@ -1,4 +1,6 @@
-# frozen_string_literal: true
+# This spec deviates from the conventional Mechanical Turk spec in that it does not calculate the
+# expected values for the queries inside the spec itself. Instead, it compares the values of the
+# generic queries to the values of the Mechanical Turk queries, which are expected to be equivalend.
 
 require 'spec_helper'
 
@@ -84,6 +86,20 @@ RSpec.describe 'Final Energy Consumption' do
   end
 
   queries += non_energetic_sectors.map { |sector| "final_consumption_from_#{sector}_non_energetic" }
+
+  # The following queries are excluded because, due to the crude oil exception, the general queries
+  # for these carriers are already defined as sums over the sectors.
+  # Their turk counterparts would be identical, so comparing the two would not test anything.
+  excluded_queries = %w[
+    final_consumption_of_liquid_biofuels_energetic
+    final_consumption_of_liquid_biofuels_non_energetic
+    final_consumption_of_liquid_biofuels_total
+    final_consumption_of_oil_and_oil_products_energetic
+    final_consumption_of_oil_and_oil_products_non_energetic
+    final_consumption_of_oil_and_oil_products_total
+  ].freeze
+
+  queries -= excluded_queries
 
   queries.each { |query| query_pairs["turk_#{query}"] = query }
   query_pairs.freeze
