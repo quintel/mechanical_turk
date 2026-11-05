@@ -18,7 +18,7 @@ describe 'Primary Demand' do
 
       # Test whether total primary demand is accounted for by final demand, exports and curtailment.
       # Refinery gas that is not used in industry ends up in a node without outgoing edges
-      # (industry_refinery_gas_for_energy), so it is added to this list.
+      # (industry_refinery_gas_for_gas_power_fuelmix), so it is added to this list.
       it 'total primary demand in the graph should always equal primary demand of the nodes in the
         final_demand_group, energy_export group and curtailment.' do
         skip("ETSource #2493 and MT #148")
