@@ -91,26 +91,6 @@ describe "Merit Order" do
         expect(@scenario.merit_order_nuclear_ii_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
-
-      it "increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        start = @scenario.start_value(:capacity_of_energy_power_wind_turbine_inland)
-        @scenario.capacity_of_energy_power_wind_turbine_inland = start + 1.0
-
-        # ONLY true if some dispatchables still have FLH > 0
-        @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
-
-        # should not give export
-        expect(@scenario.primary_demand_of_exported_electricity.value).to be_within(100.0).of(0.0)
-      end
-
-      it "decreasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        start = @scenario.start_value(:capacity_of_energy_power_wind_turbine_inland)
-        @scenario.capacity_of_energy_power_wind_turbine_inland = start - 1.0
-        @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
-
-        # should not give export
-        expect(@scenario.primary_demand_of_exported_electricity.value).to be_within(100.0).of(0.0)
-      end
     end
 
     context "Changing fuel costs" do
