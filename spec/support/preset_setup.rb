@@ -1,3 +1,9 @@
+# Paths relative to the repo root, matching the entries in query_sources.yml
+def spec_files_to_run
+  root = File.expand_path('../..', __dir__)
+  RSpec.configuration.files_to_run.map { |file| file.delete_prefix("#{root}/") }
+end
+
 RSpec.configure do |config|
   extract_time = 0.0
   caching_time = 0.0
@@ -6,7 +12,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     # Extract queries from specs declared in query_sources.yml config
     start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-    queries = Turk::QueryExtractor.all
+    queries = Turk::QueryExtractor.for_files(spec_files_to_run)
     extract_time = Process.clock_gettime(Process::CLOCK_MONOTONIC) - start
 
     start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
