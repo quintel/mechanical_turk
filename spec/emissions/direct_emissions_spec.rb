@@ -102,6 +102,27 @@ RSpec.describe 'Direct emissions' do
           scenario.turk_direct_emissions_klimaatsector_total_ghg_incl_indirect_emissions_lulucf_bunkers
         )
       end
+
+      # Test that the captured CO2 series of the direct emissions chart (fossil, biogenic, DAC,
+      # LULUCF) cover all captured CO2 of the energy and molecule nodes. A failing test indicates
+      # that capture is missed or double counted by the captured CO2 queries.
+      it "sum of captured CO2 queries should equal the captured CO2 of all nodes" do
+        expect(
+          scenario.turk_direct_emissions_co2_captured_total
+        ).to softly_equal(
+          scenario.turk_direct_emissions_co2_captured_all_nodes
+        )
+      end
+
+      # Test that the series of the direct emissions chart (gross CO2 production, CO2 capture,
+      # other GHG) add up to the total GHG emissions of all nodes.
+      it "sum of direct emissions chart series should equal the total GHG emissions of all nodes" do
+        expect(
+          scenario.turk_direct_emissions_total_ghg_total
+        ).to softly_equal(
+          scenario.turk_direct_emissions_total_ghg_all_nodes
+        )
+      end
     end
   end
 end
