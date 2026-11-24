@@ -10,6 +10,8 @@ class Connection
 
   include HTTParty
   base_uri SERVER_ADDRESS + '/api/v3/scenarios'
+  # etlauncher signs its local certificate with mkcert, whose CA Ruby does not trust by default
+  ssl_ca_file "#{`mkcert -CAROOT`.chomp}/rootCA.pem" if SERVER_ADDRESS.include?('.local.energytransitionmodel.com')
   headers "User-Agent" => "mechanical turk", "Content-length" => "0"
 
   attr_accessor :api_session_id, :scenario, :settings
