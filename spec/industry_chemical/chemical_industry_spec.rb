@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "Standard scenario: Chemical industry" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: 'nl', end_year: 2050,  autobalance: true, inputs: {
+    @scenario = Turk::Scenario.new(area_code: 'nl2023', end_year: 2050,  autobalance: true, inputs: {
         settings_enable_merit_order: 1
       })
   end

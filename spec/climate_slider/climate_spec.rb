@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "Testing climate slider" do
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, autobalance: false)
+    @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050, autobalance: false)
   end
 
   context "Testing impact on heat demand of residences" do
