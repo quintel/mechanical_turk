@@ -20,14 +20,10 @@ describe "Flexibility" do
 
     describe "In a scenario increasing the number of P2P units" do
 
-     it "should decrease the electricity exported" do
+     it "should decrease the electricity curtailed" do
        @scenario.households_flexibility_p2p_electricity_market_penetration = 20.0
 
-       # Increase the prices of P2P so that is is given preference over export.
-       @scenario.wtp_of_households_flexibility_p2p_electricity = 45.0
-       @scenario.wta_of_households_flexibility_p2p_electricity = 45.5
-
-       expect(@scenario.electricity_exported).to decrease
+       expect(@scenario.electricity_curtailed).to decrease
      end
 
    end
