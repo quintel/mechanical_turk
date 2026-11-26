@@ -13,7 +13,7 @@ class Scenario
 
   attr_reader :settings, :connection, :inputs, :results
 
-  def initialize(settings = {area_code: 'nl', end_year: 2040})
+  def initialize(settings = {area_code: 'nl2023', end_year: 2040})
     @results = {}
     @inputs = [settings[:inputs] || {}]
     @settings = settings
@@ -33,6 +33,16 @@ class Scenario
     add_result(key) unless @results[key]
     refresh! if touched?
     @results[key]
+  end
+
+  # The start value of an input in this scenario's dataset (ignores user values)
+  def start_value(key)
+    connection.input(key.to_s)["default"]
+  end
+
+  # The maximum allowed value of an input in this scenario's dataset
+  def max_value(key)
+    connection.input(key.to_s)["max"]
   end
 
   def track(keys)
@@ -96,7 +106,7 @@ private
     end
     @touched = true
   end
-  
+
 
   def add_result(key)
     @results[key] = Result.new(key, self)
