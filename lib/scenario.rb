@@ -35,7 +35,8 @@ class Scenario
     @results[key]
   end
 
-  # The start value of an input in this scenario's dataset (ignores user values)
+  # The start value of an input in this scenario (the parent scenario's value if
+  # it has one, otherwise the dataset default)
   def start_value(key)
     connection.input(key.to_s)["default"]
   end
