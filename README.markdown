@@ -197,7 +197,7 @@ require 'spec_helper'
 describe "Your issue/challenge" do
 
   it "should do something that I expect" do
-    scenario = Scenario.new(area_code: 'nl', end_year: 2050)
+    scenario = Scenario.new(area_code: 'nl20223', end_year: 2050)
     scenario.a_slider_key
   end
 

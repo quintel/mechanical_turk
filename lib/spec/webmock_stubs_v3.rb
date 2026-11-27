@@ -6,7 +6,7 @@ WebMock.stub_request(:post, Turk::Connection.base_uri + ".json?scenario[source]=
   to_return( :status => 200,
              :headers => { 'Content-Type' => 'application/json' },
              :body => {
-                  "area_code" => "nl",
+                  "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -16,11 +16,11 @@ WebMock.stub_request(:post, Turk::Connection.base_uri + ".json?scenario[source]=
                 }.to_json
             )
 
-WebMock.stub_request(:post, Turk::Connection.base_uri + ".json?scenario[area_code]=nl&scenario[end_year]=2040&scenario[source]=Mechanical%20Turk"). \
+WebMock.stub_request(:post, Turk::Connection.base_uri + ".json?scenario[area_code]=nl2023&scenario[end_year]=2040&scenario[source]=Mechanical%20Turk"). \
   to_return( :status => 200,
              :headers => { 'Content-Type' => 'application/json' },
              :body => {
-                  "area_code" => "nl",
+                  "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -34,7 +34,7 @@ WebMock.stub_request(:post, Turk::Connection.base_uri + ".json?scenario[area_cod
   to_return( :status => 200,
              :headers => { 'Content-Type' => 'application/json' },
              :body => {
-                 "area_code" => "nl",
+                 "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -58,7 +58,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&gquer
                  "bar" => {"present" => 3, "future" => 4, "unit" => "silver"}
                },
                "scenario" => {
-                  "area_code" => "nl",
+                  "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -79,7 +79,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&gquer
                  "foo" => {"present" => 1, "future" => 2, "unit" => "gold"}
                },
                "scenario" => {
-                  "area_code" => "nl",
+                  "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -101,7 +101,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?reset=true&scena
                  "foo" => {"present" => 11, "future" => 12, "unit" => "gold"}
                },
                "scenario" => {
-                 "area_code" => "nl",
+                 "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -122,7 +122,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?gqueries%5B0%5D=
                  "foo" => {"present" => 1, "future" => 2, "unit" => "gold"}
                },
                "scenario" => {
-                 "area_code" => "nl",
+                 "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
@@ -144,7 +144,7 @@ WebMock.stub_request(:put, Turk::Connection.base_uri + "/1.json?gqueries[]=unkno
                  "unknown" => {"errors" => ["Missing gquery"]}
                },
                "scenario" => {
-                 "area_code" => "nl",
+                 "area_code" => "nl2023",
                   "end_year" => 2040,
                   "id" => 1,
                   "region" => nil,
