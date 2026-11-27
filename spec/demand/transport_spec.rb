@@ -5,7 +5,7 @@ require 'spec_helper'
 describe "Transport" do
 
   before do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {settings_enable_merit_order: 0})
+    @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050, inputs: {settings_enable_merit_order: 0})
   end
 
   context "Electric vehicles" do

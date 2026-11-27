@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Turk::Scenario do
 
-  let(:scenario){ Turk::Scenario.new(area_code: "nl", end_year: 2040) }
+  let(:scenario){ Turk::Scenario.new(area_code: "nl2023", end_year: 2040) }
 
   before(:each) do
     load File.expand_path('webmock_stubs_v3.rb', __dir__)
@@ -11,7 +11,7 @@ describe Turk::Scenario do
   describe "#settings" do
 
     it "should return area and end_year as attributes" do
-      expect(scenario.settings[:area_code]).to eq "nl"
+      expect(scenario.settings[:area_code]).to eq "nl2023"
       expect(scenario.settings[:end_year]).to eq 2040
     end
 
