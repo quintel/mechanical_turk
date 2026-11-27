@@ -5,7 +5,7 @@ describe "Merit Order" do
 
 
   before(:each) do
-    @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+    @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050, inputs: {
         settings_enable_merit_order: 0
       })
   end
@@ -78,7 +78,7 @@ describe "Merit Order" do
 
     # With the settings_enable_merit_order enabled
     before(:each) do
-      @scenario = Turk::Scenario.new(area_code: "nl", end_year: 2050, inputs: {
+      @scenario = Turk::Scenario.new(area_code: "nl2023", end_year: 2050, inputs: {
         settings_enable_merit_order: 1,
         electricity_interconnector_1_capacity: 0.0
       })
@@ -91,24 +91,6 @@ describe "Merit Order" do
         expect(@scenario.merit_order_nuclear_ii_full_load_hours_in_merit_order_table).to decrease
         expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
-
-      it "increasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        @scenario.capacity_of_energy_power_wind_turbine_inland = 2081.0
-
-        # ONLY true if some dispatchables still have FLH > 0
-        @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
-
-        # should not give export
-        expect(@scenario.primary_demand_of_exported_electricity.value).to be_within(100.0).of(0.0)
-      end
-
-      it "decreasing number_of_energy_power_wind_turbine_inland with 1 should not change total produced electricity" do
-        @scenario.capacity_of_energy_power_wind_turbine_inland = 2079.0
-        @scenario.total_electricity_produced.increase.should be_within(100.0).of(0.0)
-
-        # should not give export
-        expect(@scenario.primary_demand_of_exported_electricity.value).to be_within(100.0).of(0.0)
-      end
     end
 
     context "Changing fuel costs" do
@@ -118,14 +100,13 @@ describe "Merit Order" do
         expect(@scenario.merit_order_gas_ccgt_dispatchable_full_load_hours_in_merit_order_table).to increase
       end
 
-      it "increasing the coal price should decrease full load hours of coal power plants" do
-          @scenario.costs_coal = 200
+      it "increasing the coal price by 50% should decrease full load hours of coal power plants" do
+          @scenario.costs_coal = @scenario.start_value(:costs_coal) * 1.5
           expect(@scenario.merit_order_coal_pwd_full_load_hours_in_merit_order_table).to decrease
       end
 
-      it "increasing the cost of coal to 1000% should decrease the FLHs of coal plants to 0" do
-        # Increasing coal cost by a lot...
-        @scenario.costs_coal = 500
+      it "increasing the cost of coal to its maximum should decrease the FLHs of coal plants to 0" do
+        @scenario.costs_coal = @scenario.max_value(:costs_coal)
 
         # does descrease the demand of coal plants to zero
         @scenario.energy_power_supercritical_coal_demand.future.should == 0

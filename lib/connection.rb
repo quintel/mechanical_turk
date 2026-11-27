@@ -43,6 +43,16 @@ class Connection
     execute!(scenario.previous_inputs)
   end
 
+  # Returns the input's attributes (min, max, default, unit, ...) for this
+  # scenario's dataset, e.g. input("capacity_of_energy_power_wind_turbine_inland")
+  def input(key)
+    session_id = api_session_id || fetch_session_id
+    response = self.class.get("/#{session_id}/inputs/#{key}.json")
+    raise(Turk::MissingReponse, response) unless response.code == 200
+
+    response.parsed_response
+  end
+
 #######
 private
 #######
